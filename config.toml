@@ -99,24 +99,22 @@ ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "
     # - you're done. Happy mailing!
     #
     # Enable the contact form by entering your Formspree.io email
-    email = "your@email.com"
+    email = "andresalerno22@gmail.com"
     contact_form_ajax = false
 
-    about_us = "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>"
-    copyright = "Copyright (c) 2015 - 2016, YourCompany; all rights reserved."
+    about_us = "<p>A Data Fintech Solutions é uma empresa que tem em seu DNA o uso das mais consistentes ferramentas financeiras associadas com as mais recentes soluções tecnológicas.</p>"
+    copyright = "Copyright (c) 2019 - 2020, Data Fintech Solutions; all rights reserved."
 
     # Format dates with Go's time formatting
     date_format = "January 2, 2006"
 
     logo = "img/logo.png"
     logo_small = "img/logo-small.png"
-    address = """<p class="text-uppercase"><strong>Universal Ltd.</strong>
-        <br>13/25 New Avenue
-        <br>Newtown upon River
-        <br>45Y 73J
-        <br>England
+    address = """<p class="text-uppercase"><strong>Data Fintech Solutions</strong>
         <br>
-        <strong>Great Britain</strong>
+        <br>São José dos Campos
+        <br>
+        <strong>Parayba Valley</strong>
       </p>
       """
     latitude = "-23.2209236"
