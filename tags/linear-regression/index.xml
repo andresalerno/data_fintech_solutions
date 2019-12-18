@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linear regression on Universal</title>
+    <link>/tags/linear-regression/</link>
+    <description>Recent content in linear regression on Universal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 18 Dec 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/linear-regression/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linear Regression</title>
+      <link>/post/linear-regression/</link>
+      <pubDate>Wed, 18 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/linear-regression/</guid>
+      <description>testeThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown s
+</description>
+    </item>
+    
+  </channel>
+</rss>
