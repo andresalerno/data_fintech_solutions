@@ -65,7 +65,7 @@ ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "
 [[menu.topbar]]
     weight = 4
     name = "Email"
-    url = "andresalerno22@gmail.com"
+    url = "mailto: andresalerno22@gmail.com"
     pre = "<i class='fas fa-2x fa-envelope'></i>"
 
 [params]
