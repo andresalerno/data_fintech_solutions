@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "https://dazzling-ptolemy-997b14.netlify.com/"
 title = "Universal"
 theme = "hugo-universal-theme"
 languageCode = "en-us"
@@ -30,42 +30,42 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
     url  = "/blog/"
     weight = 2
 
-[[menu.main]]
-    identifier = "faq"
-    name = "FAQ"
-    url  = "/faq/"
-    weight = 3
+#[[menu.main]]
+#    identifier = "faq"
+#    name = "FAQ"
+#    url  = "/faq/"
+#    weight = 3
 
 [[menu.main]]
     identifier = "contact"
     name = "Contact"
     url  = "/contact/"
-    weight = 4
+    weight = 3
 
 # Top bar social links menu
 
 [[menu.topbar]]
     weight = 1
     name = "GitHub"
-    url = "https://github.com/devcows/hugo-universal-theme"
+    url = "https://github.com/andresalerno"
     pre = "<i class='fab fa-2x fa-github'></i>"
 
 [[menu.topbar]]
     weight = 2
     name = "Facebook"
-    url = "http://facebook.com"
+    url = "https://www.facebook.com/aspartnersconsultoria/?ref=bookmarks"
     pre = "<i class='fab fa-2x fa-facebook'></i>"
 
 [[menu.topbar]]
     weight = 3
     name = "Twitter"
-    url = "http://twitter.com"
+    url = "https://twitter.com/andresalerno"
     pre = "<i class='fab fa-2x fa-twitter'></i>"
 
 [[menu.topbar]]
     weight = 4
     name = "Email"
-    url = "mailto:your@email.com"
+    url = "andresalerno22@gmail.com"
     pre = "<i class='fas fa-2x fa-envelope'></i>"
 
 [params]
@@ -81,7 +81,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
     default_sharing_image = "img/sharing-default.png"
 
     # Google Maps API key (if not set will default to not passing a key.)
-    googleMapsApiKey = "AIzaSyCFhtWLJcE30xOAjcbSFi-0fnoVmQZPb1Y"
+    googleMapsApiKey = ""
 
     # Style options: default (light-blue), blue, green, marsala, pink, red, turquoise, violet
     style = "default"
