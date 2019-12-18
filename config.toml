@@ -119,8 +119,8 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
         <strong>Great Britain</strong>
       </p>
       """
-    latitude = "-12.043333"
-    longitude = "-77.028333"
+    latitude = "-23.2209236"
+    longitude = "-45.9111879"
 
 [Permalinks]
     blog = "/blog/:year/:month/:day/:filename/"
