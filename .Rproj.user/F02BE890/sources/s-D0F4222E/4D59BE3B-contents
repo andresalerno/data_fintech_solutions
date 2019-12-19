@@ -155,7 +155,7 @@ ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "
     # All testimonials are defined in their own files. You can find example items
     # at 'exampleSite/data/testimonials'.
     # For more informtion take a look at the README.
-    title = "O qu dizem sobre nossas soluções"
+    title = "O que dizem sobre nossas soluções"
     subtitle = ""
 
 [params.see_more]
