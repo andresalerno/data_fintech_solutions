@@ -76,3 +76,24 @@ Data Frame summary:
 summary(table_price_product)
 ```
 
+Number os rows:
+
+```{r}
+nrow(table_price_product)
+
+```
+
+Number os columns:
+
+```{r}
+ncol(table_price_product)
+```
+
+Dimension's table:
+
+```{r}
+dim(table_price_product)
+```
+
+
+

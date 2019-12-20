@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "3895578907",
     "id" : "3710F860",
-    "lastKnownWriteTime" : 1576832686,
-    "last_content_update" : 1576832686,
+    "lastKnownWriteTime" : 1576835151,
+    "last_content_update" : 1576835151144,
     "path" : "C:/Users/andre/OneDrive/Área de Trabalho/salerno/blogdown/content/blog/2019-12-19-data-frame.Rmd",
     "project_path" : "content/blog/2019-12-19-data-frame.Rmd",
     "properties" : {
-        "cursorPosition" : "31,2",
-        "scrollLine" : "8"
+        "cursorPosition" : "94,23",
+        "scrollLine" : "69"
     },
     "read_only" : false,
     "read_only_alternatives" : [
