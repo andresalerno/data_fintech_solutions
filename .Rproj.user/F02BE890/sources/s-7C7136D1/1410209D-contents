@@ -1,0 +1,16 @@
+---
+title: "Data Frame"
+author: "Salerno"
+date: '2019-12-18'
+slug: Data Frame
+tags: ["data frame", "R Programming"]
+categories: data frame
+draft: FALSE
+banner: img/banners/banner-5.png
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+# Data Frame

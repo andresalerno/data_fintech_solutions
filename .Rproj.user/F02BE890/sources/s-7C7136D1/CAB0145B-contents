@@ -1,0 +1,8 @@
+library(GetTDData)
+
+download.TD.data(dl.folder = "TD Files",
+                 do.clean.up = F, do.overwrite = F, n.dl = NULL)
+
+df.yield <- get.yield.curve()
+str(df.yield)
+plot(df.yield, x = "ref.date", y = "value")
