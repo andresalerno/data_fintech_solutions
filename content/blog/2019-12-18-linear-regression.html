@@ -11,7 +11,106 @@ banner: img/banners/banner-5.png
 
 
 
-<div id="teste" class="section level1">
-<h1>teste</h1>
-<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown s</p>
+<div id="data" class="section level2">
+<h2>Data</h2>
+<p>We are using the <code>MASS</code> library that contains the Boston dataset. These records measure the median house value for 506 neighborhoods around Boston.</p>
+<pre class="r"><code>library(MASS)
+data &lt;- MASS::Boston
+fix(Boston)
+names(Boston)
+##  [1] &quot;crim&quot;    &quot;zn&quot;      &quot;indus&quot;   &quot;chas&quot;    &quot;nox&quot;     &quot;rm&quot;      &quot;age&quot;    
+##  [8] &quot;dis&quot;     &quot;rad&quot;     &quot;tax&quot;     &quot;ptratio&quot; &quot;black&quot;   &quot;lstat&quot;   &quot;medv&quot;</code></pre>
+</div>
+<div id="a-simple-linear-regression" class="section level2">
+<h2>A simple Linear Regression</h2>
+<p>We are using the <code>lm()</code> function to fit a simple linear regression model. The <code>medv</code> is a response variable and <code>lstat</code> the predictor variable.</p>
+<p>The basic syntax is <code>lm(y~x, data)</code>.</p>
+<pre class="r"><code>
+attach(Boston)
+lm.fit = lm(medv~lstat)
+
+lm.fit
+## 
+## Call:
+## lm(formula = medv ~ lstat)
+## 
+## Coefficients:
+## (Intercept)        lstat  
+##       34.55        -0.95</code></pre>
+<pre class="r"><code>summary(Boston)
+##       crim                zn             indus            chas        
+##  Min.   : 0.00632   Min.   :  0.00   Min.   : 0.46   Min.   :0.00000  
+##  1st Qu.: 0.08204   1st Qu.:  0.00   1st Qu.: 5.19   1st Qu.:0.00000  
+##  Median : 0.25651   Median :  0.00   Median : 9.69   Median :0.00000  
+##  Mean   : 3.61352   Mean   : 11.36   Mean   :11.14   Mean   :0.06917  
+##  3rd Qu.: 3.67708   3rd Qu.: 12.50   3rd Qu.:18.10   3rd Qu.:0.00000  
+##  Max.   :88.97620   Max.   :100.00   Max.   :27.74   Max.   :1.00000  
+##       nox               rm             age              dis        
+##  Min.   :0.3850   Min.   :3.561   Min.   :  2.90   Min.   : 1.130  
+##  1st Qu.:0.4490   1st Qu.:5.886   1st Qu.: 45.02   1st Qu.: 2.100  
+##  Median :0.5380   Median :6.208   Median : 77.50   Median : 3.207  
+##  Mean   :0.5547   Mean   :6.285   Mean   : 68.57   Mean   : 3.795  
+##  3rd Qu.:0.6240   3rd Qu.:6.623   3rd Qu.: 94.08   3rd Qu.: 5.188  
+##  Max.   :0.8710   Max.   :8.780   Max.   :100.00   Max.   :12.127  
+##       rad              tax           ptratio          black       
+##  Min.   : 1.000   Min.   :187.0   Min.   :12.60   Min.   :  0.32  
+##  1st Qu.: 4.000   1st Qu.:279.0   1st Qu.:17.40   1st Qu.:375.38  
+##  Median : 5.000   Median :330.0   Median :19.05   Median :391.44  
+##  Mean   : 9.549   Mean   :408.2   Mean   :18.46   Mean   :356.67  
+##  3rd Qu.:24.000   3rd Qu.:666.0   3rd Qu.:20.20   3rd Qu.:396.23  
+##  Max.   :24.000   Max.   :711.0   Max.   :22.00   Max.   :396.90  
+##      lstat            medv      
+##  Min.   : 1.73   Min.   : 5.00  
+##  1st Qu.: 6.95   1st Qu.:17.02  
+##  Median :11.36   Median :21.20  
+##  Mean   :12.65   Mean   :22.53  
+##  3rd Qu.:16.95   3rd Qu.:25.00  
+##  Max.   :37.97   Max.   :50.00</code></pre>
+<pre class="r"><code>names(lm.fit)
+##  [1] &quot;coefficients&quot;  &quot;residuals&quot;     &quot;effects&quot;       &quot;rank&quot;         
+##  [5] &quot;fitted.values&quot; &quot;assign&quot;        &quot;qr&quot;            &quot;df.residual&quot;  
+##  [9] &quot;xlevels&quot;       &quot;call&quot;          &quot;terms&quot;         &quot;model&quot;</code></pre>
+</div>
+<div id="confidence-intervals-for-model-parameters" class="section level2">
+<h2>Confidence Intervals for Model Parameters</h2>
+<p>Computes confidence intervals for one or more parameters in a fitted model. There is a default and a method for objects inheriting from class “lm”.</p>
+<pre class="r"><code>confint(lm.fit)
+##                 2.5 %     97.5 %
+## (Intercept) 33.448457 35.6592247
+## lstat       -1.026148 -0.8739505</code></pre>
+<pre class="r"><code>predict (lm.fit, data.frame(lstat=(c(5 ,10 ,15))), interval =&quot;confidence&quot;)
+##        fit      lwr      upr
+## 1 29.80359 29.00741 30.59978
+## 2 25.05335 24.47413 25.63256
+## 3 20.30310 19.73159 20.87461</code></pre>
+<pre class="r"><code>predict (lm.fit, data.frame(lstat=(c(5 ,10 ,15))), interval =&quot;prediction&quot;)
+##        fit       lwr      upr
+## 1 29.80359 17.565675 42.04151
+## 2 25.05335 12.827626 37.27907
+## 3 20.30310  8.077742 32.52846</code></pre>
+<pre class="r"><code>plot(lstat, medv)
+abline(lm.fit)</code></pre>
+<p><img src="/blog/2019-12-18-linear-regression_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<pre class="r"><code>plot(lstat ,medv ,col =&quot;red &quot;)</code></pre>
+<p><img src="/blog/2019-12-18-linear-regression_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<pre class="r"><code>plot(lstat ,medv ,pch =20)</code></pre>
+<p><img src="/blog/2019-12-18-linear-regression_files/figure-html/unnamed-chunk-9-2.png" width="672" /></p>
+<pre class="r"><code>plot(lstat ,medv ,pch =&quot;+&quot;)</code></pre>
+<p><img src="/blog/2019-12-18-linear-regression_files/figure-html/unnamed-chunk-9-3.png" width="672" /></p>
+<pre class="r"><code>plot (1:20 ,1:20, pch =1:20)
+abline (lm.fit ,lwd =3)
+abline (lm.fit ,lwd =3, col =&quot;red &quot;)</code></pre>
+<p><img src="/blog/2019-12-18-linear-regression_files/figure-html/unnamed-chunk-9-4.png" width="672" /></p>
+<pre class="r"><code>par(mfrow =c(2,2))
+plot(lm.fit)</code></pre>
+<p><img src="/blog/2019-12-18-linear-regression_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<pre class="r"><code>plot(predict (lm.fit), residuals (lm.fit))</code></pre>
+<p><img src="/blog/2019-12-18-linear-regression_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<pre class="r"><code>plot(predict (lm.fit), rstudent (lm.fit))</code></pre>
+<p><img src="/blog/2019-12-18-linear-regression_files/figure-html/unnamed-chunk-11-2.png" width="672" /></p>
+<pre class="r"><code>plot(hatvalues(lm.fit ))</code></pre>
+<p><img src="/blog/2019-12-18-linear-regression_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<pre class="r"><code>which.max (hatvalues(lm.fit))
+## 375 
+## 375</code></pre>
 </div>

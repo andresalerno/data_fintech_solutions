@@ -27,8 +27,8 @@ Exampleproduct &amp;lt;- c(&amp;quot;Product A&amp;quot;, &amp;quot;Product B&a
       <pubDate>Wed, 18 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>/blog/2019/12/18/2019-12-18-linear-regression/</guid>
-      <description>testeThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown s
-</description>
+      <description>DataWe are using the MASS library that contains the Boston dataset. These records measure the median house value for 506 neighborhoods around Boston.
+library(MASS)data &amp;lt;- MASS::Bostonfix(Boston)names(Boston)## [1] &amp;quot;crim&amp;quot; &amp;quot;zn&amp;quot; &amp;quot;indus&amp;quot; &amp;quot;chas&amp;quot; &amp;quot;nox&amp;quot; &amp;quot;rm&amp;quot; &amp;quot;age&amp;quot; ## [8] &amp;quot;dis&amp;quot; &amp;quot;rad&amp;quot; &amp;quot;tax&amp;quot; &amp;quot;ptratio&amp;quot; &amp;quot;black&amp;quot; &amp;quot;lstat&amp;quot; &amp;quot;medv&amp;quot;A simple Linear RegressionWe are using the lm() function to fit a simple linear regression model. The medv is a response variable and lstat the predictor variable.</description>
     </item>
     
     <item>
