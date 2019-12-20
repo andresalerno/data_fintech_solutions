@@ -203,39 +203,39 @@
 
 <div id="data-frame" class="section level1">
 <h1>Data Frame</h1>
-<p>Formato uso quando as informações não estão contidas em uma única dimensão (vetor).</p>
+<p>This format is usually used when the information is not contained in just one dimension (vector)</p>
 </div>
-<div id="exemplo" class="section level1">
-<h1>Exemplo</h1>
-<pre class="r"><code>produto &lt;- c(&quot;Produo A&quot;, &quot;Produto B&quot;, &quot;Produto C&quot;, &quot;Produto D&quot;, &quot;Produto E&quot;)
+<div id="example" class="section level1">
+<h1>Example</h1>
+<pre class="r"><code>product &lt;- c(&quot;Product A&quot;, &quot;Product B&quot;, &quot;Product C&quot;, &quot;Product D&quot;, &quot;Product E&quot;)
 
-preco &lt;- c(5, 15, 4, 6, 8)
+price &lt;- c(5, 15, 4, 6, 8)
 
-tabela_preco_produto &lt;- data.frame(produto, preco)
+table_price_product &lt;- data.frame(product, price)
 
-tabela_preco_produto</code></pre>
-<pre><code>##     produto preco
-## 1  Produo A     5
-## 2 Produto B    15
-## 3 Produto C     4
-## 4 Produto D     6
-## 5 Produto E     8</code></pre>
+table_price_product</code></pre>
+<pre><code>##     product price
+## 1 Product A     5
+## 2 Product B    15
+## 3 Product C     4
+## 4 Product D     6
+## 5 Product E     8</code></pre>
 </div>
-<div id="indexação" class="section level1">
-<h1>Indexação</h1>
-<p>Acesse o Produto D na tabela de produtos:</p>
-<pre class="r"><code>tabela_preco_produto[4,2]</code></pre>
+<div id="indexing" class="section level1">
+<h1>Indexing</h1>
+<p>Access the D Product in the Products Table:</p>
+<pre class="r"><code>table_price_product[4,2]</code></pre>
 <pre><code>## [1] 6</code></pre>
-<p>Acesse os Produtos D e E:</p>
-<pre class="r"><code>tabela_preco_produto[4:5,2]</code></pre>
+<p>Acces the Products D and E:</p>
+<pre class="r"><code>table_price_product[4:5,2]</code></pre>
 <pre><code>## [1] 6 8</code></pre>
-<p>Acessando uma coluna em um data frame:</p>
-<pre class="r"><code>tabela_preco_produto$produto</code></pre>
-<pre><code>## [1] Produo A  Produto B Produto C Produto D Produto E
-## Levels: Produo A Produto B Produto C Produto D Produto E</code></pre>
-<pre class="r"><code>tabela_preco_produto[,&quot;produto&quot;]</code></pre>
-<pre><code>## [1] Produo A  Produto B Produto C Produto D Produto E
-## Levels: Produo A Produto B Produto C Produto D Produto E</code></pre>
+<p>Acces a specific column in a data frame:</p>
+<pre class="r"><code>table_price_product$product</code></pre>
+<pre><code>## [1] Product A Product B Product C Product D Product E
+## Levels: Product A Product B Product C Product D Product E</code></pre>
+<pre class="r"><code>table_price_product[,&quot;product&quot;]</code></pre>
+<pre><code>## [1] Product A Product B Product C Product D Product E
+## Levels: Product A Product B Product C Product D Product E</code></pre>
 </div>
 
                         </div>

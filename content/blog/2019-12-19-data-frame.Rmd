@@ -15,39 +15,39 @@ knitr::opts_chunk$set(collapse = FALSE, warning = FALSE)
 
 # Data Frame
 
-Formato uso quando as informações não estão contidas em uma única dimensão (vetor).
+This format is usually used when the information is not contained in just one dimension (vector)
 
-# Exemplo
+# Example
 
 ```{r exemplo}
-produto <- c("Produo A", "Produto B", "Produto C", "Produto D", "Produto E")
+product <- c("Product A", "Product B", "Product C", "Product D", "Product E")
 
-preco <- c(5, 15, 4, 6, 8)
+price <- c(5, 15, 4, 6, 8)
 
-tabela_preco_produto <- data.frame(produto, preco)
+table_price_product <- data.frame(product, price)
 
-tabela_preco_produto
+table_price_product
 ```
 
-# Indexação
+# Indexing
 
-Acesse o Produto D na tabela de produtos:
+Access the D Product in the Products Table:
 
-```{r tabela d}
-tabela_preco_produto[4,2]
+```{r table d}
+table_price_product[4,2]
 ```
-Acesse os Produtos D e E:
+Acces the Products D and E:
 
 ```{r}
-tabela_preco_produto[4:5,2]
+table_price_product[4:5,2]
 ```
 
-Acessando uma coluna em um data frame:
+Acces a specific column in a data frame:
 
-```{r coluna 1}
-tabela_preco_produto$produto
+```{r column 1}
+table_price_product$product
 ```
 ```{r}
-tabela_preco_produto[,"produto"]
+table_price_product[,"product"]
 ```
 

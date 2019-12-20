@@ -17,8 +17,8 @@
       <pubDate>Wed, 18 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>/blog/2019/12/18/2019-12-19-data-frame/</guid>
-      <description>Data FrameFormato uso quando as informações não estão contidas em uma única dimensão (vetor).
-Exemploproduto &amp;lt;- c(&amp;quot;Produo A&amp;quot;, &amp;quot;Produto B&amp;quot;, &amp;quot;Produto C&amp;quot;, &amp;quot;Produto D&amp;quot;, &amp;quot;Produto E&amp;quot;)preco &amp;lt;- c(5, 15, 4, 6, 8)tabela_preco_produto &amp;lt;- data.frame(produto, preco)tabela_preco_produto## produto preco## 1 Produo A 5## 2 Produto B 15## 3 Produto C 4## 4 Produto D 6## 5 Produto E 8IndexaçãoAcesse o Produto D na tabela de produtos:</description>
+      <description>Data FrameThis format is usually used when the information is not contained in just one dimension (vector)
+Exampleproduct &amp;lt;- c(&amp;quot;Product A&amp;quot;, &amp;quot;Product B&amp;quot;, &amp;quot;Product C&amp;quot;, &amp;quot;Product D&amp;quot;, &amp;quot;Product E&amp;quot;)price &amp;lt;- c(5, 15, 4, 6, 8)table_price_product &amp;lt;- data.frame(product, price)table_price_product## product price## 1 Product A 5## 2 Product B 15## 3 Product C 4## 4 Product D 6## 5 Product E 8IndexingAccess the D Product in the Products Table:</description>
     </item>
     
     <item>
