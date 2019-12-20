@@ -1,7 +1,16 @@
 "0",""
-"0","lm.fit = lm(medv~lstat, data = Boston)"
 "0","attach(Boston)"
 "2","The following objects are masked from Boston (pos = 3):
+
+    age, black, chas, crim, dis, indus, lstat, medv, nox, ptratio, rad, rm, tax, zn
+
+"
+"2","The following objects are masked from Boston (pos = 4):
+
+    age, black, chas, crim, dis, indus, lstat, medv, nox, ptratio, rad, rm, tax, zn
+
+"
+"2","The following objects are masked from Boston (pos = 5):
 
     age, black, chas, crim, dis, indus, lstat, medv, nox, ptratio, rad, rm, tax, zn
 
@@ -28,5 +37,10 @@ Call:
 "1","      -0.95  "
 "1","
 "
+"1","
+"
+"0","cor(lstat, medv)"
+"1","[1]"
+"1"," -0.7376627"
 "1","
 "

@@ -226,7 +226,14 @@ lm.fit
 ## 
 ## Coefficients:
 ## (Intercept)        lstat  
-##       34.55        -0.95</code></pre>
+##       34.55        -0.95
+
+cor(lstat, medv)
+## [1] -0.7376627</code></pre>
+</div>
+<div id="summary-function" class="section level2">
+<h2>Summary Function</h2>
+<p>This functio give us some insights about the dataset.</p>
 <pre class="r"><code>summary(Boston)
 ##       crim                zn             indus            chas        
 ##  Min.   : 0.00632   Min.   :  0.00   Min.   : 0.46   Min.   :0.00000  
@@ -256,10 +263,39 @@ lm.fit
 ##  Mean   :12.65   Mean   :22.53  
 ##  3rd Qu.:16.95   3rd Qu.:25.00  
 ##  Max.   :37.97   Max.   :50.00</code></pre>
+<p>This gives us p-values and standard errors for the coefficients, as well as the R2 statistic and F-statistic for the model.</p>
+<pre class="r"><code>summary(lm.fit)
+## 
+## Call:
+## lm(formula = medv ~ lstat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -15.168  -3.990  -1.318   2.034  24.500 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 34.55384    0.56263   61.41   &lt;2e-16 ***
+## lstat       -0.95005    0.03873  -24.53   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 6.216 on 504 degrees of freedom
+## Multiple R-squared:  0.5441, Adjusted R-squared:  0.5432 
+## F-statistic: 601.6 on 1 and 504 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>We can use the funcion <code>names()</code> to find out more details and information stored in the <code>lm.fit</code></p>
 <pre class="r"><code>names(lm.fit)
 ##  [1] &quot;coefficients&quot;  &quot;residuals&quot;     &quot;effects&quot;       &quot;rank&quot;         
 ##  [5] &quot;fitted.values&quot; &quot;assign&quot;        &quot;qr&quot;            &quot;df.residual&quot;  
-##  [9] &quot;xlevels&quot;       &quot;call&quot;          &quot;terms&quot;         &quot;model&quot;</code></pre>
+##  [9] &quot;xlevels&quot;       &quot;call&quot;          &quot;terms&quot;         &quot;model&quot;
+
+lm.fit$coefficients
+## (Intercept)       lstat 
+##  34.5538409  -0.9500494
+
+coef(lm.fit)
+## (Intercept)       lstat 
+##  34.5538409  -0.9500494</code></pre>
 </div>
 <div id="confidence-intervals-for-model-parameters" class="section level2">
 <h2>Confidence Intervals for Model Parameters</h2>
@@ -280,26 +316,26 @@ lm.fit
 ## 3 20.30310  8.077742 32.52846</code></pre>
 <pre class="r"><code>plot(lstat, medv)
 abline(lm.fit)</code></pre>
-<p><img src="/blog/2019-12-18-linear-regression_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
-<pre class="r"><code>plot(lstat ,medv ,col =&quot;red &quot;)</code></pre>
 <p><img src="/blog/2019-12-18-linear-regression_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<pre class="r"><code>plot(lstat ,medv ,col =&quot;red &quot;)</code></pre>
+<p><img src="/blog/2019-12-18-linear-regression_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <pre class="r"><code>plot(lstat ,medv ,pch =20)</code></pre>
-<p><img src="/blog/2019-12-18-linear-regression_files/figure-html/unnamed-chunk-9-2.png" width="672" /></p>
+<p><img src="/blog/2019-12-18-linear-regression_files/figure-html/unnamed-chunk-10-2.png" width="672" /></p>
 <pre class="r"><code>plot(lstat ,medv ,pch =&quot;+&quot;)</code></pre>
-<p><img src="/blog/2019-12-18-linear-regression_files/figure-html/unnamed-chunk-9-3.png" width="672" /></p>
+<p><img src="/blog/2019-12-18-linear-regression_files/figure-html/unnamed-chunk-10-3.png" width="672" /></p>
 <pre class="r"><code>plot (1:20 ,1:20, pch =1:20)
 abline (lm.fit ,lwd =3)
 abline (lm.fit ,lwd =3, col =&quot;red &quot;)</code></pre>
-<p><img src="/blog/2019-12-18-linear-regression_files/figure-html/unnamed-chunk-9-4.png" width="672" /></p>
+<p><img src="/blog/2019-12-18-linear-regression_files/figure-html/unnamed-chunk-10-4.png" width="672" /></p>
 <pre class="r"><code>par(mfrow =c(2,2))
 plot(lm.fit)</code></pre>
-<p><img src="/blog/2019-12-18-linear-regression_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<pre class="r"><code>plot(predict (lm.fit), residuals (lm.fit))</code></pre>
 <p><img src="/blog/2019-12-18-linear-regression_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
-<pre class="r"><code>plot(predict (lm.fit), rstudent (lm.fit))</code></pre>
-<p><img src="/blog/2019-12-18-linear-regression_files/figure-html/unnamed-chunk-11-2.png" width="672" /></p>
-<pre class="r"><code>plot(hatvalues(lm.fit ))</code></pre>
+<pre class="r"><code>plot(predict (lm.fit), residuals (lm.fit))</code></pre>
 <p><img src="/blog/2019-12-18-linear-regression_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<pre class="r"><code>plot(predict (lm.fit), rstudent (lm.fit))</code></pre>
+<p><img src="/blog/2019-12-18-linear-regression_files/figure-html/unnamed-chunk-12-2.png" width="672" /></p>
+<pre class="r"><code>plot(hatvalues(lm.fit ))</code></pre>
+<p><img src="/blog/2019-12-18-linear-regression_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <pre class="r"><code>which.max (hatvalues(lm.fit))
 ## 375 
 ## 375</code></pre>

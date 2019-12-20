@@ -38,6 +38,8 @@ lm.fit = lm(medv~lstat)
 
 lm.fit
 
+cor(lstat, medv)
+
 ```
 
 ## Summary Function
@@ -55,9 +57,15 @@ This gives us p-values and standard errors for the coefficients, as well as the 
 summary(lm.fit)
 ```
 
+We can use the funcion `names()` to find out more details and information stored in the `lm.fit`
 
 ```{r}
 names(lm.fit)
+
+lm.fit$coefficients
+
+coef(lm.fit)
+
 ```
 
 ## Confidence Intervals for Model Parameters
@@ -68,10 +76,13 @@ Computes confidence intervals for one or more parameters in a fitted model. Ther
 confint(lm.fit)
 ```
 
+We can realize below that with 95% confidence interval associated with `lstat` value of 10 is respectively 24.47 and 25.63.
+
 ```{r}
 predict (lm.fit, data.frame(lstat=(c(5 ,10 ,15))), interval ="confidence")
 ```
 
+Forthe `prediction interval` with the same parameters describe above we have, respectively, 12.82 and 37.27.
 
 ```{r}
 predict (lm.fit, data.frame(lstat=(c(5 ,10 ,15))), interval ="prediction")
