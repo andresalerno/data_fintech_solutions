@@ -51,4 +51,10 @@ table_price_product$product
 table_price_product[,"product"]
 ```
 
+Creating a new column:
+
+```{r}
+table_price_product$quantity <- c(50, 100, 120, 150, 200)
+table_price_product
+```
 
