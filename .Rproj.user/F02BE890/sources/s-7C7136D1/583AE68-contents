@@ -17,7 +17,7 @@ knitr::opts_chunk$set(collapse = FALSE, warning = FALSE)
 
 This format is usually used when the information is not contained in just one dimension (vector)
 
-# Example
+## Example
 
 ```{r exemplo}
 product <- c("Product A", "Product B", "Product C", "Product D", "Product E")
@@ -29,7 +29,7 @@ table_price_product <- data.frame(product, price)
 table_price_product
 ```
 
-# Indexing
+## Indexing
 
 Access the D Product in the Products Table:
 
@@ -56,5 +56,23 @@ Creating a new column:
 ```{r}
 table_price_product$quantity <- c(50, 100, 120, 150, 200)
 table_price_product
+```
+
+Or as weel you can use this format:
+
+```{r costs}
+table_price_product[, "costs"] <- c(2, 12, 3, 5, 6)
+```
+
+Knowing the column's names:
+
+```{r column names}
+names(table_price_product)
+```
+
+Data Frame summary:
+
+```{r}
+summary(table_price_product)
 ```
 
