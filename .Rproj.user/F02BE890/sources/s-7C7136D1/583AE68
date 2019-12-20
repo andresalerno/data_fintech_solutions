@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1576830051911.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1893886790",
+    "id" : "583AE68",
+    "lastKnownWriteTime" : 1576830623,
+    "last_content_update" : 1576830623334,
+    "path" : "C:/Users/andre/OneDrive/Área de Trabalho/salerno/blogdown/content/blog/2019-12-19-data-frame.Rmd",
+    "project_path" : "content/blog/2019-12-19-data-frame.Rmd",
+    "properties" : {
+        "cursorPosition" : "50,31",
+        "scrollLine" : "25"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

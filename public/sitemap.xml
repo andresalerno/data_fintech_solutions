@@ -13,6 +13,11 @@
   </url>
   
   <url>
+    <loc>/blog/2019/12/18/2019-12-19-data-frame/</loc>
+    <lastmod>2019-12-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/data-frame/</loc>
     <lastmod>2019-12-18T00:00:00+00:00</lastmod>
   </url>
@@ -53,12 +58,12 @@
   </url>
   
   <url>
-    <loc>/tags/models/</loc>
+    <loc>/categories/models/</loc>
     <lastmod>2019-12-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/models/</loc>
+    <loc>/tags/models/</loc>
     <lastmod>2019-12-18T00:00:00+00:00</lastmod>
   </url>
   

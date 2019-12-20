@@ -13,6 +13,16 @@
     
     <item>
       <title>Data Frame</title>
+      <link>/blog/2019/12/18/2019-12-19-data-frame/</link>
+      <pubDate>Wed, 18 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2019/12/18/2019-12-19-data-frame/</guid>
+      <description>Data FrameFormato uso quando as informações não estão contidas em uma única dimensão (vetor).
+Exemploproduto &amp;lt;- c(&amp;quot;Produo A&amp;quot;, &amp;quot;Produto B&amp;quot;, &amp;quot;Produto C&amp;quot;, &amp;quot;Produto D&amp;quot;, &amp;quot;Produto E&amp;quot;)preco &amp;lt;- c(5, 15, 4, 6, 8)tabela_preco_produto &amp;lt;- data.frame(produto, preco)tabela_preco_produto## produto preco## 1 Produo A 5## 2 Produto B 15## 3 Produto C 4## 4 Produto D 6## 5 Produto E 8IndexaçãoAcesse o Produto D na tabela de produtos:</description>
+    </item>
+    
+    <item>
+      <title>Data Frame</title>
       <link>/post/data-frame/</link>
       <pubDate>Wed, 18 Dec 2019 00:00:00 +0000</pubDate>
       

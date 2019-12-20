@@ -13,4 +13,37 @@ banner: img/banners/banner-5.png
 
 <div id="data-frame" class="section level1">
 <h1>Data Frame</h1>
+<p>Formato uso quando as informações não estão contidas em uma única dimensão (vetor).</p>
+</div>
+<div id="exemplo" class="section level1">
+<h1>Exemplo</h1>
+<pre class="r"><code>produto &lt;- c(&quot;Produo A&quot;, &quot;Produto B&quot;, &quot;Produto C&quot;, &quot;Produto D&quot;, &quot;Produto E&quot;)
+
+preco &lt;- c(5, 15, 4, 6, 8)
+
+tabela_preco_produto &lt;- data.frame(produto, preco)
+
+tabela_preco_produto</code></pre>
+<pre><code>##     produto preco
+## 1  Produo A     5
+## 2 Produto B    15
+## 3 Produto C     4
+## 4 Produto D     6
+## 5 Produto E     8</code></pre>
+</div>
+<div id="indexação" class="section level1">
+<h1>Indexação</h1>
+<p>Acesse o Produto D na tabela de produtos:</p>
+<pre class="r"><code>tabela_preco_produto[4,2]</code></pre>
+<pre><code>## [1] 6</code></pre>
+<p>Acesse os Produtos D e E:</p>
+<pre class="r"><code>tabela_preco_produto[4:5,2]</code></pre>
+<pre><code>## [1] 6 8</code></pre>
+<p>Acessando uma coluna em um data frame:</p>
+<pre class="r"><code>tabela_preco_produto$produto</code></pre>
+<pre><code>## [1] Produo A  Produto B Produto C Produto D Produto E
+## Levels: Produo A Produto B Produto C Produto D Produto E</code></pre>
+<pre class="r"><code>tabela_preco_produto[,&quot;produto&quot;]</code></pre>
+<pre><code>## [1] Produo A  Produto B Produto C Produto D Produto E
+## Levels: Produo A Produto B Produto C Produto D Produto E</code></pre>
 </div>
