@@ -304,11 +304,13 @@ coef(lm.fit)
 ##                 2.5 %     97.5 %
 ## (Intercept) 33.448457 35.6592247
 ## lstat       -1.026148 -0.8739505</code></pre>
+<p>We can realize below that with 95% confidence interval associated with <code>lstat</code> value of 10 is respectively 24.47 and 25.63.</p>
 <pre class="r"><code>predict (lm.fit, data.frame(lstat=(c(5 ,10 ,15))), interval =&quot;confidence&quot;)
 ##        fit      lwr      upr
 ## 1 29.80359 29.00741 30.59978
 ## 2 25.05335 24.47413 25.63256
 ## 3 20.30310 19.73159 20.87461</code></pre>
+<p>For the <code>prediction interval</code> with the same parameters describe above we have, respectively, 12.82 and 37.27.</p>
 <pre class="r"><code>predict (lm.fit, data.frame(lstat=(c(5 ,10 ,15))), interval =&quot;prediction&quot;)
 ##        fit       lwr      upr
 ## 1 29.80359 17.565675 42.04151

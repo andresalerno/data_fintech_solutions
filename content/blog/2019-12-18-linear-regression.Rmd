@@ -82,7 +82,7 @@ We can realize below that with 95% confidence interval associated with `lstat` v
 predict (lm.fit, data.frame(lstat=(c(5 ,10 ,15))), interval ="confidence")
 ```
 
-Forthe `prediction interval` with the same parameters describe above we have, respectively, 12.82 and 37.27.
+For the `prediction interval` with the same parameters describe above we have, respectively, 12.82 and 37.27.
 
 ```{r}
 predict (lm.fit, data.frame(lstat=(c(5 ,10 ,15))), interval ="prediction")
