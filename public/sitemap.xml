@@ -33,6 +33,16 @@
   </url>
   
   <url>
+    <loc>/tags/exponential-smoothing/</loc>
+    <lastmod>2019-12-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/2019/12/18/2019-12-21-exponential-smoothing-model/</loc>
+    <lastmod>2019-12-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/2019/12/18/2019-12-18-linear-regression/</loc>
     <lastmod>2019-12-18T00:00:00+00:00</lastmod>
   </url>
@@ -58,12 +68,12 @@
   </url>
   
   <url>
-    <loc>/categories/models/</loc>
+    <loc>/tags/models/</loc>
     <lastmod>2019-12-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/models/</loc>
+    <loc>/categories/models/</loc>
     <lastmod>2019-12-18T00:00:00+00:00</lastmod>
   </url>
   

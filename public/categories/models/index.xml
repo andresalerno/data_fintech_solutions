@@ -12,6 +12,19 @@
     
     
     <item>
+      <title>Exponential Smoothing Model</title>
+      <link>/blog/2019/12/18/2019-12-21-exponential-smoothing-model/</link>
+      <pubDate>Wed, 18 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2019/12/18/2019-12-21-exponential-smoothing-model/</guid>
+      <description>IntroductionThe main idea here is breaking the ice in terms of exponential smoothing models
+First of all it is importan to show some behaviours patterns usually found in time series
+Trends: it is usually observed when the time series follow one specific direction. It can be linear or not.
+Seasonality: it is a pattern that repeat in a certain times (specific period)
+Cycle: Like seasonality but it appears in non specific time</description>
+    </item>
+    
+    <item>
       <title>Linear Regression</title>
       <link>/blog/2019/12/18/2019-12-18-linear-regression/</link>
       <pubDate>Wed, 18 Dec 2019 00:00:00 +0000</pubDate>
