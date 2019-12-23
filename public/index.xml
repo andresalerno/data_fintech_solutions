@@ -6,10 +6,34 @@
     <description>Recent content on Universal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 23 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>R Packages for Regression</title>
+      <link>/blog/2019/12/23/2019-12-23-r-packages-for-regression/</link>
+      <pubDate>Mon, 23 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2019/12/23/2019-12-23-r-packages-for-regression/</guid>
+      <description>R Packages for RegressionFor this post we will present some valuable R packages for using in regression studies. Check it out!
+statsPackage very useful for statistical calculations and random number generations.
+Below you can find the most useful function in regression area:
+lm(): it is used to fit linear models
+summary.lm(): thsi function returns a summary for linear model fits
+coef(): it is possible obtain the coefficients from modeling functions</description>
+    </item>
+    
+    <item>
+      <title>Random Forest</title>
+      <link>/blog/2019/12/23/2019-12-23-random-forest/</link>
+      <pubDate>Mon, 23 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2019/12/23/2019-12-23-random-forest/</guid>
+      <description>Random ForestIn this post we will explore some ideas around the Random Forest model
+DataBHData &amp;lt;- read.table(url(&amp;quot;https://archive.ics.uci.edu/ml/machine-learning-databases/housing/housing.data&amp;quot;), sep = &amp;quot;&amp;quot;)Set names of the datasetnames(BHData)&amp;lt;- c(&amp;quot;crim&amp;quot;,&amp;quot;zn&amp;quot;,&amp;quot;indus&amp;quot;,&amp;quot;chas&amp;quot;,&amp;quot;nox&amp;quot;,&amp;quot;rm&amp;quot;, &amp;quot;age&amp;quot;,&amp;quot;dis&amp;quot;,&amp;quot;rad&amp;quot;,&amp;quot;tax&amp;quot;,&amp;quot;ptratio&amp;quot;,&amp;quot;black&amp;quot;,&amp;quot;lstat&amp;quot;,&amp;quot;medv&amp;quot;)EDA (Exploratory Data Analysis)str(BHData)## &amp;#39;data.frame&amp;#39;: 506 obs. of 14 variables:## $ crim : num 0.00632 0.02731 0.02729 0.03237 0.06905 ...## $ zn : num 18 0 0 0 0 0 12.5 12.5 12.5 12.</description>
+    </item>
     
     <item>
       <title>Data Frame</title>

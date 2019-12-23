@@ -1,0 +1,232 @@
+---
+title: Random Forest
+author: Salerno
+date: '2019-12-23'
+slug: random-forest
+categories:
+  - R
+  - programming
+tags:
+  - random forest
+draft: FALSE
+banner: img/banners/banner-5.png
+---
+
+
+
+<div id="random-forest" class="section level1">
+<h1>Random Forest</h1>
+<p>In this post we will explore some ideas around the Random Forest model</p>
+<div id="data" class="section level2">
+<h2>Data</h2>
+<pre class="r"><code>BHData &lt;- read.table(url(&quot;https://archive.ics.uci.edu/ml/machine-learning-databases/housing/housing.data&quot;), sep = &quot;&quot;)</code></pre>
+</div>
+<div id="set-names-of-the-dataset" class="section level2">
+<h2>Set names of the dataset</h2>
+<pre class="r"><code>names(BHData)&lt;- c(&quot;crim&quot;,&quot;zn&quot;,&quot;indus&quot;,&quot;chas&quot;,&quot;nox&quot;,&quot;rm&quot;,   
+       &quot;age&quot;,&quot;dis&quot;,&quot;rad&quot;,&quot;tax&quot;,&quot;ptratio&quot;,&quot;black&quot;,&quot;lstat&quot;,&quot;medv&quot;)</code></pre>
+</div>
+<div id="eda-exploratory-data-analysis" class="section level2">
+<h2>EDA (Exploratory Data Analysis)</h2>
+<pre class="r"><code>str(BHData)
+## &#39;data.frame&#39;:    506 obs. of  14 variables:
+##  $ crim   : num  0.00632 0.02731 0.02729 0.03237 0.06905 ...
+##  $ zn     : num  18 0 0 0 0 0 12.5 12.5 12.5 12.5 ...
+##  $ indus  : num  2.31 7.07 7.07 2.18 2.18 2.18 7.87 7.87 7.87 7.87 ...
+##  $ chas   : int  0 0 0 0 0 0 0 0 0 0 ...
+##  $ nox    : num  0.538 0.469 0.469 0.458 0.458 0.458 0.524 0.524 0.524 0.524 ...
+##  $ rm     : num  6.58 6.42 7.18 7 7.15 ...
+##  $ age    : num  65.2 78.9 61.1 45.8 54.2 58.7 66.6 96.1 100 85.9 ...
+##  $ dis    : num  4.09 4.97 4.97 6.06 6.06 ...
+##  $ rad    : int  1 2 2 3 3 3 5 5 5 5 ...
+##  $ tax    : num  296 242 242 222 222 222 311 311 311 311 ...
+##  $ ptratio: num  15.3 17.8 17.8 18.7 18.7 18.7 15.2 15.2 15.2 15.2 ...
+##  $ black  : num  397 397 393 395 397 ...
+##  $ lstat  : num  4.98 9.14 4.03 2.94 5.33 ...
+##  $ medv   : num  24 21.6 34.7 33.4 36.2 28.7 22.9 27.1 16.5 18.9 ...</code></pre>
+<pre class="r"><code>summary(BHData)
+##       crim                zn             indus            chas        
+##  Min.   : 0.00632   Min.   :  0.00   Min.   : 0.46   Min.   :0.00000  
+##  1st Qu.: 0.08204   1st Qu.:  0.00   1st Qu.: 5.19   1st Qu.:0.00000  
+##  Median : 0.25651   Median :  0.00   Median : 9.69   Median :0.00000  
+##  Mean   : 3.61352   Mean   : 11.36   Mean   :11.14   Mean   :0.06917  
+##  3rd Qu.: 3.67708   3rd Qu.: 12.50   3rd Qu.:18.10   3rd Qu.:0.00000  
+##  Max.   :88.97620   Max.   :100.00   Max.   :27.74   Max.   :1.00000  
+##       nox               rm             age              dis        
+##  Min.   :0.3850   Min.   :3.561   Min.   :  2.90   Min.   : 1.130  
+##  1st Qu.:0.4490   1st Qu.:5.886   1st Qu.: 45.02   1st Qu.: 2.100  
+##  Median :0.5380   Median :6.208   Median : 77.50   Median : 3.207  
+##  Mean   :0.5547   Mean   :6.285   Mean   : 68.57   Mean   : 3.795  
+##  3rd Qu.:0.6240   3rd Qu.:6.623   3rd Qu.: 94.08   3rd Qu.: 5.188  
+##  Max.   :0.8710   Max.   :8.780   Max.   :100.00   Max.   :12.127  
+##       rad              tax           ptratio          black       
+##  Min.   : 1.000   Min.   :187.0   Min.   :12.60   Min.   :  0.32  
+##  1st Qu.: 4.000   1st Qu.:279.0   1st Qu.:17.40   1st Qu.:375.38  
+##  Median : 5.000   Median :330.0   Median :19.05   Median :391.44  
+##  Mean   : 9.549   Mean   :408.2   Mean   :18.46   Mean   :356.67  
+##  3rd Qu.:24.000   3rd Qu.:666.0   3rd Qu.:20.20   3rd Qu.:396.23  
+##  Max.   :24.000   Max.   :711.0   Max.   :22.00   Max.   :396.90  
+##      lstat            medv      
+##  Min.   : 1.73   Min.   : 5.00  
+##  1st Qu.: 6.95   1st Qu.:17.02  
+##  Median :11.36   Median :21.20  
+##  Mean   :12.65   Mean   :22.53  
+##  3rd Qu.:16.95   3rd Qu.:25.00  
+##  Max.   :37.97   Max.   :50.00</code></pre>
+</div>
+<div id="pre-processing" class="section level2">
+<h2>Pre-processing</h2>
+<p>It is an important step called <code>featured scaling</code> to get all the data scaled in the range [0,1]. This method has chosen can be called as well as <code>normalization</code>.</p>
+<pre class="r"><code>max_data &lt;- apply(BHData, 2, max)</code></pre>
+<pre class="r"><code>min_data &lt;- apply(BHData, 2, min)</code></pre>
+<pre class="r"><code>BHDataScaled &lt;- as.data.frame(scale(BHData,center = min_data, 
+  scale = max_data - min_data))</code></pre>
+<p>To confirm normalization process:</p>
+<pre class="r"><code>summary(BHDataScaled)
+##       crim                 zn             indus             chas        
+##  Min.   :0.0000000   Min.   :0.0000   Min.   :0.0000   Min.   :0.00000  
+##  1st Qu.:0.0008511   1st Qu.:0.0000   1st Qu.:0.1734   1st Qu.:0.00000  
+##  Median :0.0028121   Median :0.0000   Median :0.3383   Median :0.00000  
+##  Mean   :0.0405441   Mean   :0.1136   Mean   :0.3914   Mean   :0.06917  
+##  3rd Qu.:0.0412585   3rd Qu.:0.1250   3rd Qu.:0.6466   3rd Qu.:0.00000  
+##  Max.   :1.0000000   Max.   :1.0000   Max.   :1.0000   Max.   :1.00000  
+##       nox               rm              age              dis         
+##  Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.00000  
+##  1st Qu.:0.1317   1st Qu.:0.4454   1st Qu.:0.4338   1st Qu.:0.08826  
+##  Median :0.3148   Median :0.5073   Median :0.7683   Median :0.18895  
+##  Mean   :0.3492   Mean   :0.5219   Mean   :0.6764   Mean   :0.24238  
+##  3rd Qu.:0.4918   3rd Qu.:0.5868   3rd Qu.:0.9390   3rd Qu.:0.36909  
+##  Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.00000  
+##       rad              tax            ptratio           black       
+##  Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+##  1st Qu.:0.1304   1st Qu.:0.1756   1st Qu.:0.5106   1st Qu.:0.9457  
+##  Median :0.1739   Median :0.2729   Median :0.6862   Median :0.9862  
+##  Mean   :0.3717   Mean   :0.4222   Mean   :0.6229   Mean   :0.8986  
+##  3rd Qu.:1.0000   3rd Qu.:0.9141   3rd Qu.:0.8085   3rd Qu.:0.9983  
+##  Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+##      lstat             medv       
+##  Min.   :0.0000   Min.   :0.0000  
+##  1st Qu.:0.1440   1st Qu.:0.2672  
+##  Median :0.2657   Median :0.3600  
+##  Mean   :0.3014   Mean   :0.3896  
+##  3rd Qu.:0.4201   3rd Qu.:0.4444  
+##  Max.   :1.0000   Max.   :1.0000</code></pre>
+<pre class="r"><code>boxplot(BHDataScaled)</code></pre>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<pre class="r"><code>CorBHData&lt;-cor(BHDataScaled)</code></pre>
+<pre class="r"><code>library(corrplot)
+## corrplot 0.84 loaded
+
+corrplot(CorBHData, method = &quot;pie&quot;,type=&quot;lower&quot;)</code></pre>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+<div id="multiple-linear-model-fitting" class="section level2">
+<h2>Multiple Linear Model Fitting</h2>
+<pre class="r"><code>LModel1&lt;-lm(medv~.,data=BHDataScaled)</code></pre>
+<pre class="r"><code>summary(LModel1)
+## 
+## Call:
+## lm(formula = medv ~ ., data = BHDataScaled)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.34654 -0.06066 -0.01151  0.03949  0.58221 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  0.480450   0.052843   9.092  &lt; 2e-16 ***
+## crim        -0.213550   0.064978  -3.287 0.001087 ** 
+## zn           0.103157   0.030505   3.382 0.000778 ***
+## indus        0.012463   0.037280   0.334 0.738288    
+## chas         0.059705   0.019146   3.118 0.001925 ** 
+## nox         -0.191879   0.041253  -4.651 4.25e-06 ***
+## rm           0.441860   0.048470   9.116  &lt; 2e-16 ***
+## age          0.001494   0.028504   0.052 0.958229    
+## dis         -0.360592   0.048742  -7.398 6.01e-13 ***
+## rad          0.156425   0.033910   4.613 5.07e-06 ***
+## tax         -0.143629   0.043789  -3.280 0.001112 ** 
+## ptratio     -0.199018   0.027328  -7.283 1.31e-12 ***
+## black        0.082063   0.023671   3.467 0.000573 ***
+## lstat       -0.422605   0.040843 -10.347  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.1055 on 492 degrees of freedom
+## Multiple R-squared:  0.7406, Adjusted R-squared:  0.7338 
+## F-statistic: 108.1 on 13 and 492 DF,  p-value: &lt; 2.2e-16</code></pre>
+<pre class="r"><code>Pred1 &lt;- predict(LModel1)</code></pre>
+<pre class="r"><code>mse1 &lt;- mean((BHDataScaled$medv - Pred1)^2)</code></pre>
+<pre class="r"><code>mse1
+## [1] 0.01081226</code></pre>
+<pre class="r"><code>plot(BHDataScaled[,14],Pred1,
+     xlab=&quot;Actual&quot;,ylab=&quot;Predicted&quot;)
+abline(a=0,b=1)</code></pre>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<pre class="r"><code>par(mfrow=c(2,2))
+plot(LModel1)</code></pre>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+</div>
+<div id="random-forest-regression-model" class="section level2">
+<h2>Random Forest Regression Model</h2>
+<pre class="r"><code>library(randomForest)
+## randomForest 4.6-14
+## Type rfNews() to see new features/changes/bug fixes.</code></pre>
+<pre class="r"><code>RFModel=randomForest(medv ~ . , data = BHDataScaled)
+RFModel
+## 
+## Call:
+##  randomForest(formula = medv ~ ., data = BHDataScaled) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 4
+## 
+##           Mean of squared residuals: 0.0049784
+##                     % Var explained: 88.06</code></pre>
+<pre class="r"><code>summary(RFModel)
+##                 Length Class  Mode     
+## call              3    -none- call     
+## type              1    -none- character
+## predicted       506    -none- numeric  
+## mse             500    -none- numeric  
+## rsq             500    -none- numeric  
+## oob.times       506    -none- numeric  
+## importance       13    -none- numeric  
+## importanceSD      0    -none- NULL     
+## localImportance   0    -none- NULL     
+## proximity         0    -none- NULL     
+## ntree             1    -none- numeric  
+## mtry              1    -none- numeric  
+## forest           11    -none- list     
+## coefs             0    -none- NULL     
+## y               506    -none- numeric  
+## test              0    -none- NULL     
+## inbag             0    -none- NULL     
+## terms             3    terms  call</code></pre>
+<pre class="r"><code>plot(RFModel)</code></pre>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<pre class="r"><code>VarImp&lt;-importance(RFModel)
+VarImp&lt;-as.matrix(VarImp[order(VarImp[,1], decreasing = TRUE),])
+VarImp
+##              [,1]
+## rm      6.4029110
+## lstat   5.8949544
+## ptratio 1.3539785
+## indus   1.3306153
+## nox     1.2709641
+## dis     1.2648104
+## crim    1.2016576
+## tax     0.5741141
+## age     0.5573702
+## black   0.3816312
+## rad     0.1817102
+## chas    0.1223455
+## zn      0.1157245</code></pre>
+<pre class="r"><code>varImpPlot(RFModel)</code></pre>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<pre class="r"><code>Pred2 &lt;- predict(RFModel)</code></pre>
+<pre class="r"><code>plot(BHDataScaled[,14],Pred2,
+     xlab=&quot;Actual&quot;,ylab=&quot;Predicted&quot;)
+abline(a=0,b=1)</code></pre>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+</div>
+</div>

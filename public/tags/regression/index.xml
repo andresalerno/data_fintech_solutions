@@ -6,10 +6,24 @@
     <description>Recent content in regression on Universal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 23 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/regression/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>R Packages for Regression</title>
+      <link>/blog/2019/12/23/2019-12-23-r-packages-for-regression/</link>
+      <pubDate>Mon, 23 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2019/12/23/2019-12-23-r-packages-for-regression/</guid>
+      <description>R Packages for RegressionFor this post we will present some valuable R packages for using in regression studies. Check it out!
+statsPackage very useful for statistical calculations and random number generations.
+Below you can find the most useful function in regression area:
+lm(): it is used to fit linear models
+summary.lm(): thsi function returns a summary for linear model fits
+coef(): it is possible obtain the coefficients from modeling functions</description>
+    </item>
     
     <item>
       <title>Hello R Markdown</title>
