@@ -1,13 +1,9 @@
 ---
-title: Random Forest
-author: Salerno
-date: '2019-12-23'
-slug: random-forest
-categories:
-  - R
-  - programming
-tags:
-  - random forest
+title: "Random Forest"
+author: "Salerno"
+date: "2019-12-23"
+categories: ["R", "programming"]
+tags: ["R Markdown", "random forest", "regression"]
 draft: FALSE
 banner: img/banners/banner-5.png
 ---
@@ -180,8 +176,8 @@ RFModel
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 4
 ## 
-##           Mean of squared residuals: 0.0049784
-##                     % Var explained: 88.06</code></pre>
+##           Mean of squared residuals: 0.004888217
+##                     % Var explained: 88.27</code></pre>
 <pre class="r"><code>summary(RFModel)
 ##                 Length Class  Mode     
 ## call              3    -none- call     
@@ -207,20 +203,20 @@ RFModel
 <pre class="r"><code>VarImp&lt;-importance(RFModel)
 VarImp&lt;-as.matrix(VarImp[order(VarImp[,1], decreasing = TRUE),])
 VarImp
-##              [,1]
-## rm      6.4029110
-## lstat   5.8949544
-## ptratio 1.3539785
-## indus   1.3306153
-## nox     1.2709641
-## dis     1.2648104
-## crim    1.2016576
-## tax     0.5741141
-## age     0.5573702
-## black   0.3816312
-## rad     0.1817102
-## chas    0.1223455
-## zn      0.1157245</code></pre>
+##               [,1]
+## lstat   6.23489816
+## rm      6.07076755
+## nox     1.46894302
+## dis     1.31463710
+## ptratio 1.27703360
+## crim    1.20288044
+## indus   1.09398239
+## tax     0.60228432
+## age     0.54439851
+## black   0.40425074
+## rad     0.18901511
+## zn      0.16309579
+## chas    0.08852379</code></pre>
 <pre class="r"><code>varImpPlot(RFModel)</code></pre>
 <p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 <pre class="r"><code>Pred2 &lt;- predict(RFModel)</code></pre>

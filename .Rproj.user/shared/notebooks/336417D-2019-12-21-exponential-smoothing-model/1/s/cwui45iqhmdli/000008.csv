@@ -1,2 +1,0 @@
-"0","plot(hpfilter(cafe, type = ""lambda"")$cycle,  xlab = ""Time"", ylab = ""Cycle Component"")"
-"0",""

@@ -1,2 +1,0 @@
-"0","plot(hpfilter(elecequip, type = ""lambda"")$cycle,  xlab = ""Time"", ylab = ""New Orders Index"")"
-"0",""

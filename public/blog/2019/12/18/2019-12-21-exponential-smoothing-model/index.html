@@ -236,13 +236,13 @@
 data(elecequip)
 
 plot(elecequip, xlab = &quot;Time&quot;, ylab = &quot;New Orders Index&quot;)</code></pre>
-<p><img src="/post/2019-12-21-exponential-smoothing-model_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-21-exponential-smoothing-model_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <pre class="r"><code>decomp &lt;- decompose(elecequip, type = &quot;additive&quot;)
 plot(decomp)</code></pre>
-<p><img src="/post/2019-12-21-exponential-smoothing-model_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-21-exponential-smoothing-model_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <pre class="r"><code>seasonality_adjust &lt;- elecequip - decomp$seasonal
 plot(seasonality_adjust)</code></pre>
-<p><img src="/post/2019-12-21-exponential-smoothing-model_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-21-exponential-smoothing-model_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <pre class="r"><code>library(mFilter)
 
 hpfilter(elecequip, type = &quot;lambda&quot;)
@@ -459,7 +459,7 @@ plot(elecequip, xlab = &quot;Time&quot;, ylab = &quot;New Orders Index&quot;)
 lines(hpfilter(elecequip, type = &quot;lambda&quot;)$trend, col = &quot;red&quot;, lwd = 2)
 legend(1996, 200, c(&quot;Original Serie&quot;, &quot;Trend - HP Filter&quot;), col = c(&quot;black&quot;, &quot;red&quot;), lwd = c(1,2), bty = &quot;n&quot;)
 plot(hpfilter(elecequip, type = &quot;lambda&quot;)$cycle,  xlab = &quot;Time&quot;, ylab = &quot;New Orders Index&quot;)</code></pre>
-<p><img src="/post/2019-12-21-exponential-smoothing-model_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-21-exponential-smoothing-model_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <pre class="r"><code>data(&quot;cafe&quot;)
 
 hpfilter(cafe, type = &quot;lambda&quot;)
@@ -600,7 +600,7 @@ plot(cafe, xlab = &quot;Time&quot;, ylab = &quot;Expenditures Quarters&quot;)
 lines(hpfilter(cafe, type = &quot;lambda&quot;)$trend, col = &quot;red&quot;, lwd = 2)
 legend(1985, 8000, c(&quot;Original Serie&quot;, &quot;Trend - HP Filter&quot;), col = c(&quot;black&quot;, &quot;red&quot;), lwd = c(1,2), bty = &quot;n&quot;)
 plot(hpfilter(cafe, type = &quot;lambda&quot;)$cycle,  xlab = &quot;Time&quot;, ylab = &quot;Cycle Component&quot;)</code></pre>
-<p><img src="/post/2019-12-21-exponential-smoothing-model_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-21-exponential-smoothing-model_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
 
                         </div>
