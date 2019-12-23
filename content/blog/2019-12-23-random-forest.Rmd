@@ -1,14 +1,13 @@
 ---
-title: Random Forest
-author: Salerno
+title: "Random Forest"
+author: "Salerno"
 date: '2019-12-23'
-slug: random-forest
 categories:
-  - R
-  - programming
-tags:
-  - random forest
-draft: FALSE
+- R
+- programming
+draft: no
+slug: random-forest
+tags: random forest
 banner: img/banners/banner-5.png
 ---
 
@@ -19,6 +18,19 @@ knitr::opts_chunk$set(collapse = TRUE, warnings = FALSE, echo = TRUE)
 # Random Forest
 
 In this post we will explore some ideas around the Random Forest model
+
+- number of rows:
+
+```{r}
+nrow(BHData)
+```
+
+- number of features:
+
+```{r}
+ncol(BHData)
+```
+
 
 ## Data
 
