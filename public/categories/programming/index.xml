@@ -32,7 +32,9 @@ Below you can find the most useful function in regression area:
       
       <guid>/blog/2019/12/23/2019-12-23-random-forest/</guid>
       <description>Random ForestIn this post we will explore some ideas around the Random Forest model
-DataBHData &amp;lt;- read.table(url(&amp;quot;https://archive.ics.uci.edu/ml/machine-learning-databases/housing/housing.data&amp;quot;), sep = &amp;quot;&amp;quot;)Set names of the datasetnames(BHData)&amp;lt;- c(&amp;quot;crim&amp;quot;,&amp;quot;zn&amp;quot;,&amp;quot;indus&amp;quot;,&amp;quot;chas&amp;quot;,&amp;quot;nox&amp;quot;,&amp;quot;rm&amp;quot;, &amp;quot;age&amp;quot;,&amp;quot;dis&amp;quot;,&amp;quot;rad&amp;quot;,&amp;quot;tax&amp;quot;,&amp;quot;ptratio&amp;quot;,&amp;quot;black&amp;quot;,&amp;quot;lstat&amp;quot;,&amp;quot;medv&amp;quot;)EDA (Exploratory Data Analysis)str(BHData)## &amp;#39;data.frame&amp;#39;: 506 obs. of 14 variables:## $ crim : num 0.00632 0.02731 0.02729 0.03237 0.06905 ...## $ zn : num 18 0 0 0 0 0 12.5 12.5 12.5 12.</description>
+ObjectiveWe are working on in the dataset called Boston Houseing and the main idea here is regression task and we are concerned with modeling the price of houses in thousands of dollars in the Surburb of Boston.
+So, we are dirting our hands in a regression predictive modeling problem.
+The main goal here is to fit a regression model that best explains the variation in medv variable.</description>
     </item>
     
     <item>

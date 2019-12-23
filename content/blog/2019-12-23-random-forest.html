@@ -13,18 +13,33 @@ banner: img/banners/banner-5.png
 <div id="random-forest" class="section level1">
 <h1>Random Forest</h1>
 <p>In this post we will explore some ideas around the Random Forest model</p>
+<div id="objective" class="section level2">
+<h2>Objective</h2>
+<p>We are working on in the dataset called <em>Boston Houseing</em> and the main idea here is regression task and we are concerned with modeling the price of houses in thousands of dollars in the Surburb of Boston.</p>
+<p>So, we are dirting our hands in a regression predictive modeling problem.</p>
+<p>The main goal here is to fit a regression model that best explains the variation in <code>medv</code> variable.</p>
+</div>
 <div id="data" class="section level2">
 <h2>Data</h2>
-<pre class="r"><code>BHData &lt;- read.table(url(&quot;https://archive.ics.uci.edu/ml/machine-learning-databases/housing/housing.data&quot;), sep = &quot;&quot;)</code></pre>
+<p>In terms of dataset, we are using a file from <em>UCI</em> and their content is related of Housing Values in Suburbs of Boston.</p>
+<pre class="r"><code># to get the data
+BHData &lt;- read.table(url(&quot;https://archive.ics.uci.edu/ml/machine-learning-databases/housing/housing.data&quot;), sep = &quot;&quot;)</code></pre>
+<p>For our study we are working on 506 rows (events) and 14 columns. One of them called <code>medv</code> is our target value - <code>y</code> or response variable.</p>
+<pre class="r"><code># knowing the dimension of the data
+dim(BHData)
+## [1] 506  14</code></pre>
 </div>
 <div id="set-names-of-the-dataset" class="section level2">
 <h2>Set names of the dataset</h2>
-<pre class="r"><code>names(BHData)&lt;- c(&quot;crim&quot;,&quot;zn&quot;,&quot;indus&quot;,&quot;chas&quot;,&quot;nox&quot;,&quot;rm&quot;,   
+<pre class="r"><code># changing the variable&#39;s names
+names(BHData)&lt;- c(&quot;crim&quot;,&quot;zn&quot;,&quot;indus&quot;,&quot;chas&quot;,&quot;nox&quot;,&quot;rm&quot;,   
        &quot;age&quot;,&quot;dis&quot;,&quot;rad&quot;,&quot;tax&quot;,&quot;ptratio&quot;,&quot;black&quot;,&quot;lstat&quot;,&quot;medv&quot;)</code></pre>
 </div>
 <div id="eda-exploratory-data-analysis" class="section level2">
 <h2>EDA (Exploratory Data Analysis)</h2>
-<pre class="r"><code>str(BHData)
+<p>Usually as a first task, we use some <em>Exploratory Data Analysis</em> to understand how the data is distributed and extract preliminary knowledge.</p>
+<pre class="r"><code># structure
+str(BHData)
 ## &#39;data.frame&#39;:    506 obs. of  14 variables:
 ##  $ crim   : num  0.00632 0.02731 0.02729 0.03237 0.06905 ...
 ##  $ zn     : num  18 0 0 0 0 0 12.5 12.5 12.5 12.5 ...
@@ -40,6 +55,9 @@ banner: img/banners/banner-5.png
 ##  $ black  : num  397 397 393 395 397 ...
 ##  $ lstat  : num  4.98 9.14 4.03 2.94 5.33 ...
 ##  $ medv   : num  24 21.6 34.7 33.4 36.2 28.7 22.9 27.1 16.5 18.9 ...</code></pre>
+<p>As you can see using the <code>summary()</code> function below, there are variables with different ranges. It is could badly impact the response variable if we have had a less numeric range between each of the predictors variables.</p>
+<p>As we have to improve the predictive accuracy of our model we have not allowed that this large difference in the range of variables impact the accuracy of the predicting task upon the <code>medv</code> variable.</p>
+<p>You will see the adequate treatment in the <em>Pre-processing</em> topic.</p>
 <pre class="r"><code>summary(BHData)
 ##       crim                zn             indus            chas        
 ##  Min.   : 0.00632   Min.   :  0.00   Min.   : 0.46   Min.   :0.00000  
@@ -73,9 +91,12 @@ banner: img/banners/banner-5.png
 <div id="pre-processing" class="section level2">
 <h2>Pre-processing</h2>
 <p>It is an important step called <code>featured scaling</code> to get all the data scaled in the range [0,1]. This method has chosen can be called as well as <code>normalization</code>.</p>
-<pre class="r"><code>max_data &lt;- apply(BHData, 2, max)</code></pre>
-<pre class="r"><code>min_data &lt;- apply(BHData, 2, min)</code></pre>
-<pre class="r"><code>BHDataScaled &lt;- as.data.frame(scale(BHData,center = min_data, 
+<pre class="r"><code># calculating the maximun in each column
+max_data &lt;- apply(BHData, 2, max)</code></pre>
+<pre class="r"><code># calculating the minimun in each column
+min_data &lt;- apply(BHData, 2, min)</code></pre>
+<pre class="r"><code># applying the normalization
+BHDataScaled &lt;- as.data.frame(scale(BHData,center = min_data, 
   scale = max_data - min_data))</code></pre>
 <p>To confirm normalization process:</p>
 <pre class="r"><code>summary(BHDataScaled)
@@ -108,13 +129,14 @@ banner: img/banners/banner-5.png
 ##  3rd Qu.:0.4201   3rd Qu.:0.4444  
 ##  Max.   :1.0000   Max.   :1.0000</code></pre>
 <pre class="r"><code>boxplot(BHDataScaled)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>According with the graph above there some som variables with outliers. But the <code>crim</code> predictor variable has the largest number os outliers.</p>
 <pre class="r"><code>CorBHData&lt;-cor(BHDataScaled)</code></pre>
 <pre class="r"><code>library(corrplot)
 ## corrplot 0.84 loaded
 
 corrplot(CorBHData, method = &quot;pie&quot;,type=&quot;lower&quot;)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 </div>
 <div id="multiple-linear-model-fitting" class="section level2">
 <h2>Multiple Linear Model Fitting</h2>
@@ -157,10 +179,10 @@ corrplot(CorBHData, method = &quot;pie&quot;,type=&quot;lower&quot;)</code></pre
 <pre class="r"><code>plot(BHDataScaled[,14],Pred1,
      xlab=&quot;Actual&quot;,ylab=&quot;Predicted&quot;)
 abline(a=0,b=1)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <pre class="r"><code>par(mfrow=c(2,2))
 plot(LModel1)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 </div>
 <div id="random-forest-regression-model" class="section level2">
 <h2>Random Forest Regression Model</h2>
@@ -176,8 +198,8 @@ RFModel
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 4
 ## 
-##           Mean of squared residuals: 0.004888217
-##                     % Var explained: 88.27</code></pre>
+##           Mean of squared residuals: 0.004906997
+##                     % Var explained: 88.23</code></pre>
 <pre class="r"><code>summary(RFModel)
 ##                 Length Class  Mode     
 ## call              3    -none- call     
@@ -199,30 +221,30 @@ RFModel
 ## inbag             0    -none- NULL     
 ## terms             3    terms  call</code></pre>
 <pre class="r"><code>plot(RFModel)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
 <pre class="r"><code>VarImp&lt;-importance(RFModel)
 VarImp&lt;-as.matrix(VarImp[order(VarImp[,1], decreasing = TRUE),])
 VarImp
-##               [,1]
-## lstat   6.23489816
-## rm      6.07076755
-## nox     1.46894302
-## dis     1.31463710
-## ptratio 1.27703360
-## crim    1.20288044
-## indus   1.09398239
-## tax     0.60228432
-## age     0.54439851
-## black   0.40425074
-## rad     0.18901511
-## zn      0.16309579
-## chas    0.08852379</code></pre>
+##              [,1]
+## lstat   6.0675778
+## rm      6.0212732
+## nox     1.4853874
+## ptratio 1.3537951
+## dis     1.2536426
+## indus   1.2477155
+## crim    1.2030124
+## tax     0.6022500
+## age     0.5505143
+## black   0.3632144
+## rad     0.1595905
+## zn      0.1324249
+## chas    0.1045642</code></pre>
 <pre class="r"><code>varImpPlot(RFModel)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 <pre class="r"><code>Pred2 &lt;- predict(RFModel)</code></pre>
 <pre class="r"><code>plot(BHDataScaled[,14],Pred2,
      xlab=&quot;Actual&quot;,ylab=&quot;Predicted&quot;)
 abline(a=0,b=1)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 </div>
 </div>
