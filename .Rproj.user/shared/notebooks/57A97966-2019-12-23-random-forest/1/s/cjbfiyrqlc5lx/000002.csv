@@ -1,0 +1,3 @@
+"0","# changing the variable's names"
+"0","names(BHData)<- c(""crim"",""zn"",""indus"",""chas"",""nox"",""rm"",   "
+"0","       ""age"",""dis"",""rad"",""tax"",""ptratio"",""black"",""lstat"",""medv"")"

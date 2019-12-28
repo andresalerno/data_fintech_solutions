@@ -1,0 +1,73 @@
+---
+title: "Random Forest - Heart Disease"
+author: "Salerno"
+date: "2019-12-26"
+categories: ["R", "programming"]
+tags: ["R Markdown", "random forest", "regression"]
+draft: FALSE
+banner: img/banners/banner-5.png
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, warnings = FALSE, echo = TRUE)
+```
+
+```{r}
+data <- read.csv(file = "heart.csv", sep = ",")
+
+head(data, 3)
+
+dim(data)
+```
+
+```{r}
+sapply(data, class)
+```
+
+```{r}
+names(data)[names(data) == 'ï..age'] <- 'age'
+```
+
+```{r}
+data <- transform(
+  data,
+  age=as.integer(age),
+  sex=as.factor(sex),
+  cp=as.factor(cp),
+  trestbps=as.integer(trestbps),
+  chol=as.integer(chol),
+  fbs=as.factor(fbs),
+  restecg=as.factor(restecg),
+  thalach=as.integer(thalach),
+  exang=as.factor(exang),
+  oldpeak=as.numeric(oldpeak),
+  slope=as.factor(slope),
+  ca=as.factor(ca),
+  thal=as.factor(thal),
+  target=as.factor(target)
+)
+```
+
+```{r}
+sapply(data, class)
+```
+
+```{r}
+data[ data == "?"] <- NA
+colSums(is.na(data))
+```
+
+```{r}
+data$thal[which(is.na(data$thal))] <- as.factor("3.0")
+data <- data[!(data$ca %in% c(NA)),]
+colSums(is.na(data))
+```
+
+```{r}
+summary(data)
+```
+
+```{r}
+data[data[, "cp"] == NA, "cp"] <- 4
+```
+

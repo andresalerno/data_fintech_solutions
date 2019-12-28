@@ -1,0 +1,36 @@
+---
+title: "Quicksort Algorithm"
+author: "Salerno"
+date: "2019-12-26"
+categories: ["Python", "programming", "algorithm"]
+tags: ["Python", "programming", "algorithm"]
+draft: FALSE
+banner: img/banners/python.png
+---
+
+```{r setup, include=FALSE}
+library(reticulate)
+
+path <- file.path(Sys.which("python"))
+
+use_python(python = path)
+
+```
+
+
+
+```{python}
+
+def quicksort(array):
+  if len(array) < 2:
+    return array
+  else:
+    pivo = array[0] # caso recursivo
+    menores = [i for i in array [1:] if i <= pivo] # subarray de todos os elementos menores do que o pivo
+    maiores = [i for i in array[1:] if i > pivo] # subarray de todos os elementos maiores do que o pivo
+    return quicksort(menores) + [pivo] + quicksort(maiores)
+
+print(quicksort([10, 5, 2, 3]))
+
+```
+

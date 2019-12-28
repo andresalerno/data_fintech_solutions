@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1577400237736.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "F6C9607D",
+    "lastKnownWriteTime" : 1577400233,
+    "last_content_update" : 1577404917117,
+    "path" : "C:/Users/andre/OneDrive/Área de Trabalho/salerno/blogdown/content/blog/2019-12-26-random-forest-heart-disease.Rmd",
+    "project_path" : "content/blog/2019-12-26-random-forest-heart-disease.Rmd",
+    "properties" : {
+        "cursorPosition" : "12,3",
+        "last_setup_crc32" : "",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

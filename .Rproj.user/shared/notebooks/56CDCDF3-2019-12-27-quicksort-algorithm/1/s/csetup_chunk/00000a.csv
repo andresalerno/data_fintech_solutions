@@ -1,0 +1,6 @@
+"0","library(reticulate)"
+"0",""
+"0","path <- file.path(Sys.which(""python""))"
+"0",""
+"0","use_python(python = path)"
+"0",""
