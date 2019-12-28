@@ -90,6 +90,259 @@ str(BHData)
 </div>
 <div id="pre-processing" class="section level2">
 <h2>Pre-processing</h2>
+<div id="remove-outliers" class="section level3">
+<h3>Remove outliers</h3>
+<pre class="r"><code>boxplot(BHData$crim,
+        boxfill = &quot;light gray&quot;,
+        outpch = 21:25,
+        outlty = 2,
+        bg = &quot;pink&quot;,
+        lwd = 2,
+        medcol = &quot;dark green&quot;,
+        medcex = 2,
+        medpch = 20,
+        ylim = c(0, 25),
+        main = &quot;Dispersion in CRIM Variable w/ Outlier Detection&quot;,
+        range = 1.5,
+        cex.lab = 1.5,
+        cex.main = 1.5,
+        cex.axis = 1.5)</code></pre>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code>boxplot(BHData$zn,
+        boxfill = &quot;light gray&quot;,
+        outpch = 21:25,
+        outlty = 2,
+        bg = &quot;pink&quot;,
+        lwd = 2,
+        medcol = &quot;dark green&quot;,
+        medcex = 2,
+        medpch = 20,
+        ylim = c(0, 100),
+        main = &quot;Dispersion in ZN Variable w/ Outlier Detection&quot;,
+        range = 1.5,
+        cex.lab = 1.5,
+        cex.main = 1.5,
+        cex.axis = 1.5)</code></pre>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
+<pre class="r"><code>boxplot(BHData$indus,
+        boxfill = &quot;light gray&quot;,
+        outpch = 21:25,
+        outlty = 2,
+        bg = &quot;pink&quot;,
+        lwd = 2,
+        medcol = &quot;dark green&quot;,
+        medcex = 2,
+        medpch = 20,
+        ylim = c(0, 50),
+        main = &quot;Dispersion in INDUS Variable w/ Outlier Detection&quot;,
+        range = 1.5,
+        cex.lab = 1.5,
+        cex.main = 1.5,
+        cex.axis = 1.5)</code></pre>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-3.png" width="672" /></p>
+<pre class="r"><code>boxplot(BHData$chas,
+        boxfill = &quot;light gray&quot;,
+        outpch = 21:25,
+        outlty = 2,
+        bg = &quot;pink&quot;,
+        lwd = 2,
+        medcol = &quot;dark green&quot;,
+        medcex = 2,
+        medpch = 20,
+        ylim = c(0, 10),
+        main = &quot;Dispersion in CHAS Variable w/ Outlier Detection&quot;,
+        range = 1.5,
+        cex.lab = 1.5,
+        cex.main = 1.5,
+        cex.axis = 1.5)</code></pre>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-4.png" width="672" /></p>
+<pre class="r"><code>boxplot(BHData$nox,
+        boxfill = &quot;light gray&quot;,
+        outpch = 21:25,
+        outlty = 2,
+        bg = &quot;pink&quot;,
+        lwd = 2,
+        medcol = &quot;dark green&quot;,
+        medcex = 2,
+        medpch = 20,
+        ylim = c(0, 1),
+        main = &quot;Dispersion in NOX Variable w/ Outlier Detection&quot;,
+        range = 1.5,
+        cex.lab = 1.5,
+        cex.main = 1.5,
+        cex.axis = 1.5)</code></pre>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-5.png" width="672" /></p>
+<pre class="r"><code>boxplot(BHData$rm,
+        boxfill = &quot;light gray&quot;,
+        outpch = 21:25,
+        outlty = 2,
+        bg = &quot;pink&quot;,
+        lwd = 2,
+        medcol = &quot;dark green&quot;,
+        medcex = 2,
+        medpch = 20,
+        ylim = c(0, 10),
+        main = &quot;Dispersion in RM Variable w/ Outlier Detection&quot;,
+        range = 1.5,
+        cex.lab = 1.5,
+        cex.main = 1.5,
+        cex.axis = 1.5)</code></pre>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-6.png" width="672" /></p>
+<pre class="r"><code>boxplot(BHData$age,
+        boxfill = &quot;light gray&quot;,
+        outpch = 21:25,
+        outlty = 2,
+        bg = &quot;pink&quot;,
+        lwd = 2,
+        medcol = &quot;dark green&quot;,
+        medcex = 2,
+        medpch = 20,
+        ylim = c(0, 100),
+        main = &quot;Dispersion in AGE Variable w/ Outlier Detection&quot;,
+        range = 1.5,
+        cex.lab = 1.5,
+        cex.main = 1.5,
+        cex.axis = 1.5)</code></pre>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-7.png" width="672" /></p>
+<pre class="r"><code>boxplot(BHData$dis,
+        boxfill = &quot;light gray&quot;,
+        outpch = 21:25,
+        outlty = 2,
+        bg = &quot;pink&quot;,
+        lwd = 2,
+        medcol = &quot;dark green&quot;,
+        medcex = 2,
+        medpch = 20,
+        ylim = c(0, 15),
+        main = &quot;Dispersion in DIS Variable w/ Outlier Detection&quot;,
+        range = 1.5,
+        cex.lab = 1.5,
+        cex.main = 1.5,
+        cex.axis = 1.5)</code></pre>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-8.png" width="672" /></p>
+<pre class="r"><code>boxplot(BHData$rad,
+        boxfill = &quot;light gray&quot;,
+        outpch = 21:25,
+        outlty = 2,
+        bg = &quot;pink&quot;,
+        lwd = 2,
+        medcol = &quot;dark green&quot;,
+        medcex = 2,
+        medpch = 20,
+        ylim = c(0, 50),
+        main = &quot;Dispersion in RAD Variable w/ Outlier Detection&quot;,
+        range = 1.5,
+        cex.lab = 1.5,
+        cex.main = 1.5,
+        cex.axis = 1.5)</code></pre>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-9.png" width="672" /></p>
+<pre class="r"><code>boxplot(BHData$tax,
+        boxfill = &quot;light gray&quot;,
+        outpch = 21:25,
+        outlty = 2,
+        bg = &quot;pink&quot;,
+        lwd = 2,
+        medcol = &quot;dark green&quot;,
+        medcex = 2,
+        medpch = 20,
+        ylim = c(0, 50),
+        main = &quot;Dispersion in TAX Variable w/ Outlier Detection&quot;,
+        range = 1.5,
+        cex.lab = 1.5,
+        cex.main = 1.5,
+        cex.axis = 1.5)</code></pre>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-10.png" width="672" /></p>
+<pre class="r"><code>boxplot(BHData$ptratio,
+        boxfill = &quot;light gray&quot;,
+        outpch = 21:25,
+        outlty = 2,
+        bg = &quot;pink&quot;,
+        lwd = 2,
+        medcol = &quot;dark green&quot;,
+        medcex = 2,
+        medpch = 20,
+        ylim = c(0, 50),
+        main = &quot;Dispersion in PTRATIO Variable w/ Outlier Detection&quot;,
+        range = 1.5,
+        cex.lab = 1.5,
+        cex.main = 1.5,
+        cex.axis = 1.5)</code></pre>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-11.png" width="672" /></p>
+<pre class="r"><code>boxplot(BHData$black,
+        boxfill = &quot;light gray&quot;,
+        outpch = 21:25,
+        outlty = 2,
+        bg = &quot;pink&quot;,
+        lwd = 2,
+        medcol = &quot;dark green&quot;,
+        medcex = 2,
+        medpch = 20,
+        ylim = c(0, 50),
+        main = &quot;Dispersion in BLACK Variable w/ Outlier Detection&quot;,
+        range = 1.5,
+        cex.lab = 1.5,
+        cex.main = 1.5,
+        cex.axis = 1.5)</code></pre>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-12.png" width="672" /></p>
+<pre class="r"><code>boxplot(BHData$zn,
+        boxfill = &quot;light gray&quot;,
+        outpch = 21:25,
+        outlty = 2,
+        bg = &quot;pink&quot;,
+        lwd = 2,
+        medcol = &quot;dark green&quot;,
+        medcex = 2,
+        medpch = 20,
+        ylim = c(0, 50),
+        main = &quot;Dispersion in ZN Variable w/ Outlier Detection&quot;,
+        range = 1.5,
+        cex.lab = 1.5,
+        cex.main = 1.5,
+        cex.axis = 1.5)</code></pre>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-13.png" width="672" /></p>
+<pre class="r"><code>boxplot(BHData$medv,
+        boxfill = &quot;light gray&quot;,
+        outpch = 21:25,
+        outlty = 2,
+        bg = &quot;pink&quot;,
+        lwd = 2,
+        medcol = &quot;dark green&quot;,
+        medcex = 2,
+        medpch = 20,
+        ylim = c(0, 50),
+        main = &quot;Dispersion in MEDV Variable w/ Outlier Detection&quot;,
+        range = 1.5,
+        cex.lab = 1.5,
+        cex.main = 1.5,
+        cex.axis = 1.5)</code></pre>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-14.png" width="672" /></p>
+<pre class="r"><code>#cut-off values are given by the formal definition of an outlier: 
+#Q3 + 1.5*IQR
+upper_cut_off1 &lt;- (quantile(BHData$crim, 0.75)) + (IQR(BHData$crim))*1.5
+upper_cut_off1
+##      75% 
+## 9.069639
+
+
+upper_cut_off2 &lt;- (quantile(BHData$zn, 0.75)) + (IQR(BHData$zn))*1.5
+upper_cut_off2
+##   75% 
+## 31.25
+
+
+upper_cut_off3 &lt;- (quantile(BHData$indus, 0.75)) + (IQR(BHData$indus))*1.5
+upper_cut_off3
+##    75% 
+## 37.465
+
+
+upper_cut_off4 &lt;- (quantile(BHData$chas, 0.75)) + (IQR(BHData$chas))*1.5
+upper_cut_off4
+## 75% 
+##   0</code></pre>
+</div>
+<div id="feature-scaling" class="section level3">
+<h3>Feature Scaling</h3>
 <p>It is an important step called <code>featured scaling</code> to get all the data scaled in the range [0,1]. This method has chosen can be called as well as <code>normalization</code>.</p>
 <pre class="r"><code># calculating the maximun in each column
 max_data &lt;- apply(BHData, 2, max)</code></pre>
@@ -129,14 +382,15 @@ BHDataScaled &lt;- as.data.frame(scale(BHData,center = min_data,
 ##  3rd Qu.:0.4201   3rd Qu.:0.4444  
 ##  Max.   :1.0000   Max.   :1.0000</code></pre>
 <pre class="r"><code>boxplot(BHDataScaled)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>According with the graph above there some som variables with outliers. But the <code>crim</code> predictor variable has the largest number os outliers.</p>
 <pre class="r"><code>CorBHData&lt;-cor(BHDataScaled)</code></pre>
 <pre class="r"><code>library(corrplot)
 ## corrplot 0.84 loaded
 
 corrplot(CorBHData, method = &quot;pie&quot;,type=&quot;lower&quot;)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+</div>
 </div>
 <div id="multiple-linear-model-fitting" class="section level2">
 <h2>Multiple Linear Model Fitting</h2>
@@ -179,10 +433,10 @@ corrplot(CorBHData, method = &quot;pie&quot;,type=&quot;lower&quot;)</code></pre
 <pre class="r"><code>plot(BHDataScaled[,14],Pred1,
      xlab=&quot;Actual&quot;,ylab=&quot;Predicted&quot;)
 abline(a=0,b=1)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <pre class="r"><code>par(mfrow=c(2,2))
 plot(LModel1)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 </div>
 <div id="random-forest-regression-model" class="section level2">
 <h2>Random Forest Regression Model</h2>
@@ -198,8 +452,8 @@ RFModel
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 4
 ## 
-##           Mean of squared residuals: 0.004949253
-##                     % Var explained: 88.13</code></pre>
+##           Mean of squared residuals: 0.005079367
+##                     % Var explained: 87.82</code></pre>
 <pre class="r"><code>summary(RFModel)
 ##                 Length Class  Mode     
 ## call              3    -none- call     
@@ -221,31 +475,31 @@ RFModel
 ## inbag             0    -none- NULL     
 ## terms             3    terms  call</code></pre>
 <pre class="r"><code>plot(RFModel)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 <pre class="r"><code>VarImp&lt;-importance(RFModel)
 VarImp&lt;-as.matrix(VarImp[order(VarImp[,1], decreasing = TRUE),])
 VarImp
 ##              [,1]
-## lstat   6.2430296
-## rm      6.1335625
-## nox     1.3410369
-## indus   1.3346637
-## ptratio 1.3334778
-## crim    1.2256048
-## dis     1.1850999
-## tax     0.6447955
-## age     0.5684984
-## black   0.3948637
-## rad     0.1685042
-## chas    0.1301896
-## zn      0.1205156</code></pre>
+## lstat   6.3243648
+## rm      5.9423391
+## nox     1.4800855
+## ptratio 1.3603891
+## crim    1.2770267
+## indus   1.1928920
+## dis     1.1714025
+## tax     0.5907981
+## age     0.5853903
+## black   0.3446560
+## rad     0.1876433
+## zn      0.1360135
+## chas    0.1200784</code></pre>
 <pre class="r"><code>varImpPlot(RFModel)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 <pre class="r"><code>Pred2 &lt;- predict(RFModel)</code></pre>
 <pre class="r"><code>plot(BHDataScaled[,14],Pred2,
      xlab=&quot;Actual&quot;,ylab=&quot;Predicted&quot;)
 abline(a=0,b=1)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
 </div>
 <div id="robust-linear-regression-model" class="section level2">
 <h2>Robust Linear Regression Model</h2>
@@ -256,15 +510,15 @@ LModel2 &lt;- rlm(BHDataScaled$medv ~ ., data = BHDataScaled, psi = psi.hampel, 
 ## Call:
 ## rlm(formula = BHDataScaled$medv ~ ., data = BHDataScaled, psi = psi.hampel, 
 ##     init = &quot;lts&quot;)
-## Converged in 12 iterations
+## Converged in 9 iterations
 ## 
 ## Coefficients:
 ##  (Intercept)         crim           zn        indus         chas          nox 
-##  0.285874332 -0.192440188  0.069292040  0.003634932  0.029497545 -0.109020439 
+##  0.285847609 -0.192436735  0.069281475  0.003647391  0.029505079 -0.109023733 
 ##           rm          age          dis          rad          tax      ptratio 
-##  0.680776478 -0.069407365 -0.275014590  0.093236606 -0.145930398 -0.174170656 
+##  0.680821496 -0.069404337 -0.275003734  0.093232954 -0.145924848 -0.174175484 
 ##        black        lstat 
-##  0.095984883 -0.216404903 
+##  0.095986368 -0.216411653 
 ## 
 ## Degrees of freedom: 506 total; 492 residual
 ## Scale estimate: 0.0708</code></pre>
@@ -273,25 +527,25 @@ LModel2 &lt;- rlm(BHDataScaled$medv ~ ., data = BHDataScaled, psi = psi.hampel, 
 ## Call: rlm(formula = BHDataScaled$medv ~ ., data = BHDataScaled, psi = psi.hampel, 
 ##     init = &quot;lts&quot;)
 ## Residuals:
-##       Min        1Q    Median        3Q       Max 
-## -0.347671 -0.046918 -0.009419  0.048950  0.767535 
+##      Min       1Q   Median       3Q      Max 
+## -0.34770 -0.04692 -0.00942  0.04895  0.76754 
 ## 
 ## Coefficients:
 ##             Value   Std. Error t value
-## (Intercept)  0.2859  0.0408     7.0063
-## crim        -0.1924  0.0502    -3.8356
-## zn           0.0693  0.0236     2.9418
-## indus        0.0036  0.0288     0.1263
-## chas         0.0295  0.0148     1.9953
-## nox         -0.1090  0.0319    -3.4226
-## rm           0.6808  0.0374    18.1901
-## age         -0.0694  0.0220    -3.1536
-## dis         -0.2750  0.0376    -7.3073
-## rad          0.0932  0.0262     3.5609
-## tax         -0.1459  0.0338    -4.3160
-## ptratio     -0.1742  0.0211    -8.2540
-## black        0.0960  0.0183     5.2515
-## lstat       -0.2164  0.0315    -6.8621
+## (Intercept)  0.2858  0.0408     7.0053
+## crim        -0.1924  0.0502    -3.8354
+## zn           0.0693  0.0236     2.9412
+## indus        0.0036  0.0288     0.1267
+## chas         0.0295  0.0148     1.9957
+## nox         -0.1090  0.0319    -3.4225
+## rm           0.6808  0.0374    18.1904
+## age         -0.0694  0.0220    -3.1533
+## dis         -0.2750  0.0376    -7.3067
+## rad          0.0932  0.0262     3.5606
+## tax         -0.1459  0.0338    -4.3156
+## ptratio     -0.1742  0.0211    -8.2539
+## black        0.0960  0.0183     5.2514
+## lstat       -0.2164  0.0315    -6.8620
 ## 
 ## Residual standard error: 0.07084 on 492 degrees of freedom</code></pre>
 <pre class="r"><code>LM1Coef &lt;- coef(LModel1)
@@ -299,12 +553,12 @@ LModel2 &lt;- rlm(BHDataScaled$medv ~ ., data = BHDataScaled, psi = psi.hampel, 
 LM2Coef &lt;- coef(LModel2)</code></pre>
 <pre class="r"><code>plot(BHDataScaled$medv, BHDataScaled$lstat)
 abline(coef=LM1Coef)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
 <pre class="r"><code>plot(BHDataScaled$medv, BHDataScaled$lstat)
 abline(coef=LM2Coef)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-32-2.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-34-2.png" width="672" /></p>
 <pre class="r"><code>boxplot(BHDataScaled$crim)$out</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
 <pre><code>##  [1] 0.1519152 0.1036978 0.1247813 0.2078443 0.2203305 0.1717624 0.1103426
 ##  [8] 0.2657290 0.2007464 1.0000000 0.1783534 0.1031889 0.2256784 0.1888895
 ## [15] 0.2741094 0.2539149 0.1610363 0.1300618 0.1500899 0.4309939 0.1113886
@@ -463,7 +717,7 @@ print(outliers)
 ## 479 0.9141221 0.8085106 0.956629179 0.4497792 0.21333333
 ## 480 0.9141221 0.8085106 0.965757224 0.3140177 0.36444444</code></pre>
 <pre class="r"><code>boxplot(BHDataScaled$crim)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
 <pre class="r"><code>remove_outliers &lt;- function(x, na.rm = TRUE, ...) {
   qnt &lt;- quantile(x, probs=c(.25, .75), na.rm = na.rm, ...)
   H &lt;- 1.5 * IQR(x, na.rm = na.rm)
@@ -664,5 +918,226 @@ print(outliers)
 ## [426] 1.117457e-03 1.180175e-03 1.876927e-03 3.071264e-03 1.940769e-03
 ## [431] 3.183999e-03 2.945491e-03 2.616616e-03 1.927731e-03 2.450942e-03
 ## [436] 6.329108e-04 4.377886e-04 6.118925e-04 1.160730e-03 4.618417e-04</code></pre>
+</div>
+<div id="car-dataset" class="section level2">
+<h2>Car Dataset</h2>
+<pre class="r"><code># Data Source: https://archive.ics.uci.edu/ml/machine-learning-databases/car/
+ 
+library(randomForest)</code></pre>
+<pre class="r"><code># Load the dataset and explore
+data1 &lt;- read.table(url(&quot;https://archive.ics.uci.edu/ml/machine-learning-databases/car/car.data&quot;), sep = &quot;,&quot;)
+
+names(data1) &lt;- c(&quot;BuyingPrice&quot;, &quot;Maintenance&quot;, &quot;NumDoors&quot;, &quot;NUmPersons&quot;, &quot;BootSpace&quot;, &quot;Safety&quot;, &quot;Condition&quot;)
+
+head(data1)
+##   BuyingPrice Maintenance NumDoors NUmPersons BootSpace Safety Condition
+## 1       vhigh       vhigh        2          2     small    low     unacc
+## 2       vhigh       vhigh        2          2     small    med     unacc
+## 3       vhigh       vhigh        2          2     small   high     unacc
+## 4       vhigh       vhigh        2          2       med    low     unacc
+## 5       vhigh       vhigh        2          2       med    med     unacc
+## 6       vhigh       vhigh        2          2       med   high     unacc
+ 
+str(data1)
+## &#39;data.frame&#39;:    1728 obs. of  7 variables:
+##  $ BuyingPrice: Factor w/ 4 levels &quot;high&quot;,&quot;low&quot;,&quot;med&quot;,..: 4 4 4 4 4 4 4 4 4 4 ...
+##  $ Maintenance: Factor w/ 4 levels &quot;high&quot;,&quot;low&quot;,&quot;med&quot;,..: 4 4 4 4 4 4 4 4 4 4 ...
+##  $ NumDoors   : Factor w/ 4 levels &quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5more&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ NUmPersons : Factor w/ 3 levels &quot;2&quot;,&quot;4&quot;,&quot;more&quot;: 1 1 1 1 1 1 1 1 1 2 ...
+##  $ BootSpace  : Factor w/ 3 levels &quot;big&quot;,&quot;med&quot;,&quot;small&quot;: 3 3 3 2 2 2 1 1 1 3 ...
+##  $ Safety     : Factor w/ 3 levels &quot;high&quot;,&quot;low&quot;,&quot;med&quot;: 2 3 1 2 3 1 2 3 1 2 ...
+##  $ Condition  : Factor w/ 4 levels &quot;acc&quot;,&quot;good&quot;,&quot;unacc&quot;,..: 3 3 3 3 3 3 3 3 3 3 ...
+ 
+summary(data1)
+##  BuyingPrice Maintenance  NumDoors   NUmPersons BootSpace    Safety   
+##  high :432   high :432   2    :432   2   :576   big  :576   high:576  
+##  low  :432   low  :432   3    :432   4   :576   med  :576   low :576  
+##  med  :432   med  :432   4    :432   more:576   small:576   med :576  
+##  vhigh:432   vhigh:432   5more:432                                    
+##  Condition   
+##  acc  : 384  
+##  good :  69  
+##  unacc:1210  
+##  vgood:  65</code></pre>
+<pre class="r"><code># Split into Train and Validation sets
+# Training Set : Validation Set = 70 : 30 (random)
+set.seed(100)
+train &lt;- sample(nrow(data1), 0.7*nrow(data1), replace = FALSE)
+TrainSet &lt;- data1[train,]
+ValidSet &lt;- data1[-train,]
+summary(TrainSet)
+##  BuyingPrice Maintenance  NumDoors   NUmPersons BootSpace    Safety   
+##  high :298   high :303   2    :312   2   :407   big  :406   high:396  
+##  low  :300   low  :302   3    :298   4   :409   med  :393   low :412  
+##  med  :306   med  :312   4    :299   more:393   small:410   med :401  
+##  vhigh:305   vhigh:292   5more:300                                    
+##  Condition  
+##  acc  :260  
+##  good : 46  
+##  unacc:856  
+##  vgood: 47
+summary(ValidSet)
+##  BuyingPrice Maintenance  NumDoors   NUmPersons BootSpace    Safety   
+##  high :134   high :129   2    :120   2   :169   big  :170   high:180  
+##  low  :132   low  :130   3    :134   4   :167   med  :183   low :164  
+##  med  :126   med  :120   4    :133   more:183   small:166   med :175  
+##  vhigh:127   vhigh:140   5more:132                                    
+##  Condition  
+##  acc  :124  
+##  good : 23  
+##  unacc:354  
+##  vgood: 18</code></pre>
+<pre class="r"><code>summary(TrainSet)
+##  BuyingPrice Maintenance  NumDoors   NUmPersons BootSpace    Safety   
+##  high :298   high :303   2    :312   2   :407   big  :406   high:396  
+##  low  :300   low  :302   3    :298   4   :409   med  :393   low :412  
+##  med  :306   med  :312   4    :299   more:393   small:410   med :401  
+##  vhigh:305   vhigh:292   5more:300                                    
+##  Condition  
+##  acc  :260  
+##  good : 46  
+##  unacc:856  
+##  vgood: 47
+summary(ValidSet)
+##  BuyingPrice Maintenance  NumDoors   NUmPersons BootSpace    Safety   
+##  high :134   high :129   2    :120   2   :169   big  :170   high:180  
+##  low  :132   low  :130   3    :134   4   :167   med  :183   low :164  
+##  med  :126   med  :120   4    :133   more:183   small:166   med :175  
+##  vhigh:127   vhigh:140   5more:132                                    
+##  Condition  
+##  acc  :124  
+##  good : 23  
+##  unacc:354  
+##  vgood: 18</code></pre>
+<pre class="r"><code># Create a Random Forest model with default parameters
+model1 &lt;- randomForest(Condition ~ ., data = TrainSet, importance = TRUE)
+model1
+## 
+## Call:
+##  randomForest(formula = Condition ~ ., data = TrainSet, importance = TRUE) 
+##                Type of random forest: classification
+##                      Number of trees: 500
+## No. of variables tried at each split: 2
+## 
+##         OOB estimate of  error rate: 3.64%
+## Confusion matrix:
+##       acc good unacc vgood class.error
+## acc   255    2     2     1  0.01923077
+## good    7   35     0     4  0.23913043
+## unacc  20    2   834     0  0.02570093
+## vgood   6    0     0    41  0.12765957</code></pre>
+<pre class="r"><code># Fine tuning parameters of Random Forest model
+model2 &lt;- randomForest(Condition ~ ., data = TrainSet, ntree = 500, mtry = 6, importance = TRUE)
+model2
+## 
+## Call:
+##  randomForest(formula = Condition ~ ., data = TrainSet, ntree = 500,      mtry = 6, importance = TRUE) 
+##                Type of random forest: classification
+##                      Number of trees: 500
+## No. of variables tried at each split: 6
+## 
+##         OOB estimate of  error rate: 2.32%
+## Confusion matrix:
+##       acc good unacc vgood class.error
+## acc   248    6     5     1  0.04615385
+## good    4   42     0     0  0.08695652
+## unacc   8    2   846     0  0.01168224
+## vgood   2    0     0    45  0.04255319</code></pre>
+<pre class="r"><code># Predicting on train set
+predTrain &lt;- predict(model2, TrainSet, type = &quot;class&quot;)
+# Checking classification accuracy
+table(predTrain, TrainSet$Condition)  
+##          
+## predTrain acc good unacc vgood
+##     acc   260    0     0     0
+##     good    0   46     0     0
+##     unacc   0    0   856     0
+##     vgood   0    0     0    47</code></pre>
+<pre class="r"><code># Predicting on Validation set
+predValid &lt;- predict(model2, ValidSet, type = &quot;class&quot;)
+# Checking classification accuracy
+mean(predValid == ValidSet$Condition)                    
+## [1] 0.9845857
+table(predValid,ValidSet$Condition)
+##          
+## predValid acc good unacc vgood
+##     acc   120    1     2     1
+##     good    1   22     0     0
+##     unacc   3    0   352     0
+##     vgood   0    0     0    17</code></pre>
+<pre class="r"><code># To check important variables
+importance(model2)        
+##                   acc     good     unacc     vgood MeanDecreaseAccuracy
+## BuyingPrice 144.13929 75.96633 111.10092  80.70126             200.4809
+## Maintenance 134.88327 69.62648 104.31162  50.07345             182.8435
+## NumDoors     32.35052 17.55486  47.57988  20.17438              57.3249
+## NUmPersons  150.37837 50.89904 186.53684  57.04931             237.0746
+## BootSpace    85.05941 55.85293  83.13938  63.39719             144.7800
+## Safety      176.85992 82.14649 201.91053 110.32306             277.8490
+##             MeanDecreaseGini
+## BuyingPrice         68.49384
+## Maintenance         91.02632
+## NumDoors            33.93850
+## NUmPersons         122.51556
+## BootSpace           75.31990
+## Safety             151.59471
+varImpPlot(model2)   </code></pre>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
+<pre class="r"><code># Using For loop to identify the right mtry for model
+a=c()
+i=5
+for (i in 3:8) {
+  model3 &lt;- randomForest(Condition ~ ., data = TrainSet, ntree = 500, mtry = i, importance = TRUE)
+  predValid &lt;- predict(model3, ValidSet, type = &quot;class&quot;)
+  a[i-2] = mean(predValid == ValidSet$Condition)
+}
+## Warning in randomForest.default(m, y, ...): invalid mtry: reset to within valid
+## range
+
+## Warning in randomForest.default(m, y, ...): invalid mtry: reset to within valid
+## range
+ 
+a
+## [1] 0.9730250 0.9788054 0.9749518 0.9826590 0.9826590 0.9807322
+ 
+plot(3:8,a)</code></pre>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
+<pre class="r"><code>library(rpart)
+library(caret)
+## Carregando pacotes exigidos: lattice
+## Carregando pacotes exigidos: ggplot2
+## 
+## Attaching package: &#39;ggplot2&#39;
+## The following object is masked from &#39;package:randomForest&#39;:
+## 
+##     margin
+library(e1071)
+
+# We will compare model 1 of Random Forest with Decision Tree model
+ 
+model_dt = train(Condition ~ ., data = TrainSet, method = &quot;rpart&quot;)
+model_dt_1 = predict(model_dt, data = TrainSet)
+table(model_dt_1, TrainSet$Condition)
+##           
+## model_dt_1 acc good unacc vgood
+##      acc   202   38    75    47
+##      good    0    0     0     0
+##      unacc  58    8   781     0
+##      vgood   0    0     0     0
+ 
+mean(model_dt_1 == TrainSet$Condition)
+## [1] 0.8130687</code></pre>
+<pre class="r"><code># Running on Validation Set
+model_dt_vs = predict(model_dt, newdata = ValidSet)
+table(model_dt_vs, ValidSet$Condition)
+##            
+## model_dt_vs acc good unacc vgood
+##       acc   101   22    41    18
+##       good    0    0     0     0
+##       unacc  23    1   313     0
+##       vgood   0    0     0     0
+ 
+mean(model_dt_vs == ValidSet$Condition)
+## [1] 0.7976879</code></pre>
 </div>
 </div>
