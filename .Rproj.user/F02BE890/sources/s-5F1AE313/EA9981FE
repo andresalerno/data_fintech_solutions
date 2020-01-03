@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1577573937924.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2675704167",
+    "id" : "EA9981FE",
+    "lastKnownWriteTime" : 1577736282,
+    "last_content_update" : 1577736282244,
+    "path" : "C:/Users/andre/OneDrive/Área de Trabalho/salerno/blogdown/content/blog/2019-12-28-binary-search.Rmd",
+    "project_path" : "content/blog/2019-12-28-binary-search.Rmd",
+    "properties" : {
+        "cursorPosition" : "27,17",
+        "last_setup_crc32" : "5F1AE313a1aadca0",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 10,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

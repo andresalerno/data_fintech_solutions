@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1577115146830.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2729245185",
+    "id" : "7900C549",
+    "lastKnownWriteTime" : 1577115167,
+    "last_content_update" : 1577115192035,
+    "path" : "C:/Users/andre/OneDrive/Área de Trabalho/salerno/blogdown/content/blog/2019-12-23-random-forest.Rmd",
+    "project_path" : "content/blog/2019-12-23-random-forest.Rmd",
+    "properties" : {
+        "cursorPosition" : "10,32",
+        "last_setup_crc32" : "AD7DCD8ad117a8",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
