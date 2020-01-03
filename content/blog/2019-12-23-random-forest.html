@@ -92,230 +92,6 @@ str(BHData)
 <h2>Pre-processing</h2>
 <div id="remove-outliers" class="section level3">
 <h3>Remove outliers</h3>
-<pre class="r"><code>boxplot(BHData$crim,
-        boxfill = &quot;light gray&quot;,
-        outpch = 21:25,
-        outlty = 2,
-        bg = &quot;pink&quot;,
-        lwd = 2,
-        medcol = &quot;dark green&quot;,
-        medcex = 2,
-        medpch = 20,
-        ylim = c(0, 25),
-        main = &quot;Dispersion in CRIM Variable w/ Outlier Detection&quot;,
-        range = 1.5,
-        cex.lab = 1.5,
-        cex.main = 1.5,
-        cex.axis = 1.5)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<pre class="r"><code>boxplot(BHData$zn,
-        boxfill = &quot;light gray&quot;,
-        outpch = 21:25,
-        outlty = 2,
-        bg = &quot;pink&quot;,
-        lwd = 2,
-        medcol = &quot;dark green&quot;,
-        medcex = 2,
-        medpch = 20,
-        ylim = c(0, 100),
-        main = &quot;Dispersion in ZN Variable w/ Outlier Detection&quot;,
-        range = 1.5,
-        cex.lab = 1.5,
-        cex.main = 1.5,
-        cex.axis = 1.5)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
-<pre class="r"><code>boxplot(BHData$indus,
-        boxfill = &quot;light gray&quot;,
-        outpch = 21:25,
-        outlty = 2,
-        bg = &quot;pink&quot;,
-        lwd = 2,
-        medcol = &quot;dark green&quot;,
-        medcex = 2,
-        medpch = 20,
-        ylim = c(0, 50),
-        main = &quot;Dispersion in INDUS Variable w/ Outlier Detection&quot;,
-        range = 1.5,
-        cex.lab = 1.5,
-        cex.main = 1.5,
-        cex.axis = 1.5)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-3.png" width="672" /></p>
-<pre class="r"><code>boxplot(BHData$chas,
-        boxfill = &quot;light gray&quot;,
-        outpch = 21:25,
-        outlty = 2,
-        bg = &quot;pink&quot;,
-        lwd = 2,
-        medcol = &quot;dark green&quot;,
-        medcex = 2,
-        medpch = 20,
-        ylim = c(0, 10),
-        main = &quot;Dispersion in CHAS Variable w/ Outlier Detection&quot;,
-        range = 1.5,
-        cex.lab = 1.5,
-        cex.main = 1.5,
-        cex.axis = 1.5)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-4.png" width="672" /></p>
-<pre class="r"><code>boxplot(BHData$nox,
-        boxfill = &quot;light gray&quot;,
-        outpch = 21:25,
-        outlty = 2,
-        bg = &quot;pink&quot;,
-        lwd = 2,
-        medcol = &quot;dark green&quot;,
-        medcex = 2,
-        medpch = 20,
-        ylim = c(0, 1),
-        main = &quot;Dispersion in NOX Variable w/ Outlier Detection&quot;,
-        range = 1.5,
-        cex.lab = 1.5,
-        cex.main = 1.5,
-        cex.axis = 1.5)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-5.png" width="672" /></p>
-<pre class="r"><code>boxplot(BHData$rm,
-        boxfill = &quot;light gray&quot;,
-        outpch = 21:25,
-        outlty = 2,
-        bg = &quot;pink&quot;,
-        lwd = 2,
-        medcol = &quot;dark green&quot;,
-        medcex = 2,
-        medpch = 20,
-        ylim = c(0, 10),
-        main = &quot;Dispersion in RM Variable w/ Outlier Detection&quot;,
-        range = 1.5,
-        cex.lab = 1.5,
-        cex.main = 1.5,
-        cex.axis = 1.5)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-6.png" width="672" /></p>
-<pre class="r"><code>boxplot(BHData$age,
-        boxfill = &quot;light gray&quot;,
-        outpch = 21:25,
-        outlty = 2,
-        bg = &quot;pink&quot;,
-        lwd = 2,
-        medcol = &quot;dark green&quot;,
-        medcex = 2,
-        medpch = 20,
-        ylim = c(0, 100),
-        main = &quot;Dispersion in AGE Variable w/ Outlier Detection&quot;,
-        range = 1.5,
-        cex.lab = 1.5,
-        cex.main = 1.5,
-        cex.axis = 1.5)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-7.png" width="672" /></p>
-<pre class="r"><code>boxplot(BHData$dis,
-        boxfill = &quot;light gray&quot;,
-        outpch = 21:25,
-        outlty = 2,
-        bg = &quot;pink&quot;,
-        lwd = 2,
-        medcol = &quot;dark green&quot;,
-        medcex = 2,
-        medpch = 20,
-        ylim = c(0, 15),
-        main = &quot;Dispersion in DIS Variable w/ Outlier Detection&quot;,
-        range = 1.5,
-        cex.lab = 1.5,
-        cex.main = 1.5,
-        cex.axis = 1.5)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-8.png" width="672" /></p>
-<pre class="r"><code>boxplot(BHData$rad,
-        boxfill = &quot;light gray&quot;,
-        outpch = 21:25,
-        outlty = 2,
-        bg = &quot;pink&quot;,
-        lwd = 2,
-        medcol = &quot;dark green&quot;,
-        medcex = 2,
-        medpch = 20,
-        ylim = c(0, 50),
-        main = &quot;Dispersion in RAD Variable w/ Outlier Detection&quot;,
-        range = 1.5,
-        cex.lab = 1.5,
-        cex.main = 1.5,
-        cex.axis = 1.5)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-9.png" width="672" /></p>
-<pre class="r"><code>boxplot(BHData$tax,
-        boxfill = &quot;light gray&quot;,
-        outpch = 21:25,
-        outlty = 2,
-        bg = &quot;pink&quot;,
-        lwd = 2,
-        medcol = &quot;dark green&quot;,
-        medcex = 2,
-        medpch = 20,
-        ylim = c(0, 50),
-        main = &quot;Dispersion in TAX Variable w/ Outlier Detection&quot;,
-        range = 1.5,
-        cex.lab = 1.5,
-        cex.main = 1.5,
-        cex.axis = 1.5)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-10.png" width="672" /></p>
-<pre class="r"><code>boxplot(BHData$ptratio,
-        boxfill = &quot;light gray&quot;,
-        outpch = 21:25,
-        outlty = 2,
-        bg = &quot;pink&quot;,
-        lwd = 2,
-        medcol = &quot;dark green&quot;,
-        medcex = 2,
-        medpch = 20,
-        ylim = c(0, 50),
-        main = &quot;Dispersion in PTRATIO Variable w/ Outlier Detection&quot;,
-        range = 1.5,
-        cex.lab = 1.5,
-        cex.main = 1.5,
-        cex.axis = 1.5)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-11.png" width="672" /></p>
-<pre class="r"><code>boxplot(BHData$black,
-        boxfill = &quot;light gray&quot;,
-        outpch = 21:25,
-        outlty = 2,
-        bg = &quot;pink&quot;,
-        lwd = 2,
-        medcol = &quot;dark green&quot;,
-        medcex = 2,
-        medpch = 20,
-        ylim = c(0, 50),
-        main = &quot;Dispersion in BLACK Variable w/ Outlier Detection&quot;,
-        range = 1.5,
-        cex.lab = 1.5,
-        cex.main = 1.5,
-        cex.axis = 1.5)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-12.png" width="672" /></p>
-<pre class="r"><code>boxplot(BHData$zn,
-        boxfill = &quot;light gray&quot;,
-        outpch = 21:25,
-        outlty = 2,
-        bg = &quot;pink&quot;,
-        lwd = 2,
-        medcol = &quot;dark green&quot;,
-        medcex = 2,
-        medpch = 20,
-        ylim = c(0, 50),
-        main = &quot;Dispersion in ZN Variable w/ Outlier Detection&quot;,
-        range = 1.5,
-        cex.lab = 1.5,
-        cex.main = 1.5,
-        cex.axis = 1.5)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-13.png" width="672" /></p>
-<pre class="r"><code>boxplot(BHData$medv,
-        boxfill = &quot;light gray&quot;,
-        outpch = 21:25,
-        outlty = 2,
-        bg = &quot;pink&quot;,
-        lwd = 2,
-        medcol = &quot;dark green&quot;,
-        medcex = 2,
-        medpch = 20,
-        ylim = c(0, 50),
-        main = &quot;Dispersion in MEDV Variable w/ Outlier Detection&quot;,
-        range = 1.5,
-        cex.lab = 1.5,
-        cex.main = 1.5,
-        cex.axis = 1.5)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-6-14.png" width="672" /></p>
 <pre class="r"><code>#cut-off values are given by the formal definition of an outlier: 
 #Q3 + 1.5*IQR
 upper_cut_off1 &lt;- (quantile(BHData$crim, 0.75)) + (IQR(BHData$crim))*1.5
@@ -382,14 +158,14 @@ BHDataScaled &lt;- as.data.frame(scale(BHData,center = min_data,
 ##  3rd Qu.:0.4201   3rd Qu.:0.4444  
 ##  Max.   :1.0000   Max.   :1.0000</code></pre>
 <pre class="r"><code>boxplot(BHDataScaled)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>According with the graph above there some som variables with outliers. But the <code>crim</code> predictor variable has the largest number os outliers.</p>
 <pre class="r"><code>CorBHData&lt;-cor(BHDataScaled)</code></pre>
 <pre class="r"><code>library(corrplot)
 ## corrplot 0.84 loaded
 
 corrplot(CorBHData, method = &quot;pie&quot;,type=&quot;lower&quot;)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 </div>
 </div>
 <div id="multiple-linear-model-fitting" class="section level2">
@@ -433,10 +209,10 @@ corrplot(CorBHData, method = &quot;pie&quot;,type=&quot;lower&quot;)</code></pre
 <pre class="r"><code>plot(BHDataScaled[,14],Pred1,
      xlab=&quot;Actual&quot;,ylab=&quot;Predicted&quot;)
 abline(a=0,b=1)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <pre class="r"><code>par(mfrow=c(2,2))
 plot(LModel1)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 </div>
 <div id="random-forest-regression-model" class="section level2">
 <h2>Random Forest Regression Model</h2>
@@ -452,8 +228,8 @@ RFModel
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 4
 ## 
-##           Mean of squared residuals: 0.005079367
-##                     % Var explained: 87.82</code></pre>
+##           Mean of squared residuals: 0.00476609
+##                     % Var explained: 88.57</code></pre>
 <pre class="r"><code>summary(RFModel)
 ##                 Length Class  Mode     
 ## call              3    -none- call     
@@ -475,31 +251,31 @@ RFModel
 ## inbag             0    -none- NULL     
 ## terms             3    terms  call</code></pre>
 <pre class="r"><code>plot(RFModel)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 <pre class="r"><code>VarImp&lt;-importance(RFModel)
 VarImp&lt;-as.matrix(VarImp[order(VarImp[,1], decreasing = TRUE),])
 VarImp
 ##              [,1]
-## lstat   6.3243648
-## rm      5.9423391
-## nox     1.4800855
-## ptratio 1.3603891
-## crim    1.2770267
-## indus   1.1928920
-## dis     1.1714025
-## tax     0.5907981
-## age     0.5853903
-## black   0.3446560
-## rad     0.1876433
-## zn      0.1360135
-## chas    0.1200784</code></pre>
+## lstat   6.0574021
+## rm      5.7940364
+## indus   1.4530514
+## nox     1.3531538
+## ptratio 1.3171112
+## dis     1.2957303
+## crim    1.2250947
+## tax     0.7204445
+## age     0.5578364
+## black   0.3748653
+## zn      0.1662593
+## rad     0.1450710
+## chas    0.1365377</code></pre>
 <pre class="r"><code>varImpPlot(RFModel)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 <pre class="r"><code>Pred2 &lt;- predict(RFModel)</code></pre>
 <pre class="r"><code>plot(BHDataScaled[,14],Pred2,
      xlab=&quot;Actual&quot;,ylab=&quot;Predicted&quot;)
 abline(a=0,b=1)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
 </div>
 <div id="robust-linear-regression-model" class="section level2">
 <h2>Robust Linear Regression Model</h2>
@@ -510,15 +286,15 @@ LModel2 &lt;- rlm(BHDataScaled$medv ~ ., data = BHDataScaled, psi = psi.hampel, 
 ## Call:
 ## rlm(formula = BHDataScaled$medv ~ ., data = BHDataScaled, psi = psi.hampel, 
 ##     init = &quot;lts&quot;)
-## Converged in 9 iterations
+## Converged in 10 iterations
 ## 
 ## Coefficients:
 ##  (Intercept)         crim           zn        indus         chas          nox 
-##  0.285847609 -0.192436735  0.069281475  0.003647391  0.029505079 -0.109023733 
+##  0.285874828 -0.192440257  0.069292252  0.003634696  0.029497415 -0.109020365 
 ##           rm          age          dis          rad          tax      ptratio 
-##  0.680821496 -0.069404337 -0.275003734  0.093232954 -0.145924848 -0.174175484 
+##  0.680775604 -0.069407410 -0.275014795  0.093236680 -0.145930494 -0.174170551 
 ##        black        lstat 
-##  0.095986368 -0.216411653 
+##  0.095984860 -0.216404818 
 ## 
 ## Degrees of freedom: 506 total; 492 residual
 ## Scale estimate: 0.0708</code></pre>
@@ -527,25 +303,25 @@ LModel2 &lt;- rlm(BHDataScaled$medv ~ ., data = BHDataScaled, psi = psi.hampel, 
 ## Call: rlm(formula = BHDataScaled$medv ~ ., data = BHDataScaled, psi = psi.hampel, 
 ##     init = &quot;lts&quot;)
 ## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -0.34770 -0.04692 -0.00942  0.04895  0.76754 
+##       Min        1Q    Median        3Q       Max 
+## -0.347670 -0.046918 -0.009419  0.048950  0.767535 
 ## 
 ## Coefficients:
 ##             Value   Std. Error t value
-## (Intercept)  0.2858  0.0408     7.0053
-## crim        -0.1924  0.0502    -3.8354
-## zn           0.0693  0.0236     2.9412
-## indus        0.0036  0.0288     0.1267
-## chas         0.0295  0.0148     1.9957
-## nox         -0.1090  0.0319    -3.4225
-## rm           0.6808  0.0374    18.1904
-## age         -0.0694  0.0220    -3.1533
-## dis         -0.2750  0.0376    -7.3067
-## rad          0.0932  0.0262     3.5606
-## tax         -0.1459  0.0338    -4.3156
-## ptratio     -0.1742  0.0211    -8.2539
-## black        0.0960  0.0183     5.2514
-## lstat       -0.2164  0.0315    -6.8620
+## (Intercept)  0.2859  0.0408     7.0063
+## crim        -0.1924  0.0502    -3.8356
+## zn           0.0693  0.0236     2.9418
+## indus        0.0036  0.0288     0.1263
+## chas         0.0295  0.0148     1.9953
+## nox         -0.1090  0.0319    -3.4226
+## rm           0.6808  0.0374    18.1900
+## age         -0.0694  0.0220    -3.1536
+## dis         -0.2750  0.0376    -7.3073
+## rad          0.0932  0.0262     3.5609
+## tax         -0.1459  0.0338    -4.3160
+## ptratio     -0.1742  0.0211    -8.2540
+## black        0.0960  0.0183     5.2515
+## lstat       -0.2164  0.0315    -6.8621
 ## 
 ## Residual standard error: 0.07084 on 492 degrees of freedom</code></pre>
 <pre class="r"><code>LM1Coef &lt;- coef(LModel1)
@@ -553,12 +329,12 @@ LModel2 &lt;- rlm(BHDataScaled$medv ~ ., data = BHDataScaled, psi = psi.hampel, 
 LM2Coef &lt;- coef(LModel2)</code></pre>
 <pre class="r"><code>plot(BHDataScaled$medv, BHDataScaled$lstat)
 abline(coef=LM1Coef)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
 <pre class="r"><code>plot(BHDataScaled$medv, BHDataScaled$lstat)
 abline(coef=LM2Coef)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-34-2.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-33-2.png" width="672" /></p>
 <pre class="r"><code>boxplot(BHDataScaled$crim)$out</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
 <pre><code>##  [1] 0.1519152 0.1036978 0.1247813 0.2078443 0.2203305 0.1717624 0.1103426
 ##  [8] 0.2657290 0.2007464 1.0000000 0.1783534 0.1031889 0.2256784 0.1888895
 ## [15] 0.2741094 0.2539149 0.1610363 0.1300618 0.1500899 0.4309939 0.1113886
@@ -717,7 +493,7 @@ print(outliers)
 ## 479 0.9141221 0.8085106 0.956629179 0.4497792 0.21333333
 ## 480 0.9141221 0.8085106 0.965757224 0.3140177 0.36444444</code></pre>
 <pre class="r"><code>boxplot(BHDataScaled$crim)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
 <pre class="r"><code>remove_outliers &lt;- function(x, na.rm = TRUE, ...) {
   qnt &lt;- quantile(x, probs=c(.25, .75), na.rm = na.rm, ...)
   H &lt;- 1.5 * IQR(x, na.rm = na.rm)
@@ -1082,7 +858,7 @@ importance(model2)
 ## BootSpace           75.31990
 ## Safety             151.59471
 varImpPlot(model2)   </code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
 <pre class="r"><code># Using For loop to identify the right mtry for model
 a=c()
 i=5
@@ -1101,7 +877,7 @@ a
 ## [1] 0.9730250 0.9788054 0.9749518 0.9826590 0.9826590 0.9807322
  
 plot(3:8,a)</code></pre>
-<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
+<p><img src="/blog/2019-12-23-random-forest_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
 <pre class="r"><code>library(rpart)
 library(caret)
 ## Carregando pacotes exigidos: lattice

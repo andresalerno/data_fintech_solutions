@@ -1,3 +1,0 @@
-"0","# applying the normalization"
-"0","BHDataScaled <- as.data.frame(scale(BHData,center = min_data, "
-"0","  scale = max_data - min_data))"
