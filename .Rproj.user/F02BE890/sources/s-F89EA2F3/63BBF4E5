@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1578161264432.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "639779945",
+    "id" : "63BBF4E5",
+    "lastKnownWriteTime" : 1578161582,
+    "last_content_update" : 1578161582613,
+    "path" : "C:/Users/andre/OneDrive/Área de Trabalho/salerno/blogdown/data/features/webdesign.yaml",
+    "project_path" : "data/features/webdesign.yaml",
+    "properties" : {
+        "cursorPosition" : "4,14",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "yaml"
+}
