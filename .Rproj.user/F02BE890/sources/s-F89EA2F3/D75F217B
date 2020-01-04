@@ -1,24 +1,24 @@
 {
     "collab_server" : "",
     "contents" : "",
-    "created" : 1578160215475.000,
+    "created" : 1578160495620.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "351033862",
-    "id" : "25135412",
-    "lastKnownWriteTime" : 1578160345,
-    "last_content_update" : 1578160345083,
+    "hash" : "2394469534",
+    "id" : "D75F217B",
+    "lastKnownWriteTime" : 1578160616,
+    "last_content_update" : 1578160616218,
     "path" : "C:/Users/andre/OneDrive/Área de Trabalho/salerno/blogdown/data/features/seo.yaml",
     "project_path" : "data/features/seo.yaml",
     "properties" : {
-        "cursorPosition" : "4,159",
+        "cursorPosition" : "4,65",
         "scrollLine" : "0"
     },
     "read_only" : false,
     "read_only_alternatives" : [
     ],
-    "relative_order" : 5,
+    "relative_order" : 1,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "yaml"
