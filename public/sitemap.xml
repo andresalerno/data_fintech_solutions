@@ -43,12 +43,12 @@
   </url>
   
   <url>
-    <loc>/categories/python/</loc>
+    <loc>/tags/python/</loc>
     <lastmod>2019-12-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/python/</loc>
+    <loc>/categories/python/</loc>
     <lastmod>2019-12-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -64,16 +64,6 @@
   
   <url>
     <loc>/blog/2019/12/26/2019-12-27-quicksort-algorithm/</loc>
-    <lastmod>2019-12-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/random-forest/</loc>
-    <lastmod>2019-12-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/2019/12/26/2019-12-26-random-forest-heart-disease/</loc>
     <lastmod>2019-12-26T00:00:00+00:00</lastmod>
   </url>
   
@@ -98,6 +88,11 @@
   </url>
   
   <url>
+    <loc>/tags/random-forest/</loc>
+    <lastmod>2019-12-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/regression/</loc>
     <lastmod>2019-12-23T00:00:00+00:00</lastmod>
   </url>
@@ -113,12 +108,12 @@
   </url>
   
   <url>
-    <loc>/categories/data-frame/</loc>
+    <loc>/tags/data-frame/</loc>
     <lastmod>2019-12-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/data-frame/</loc>
+    <loc>/categories/data-frame/</loc>
     <lastmod>2019-12-18T00:00:00+00:00</lastmod>
   </url>
   
@@ -158,12 +153,12 @@
   </url>
   
   <url>
-    <loc>/tags/models/</loc>
+    <loc>/categories/models/</loc>
     <lastmod>2019-12-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/models/</loc>
+    <loc>/tags/models/</loc>
     <lastmod>2019-12-18T00:00:00+00:00</lastmod>
   </url>
   
