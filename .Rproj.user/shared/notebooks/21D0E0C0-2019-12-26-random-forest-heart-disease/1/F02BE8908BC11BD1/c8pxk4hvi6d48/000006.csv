@@ -1,4 +1,0 @@
-"0","data[data[, ""cp""] == ""NA"", ""cp""] <- ""4"""
-"2","Error in `[<-.data.frame`(`*tmp*`, data[, ""cp""] == ""NA"", ""cp"", value = ""4"") : 
-  missing values are not allowed in subscripted assignments of data frames
-"

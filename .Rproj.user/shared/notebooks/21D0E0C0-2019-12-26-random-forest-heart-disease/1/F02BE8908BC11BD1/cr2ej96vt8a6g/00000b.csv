@@ -1,3 +1,0 @@
-"0","data <- read.csv(file = ""heart.csv"", sep = "","")"
-"0",""
-"0","head(data, 3)"
