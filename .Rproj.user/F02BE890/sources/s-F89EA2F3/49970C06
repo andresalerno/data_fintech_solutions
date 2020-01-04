@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1578160212383.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "49970C06",
+    "lastKnownWriteTime" : 1578157933,
+    "last_content_update" : 1578157933,
+    "path" : "C:/Users/andre/OneDrive/Área de Trabalho/salerno/blogdown/data/features/print.yaml",
+    "project_path" : "data/features/print.yaml",
+    "properties" : {
+        "cursorPosition" : "0,9",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "yaml"
+}
