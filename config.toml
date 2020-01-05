@@ -102,7 +102,7 @@ ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "
     email = "andresalerno22@gmail.com"
     contact_form_ajax = false
 
-    about_us = "<p>A Data Fintech Solutions é uma empresa que tem em seu DNA o uso das mais consistentes ferramentas financeiras associadas com as mais recentes soluções tecnológicas.</p>"
+    about_us = "<p>A Data Fintech Solutions is a company that has in their DNA the use the most consistent tech and financial tools associated with the most recent tech solutions.</p>"
     copyright = "Copyright (c) 2019 - 2020, Data Fintech Solutions; all rights reserved."
 
     # Format dates with Go's time formatting
@@ -171,10 +171,10 @@ ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "
     # All clients are defined in their own files. You can find example items
     # at 'exampleSite/data/clients'.
     # For more informtion take a look at the README.
-    title = "Nossos clientes e parceiros"
+    title = "Our clients and partners"
     subtitle = ""
 
 [params.recent_posts]
     enable = true
     title = "Blog"
-    subtitle = "Nesse espaço compartilhamos nossos estudos, cases de sucesso e muito mais. Não só esperamos que você obtenha conhecimento nesse ambiente, mas encorajamos a troca de experiências."
+    subtitle = "Here you can find our success cases, recent studies and much more. We not only want you to gain knowledge here, but we encourage you that in this space you get valuable information can be exchanged"
