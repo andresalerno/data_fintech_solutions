@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1578254293064.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4234729806",
+    "id" : "D26B2689",
+    "lastKnownWriteTime" : 1578254528,
+    "last_content_update" : 1578254528023,
+    "path" : "C:/Users/andre/OneDrive/Área de Trabalho/salerno/blogdown/data/features/uiux.yaml",
+    "project_path" : "data/features/uiux.yaml",
+    "properties" : {
+        "cursorPosition" : "4,204",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "yaml"
+}
