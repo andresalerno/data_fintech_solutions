@@ -1,0 +1,2 @@
+"0","wbcd$diagnosis <- factor(wbcd$diagnosis, levels = c(""B"", ""M""),"
+"0","                           labels = c(""Benign"", ""Malignant""))"

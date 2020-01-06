@@ -1,0 +1,231 @@
+---
+title: "Diagnosing breast cancer with the kNN algorithm"
+author: "Salerno"
+date: '2020-01-05'
+slug: statistical-modeling
+tags: ["Statistic", "Modeling", "KNN"]
+categories: R Programming
+draft: FALSE
+banner: img/banners/banner-5.png
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, warnings = FALSE, echo = TRUE)
+```
+
+
+# 1 - Introduction
+
+
+Could the Machine Learning Algorithms detect beforehand any abnormal cell process?
+
+We know that this clinical battle is not so easy and there are a lot of people envolved in this process trying to identify a clear path to the cure.
+
+In complement to the decision human process, coult the technology decrease the subjective bias inherently in the process and improve our decisions?
+
+We absolutely know that the human being process is limited when compared to high capacity of the computers.
+
+If we combine the experience of human beings with the increase capacity of the CPUs, certainly we will achieve new levels.
+
+
+# 2 - Collecting the data
+
+
+We will utilize the "Breast Cancer Wisconsin Diagnostic" dataset from the UCI Machine Learning Repository, which is available at http://archive.ics.uci.edu/ml.
+
+
+```{r}
+
+path <- "C:/Users/andre/OneDrive/Área de Trabalho/salerno/blogdown/datasets/breast_cancer"
+
+path <- paste0(path, "/wisc_bc_data.csv")
+
+wbcd <- read.csv(path, stringsAsFactors = FALSE)
+
+```
+
+In this dataset there are around 569 events and 32 features. Lets check it out below:
+
+```{r}
+dim(wbcd)
+```
+
+
+
+# 3 - Exploring the data
+
+```{r}
+
+#drop the id column
+wbcd <- wbcd[-1]
+
+str(wbcd)
+
+```
+
+```{r}
+
+table(wbcd$diagnosis)
+
+```
+
+# 4 - Pre-processing
+
+Some R machine learning classifiers require that the target feature is coded as a factor.
+
+```{r}
+
+wbcd$diagnosis <- factor(wbcd$diagnosis, levels = c("B", "M"),
+                           labels = c("Benign", "Malignant"))
+```
+
+```{r}
+
+round(prop.table(table(wbcd$diagnosis)) * 100, digits = 1)
+
+```
+
+```{r}
+
+summary(wbcd[c("radius_mean", "area_mean", "smoothness_mean")])
+
+```
+
+## 5 - Transformation – normalizing numeric data
+
+```{r}
+
+# defining a function
+normalize <- function(x) {
+    return ((x - min(x)) / (max(x) - min(x)))
+}
+
+```
+
+Let's check if the normalize function is working
+
+```{r}
+
+normalize(c(1, 2, 3, 4, 5))
+
+normalize(c(10, 20, 30, 40, 50))
+
+```
+
+
+```{r}
+
+wbcd_n <- as.data.frame(lapply(wbcd[2:31], normalize))
+
+```
+
+```{r}
+
+summary(wbcd_n$area_mean)
+
+```
+
+## 6 - Data preparation – creating training and test datasets
+
+```{r}
+
+wbcd_train <- wbcd_n[1:469, ]
+wbcd_test <- wbcd_n[470:569, ]
+
+```
+
+```{r}
+
+wbcd_train_labels <- wbcd[1:469, 1]
+wbcd_test_labels <- wbcd[470:569, 1]
+
+```
+
+## 7 - Training a model on the data
+
+```{r}
+
+library(class)
+
+wbcd_test_pred <- knn(train = wbcd_train, test = wbcd_test,
+                        cl = wbcd_train_labels, k=21)
+
+head(wbcd_test_pred)
+```
+
+## 8 - Evaluating Model Performance
+
+```{r}
+
+library(gmodels)
+CrossTable(x = wbcd_test_labels, y = wbcd_test_pred,
+             prop.chisq=FALSE)
+
+```
+
+## 9 - Improving Model Performance
+
+```{r}
+
+wbcd_z <- as.data.frame(scale(wbcd[-1]))
+
+```
+
+```{r}
+
+summary(wbcd_z$area_mean)
+
+```
+
+
+```{r}
+
+wbcd_train <- wbcd_z[1:469, ]
+wbcd_test <- wbcd_z[470:569, ]
+wbcd_train_labels <- wbcd[1:469, 1]
+wbcd_test_labels <- wbcd[470:569, 1]
+wbcd_test_pred <- knn(train = wbcd_train, test = wbcd_test,
+                        cl = wbcd_train_labels, k=21)
+CrossTable(x = wbcd_test_labels, y = wbcd_test_pred,
+             prop.chisq=FALSE)
+
+```
+
+```{r}
+
+library(caret)
+
+a <- factor(as.vector(wbcd_test_labels), levels = c("B", "M"),
+                           labels = c("Benign", "Malignant"))
+
+b <- factor(as.vector(wbcd_test_pred), levels = c("B", "M"),
+                           labels = c("Benign", "Malignant"))
+
+
+confusionMatrix(b, a, positive = "Malignant")
+
+```
+
+```{r}
+
+library(vcd)
+
+Kappa(table(a, b))
+
+```
+
+```{r}
+
+library(caret)
+
+sensitivity(b, a,
+              positive = "Malignat")
+
+specificity(b, a,
+              negative = "Benign")
+
+posPredValue(b, a,
+               positive = "Malignat")
+
+```
+

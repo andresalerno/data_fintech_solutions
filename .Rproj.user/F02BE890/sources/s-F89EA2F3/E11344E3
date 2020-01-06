@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1578261212349.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3192615846",
+    "id" : "E11344E3",
+    "lastKnownWriteTime" : 1578326837,
+    "last_content_update" : 1578326837458,
+    "path" : "C:/Users/andre/OneDrive/Área de Trabalho/salerno/blogdown/content/blog/2020-01-05-knn-algorithm.Rmd",
+    "project_path" : "content/blog/2020-01-05-knn-algorithm.Rmd",
+    "properties" : {
+        "cursorPosition" : "226,17",
+        "last_setup_crc32" : "F89EA2F38ad117a8",
+        "scrollLine" : "213"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

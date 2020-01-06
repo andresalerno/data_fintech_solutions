@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1578259328949.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "B02A29C3",
+    "lastKnownWriteTime" : 1576967139,
+    "last_content_update" : 1576967139,
+    "path" : "C:/Users/andre/OneDrive/Área de Trabalho/salerno/blogdown/content/blog/2019-12-21-exponential-smoothing-model.Rmd",
+    "project_path" : "content/blog/2019-12-21-exponential-smoothing-model.Rmd",
+    "properties" : {
+        "cursorPosition" : "0,0",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

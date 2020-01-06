@@ -6,10 +6,22 @@
     <description>Recent content on DFS</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Diagnosing breast cancer with the kNN algorithm</title>
+      <link>/blog/2020/01/05/2020-01-05-knn-algorithm/</link>
+      <pubDate>Sun, 05 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2020/01/05/2020-01-05-knn-algorithm/</guid>
+      <description>1 - IntroductionCould the Machine Learning Algorithms detect beforehand any abnormal cell process?
+We know that this clinical battle is not so easy and there are a lot of people envolved in this process trying to identify a clear path to the cure.
+In complement to the decision human process, coult the technology decrease the subjective bias inherently in the process and improve our decisions?
+We absolutely know that the human being process is limited when compared to high capacity of the computers.</description>
+    </item>
     
     <item>
       <title>Binary Search Algorithm</title>

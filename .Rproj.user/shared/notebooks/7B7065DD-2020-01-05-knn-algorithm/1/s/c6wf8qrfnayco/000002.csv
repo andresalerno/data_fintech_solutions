@@ -1,0 +1,3 @@
+"0",""
+"0","wbcd_z <- as.data.frame(scale(wbcd[-1]))"
+"0",""
