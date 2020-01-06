@@ -29,7 +29,8 @@ path &lt;- paste0(path, &quot;/wisc_bc_data.csv&quot;)
 
 wbcd &lt;- read.csv(path, stringsAsFactors = FALSE)</code></pre>
 <p>In this dataset there are around 569 events and 32 features. Lets check it out below:</p>
-<pre class="r"><code>dim(wbcd)
+<pre class="r"><code>
+dim(wbcd)
 ## [1] 569  32</code></pre>
 </div>
 <div id="exploring-the-data" class="section level2">
@@ -72,22 +73,22 @@ str(wbcd)
 ##  $ symmetry_worst   : num  0.283 0.294 0.3 0.21 0.249 ...
 ##  $ dimension_worst  : num  0.0677 0.0759 0.0788 0.0678 0.0677 ...</code></pre>
 <pre class="r"><code>
+wbcd$diagnosis &lt;- factor(wbcd$diagnosis, levels = c(&quot;B&quot;, &quot;M&quot;),
+                           labels = c(0, 1))
+
 table(wbcd$diagnosis)
 ## 
-##   B   M 
-## 357 212</code></pre>
+##   0   1 
+## 357 212
+
+round(prop.table(table(wbcd$diagnosis)) * 100, digits = 1)
+## 
+##    0    1 
+## 62.7 37.3</code></pre>
 </div>
 <div id="pre-processing" class="section level2">
 <h2>4 - Pre-processing</h2>
 <p>Some R machine learning classifiers require that the target feature is coded as a factor.</p>
-<pre class="r"><code>
-wbcd$diagnosis &lt;- factor(wbcd$diagnosis, levels = c(&quot;B&quot;, &quot;M&quot;),
-                           labels = c(&quot;Benign&quot;, &quot;Malignant&quot;))</code></pre>
-<pre class="r"><code>
-round(prop.table(table(wbcd$diagnosis)) * 100, digits = 1)
-## 
-##    Benign Malignant 
-##      62.7      37.3</code></pre>
 <pre class="r"><code>
 summary(wbcd[c(&quot;radius_mean&quot;, &quot;area_mean&quot;, &quot;smoothness_mean&quot;)])
 ##   radius_mean       area_mean      smoothness_mean  
@@ -136,9 +137,8 @@ library(class)
 wbcd_test_pred &lt;- knn(train = wbcd_train, test = wbcd_test,
                         cl = wbcd_train_labels, k=21)
 
-head(wbcd_test_pred)
-## [1] Benign    Benign    Benign    Benign    Malignant Benign   
-## Levels: Benign Malignant</code></pre>
+class(wbcd_test_pred)
+## [1] &quot;factor&quot;</code></pre>
 </div>
 <div id="evaluating-model-performance" class="section level2">
 <h2>8 - Evaluating Model Performance</h2>
@@ -161,14 +161,14 @@ CrossTable(x = wbcd_test_labels, y = wbcd_test_pred,
 ## 
 ##  
 ##                  | wbcd_test_pred 
-## wbcd_test_labels |    Benign | Malignant | Row Total | 
+## wbcd_test_labels |         0 |         1 | Row Total | 
 ## -----------------|-----------|-----------|-----------|
-##           Benign |        61 |         0 |        61 | 
+##                0 |        61 |         0 |        61 | 
 ##                  |     1.000 |     0.000 |     0.610 | 
 ##                  |     0.968 |     0.000 |           | 
 ##                  |     0.610 |     0.000 |           | 
 ## -----------------|-----------|-----------|-----------|
-##        Malignant |         2 |        37 |        39 | 
+##                1 |         2 |        37 |        39 | 
 ##                  |     0.051 |     0.949 |     0.390 | 
 ##                  |     0.032 |     1.000 |           | 
 ##                  |     0.020 |     0.370 |           | 
@@ -211,14 +211,14 @@ CrossTable(x = wbcd_test_labels, y = wbcd_test_pred,
 ## 
 ##  
 ##                  | wbcd_test_pred 
-## wbcd_test_labels |    Benign | Malignant | Row Total | 
+## wbcd_test_labels |         0 |         1 | Row Total | 
 ## -----------------|-----------|-----------|-----------|
-##           Benign |        61 |         0 |        61 | 
+##                0 |        61 |         0 |        61 | 
 ##                  |     1.000 |     0.000 |     0.610 | 
 ##                  |     0.924 |     0.000 |           | 
 ##                  |     0.610 |     0.000 |           | 
 ## -----------------|-----------|-----------|-----------|
-##        Malignant |         5 |        34 |        39 | 
+##                1 |         5 |        34 |        39 | 
 ##                  |     0.128 |     0.872 |     0.390 | 
 ##                  |     0.076 |     1.000 |           | 
 ##                  |     0.050 |     0.340 |           | 
@@ -233,61 +233,54 @@ library(caret)
 ## Carregando pacotes exigidos: lattice
 ## Carregando pacotes exigidos: ggplot2
 
-a &lt;- factor(as.vector(wbcd_test_labels), levels = c(&quot;B&quot;, &quot;M&quot;),
-                           labels = c(&quot;Benign&quot;, &quot;Malignant&quot;))
-
-b &lt;- factor(as.vector(wbcd_test_pred), levels = c(&quot;B&quot;, &quot;M&quot;),
-                           labels = c(&quot;Benign&quot;, &quot;Malignant&quot;))
-
-
-confusionMatrix(b, a, positive = &quot;Malignant&quot;)
+confusionMatrix(wbcd_test_labels, wbcd_test_pred, positive = &quot;0&quot;)
 ## Confusion Matrix and Statistics
 ## 
-##            Reference
-## Prediction  Benign Malignant
-##   Benign         0         0
-##   Malignant      0         0
-##                                    
-##                Accuracy : NaN      
-##                  95% CI : (NA, NA) 
-##     No Information Rate : NA       
-##     P-Value [Acc &gt; NIR] : NA       
-##                                    
-##                   Kappa : NaN      
-##                                    
-##  Mcnemar&#39;s Test P-Value : NA       
-##                                    
-##             Sensitivity :  NA      
-##             Specificity :  NA      
-##          Pos Pred Value :  NA      
-##          Neg Pred Value :  NA      
-##              Prevalence : NaN      
-##          Detection Rate : NaN      
-##    Detection Prevalence : NaN      
-##       Balanced Accuracy :  NA      
-##                                    
-##        &#39;Positive&#39; Class : Malignant
+##           Reference
+## Prediction  0  1
+##          0 61  0
+##          1  5 34
+##                                           
+##                Accuracy : 0.95            
+##                  95% CI : (0.8872, 0.9836)
+##     No Information Rate : 0.66            
+##     P-Value [Acc &gt; NIR] : 2.729e-12       
+##                                           
+##                   Kappa : 0.8924          
+##                                           
+##  Mcnemar&#39;s Test P-Value : 0.07364         
+##                                           
+##             Sensitivity : 0.9242          
+##             Specificity : 1.0000          
+##          Pos Pred Value : 1.0000          
+##          Neg Pred Value : 0.8718          
+##              Prevalence : 0.6600          
+##          Detection Rate : 0.6100          
+##    Detection Prevalence : 0.6100          
+##       Balanced Accuracy : 0.9621          
+##                                           
+##        &#39;Positive&#39; Class : 0               
 ## </code></pre>
 <pre class="r"><code>
 library(vcd)
 ## Carregando pacotes exigidos: grid
 
-Kappa(table(a, b))
-##            value ASE   z Pr(&gt;|z|)
-## Unweighted   NaN NaN NaN      NaN
-## Weighted     NaN NaN NaN      NaN</code></pre>
+Kappa(table(wbcd_test_labels, wbcd_test_pred))
+##             value     ASE     z  Pr(&gt;|z|)
+## Unweighted 0.8924 0.04662 19.14 1.098e-81
+## Weighted   0.8924 0.04662 19.14 1.098e-81</code></pre>
 <pre class="r"><code>
 library(caret)
 
-sensitivity(b, a,
-              positive = &quot;Malignat&quot;)
-## [1] NA
+sensitivity(wbcd_test_pred, wbcd_test_labels,
+              positive = &quot;1&quot;)
+## [1] 0.8717949
 
-specificity(b, a,
-              negative = &quot;Benign&quot;)
-## [1] NA
+specificity(wbcd_test_pred, wbcd_test_labels,
+              negative = &quot;0&quot;)
+## [1] 1
 
-posPredValue(b, a,
-               positive = &quot;Malignat&quot;)
-## [1] NA</code></pre>
+posPredValue(wbcd_test_pred, wbcd_test_labels,
+               positive = &quot;1&quot;)
+## [1] 1</code></pre>
 </div>
