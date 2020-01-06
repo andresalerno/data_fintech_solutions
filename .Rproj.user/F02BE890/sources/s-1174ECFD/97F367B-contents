@@ -14,7 +14,7 @@ knitr::opts_chunk$set(collapse = TRUE, warnings = FALSE, echo = TRUE)
 ```
 
 
-# 1 - Introduction
+## 1 - Introduction
 
 
 Could the Machine Learning Algorithms detect beforehand any abnormal cell process?
@@ -28,7 +28,7 @@ We absolutely know that the human being process is limited when compared to high
 If we combine the experience of human beings with the increase capacity of the CPUs, certainly we will achieve new levels.
 
 
-# 2 - Collecting the data
+## 2 - Collecting the data
 
 
 We will utilize the "Breast Cancer Wisconsin Diagnostic" dataset from the UCI Machine Learning Repository, which is available at http://archive.ics.uci.edu/ml.
@@ -47,12 +47,14 @@ wbcd <- read.csv(path, stringsAsFactors = FALSE)
 In this dataset there are around 569 events and 32 features. Lets check it out below:
 
 ```{r}
+
 dim(wbcd)
+
 ```
 
 
 
-# 3 - Exploring the data
+## 3 - Exploring the data
 
 ```{r}
 
@@ -65,25 +67,20 @@ str(wbcd)
 
 ```{r}
 
-table(wbcd$diagnosis)
-
-```
-
-# 4 - Pre-processing
-
-Some R machine learning classifiers require that the target feature is coded as a factor.
-
-```{r}
-
 wbcd$diagnosis <- factor(wbcd$diagnosis, levels = c("B", "M"),
-                           labels = c("Benign", "Malignant"))
-```
+                           labels = c(0, 1))
 
-```{r}
+table(wbcd$diagnosis)
 
 round(prop.table(table(wbcd$diagnosis)) * 100, digits = 1)
 
 ```
+
+## 4 - Pre-processing
+
+
+Some R machine learning classifiers require that the target feature is coded as a factor.
+
 
 ```{r}
 
@@ -150,7 +147,7 @@ library(class)
 wbcd_test_pred <- knn(train = wbcd_train, test = wbcd_test,
                         cl = wbcd_train_labels, k=21)
 
-head(wbcd_test_pred)
+class(wbcd_test_pred)
 ```
 
 ## 8 - Evaluating Model Performance
@@ -195,14 +192,7 @@ CrossTable(x = wbcd_test_labels, y = wbcd_test_pred,
 
 library(caret)
 
-a <- factor(as.vector(wbcd_test_labels), levels = c("B", "M"),
-                           labels = c("Benign", "Malignant"))
-
-b <- factor(as.vector(wbcd_test_pred), levels = c("B", "M"),
-                           labels = c("Benign", "Malignant"))
-
-
-confusionMatrix(b, a, positive = "Malignant")
+confusionMatrix(wbcd_test_labels, wbcd_test_pred, positive = "0")
 
 ```
 
@@ -210,7 +200,7 @@ confusionMatrix(b, a, positive = "Malignant")
 
 library(vcd)
 
-Kappa(table(a, b))
+Kappa(table(wbcd_test_labels, wbcd_test_pred))
 
 ```
 
@@ -218,14 +208,14 @@ Kappa(table(a, b))
 
 library(caret)
 
-sensitivity(b, a,
-              positive = "Malignat")
+sensitivity(wbcd_test_pred, wbcd_test_labels,
+              positive = "1")
 
-specificity(b, a,
-              negative = "Benign")
+specificity(wbcd_test_pred, wbcd_test_labels,
+              negative = "0")
 
-posPredValue(b, a,
-               positive = "Malignat")
+posPredValue(wbcd_test_pred, wbcd_test_labels,
+               positive = "1")
 
 ```
 

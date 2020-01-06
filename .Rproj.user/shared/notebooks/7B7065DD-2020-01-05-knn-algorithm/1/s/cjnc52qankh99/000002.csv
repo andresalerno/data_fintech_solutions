@@ -1,7 +1,8 @@
 "0",""
 "0","library(vcd)"
-"0",""
-"0","Kappa(table(a, b))"
+"2","Carregando pacotes exigidos: grid
+"
+"0","Kappa(table(wbcd_test_labels, wbcd_test_pred))"
 "1","          "
 "1","  value"
 "1","     ASE"

@@ -11,16 +11,16 @@ banner: img/banners/banner-5.png
 
 
 
-<div id="introduction" class="section level1">
-<h1>1 - Introduction</h1>
+<div id="introduction" class="section level2">
+<h2>1 - Introduction</h2>
 <p>Could the Machine Learning Algorithms detect beforehand any abnormal cell process?</p>
 <p>We know that this clinical battle is not so easy and there are a lot of people envolved in this process trying to identify a clear path to the cure.</p>
 <p>In complement to the decision human process, coult the technology decrease the subjective bias inherently in the process and improve our decisions?</p>
 <p>We absolutely know that the human being process is limited when compared to high capacity of the computers.</p>
 <p>If we combine the experience of human beings with the increase capacity of the CPUs, certainly we will achieve new levels.</p>
 </div>
-<div id="collecting-the-data" class="section level1">
-<h1>2 - Collecting the data</h1>
+<div id="collecting-the-data" class="section level2">
+<h2>2 - Collecting the data</h2>
 <p>We will utilize the “Breast Cancer Wisconsin Diagnostic” dataset from the UCI Machine Learning Repository, which is available at <a href="http://archive.ics.uci.edu/ml" class="uri">http://archive.ics.uci.edu/ml</a>.</p>
 <pre class="r"><code>
 path &lt;- &quot;C:/Users/andre/OneDrive/Área de Trabalho/salerno/blogdown/datasets/breast_cancer&quot;
@@ -32,8 +32,8 @@ wbcd &lt;- read.csv(path, stringsAsFactors = FALSE)</code></pre>
 <pre class="r"><code>dim(wbcd)
 ## [1] 569  32</code></pre>
 </div>
-<div id="exploring-the-data" class="section level1">
-<h1>3 - Exploring the data</h1>
+<div id="exploring-the-data" class="section level2">
+<h2>3 - Exploring the data</h2>
 <pre class="r"><code>
 #drop the id column
 wbcd &lt;- wbcd[-1]
@@ -77,8 +77,8 @@ table(wbcd$diagnosis)
 ##   B   M 
 ## 357 212</code></pre>
 </div>
-<div id="pre-processing" class="section level1">
-<h1>4 - Pre-processing</h1>
+<div id="pre-processing" class="section level2">
+<h2>4 - Pre-processing</h2>
 <p>Some R machine learning classifiers require that the target feature is coded as a factor.</p>
 <pre class="r"><code>
 wbcd$diagnosis &lt;- factor(wbcd$diagnosis, levels = c(&quot;B&quot;, &quot;M&quot;),
@@ -97,6 +97,7 @@ summary(wbcd[c(&quot;radius_mean&quot;, &quot;area_mean&quot;, &quot;smoothness_
 ##  Mean   :14.127   Mean   : 654.9   Mean   :0.09636  
 ##  3rd Qu.:15.780   3rd Qu.: 782.7   3rd Qu.:0.10530  
 ##  Max.   :28.110   Max.   :2501.0   Max.   :0.16340</code></pre>
+</div>
 <div id="transformation-normalizing-numeric-data" class="section level2">
 <h2>5 - Transformation – normalizing numeric data</h2>
 <pre class="r"><code>
@@ -289,5 +290,4 @@ specificity(b, a,
 posPredValue(b, a,
                positive = &quot;Malignat&quot;)
 ## [1] NA</code></pre>
-</div>
 </div>
