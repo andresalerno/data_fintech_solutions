@@ -5,16 +5,16 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "1296533831",
+    "hash" : "388322119",
     "id" : "97F367B",
-    "lastKnownWriteTime" : 1578344333,
-    "last_content_update" : 1578344333915,
+    "lastKnownWriteTime" : 1578345020,
+    "last_content_update" : 1578345020094,
     "path" : "C:/Users/andre/OneDrive/Área de Trabalho/salerno/blogdown/content/blog/2020-01-05-knn-algorithm.Rmd",
     "project_path" : "content/blog/2020-01-05-knn-algorithm.Rmd",
     "properties" : {
-        "cursorPosition" : "229,0",
+        "cursorPosition" : "231,86",
         "last_setup_crc32" : "1174ECFD8ad117a8",
-        "scrollLine" : "210"
+        "scrollLine" : "214"
     },
     "read_only" : false,
     "read_only_alternatives" : [

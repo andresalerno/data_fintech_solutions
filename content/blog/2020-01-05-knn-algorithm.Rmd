@@ -227,4 +227,8 @@ This algorithm simply stores the tarining data verbatim. Unlabeled test examples
 
 Even the KNN algorithm is classified as a simple algorithm, it is capable of tackling complex tasks.
 
+They do not need any mathematics assumptions and you do not need the most updated and strong specificationbs in terms of hardware.
+
+The most important assumption is that events near each other is considered as similar.
+
 
