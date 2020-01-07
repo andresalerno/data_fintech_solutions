@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1578417208753.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4108462158",
+    "id" : "5243F78E",
+    "lastKnownWriteTime" : 1578418795,
+    "last_content_update" : 1578418795254,
+    "path" : "C:/Users/andre/OneDrive/Área de Trabalho/salerno/blogdown/data/carousel/customizable.yaml",
+    "project_path" : "data/carousel/customizable.yaml",
+    "properties" : {
+        "cursorPosition" : "6,0",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "yaml"
+}
