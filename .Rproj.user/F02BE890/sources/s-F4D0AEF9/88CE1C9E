@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1578961249729.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2276425535",
+    "id" : "88CE1C9E",
+    "lastKnownWriteTime" : 1578966602,
+    "last_content_update" : 1578966602509,
+    "path" : "C:/Users/andre/OneDrive/Área de Trabalho/salerno/blogdown/content/blog/2020-01-13-classifying-using-logistic-regression.Rmd",
+    "project_path" : "content/blog/2020-01-13-classifying-using-logistic-regression.Rmd",
+    "properties" : {
+        "cursorPosition" : "180,64",
+        "last_setup_crc32" : "F4D0AEF98ad117a8",
+        "scrollLine" : "166"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

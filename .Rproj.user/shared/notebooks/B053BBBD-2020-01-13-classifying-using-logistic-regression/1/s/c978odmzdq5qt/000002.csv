@@ -1,0 +1,5 @@
+"0",""
+"0","# Remove rows with missing values,"
+"0",""
+"0","BCData<-BCData[!(BCData$BareNuclei==""?""),]"
+"0",""

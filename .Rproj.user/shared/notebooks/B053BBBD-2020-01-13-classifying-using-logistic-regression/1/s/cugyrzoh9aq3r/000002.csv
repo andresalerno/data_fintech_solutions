@@ -1,0 +1,3 @@
+"0",""
+"0","LGModelPred <- round(predict(LoGModel, type=""response""))"
+"0",""

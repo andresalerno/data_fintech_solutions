@@ -1,0 +1,4 @@
+"0",""
+"0","BCData$Class<-replace(BCData$Class,BCData$Class==2,0)"
+"0","BCData$Class<-replace(BCData$Class,BCData$Class==4,1)"
+"0",""

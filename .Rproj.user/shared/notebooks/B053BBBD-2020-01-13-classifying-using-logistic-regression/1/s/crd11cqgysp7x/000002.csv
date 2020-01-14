@@ -1,0 +1,4 @@
+"0",""
+"0","LoGModel <- glm(Class ~.-Id, "
+"0","              family=binomial(link='logit'),data=BCData)"
+"0",""

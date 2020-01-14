@@ -1,0 +1,1 @@
+"0","BCData <- read.table(url(""https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/breast-cancer-wisconsin.data""), sep = "","")"

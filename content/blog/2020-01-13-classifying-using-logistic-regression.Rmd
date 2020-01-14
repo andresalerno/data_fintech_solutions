@@ -1,0 +1,184 @@
+---
+title: "Classifying using Logistic Regression"
+author: "Salerno"
+date: "2020-01-13"
+categories: ["R Programming", "Classification", "Logistic Regression"]
+tags: []
+draft: FALSE
+banner: img/banners/banner-5.png
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, warnings = FALSE, echo = TRUE)
+```
+
+## 1 - Objective
+
+The objective of this example is to identify each of a number of benign or malignant classes.
+
+## 2 - Data
+
+```{r}
+
+BCData <- read.table(url("https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/breast-cancer-wisconsin.data"), sep = ",")
+
+```
+
+```{r}
+# setting column names
+names(BCData)<- c('Id', 'ClumpThickness', 'CellSize','CellShape',     
+                   'MarginalAdhesion','SECellSize', 'BareNuclei',
+                   'BlandChromatin','NormalNucleoli',
+                   'Mitoses','Class')
+
+```
+
+## 3 - EDA - Exploratory Data Analysis
+
+```{r}
+
+dim(BCData)
+
+```
+
+```{r}
+
+str(BCData)
+
+```
+
+```{r}
+
+# Remove rows with missing values,
+
+BCData<-BCData[!(BCData$BareNuclei=="?"),]
+
+```
+
+```{r}
+
+BCData$BareNuclei<-as.integer(BCData$BareNuclei)
+
+```
+
+```{r}
+
+str(BCData)
+
+```
+
+```{r}
+
+summary(BCData)
+
+```
+
+```{r}
+
+table(BCData$Class)
+
+```
+
+```{r}
+
+boxplot(BCData[,2:10])
+
+```
+
+```{r}
+
+par(mfrow=c(3, 3))
+hist(BCData$ClumpThickness)
+hist(BCData$CellSize)
+hist(BCData$CellShape)
+hist(BCData$MarginalAdhesion)
+hist(BCData$SECellSize)
+hist(as.numeric(BCData$BareNuclei))
+hist(BCData$BlandChromatin)
+hist(BCData$NormalNucleoli)
+hist(BCData$Mitoses)
+
+```
+
+## 4 - Model Fitting
+
+```{r}
+
+BCData$Class<-replace(BCData$Class,BCData$Class==2,0)
+BCData$Class<-replace(BCData$Class,BCData$Class==4,1)
+
+```
+
+```{r}
+
+table(BCData$Class)
+
+```
+
+```{r}
+
+LoGModel <- glm(Class ~.-Id, 
+              family=binomial(link='logit'),data=BCData)
+
+```
+
+```{r}
+
+summary(LoGModel)
+
+```
+
+```{r}
+
+anova(LoGModel, test="Chisq")
+
+```
+
+```{r}
+
+LGModelPred <- round(predict(LoGModel, type="response"))
+
+```
+
+```{r}
+
+table(LGModelPred)
+
+```
+
+```{r}
+
+table(BCData$Class, LGModelPred)
+
+```
+
+```{r}
+
+library(caret)
+confusionMatrix(table(LGModelPred, BCData$Class), positive="1") 
+
+```
+
+```{r}
+library(pROC)
+
+RocObj <- pROC::roc(BCData$Class, LGModelPred, levels = c(0, 1), direction = "<")
+
+print(RocObj)
+
+```
+
+```{r}
+
+plot.roc(RocObj)
+
+```
+
+```{r}
+
+plot(RocObj, print.auc=TRUE, auc.polygon=TRUE, grid=c(0.1, 0.2),
+               grid.col=c("green", "red"), max.auc.polygon=TRUE,
+                       auc.polygon.col="blue", print.thres=TRUE)
+
+```
+

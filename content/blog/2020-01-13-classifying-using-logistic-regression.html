@@ -1,0 +1,250 @@
+---
+title: "Classifying using Logistic Regression"
+author: "Salerno"
+date: "2020-01-13"
+categories: ["R Programming", "Classification", "Logistic Regression"]
+tags: []
+draft: FALSE
+banner: img/banners/banner-5.png
+---
+
+
+
+<div id="objective" class="section level2">
+<h2>1 - Objective</h2>
+<p>The objective of this example is to identify each of a number of benign or malignant classes.</p>
+</div>
+<div id="data" class="section level2">
+<h2>2 - Data</h2>
+<pre class="r"><code>
+BCData &lt;- read.table(url(&quot;https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/breast-cancer-wisconsin.data&quot;), sep = &quot;,&quot;)</code></pre>
+<pre class="r"><code># setting column names
+names(BCData)&lt;- c(&#39;Id&#39;, &#39;ClumpThickness&#39;, &#39;CellSize&#39;,&#39;CellShape&#39;,     
+                   &#39;MarginalAdhesion&#39;,&#39;SECellSize&#39;, &#39;BareNuclei&#39;,
+                   &#39;BlandChromatin&#39;,&#39;NormalNucleoli&#39;,
+                   &#39;Mitoses&#39;,&#39;Class&#39;)</code></pre>
+</div>
+<div id="eda---exploratory-data-analysis" class="section level2">
+<h2>3 - EDA - Exploratory Data Analysis</h2>
+<pre class="r"><code>
+dim(BCData)
+## [1] 699  11</code></pre>
+<pre class="r"><code>
+str(BCData)
+## &#39;data.frame&#39;:    699 obs. of  11 variables:
+##  $ Id              : int  1000025 1002945 1015425 1016277 1017023 1017122 1018099 1018561 1033078 1033078 ...
+##  $ ClumpThickness  : int  5 5 3 6 4 8 1 2 2 4 ...
+##  $ CellSize        : int  1 4 1 8 1 10 1 1 1 2 ...
+##  $ CellShape       : int  1 4 1 8 1 10 1 2 1 1 ...
+##  $ MarginalAdhesion: int  1 5 1 1 3 8 1 1 1 1 ...
+##  $ SECellSize      : int  2 7 2 3 2 7 2 2 2 2 ...
+##  $ BareNuclei      : Factor w/ 11 levels &quot;?&quot;,&quot;1&quot;,&quot;10&quot;,&quot;2&quot;,..: 2 3 4 6 2 3 3 2 2 2 ...
+##  $ BlandChromatin  : int  3 3 3 3 3 9 3 3 1 2 ...
+##  $ NormalNucleoli  : int  1 2 1 7 1 7 1 1 1 1 ...
+##  $ Mitoses         : int  1 1 1 1 1 1 1 1 5 1 ...
+##  $ Class           : int  2 2 2 2 2 4 2 2 2 2 ...</code></pre>
+<pre class="r"><code>
+# Remove rows with missing values,
+
+BCData&lt;-BCData[!(BCData$BareNuclei==&quot;?&quot;),]</code></pre>
+<pre class="r"><code>
+BCData$BareNuclei&lt;-as.integer(BCData$BareNuclei)</code></pre>
+<pre class="r"><code>
+str(BCData)
+## &#39;data.frame&#39;:    683 obs. of  11 variables:
+##  $ Id              : int  1000025 1002945 1015425 1016277 1017023 1017122 1018099 1018561 1033078 1033078 ...
+##  $ ClumpThickness  : int  5 5 3 6 4 8 1 2 2 4 ...
+##  $ CellSize        : int  1 4 1 8 1 10 1 1 1 2 ...
+##  $ CellShape       : int  1 4 1 8 1 10 1 2 1 1 ...
+##  $ MarginalAdhesion: int  1 5 1 1 3 8 1 1 1 1 ...
+##  $ SECellSize      : int  2 7 2 3 2 7 2 2 2 2 ...
+##  $ BareNuclei      : int  2 3 4 6 2 3 3 2 2 2 ...
+##  $ BlandChromatin  : int  3 3 3 3 3 9 3 3 1 2 ...
+##  $ NormalNucleoli  : int  1 2 1 7 1 7 1 1 1 1 ...
+##  $ Mitoses         : int  1 1 1 1 1 1 1 1 5 1 ...
+##  $ Class           : int  2 2 2 2 2 4 2 2 2 2 ...</code></pre>
+<pre class="r"><code>
+summary(BCData)
+##        Id           ClumpThickness      CellSize        CellShape     
+##  Min.   :   63375   Min.   : 1.000   Min.   : 1.000   Min.   : 1.000  
+##  1st Qu.:  877617   1st Qu.: 2.000   1st Qu.: 1.000   1st Qu.: 1.000  
+##  Median : 1171795   Median : 4.000   Median : 1.000   Median : 1.000  
+##  Mean   : 1076720   Mean   : 4.442   Mean   : 3.151   Mean   : 3.215  
+##  3rd Qu.: 1238705   3rd Qu.: 6.000   3rd Qu.: 5.000   3rd Qu.: 5.000  
+##  Max.   :13454352   Max.   :10.000   Max.   :10.000   Max.   :10.000  
+##  MarginalAdhesion   SECellSize       BareNuclei     BlandChromatin  
+##  Min.   : 1.00    Min.   : 1.000   Min.   : 2.000   Min.   : 1.000  
+##  1st Qu.: 1.00    1st Qu.: 2.000   1st Qu.: 2.000   1st Qu.: 2.000  
+##  Median : 1.00    Median : 2.000   Median : 2.000   Median : 3.000  
+##  Mean   : 2.83    Mean   : 3.234   Mean   : 3.217   Mean   : 3.445  
+##  3rd Qu.: 4.00    3rd Qu.: 4.000   3rd Qu.: 3.000   3rd Qu.: 5.000  
+##  Max.   :10.00    Max.   :10.000   Max.   :11.000   Max.   :10.000  
+##  NormalNucleoli     Mitoses           Class    
+##  Min.   : 1.00   Min.   : 1.000   Min.   :2.0  
+##  1st Qu.: 1.00   1st Qu.: 1.000   1st Qu.:2.0  
+##  Median : 1.00   Median : 1.000   Median :2.0  
+##  Mean   : 2.87   Mean   : 1.603   Mean   :2.7  
+##  3rd Qu.: 4.00   3rd Qu.: 1.000   3rd Qu.:4.0  
+##  Max.   :10.00   Max.   :10.000   Max.   :4.0</code></pre>
+<pre class="r"><code>
+table(BCData$Class)
+## 
+##   2   4 
+## 444 239</code></pre>
+<pre class="r"><code>
+boxplot(BCData[,2:10])</code></pre>
+<p><img src="/blog/2020-01-13-classifying-using-logistic-regression_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<pre class="r"><code>
+par(mfrow=c(3, 3))
+hist(BCData$ClumpThickness)
+hist(BCData$CellSize)
+hist(BCData$CellShape)
+hist(BCData$MarginalAdhesion)
+hist(BCData$SECellSize)
+hist(as.numeric(BCData$BareNuclei))
+hist(BCData$BlandChromatin)
+hist(BCData$NormalNucleoli)
+hist(BCData$Mitoses)</code></pre>
+<p><img src="/blog/2020-01-13-classifying-using-logistic-regression_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+<div id="model-fitting" class="section level2">
+<h2>4 - Model Fitting</h2>
+<pre class="r"><code>
+BCData$Class&lt;-replace(BCData$Class,BCData$Class==2,0)
+BCData$Class&lt;-replace(BCData$Class,BCData$Class==4,1)</code></pre>
+<pre class="r"><code>
+table(BCData$Class)
+## 
+##   0   1 
+## 444 239</code></pre>
+<pre class="r"><code>
+LoGModel &lt;- glm(Class ~.-Id, 
+              family=binomial(link=&#39;logit&#39;),data=BCData)</code></pre>
+<pre class="r"><code>
+summary(LoGModel)
+## 
+## Call:
+## glm(formula = Class ~ . - Id, family = binomial(link = &quot;logit&quot;), 
+##     data = BCData)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -3.6922  -0.1128  -0.0588   0.0206   2.6233  
+## 
+## Coefficients:
+##                   Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)      -11.05697    1.24336  -8.893  &lt; 2e-16 ***
+## ClumpThickness     0.58181    0.12937   4.497 6.88e-06 ***
+## CellSize          -0.05776    0.20026  -0.288 0.773024    
+## CellShape          0.52133    0.21391   2.437 0.014802 *  
+## MarginalAdhesion   0.38661    0.10949   3.531 0.000414 ***
+## SECellSize         0.18570    0.14787   1.256 0.209179    
+## BareNuclei         0.21915    0.11224   1.952 0.050887 .  
+## BlandChromatin     0.61953    0.16219   3.820 0.000134 ***
+## NormalNucleoli     0.14997    0.10936   1.371 0.170251    
+## Mitoses            0.58935    0.35733   1.649 0.099087 .  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 884.35  on 682  degrees of freedom
+## Residual deviance: 117.91  on 673  degrees of freedom
+## AIC: 137.91
+## 
+## Number of Fisher Scoring iterations: 8</code></pre>
+<pre class="r"><code>
+anova(LoGModel, test=&quot;Chisq&quot;)
+## Analysis of Deviance Table
+## 
+## Model: binomial, link: logit
+## 
+## Response: Class
+## 
+## Terms added sequentially (first to last)
+## 
+## 
+##                  Df Deviance Resid. Df Resid. Dev  Pr(&gt;Chi)    
+## NULL                               682     884.35              
+## ClumpThickness    1   425.87       681     458.48 &lt; 2.2e-16 ***
+## CellSize          1   261.91       680     196.58 &lt; 2.2e-16 ***
+## CellShape         1    20.08       679     176.50 7.427e-06 ***
+## MarginalAdhesion  1    21.39       678     155.11 3.750e-06 ***
+## SECellSize        1     6.45       677     148.66  0.011112 *  
+## BareNuclei        1     6.98       676     141.68  0.008248 ** 
+## BlandChromatin    1    18.42       675     123.26 1.767e-05 ***
+## NormalNucleoli    1     2.09       674     121.17  0.148710    
+## Mitoses           1     3.26       673     117.91  0.070868 .  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>
+LGModelPred &lt;- round(predict(LoGModel, type=&quot;response&quot;))</code></pre>
+<pre class="r"><code>
+table(LGModelPred)
+## LGModelPred
+##   0   1 
+## 440 243</code></pre>
+<pre class="r"><code>
+table(BCData$Class, LGModelPred)
+##    LGModelPred
+##       0   1
+##   0 432  12
+##   1   8 231</code></pre>
+<pre class="r"><code>
+library(caret)
+## Carregando pacotes exigidos: lattice
+## Carregando pacotes exigidos: ggplot2
+confusionMatrix(table(LGModelPred, BCData$Class), positive=&quot;1&quot;) 
+## Confusion Matrix and Statistics
+## 
+##            
+## LGModelPred   0   1
+##           0 432   8
+##           1  12 231
+##                                          
+##                Accuracy : 0.9707         
+##                  95% CI : (0.9551, 0.982)
+##     No Information Rate : 0.6501         
+##     P-Value [Acc &gt; NIR] : &lt;2e-16         
+##                                          
+##                   Kappa : 0.9359         
+##                                          
+##  Mcnemar&#39;s Test P-Value : 0.5023         
+##                                          
+##             Sensitivity : 0.9665         
+##             Specificity : 0.9730         
+##          Pos Pred Value : 0.9506         
+##          Neg Pred Value : 0.9818         
+##              Prevalence : 0.3499         
+##          Detection Rate : 0.3382         
+##    Detection Prevalence : 0.3558         
+##       Balanced Accuracy : 0.9698         
+##                                          
+##        &#39;Positive&#39; Class : 1              
+## </code></pre>
+<pre class="r"><code>library(pROC)
+## Type &#39;citation(&quot;pROC&quot;)&#39; for a citation.
+## 
+## Attaching package: &#39;pROC&#39;
+## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     cov, smooth, var
+
+RocObj &lt;- pROC::roc(BCData$Class, LGModelPred, levels = c(0, 1), direction = &quot;&lt;&quot;)
+
+print(RocObj)
+## 
+## Call:
+## roc.default(response = BCData$Class, predictor = LGModelPred,     levels = c(0, 1), direction = &quot;&lt;&quot;)
+## 
+## Data: LGModelPred in 444 controls (BCData$Class 0) &lt; 239 cases (BCData$Class 1).
+## Area under the curve: 0.9698</code></pre>
+<pre class="r"><code>
+plot.roc(RocObj)</code></pre>
+<p><img src="/blog/2020-01-13-classifying-using-logistic-regression_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<pre class="r"><code>
+plot(RocObj, print.auc=TRUE, auc.polygon=TRUE, grid=c(0.1, 0.2),
+               grid.col=c(&quot;green&quot;, &quot;red&quot;), max.auc.polygon=TRUE,
+                       auc.polygon.col=&quot;blue&quot;, print.thres=TRUE)</code></pre>
+<p><img src="/blog/2020-01-13-classifying-using-logistic-regression_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+</div>

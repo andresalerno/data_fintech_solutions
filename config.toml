@@ -58,9 +58,9 @@ ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "
 
 [[menu.topbar]]
     weight = 3
-    name = "Twitter"
-    url = "https://twitter.com/andresalerno"
-    pre = "<i class='fab fa-2x fa-twitter'></i>"
+    name = "LinkedIn"
+    url = "https://www.linkedin.com/in/andresalerno/"
+    pre = "<i class='fab fa-linkedin-in'></i>"
 
 [[menu.topbar]]
     weight = 4
@@ -102,7 +102,7 @@ ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "
     email = "andresalerno22@gmail.com"
     contact_form_ajax = false
 
-    about_us = "<p>A Data Fintech Solutions is a company that has in their DNA the use the most consistent tech and financial tools associated with the most recent tech solutions.</p>"
+    about_us = "<p>A Data Fintech Solutions is a company that has in her DNA the use the most consistent tech and financial tools associated with the most recent tech solutions.</p>"
     copyright = "Copyright (c) 2019 - 2020, Data Fintech Solutions; all rights reserved."
 
     # Format dates with Go's time formatting

@@ -6,10 +6,20 @@
     <description>Recent content in R Programming on DFS</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/r-programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Classifying using Logistic Regression</title>
+      <link>/blog/2020/01/13/2020-01-13-classifying-using-logistic-regression/</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2020/01/13/2020-01-13-classifying-using-logistic-regression/</guid>
+      <description>1 - ObjectiveThe objective of this example is to identify each of a number of benign or malignant classes.
+2 - DataBCData &amp;lt;- read.table(url(&amp;quot;https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/breast-cancer-wisconsin.data&amp;quot;), sep = &amp;quot;,&amp;quot;)# setting column namesnames(BCData)&amp;lt;- c(&amp;#39;Id&amp;#39;, &amp;#39;ClumpThickness&amp;#39;, &amp;#39;CellSize&amp;#39;,&amp;#39;CellShape&amp;#39;, &amp;#39;MarginalAdhesion&amp;#39;,&amp;#39;SECellSize&amp;#39;, &amp;#39;BareNuclei&amp;#39;,&amp;#39;BlandChromatin&amp;#39;,&amp;#39;NormalNucleoli&amp;#39;,&amp;#39;Mitoses&amp;#39;,&amp;#39;Class&amp;#39;)3 - EDA - Exploratory Data Analysisdim(BCData)## [1] 699 11str(BCData)## &amp;#39;data.frame&amp;#39;: 699 obs. of 11 variables:## $ Id : int 1000025 1002945 1015425 1016277 1017023 1017122 1018099 1018561 1033078 1033078 .</description>
+    </item>
     
     <item>
       <title>Diagnosing breast cancer with the kNN algorithm</title>
