@@ -18,6 +18,8 @@ The objective of this example is to identify each of a number of benign or malig
 
 ## 2 - Data
 
+Let's getting the data.
+
 ```{r}
 
 BCData <- read.table(url("https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/breast-cancer-wisconsin.data"), sep = ",")
@@ -25,6 +27,7 @@ BCData <- read.table(url("https://archive.ics.uci.edu/ml/machine-learning-databa
 ```
 
 ```{r}
+
 # setting column names
 names(BCData)<- c('Id', 'ClumpThickness', 'CellSize','CellShape',     
                    'MarginalAdhesion','SECellSize', 'BareNuclei',
@@ -34,6 +37,8 @@ names(BCData)<- c('Id', 'ClumpThickness', 'CellSize','CellShape',
 ```
 
 ## 3 - EDA - Exploratory Data Analysis
+
+It's important to extract prelimionary knowledge from the dataset.
 
 ```{r}
 
@@ -49,14 +54,14 @@ str(BCData)
 
 ```{r}
 
-# Remove rows with missing values,
-
+# Remove rows with missing values
 BCData<-BCData[!(BCData$BareNuclei=="?"),]
 
 ```
 
 ```{r}
 
+# convert variable to an integer
 BCData$BareNuclei<-as.integer(BCData$BareNuclei)
 
 ```
@@ -79,11 +84,16 @@ table(BCData$Class)
 
 ```
 
+The number 2 means "benign" and number 4 means "malignant".
+
+
 ```{r}
 
 boxplot(BCData[,2:10])
 
 ```
+
+To better identify the presence of outliers, we can plot histograms of the variables in the database
 
 ```{r}
 
@@ -114,6 +124,8 @@ BCData$Class<-replace(BCData$Class,BCData$Class==4,1)
 table(BCData$Class)
 
 ```
+
+It is time to build the logistic regression model to obtain a tool capable of predicting the class of new observations.
 
 ```{r}
 

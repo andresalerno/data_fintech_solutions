@@ -16,9 +16,11 @@ banner: img/banners/banner-5.png
 </div>
 <div id="data" class="section level2">
 <h2>2 - Data</h2>
+<p>Let’s getting the data.</p>
 <pre class="r"><code>
 BCData &lt;- read.table(url(&quot;https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/breast-cancer-wisconsin.data&quot;), sep = &quot;,&quot;)</code></pre>
-<pre class="r"><code># setting column names
+<pre class="r"><code>
+# setting column names
 names(BCData)&lt;- c(&#39;Id&#39;, &#39;ClumpThickness&#39;, &#39;CellSize&#39;,&#39;CellShape&#39;,     
                    &#39;MarginalAdhesion&#39;,&#39;SECellSize&#39;, &#39;BareNuclei&#39;,
                    &#39;BlandChromatin&#39;,&#39;NormalNucleoli&#39;,
@@ -26,6 +28,7 @@ names(BCData)&lt;- c(&#39;Id&#39;, &#39;ClumpThickness&#39;, &#39;CellSize&#39;,
 </div>
 <div id="eda---exploratory-data-analysis" class="section level2">
 <h2>3 - EDA - Exploratory Data Analysis</h2>
+<p>It’s important to extract prelimionary knowledge from the dataset.</p>
 <pre class="r"><code>
 dim(BCData)
 ## [1] 699  11</code></pre>
@@ -44,10 +47,10 @@ str(BCData)
 ##  $ Mitoses         : int  1 1 1 1 1 1 1 1 5 1 ...
 ##  $ Class           : int  2 2 2 2 2 4 2 2 2 2 ...</code></pre>
 <pre class="r"><code>
-# Remove rows with missing values,
-
+# Remove rows with missing values
 BCData&lt;-BCData[!(BCData$BareNuclei==&quot;?&quot;),]</code></pre>
 <pre class="r"><code>
+# convert variable to an integer
 BCData$BareNuclei&lt;-as.integer(BCData$BareNuclei)</code></pre>
 <pre class="r"><code>
 str(BCData)
@@ -91,9 +94,11 @@ table(BCData$Class)
 ## 
 ##   2   4 
 ## 444 239</code></pre>
+<p>The number 2 means “benign” and number 4 means “malignant”.</p>
 <pre class="r"><code>
 boxplot(BCData[,2:10])</code></pre>
 <p><img src="/blog/2020-01-13-classifying-using-logistic-regression_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>To better identify the presence of outliers, we can plot histograms of the variables in the database</p>
 <pre class="r"><code>
 par(mfrow=c(3, 3))
 hist(BCData$ClumpThickness)
@@ -117,6 +122,7 @@ table(BCData$Class)
 ## 
 ##   0   1 
 ## 444 239</code></pre>
+<p>It is time to build the logistic regression model to obtain a tool capable of predicting the class of new observations.</p>
 <pre class="r"><code>
 LoGModel &lt;- glm(Class ~.-Id, 
               family=binomial(link=&#39;logit&#39;),data=BCData)</code></pre>
