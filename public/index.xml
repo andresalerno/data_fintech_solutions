@@ -6,10 +6,19 @@
     <description>Recent content on DFS</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Correlation and Regression</title>
+      <link>/blog/2020/01/19/2020-01-19-correlation-and-regression/</link>
+      <pubDate>Sun, 19 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2020/01/19/2020-01-19-correlation-and-regression/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Classifying using Logistic Regression</title>
