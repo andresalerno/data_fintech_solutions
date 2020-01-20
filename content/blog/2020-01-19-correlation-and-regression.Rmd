@@ -1,0 +1,11 @@
+---
+title: Correlation and Regression
+author: Salerno
+date: '2020-01-19'
+slug: correlation-and-regression
+categories:
+  - Correlation
+  - Regression
+tags:
+  - R Programming
+---
