@@ -108,8 +108,8 @@
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand home" href="/">
-                    <img src="/img/logo.png" alt="Blogs logo" class="hidden-xs hidden-sm">
-                    <img src="/img/logo-small.png" alt="Blogs logo" class="visible-xs visible-sm">
+                    <img class="logo" src="/img/logo.png" alt="Blogs logo" class="hidden-xs hidden-sm">
+                    <!-- <img src="/img/logo-small.png" alt="Blogs logo" class="visible-xs visible-sm"> -->
                     <span class="sr-only">Blogs - go to homepage</span>
                 </a>
                 <div class="navbar-buttons">
@@ -266,10 +266,27 @@
                                         </p>
                                         
                                     </div>
-                                    <p class="intro">1 - ObjectiveThe objective of this example is to identify each of a number of benign or malignant classes.
-2 - DataLet’s getting the data.
-BCData &lt;- read.table(url(&quot;https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/breast-cancer-wisconsin.data&quot;), sep = &quot;,&quot;)# setting column namesnames(BCData)&lt;- c(&#39;Id&#39;, &#39;ClumpThickness&#39;, &#39;CellSize&#39;,&#39;CellShape&#39;, &#39;MarginalAdhesion&#39;,&#39;SECellSize&#39;, &#39;BareNuclei&#39;,&#39;BlandChromatin&#39;,&#39;NormalNucleoli&#39;,&#39;Mitoses&#39;,&#39;Class&#39;)3 - EDA - Exploratory Data AnalysisIt’s important to extract prelimionary knowledge from the dataset.
-dim(BCData)## [1] 699 11str(BCData)## &#39;data.</p>
+                                    <p class="intro">1 - Objective
+The objective of this example is to identify each of a number of benign or malignant classes.
+
+2 - Data
+Let’s getting the data.
+
+BCData &lt;- read.table(url(&quot;https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/breast-cancer-wisconsin.data&quot;), sep = &quot;,&quot;)
+
+# setting column names
+names(BCData)&lt;- c(&#39;Id&#39;, &#39;ClumpThickness&#39;, &#39;CellSize&#39;,&#39;CellShape&#39;, &#39;MarginalAdhesion&#39;,&#39;SECellSize&#39;, &#39;BareNuclei&#39;,
+&#39;BlandChromatin&#39;,&#39;NormalNucleoli&#39;,
+&#39;Mitoses&#39;,&#39;Class&#39;)
+
+3 - EDA - Exploratory Data Analysis
+It’s important to extract prelimionary knowledge from the dataset.
+
+dim(BCData)
+## [1] 699 11
+
+str(BCData)
+## &#39;data.</p>
                                     <p class="read-more"><a href="/blog/2020/01/13/2020-01-13-classifying-using-logistic-regression/" class="btn btn-template-main">Continue reading</a>
                                     </p>
                                 </div>
@@ -307,7 +324,8 @@
                                         </p>
                                         
                                     </div>
-                                    <p class="intro">1 - IntroductionCould the Machine Learning Algorithms detect beforehand any abnormal cell process?
+                                    <p class="intro">1 - Introduction
+Could the Machine Learning Algorithms detect beforehand any abnormal cell process?
 We know that this clinical battle is not so easy and there are a lot of people envolved in this process trying to identify a clear path to the cure.
 In complement to the decision human process, coult the technology decrease the subjective bias inherently in the process and improve our decisions?
 We absolutely know that the human being process is limited when compared to high capacity of the computers.</p>
@@ -348,7 +366,28 @@ We absolutely know that the human being process is limited when compared to high
                                         </p>
                                         
                                     </div>
-                                    <p class="intro">def binary_search(lista, item):low = 0 # low and high are part of the list thar you are searching forhigh = len(lista) - 1while low &lt;= high: #while you are not achieving one unique elementmiddle = (low + high) // 2 # checking the central elementguess = lista[middle]if guess == item:return middleif guess &gt; item: # the guess are too highhigh = middle - 1else: # the guess are too lowlow = middle + 1return Nonemy_list = [1, 3, 5, 7, 9]print(binary_search(my_list, 3))## 1print(binary_search(my_list, -1))## None</p>
+                                    <p class="intro">
+
+def binary_search(lista, item):
+low = 0 # low and high are part of the list thar you are searching for
+high = len(lista) - 1
+while low &lt;= high: #while you are not achieving one unique element
+middle = (low + high) // 2 # checking the central element
+guess = lista[middle]
+if guess == item:
+return middle
+if guess &gt; item: # the guess are too high
+high = middle - 1
+else: # the guess are too low
+low = middle + 1
+return None
+my_list = [1, 3, 5, 7, 9]
+
+print(binary_search(my_list, 3))
+## 1
+print(binary_search(my_list, -1))
+## None
+</p>
                                     <p class="read-more"><a href="/blog/2019/12/28/2019-12-28-binary-search/" class="btn btn-template-main">Continue reading</a>
                                     </p>
                                 </div>
@@ -386,7 +425,19 @@ We absolutely know that the human being process is limited when compared to high
                                         </p>
                                         
                                     </div>
-                                    <p class="intro">def quicksort(array):if len(array) &lt; 2:return arrayelse:pivo = array[0] # caso recursivomenores = [i for i in array [1:] if i &lt;= pivo] # subarray de todos os elementos menores do que o pivomaiores = [i for i in array[1:] if i &gt; pivo] # subarray de todos os elementos maiores do que o pivoreturn quicksort(menores) + [pivo] + quicksort(maiores)print(quicksort([10, 5, 2, 3]))## [2, 3, 5, 10]</p>
+                                    <p class="intro">
+
+def quicksort(array):
+if len(array) &lt; 2:
+return array
+else:
+pivo = array[0] # caso recursivo
+menores = [i for i in array [1:] if i &lt;= pivo] # subarray de todos os elementos menores do que o pivo
+maiores = [i for i in array[1:] if i &gt; pivo] # subarray de todos os elementos maiores do que o pivo
+return quicksort(menores) + [pivo] + quicksort(maiores)
+print(quicksort([10, 5, 2, 3]))
+## [2, 3, 5, 10]
+</p>
                                     <p class="read-more"><a href="/blog/2019/12/26/2019-12-27-quicksort-algorithm/" class="btn btn-template-main">Continue reading</a>
                                     </p>
                                 </div>
@@ -424,12 +475,17 @@ We absolutely know that the human being process is limited when compared to high
                                         </p>
                                         
                                     </div>
-                                    <p class="intro">R Packages for RegressionFor this post we will present some valuable R packages for using in regression studies. Check it out!
-statsPackage very useful for statistical calculations and random number generations.
+                                    <p class="intro">R Packages for Regression
+For this post we will present some valuable R packages for using in regression studies. Check it out!
+stats
+Package very useful for statistical calculations and random number generations.
 Below you can find the most useful function in regression area:
-lm(): it is used to fit linear models
-summary.lm(): thsi function returns a summary for linear model fits
-coef(): it is possible obtain the coefficients from modeling functions</p>
+
+lm(): it is used to fit linear models
+
+summary.lm(): thsi function returns a summary for linear model fits
+
+coef(): it is possible obtain the coefficients from modeling functions</p>
                                     <p class="read-more"><a href="/blog/2019/12/23/2019-12-23-r-packages-for-regression/" class="btn btn-template-main">Continue reading</a>
                                     </p>
                                 </div>
@@ -467,8 +523,10 @@ Below you can find the most useful function in regression area:
                                         </p>
                                         
                                     </div>
-                                    <p class="intro">Random ForestIn this post we will explore some ideas around the Random Forest model
-ObjectiveWe are working on in the dataset called Boston Housing and the main idea here is regression task and we are concerned with modeling the price of houses in thousands of dollars in the Surburb of Boston.
+                                    <p class="intro">Random Forest
+In this post we will explore some ideas around the Random Forest model
+Objective
+We are working on in the dataset called Boston Housing and the main idea here is regression task and we are concerned with modeling the price of houses in thousands of dollars in the Surburb of Boston.
 So, we are dirting our hands in a regression predictive modeling problem.
 The main goal here is to fit a regression model that best explains the variation in medv variable.</p>
                                     <p class="read-more"><a href="/blog/2019/12/23/2019-12-23-random-forest/" class="btn btn-template-main">Continue reading</a>
@@ -508,8 +566,22 @@ The main goal here is to fit a regression model that best explains the variation
                                         </p>
                                         
                                     </div>
-                                    <p class="intro">Data FrameThis format is usually used when the information is not contained in just one dimension (vector)
-Exampleproduct &lt;- c(&quot;Product A&quot;, &quot;Product B&quot;, &quot;Product C&quot;, &quot;Product D&quot;, &quot;Product E&quot;)price &lt;- c(5, 15, 4, 6, 8)table_price_product &lt;- data.frame(product, price)table_price_product## product price## 1 Product A 5## 2 Product B 15## 3 Product C 4## 4 Product D 6## 5 Product E 8IndexingAccess the D Product in the Products Table:</p>
+                                    <p class="intro">Data Frame
+This format is usually used when the information is not contained in just one dimension (vector)
+Example
+product &lt;- c(&quot;Product A&quot;, &quot;Product B&quot;, &quot;Product C&quot;, &quot;Product D&quot;, &quot;Product E&quot;)
+price &lt;- c(5, 15, 4, 6, 8)
+table_price_product &lt;- data.frame(product, price)
+table_price_product
+## product price
+## 1 Product A 5
+## 2 Product B 15
+## 3 Product C 4
+## 4 Product D 6
+## 5 Product E 8
+
+Indexing
+Access the D Product in the Products Table:</p>
                                     <p class="read-more"><a href="/blog/2019/12/18/2019-12-19-data-frame/" class="btn btn-template-main">Continue reading</a>
                                     </p>
                                 </div>
@@ -547,11 +619,14 @@ Exampleproduct &lt;- c(&quot;Product A&quot;, &quot;Product B&quot;, &quot;Prod
                                         </p>
                                         
                                     </div>
-                                    <p class="intro">IntroductionThe main idea here is breaking the ice in terms of exponential smoothing models
+                                    <p class="intro">Introduction
+The main idea here is breaking the ice in terms of exponential smoothing models
 First of all it is importan to show some behaviours patterns usually found in time series
 Trends: it is usually observed when the time series follow one specific direction. It can be linear or not.
-Seasonality: it is a pattern that repeat in a certain times (specific period)
-Cycle: Like seasonality but it appears in non specific time</p>
+
+Seasonality: it is a pattern that repeat in a certain times (specific period)
+
+Cycle: Like seasonality but it appears in non specific time</p>
                                     <p class="read-more"><a href="/blog/2019/12/18/2019-12-21-exponential-smoothing-model/" class="btn btn-template-main">Continue reading</a>
                                     </p>
                                 </div>
@@ -589,8 +664,16 @@ Trends: it is usually observed when the time series follow one specific directio
                                         </p>
                                         
                                     </div>
-                                    <p class="intro">DataWe are using the MASS library that contains the Boston dataset. These records measure the median house value for 506 neighborhoods around Boston.
-library(MASS)data &lt;- MASS::Bostonfix(Boston)names(Boston)## [1] &quot;crim&quot; &quot;zn&quot; &quot;indus&quot; &quot;chas&quot; &quot;nox&quot; &quot;rm&quot; &quot;age&quot; ## [8] &quot;dis&quot; &quot;rad&quot; &quot;tax&quot; &quot;ptratio&quot; &quot;black&quot; &quot;lstat&quot; &quot;medv&quot;A simple Linear RegressionWe are using the lm() function to fit a simple linear regression model. The medv is a response variable and lstat the predictor variable.</p>
+                                    <p class="intro">Data
+We are using the MASS library that contains the Boston dataset. These records measure the median house value for 506 neighborhoods around Boston.
+library(MASS)
+data &lt;- MASS::Boston
+fix(Boston)
+names(Boston)
+## [1] &quot;crim&quot; &quot;zn&quot; &quot;indus&quot; &quot;chas&quot; &quot;nox&quot; &quot;rm&quot; &quot;age&quot; ## [8] &quot;dis&quot; &quot;rad&quot; &quot;tax&quot; &quot;ptratio&quot; &quot;black&quot; &quot;lstat&quot; &quot;medv&quot;
+
+A simple Linear Regression
+We are using the lm() function to fit a simple linear regression model. The medv is a response variable and lstat the predictor variable.</p>
                                     <p class="read-more"><a href="/blog/2019/12/18/2019-12-18-linear-regression/" class="btn btn-template-main">Continue reading</a>
                                     </p>
                                 </div>
@@ -949,14 +1032,14 @@ library(MASS)data &lt;- MASS::Bostonfix(Boston)names(Boston)## [1] &quot;cri
     <div class="container">
         <div class="col-md-12">
             
-            <p class="pull-left">Copyright (c) 2019 - 2020, Data Fintech Solutions; all rights reserved.</p>
+            <p class="pull-left">Copyright © 2019 - 2020 · Data Fintech Solutions - All Rights Reserved</p>
             
-            <p class="pull-right">
+            <!-- <p class="pull-right">
               Template by <a href="https://bootstrapious.com/p/universal-business-e-commerce-template">Bootstrapious</a>.
               
 
               Ported to Hugo by <a href="https://github.com/devcows/hugo-universal-theme">DevCows</a>.
-            </p>
+            </p> -->
         </div>
     </div>
 </div>
