@@ -13,11 +13,6 @@
   </url>
   
   <url>
-    <loc>/categories/correlation/</loc>
-    <lastmod>2020-01-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/blog/2020/01/19/2020-01-19-correlation-and-regression/</loc>
     <lastmod>2020-01-19T00:00:00+00:00</lastmod>
   </url>
@@ -28,12 +23,22 @@
   </url>
   
   <url>
-    <loc>/tags/r-programming/</loc>
+    <loc>/tags/knn/</loc>
     <lastmod>2020-01-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/regression/</loc>
+    <loc>/tags/modeling/</loc>
+    <lastmod>2020-01-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/r-programming/</loc>
+    <lastmod>2020-01-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/statistic/</loc>
     <lastmod>2020-01-19T00:00:00+00:00</lastmod>
   </url>
   
@@ -58,27 +63,7 @@
   </url>
   
   <url>
-    <loc>/categories/r-programming/</loc>
-    <lastmod>2020-01-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/blog/2020/01/05/2020-01-05-knn-algorithm/</loc>
-    <lastmod>2020-01-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/knn/</loc>
-    <lastmod>2020-01-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/modeling/</loc>
-    <lastmod>2020-01-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/statistic/</loc>
     <lastmod>2020-01-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -103,12 +88,12 @@
   </url>
   
   <url>
-    <loc>/tags/programming/</loc>
+    <loc>/categories/programming/</loc>
     <lastmod>2019-12-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/programming/</loc>
+    <loc>/tags/programming/</loc>
     <lastmod>2019-12-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -168,12 +153,12 @@
   </url>
   
   <url>
-    <loc>/categories/data-frame/</loc>
+    <loc>/tags/data-frame/</loc>
     <lastmod>2019-12-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/data-frame/</loc>
+    <loc>/categories/data-frame/</loc>
     <lastmod>2019-12-18T00:00:00+00:00</lastmod>
   </url>
   
@@ -224,6 +209,11 @@
   
   <url>
     <loc>/post/</loc>
+    <lastmod>2019-12-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/r-programming/</loc>
     <lastmod>2019-12-18T00:00:00+00:00</lastmod>
   </url>
   

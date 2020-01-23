@@ -1,11 +1,47 @@
 ---
-title: Correlation and Regression
-author: Salerno
+title: "Correlation and Regression"
+author: "Salerno"
 date: '2020-01-19'
 slug: correlation-and-regression
-categories:
-  - Correlation
-  - Regression
-tags:
-  - R Programming
+tags: ["Statistic", "Modeling", "KNN"]
+categories: R Programming
+draft: FALSE
+banner: img/banners/banner-5.png
 ---
+
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(collapse = TRUE, warnings = FALSE, echo = TRUE)
+
+```
+
+```{r}
+
+path <- "C:/Users/andre/OneDrive/Área de Trabalho/salerno/blogdown/datasets/ncbirths"
+
+path <- paste0(path, "/ncbirths.csv")
+
+data <- read.csv(path, stringsAsFactors = FALSE)
+
+```
+
+```{r}
+dim(data)
+```
+
+```{r}
+
+names(data)
+
+```
+
+```{r}
+
+library(ggplot2)
+
+ggplot(data = data, aes(y = BirthWeightOz, x = Weeks)) +
+geom_point()
+
+```
+

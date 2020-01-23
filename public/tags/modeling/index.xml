@@ -6,10 +6,19 @@
     <description>Recent content in Modeling on DFS</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/modeling/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Correlation and Regression</title>
+      <link>/blog/2020/01/19/2020-01-19-correlation-and-regression/</link>
+      <pubDate>Sun, 19 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2020/01/19/2020-01-19-correlation-and-regression/</guid>
+      <description>path &amp;lt;- &amp;quot;C:/Users/andre/OneDrive/Área de Trabalho/salerno/blogdown/datasets/ncbirths&amp;quot;path &amp;lt;- paste0(path, &amp;quot;/ncbirths.csv&amp;quot;)data &amp;lt;- read.csv(path, stringsAsFactors = FALSE)dim(data)## [1] 1450 15names(data)## [1] &amp;quot;ID&amp;quot; &amp;quot;Plural&amp;quot; &amp;quot;Sex&amp;quot; &amp;quot;MomAge&amp;quot; ## [5] &amp;quot;Weeks&amp;quot; &amp;quot;Marital&amp;quot; &amp;quot;RaceMom&amp;quot; &amp;quot;HispMom&amp;quot; ## [9] &amp;quot;Gained&amp;quot; &amp;quot;Smoke&amp;quot; &amp;quot;BirthWeightOz&amp;quot; &amp;quot;BirthWeightGm&amp;quot;## [13] &amp;quot;Low&amp;quot; &amp;quot;Premie&amp;quot; &amp;quot;MomRace&amp;quot;library(ggplot2)ggplot(data = data, aes(y = BirthWeightOz, x = Weeks)) +geom_point()## Warning: Removed 1 rows containing missing values (geom_point).</description>
+    </item>
     
     <item>
       <title>Diagnosing breast cancer with the kNN algorithm</title>

@@ -12,18 +12,9 @@
     
     
     <item>
-      <title>R Programming</title>
-      <link>/tags/r-programming/</link>
-      <pubDate>Sun, 19 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/r-programming/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>KNN</title>
       <link>/tags/knn/</link>
-      <pubDate>Sun, 05 Jan 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 19 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/knn/</guid>
       <description></description>
@@ -32,7 +23,7 @@
     <item>
       <title>Modeling</title>
       <link>/tags/modeling/</link>
-      <pubDate>Sun, 05 Jan 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 19 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/modeling/</guid>
       <description></description>
@@ -41,7 +32,7 @@
     <item>
       <title>Statistic</title>
       <link>/tags/statistic/</link>
-      <pubDate>Sun, 05 Jan 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 19 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/statistic/</guid>
       <description></description>
@@ -143,6 +134,15 @@
       <pubDate>Wed, 18 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/models/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R Programming</title>
+      <link>/tags/r-programming/</link>
+      <pubDate>Wed, 18 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/r-programming/</guid>
       <description></description>
     </item>
     
