@@ -45,3 +45,39 @@ geom_point()
 
 ```
 
+```{r}
+# Boxplot of weight vs. weeks
+ggplot(data = data, 
+       aes(x = cut(Weeks, breaks = 5), y = BirthWeightOz)) + 
+  geom_boxplot()
+```
+
+
+```{r}
+library(openintro)
+
+ggplot(data = mammals, aes(y = BrainWt, x = BodyWt)) +
+    geom_point()
+```
+
+```{r}
+
+ggplot(data = mlbBat10, aes(y = SLG, x = OBP)) +
+    geom_point()
+
+```
+
+```{r}
+
+ggplot(data = bdims, aes(y = wgt, x = hgt, color = factor(sex))) +
+      geom_point()
+
+```
+
+```{r}
+
+ggplot(data = smoking, aes(y = amtWeekdays, x = age)) +
+      geom_point()
+
+```
+

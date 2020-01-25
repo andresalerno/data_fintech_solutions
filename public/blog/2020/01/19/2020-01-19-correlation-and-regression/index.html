@@ -223,6 +223,38 @@ ggplot(data = data, aes(y = BirthWeightOz, x = Weeks)) +
 geom_point()
 ## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
 <p><img src="/blog/2020-01-19-correlation-and-regression_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code># Boxplot of weight vs. weeks
+ggplot(data = data, 
+       aes(x = cut(Weeks, breaks = 5), y = BirthWeightOz)) + 
+  geom_boxplot()</code></pre>
+<p><img src="/blog/2020-01-19-correlation-and-regression_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<pre class="r"><code>library(openintro)
+## Please visit openintro.org for free statistics materials
+## 
+## Attaching package: &#39;openintro&#39;
+## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     diamonds
+## The following objects are masked from &#39;package:datasets&#39;:
+## 
+##     cars, trees
+
+ggplot(data = mammals, aes(y = BrainWt, x = BodyWt)) +
+    geom_point()</code></pre>
+<p><img src="/blog/2020-01-19-correlation-and-regression_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code>
+ggplot(data = mlbBat10, aes(y = SLG, x = OBP)) +
+    geom_point()</code></pre>
+<p><img src="/blog/2020-01-19-correlation-and-regression_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<pre class="r"><code>
+ggplot(data = bdims, aes(y = wgt, x = hgt, color = factor(sex))) +
+      geom_point()</code></pre>
+<p><img src="/blog/2020-01-19-correlation-and-regression_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<pre class="r"><code>
+ggplot(data = smoking, aes(y = amtWeekdays, x = age)) +
+      geom_point()
+## Warning: Removed 1270 rows containing missing values (geom_point).</code></pre>
+<p><img src="/blog/2020-01-19-correlation-and-regression_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 
                         </div>
                         
