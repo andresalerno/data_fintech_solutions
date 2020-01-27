@@ -38,8 +38,18 @@
 }
 
 .owl-carousel .owl-item{
-	float: left;
+	float: left;	
 }
+
+.custom-item-carousel {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 150px;
+	margin: 0 auto !important;
+	height: 120px;
+}
+
 .owl-controls .owl-page,
 .owl-controls .owl-buttons div{
 	cursor: pointer;
