@@ -245,6 +245,9 @@ ul.list-style-none {
   padding-top: 5px;
   color: #b4b4b4;
 }
+#top p span {
+  color: white;
+}
 #top .social {
   float: right;
   text-align: center;
