@@ -2679,10 +2679,10 @@ fieldset[disabled] .btn-template-primary.active {
   color: #6aae7a;
 }
 #copyright {
-  background: #333;
+  background: black;
   color: #ccc;
   padding: 50px 0;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 28px;
 }
 #copyright p {
