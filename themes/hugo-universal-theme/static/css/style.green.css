@@ -3649,7 +3649,7 @@ a.list-group-item.active > .badge,
   right: 15px;
 }
 
-@media screen and (max-width: 765px) {
+@media screen and (max-width: 992px) {
   .heading-2 h2 {
     line-height: normal;
   }
