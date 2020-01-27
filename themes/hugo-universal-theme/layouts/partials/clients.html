@@ -15,7 +15,7 @@
 
                 <ul class="owl-carousel customers">
                     {{ range .Site.Data.clients }}
-                    <li class="item" title="{{ .name }}">
+                    <li class="custom-item-carousel item" title="{{ .name }}">
                         {{ if .url }}
                           <a href="{{ .url }}" target="_blank">
                             <img src="{{ .image }}" alt="{{ .name }}" class="img-responsive" />

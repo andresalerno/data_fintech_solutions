@@ -1260,8 +1260,6 @@ fieldset[disabled] .btn-template-primary.active {
   opacity: 1;
 }
 
-.owl-theme .owl-controls {
-}
 .home-carousel .owl-theme .owl-controls .owl-page.active span {
   background: #fff;
 }

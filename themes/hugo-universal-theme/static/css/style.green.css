@@ -1169,8 +1169,8 @@ fieldset[disabled] .btn-template-primary.active {
   width: 100%;
   height: 100%;
   background: #103115;
-  opacity: 0.9;
-  filter: alpha(opacity=90);
+  /* opacity: 0.9;
+  filter: alpha(opacity=90); */
 }
 
 .carousel-bg-01 {
@@ -1222,7 +1222,11 @@ fieldset[disabled] .btn-template-primary.active {
   padding-bottom: 20px;
 }
 .home-carousel .owl-theme .owl-controls .owl-page span {
-  background: #666;
+  background: rgba(0, 0, 0, 0);
+  height: 18px;
+  width: 18px;
+  border: 1px solid white;
+  opacity: 1;
 }
 .home-carousel .owl-theme .owl-controls .owl-page.active span {
   background: #fff;
