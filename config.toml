@@ -49,28 +49,28 @@ ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "
     name = "GitHub"
     url = "https://github.com/andresalerno"
     pre = "<i class='fab fa-2x fa-github'></i>"
-    custom = "github"
+    class = "class='github'"
 
 [[menu.topbar]]
     weight = 2
     name = "Facebook"
     url = "https://www.facebook.com/aspartnersconsultoria/?ref=bookmarks"
     pre = "<i class='fab fa-2x fa-facebook'></i>"
-    custom = "facebook"
+    class = "class='facebook'"
 
 [[menu.topbar]]
     weight = 3
     name = "LinkedIn"
     url = "https://www.linkedin.com/in/andresalerno/"
     pre = "<i class='fab fa-linkedin-in'></i>"
-    custom = "linkedin"
+    class = "class='lindekin'"
 
 [[menu.topbar]]
     weight = 4
     name = "Email"
     url = "mailto: andresalerno22@gmail.com"
     pre = "<i class='fas fa-2x fa-envelope'></i>"
-    custom = "email"
+    class = "class='email'"
 
 [params]
     viewMorePostLink = "/blog/"
