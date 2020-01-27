@@ -3651,6 +3651,6 @@ a.list-group-item.active > .badge,
 
 @media screen and (max-width: 765px) {
   .heading-2 h2 {
-    letter-spacing: 1em;
+    line-height: normal;
   }
 }
