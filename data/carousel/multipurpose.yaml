@@ -2,4 +2,4 @@ weight: 1
 title: "Financial Data-Driven"
 description: "<p>Because of the financial resources scarcity,</p><p>you should use data in the financial field</p>"
 image: "img/carousel/financial.png"
-background: "<div class="carousel-bg-01"></div>"
+background: <div class="carousel-bg-01"></div>

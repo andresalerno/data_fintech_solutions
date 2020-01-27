@@ -6,4 +6,4 @@ description: >
      that could improve your business
      for the next years?</p>
 image: "img/carousel/strategic.png"
-background: "<div class="carousel-bg-02"></div>"
+background: <div class="carousel-bg-02"></div>

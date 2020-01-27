@@ -5,4 +5,4 @@ description: >
       + 20 years working in the credit area</p>
   <p> Executive reports, tiny workflow, statistic model and much more</p>
 image: "img/carousel/credit.png"
-background: "<div class="carousel-bg-04"></div>"
+background: <div class="carousel-bg-04"></div>
