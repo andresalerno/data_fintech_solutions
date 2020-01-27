@@ -1207,7 +1207,7 @@ fieldset[disabled] .btn-template-primary.active {
   /* filter: alpha(opacity=90); */
 }
 .carousel-bg-01 {
-  background: url('../img/bg_01.png');
+  background: url('../img/bg_02.png');
   background-size: cover;
   background-repeat: no-repeat;
   position: absolute;
@@ -1218,7 +1218,7 @@ fieldset[disabled] .btn-template-primary.active {
 }
 
 .carousel-bg-02 {
-  background: url('../img/bg_02.png');
+  background: url('../img/bg_05.png');
   background-size: cover;
   background-repeat: no-repeat;
   position: absolute;
@@ -1240,7 +1240,7 @@ fieldset[disabled] .btn-template-primary.active {
 }
 
 .carousel-bg-04 {
-  background: url('../img/bg_04.png');
+  background: url('../img/bg_01.png');
   background-size: cover;
   background-repeat: no-repeat;
   position: absolute;
