@@ -1832,8 +1832,12 @@ fieldset[disabled] .btn-template-primary.active {
   background: #6aae7a;
   padding: 60px 0;
 }
+.bar .title {
+  color: white;
+}
 .bar.background-pentagon {
-  background: url('../img/texture-green.png') center center repeat;
+  background: url('../img/texture-green2.png') center no-repeat;
+  background-size: cover;
   border-top: solid 1px #999999;
   border-bottom: solid 1px #999999;
 }
