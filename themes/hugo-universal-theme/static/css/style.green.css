@@ -1168,6 +1168,51 @@ fieldset[disabled] .btn-template-primary.active {
   opacity: 0.9;
   filter: alpha(opacity=90);
 }
+
+.carousel-bg-01 {
+  background: url('../img/carousel/bg_data-driven.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-bg-02 {
+  background: url('../img/carousel/bg_strategic.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-bg-03 {
+  background: url('../img/carousel/bg_financial.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-bg-04 {
+  background: url('../img/carousel/bg_credit.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .home-carousel .owl-carousel {
   padding-top: 60px;
   padding-bottom: 20px;
