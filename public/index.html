@@ -138,7 +138,7 @@
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand home" href="/">
-                    <img src="/img/logo.png" class="logo" alt="DFS logo" class="hidden-xs hidden-sm">
+                    <img src="/img/logo.png" alt="DFS logo" class="logo hidden-xs hidden-sm">
                     <!-- <img src="/img/logo-small.png" alt="DFS logo" class="visible-xs visible-sm"> -->
                     <span class="sr-only">DFS - go to homepage</span>
                 </a>
@@ -569,7 +569,21 @@ wrapped with tech tools</p>
                             
                             on January 19, 2020
                             </p>
-                            <p class="intro">path &lt;- &quot;C:/Users/andre/OneDrive/Área de Trabalho/salerno/blogdown/datasets/ncbirths&quot;path &lt;- paste0(path, &quot;/ncbirths.csv&quot;)data &lt;- read.csv(path, stringsAsFactors = FALSE)dim(data)## [1] 1450 15names(data)## [1] &quot;ID&quot; &quot;Plural&quot; &quot;Sex&quot; &quot;MomAge&quot; ## [5] &quot;Weeks&quot; &quot;Marital&quot; &quot;RaceMom&quot; &quot;HispMom&quot; ## [9] &quot;Gained&quot; &quot;Smoke&quot; &quot;BirthWeightOz&quot; &quot;BirthWeightGm&quot;## [13] &quot;Low&quot; &quot;Premie&quot; &quot;MomRace&quot;library(ggplot2)ggplot(data = data, aes(y = BirthWeightOz, x = Weeks)) +geom_point()## Warning: Removed 1 rows containing missing values (geom_point).# Boxplot of weight vs.</p>
+                            <p class="intro">path &lt;- &quot;C:/Users/andre/OneDrive/Área de Trabalho/salerno/blogdown/datasets/ncbirths&quot;
+path &lt;- paste0(path, &quot;/ncbirths.csv&quot;)
+data &lt;- read.csv(path, stringsAsFactors = FALSE)
+dim(data)
+## [1] 1450 15
+
+names(data)
+## [1] &quot;ID&quot; &quot;Plural&quot; &quot;Sex&quot; &quot;MomAge&quot; ## [5] &quot;Weeks&quot; &quot;Marital&quot; &quot;RaceMom&quot; &quot;HispMom&quot; ## [9] &quot;Gained&quot; &quot;Smoke&quot; &quot;BirthWeightOz&quot; &quot;BirthWeightGm&quot;
+## [13] &quot;Low&quot; &quot;Premie&quot; &quot;MomRace&quot;
+
+library(ggplot2)
+ggplot(data = data, aes(y = BirthWeightOz, x = Weeks)) +
+geom_point()
+## Warning: Removed 1 rows containing missing values (geom_point).
+# Boxplot of weight vs.</p>
                             <p class="read-more">
                               <a href="/blog/2020/01/19/2020-01-19-correlation-and-regression/" class="btn btn-template-main">Continue reading</a>
                             </p>
