@@ -235,17 +235,20 @@ ul.list-style-none {
   }
 }
 #top {
-  background: #555555;
+  background: black;
   color: #eeeeee;
   padding: 10px 0;
 }
 #top p {
   margin: 0;
-  font-size: 12px;
+  font-size: 14px;
+  padding-top: 5px;
+  color: #b4b4b4;
 }
 #top .social {
   float: right;
-  text-align: right;
+  text-align: center;
+  padding-top: 5px;
 }
 #top .social a {
   color: #999999;
@@ -256,27 +259,37 @@ ul.list-style-none {
   line-height: 24px;
   font-size: 12px;
   text-align: center;
+  margin: 0 5px;
 }
 #top .social a:hover {
   color: #fff;
   background: #6aae7a;
   -webkit-transform: scale(1.1);
+  border-radius: 12px;
   transform: scale(1.1);
 }
+#top .social a.linkedin {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#top .social a:hover.github {
+  background-color: black;
+}
+
 #top .social a:hover.facebook {
   background-color: #4460ae;
 }
+
+
 #top .social a:hover.gplus {
   background-color: #c21f25;
 }
-#top .social a:hover.twitter {
+#top .social a:hover.linkedin {
   background-color: #3cf;
 }
-#top .social a:hover.instagram {
-  background-color: #cd4378;
-}
 #top .social a:hover.email {
-  background-color: #4a7f45;
+  background-color: black;
 }
 #top .login {
   float: right;
