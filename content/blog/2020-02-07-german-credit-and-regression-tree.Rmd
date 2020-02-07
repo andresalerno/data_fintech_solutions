@@ -1,0 +1,168 @@
+---
+title: German Credit and Regression Tree
+author: Bruno Ferrari
+date: '2020-02-07'
+slug: german-credit-and-regression-tree
+categories:
+  - R Programming
+tags:
+  - regression tree
+  - PCA
+  - classification
+draft: FALSE
+banner: img/banners/banner-5.png
+---
+---
+## Objetive
+Train a model and use to make predictions for German Credit dataset
+
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(collapse = TRUE, warnings = FALSE, echo = TRUE)
+path = "C:/Users/Bruno Ferrari/Documents/2019/Estagio/BlogAndre/data_fintech_solutions/datasets/german/german_credit.csv"
+
+```
+
+## Data
+```{r leitutra}
+german = read.csv(path)
+```
+
+```{r}
+str(german)
+```
+
+As we can see, the dataset consists of twenty variables and a thousand observation, which of 30% went into default.
+
+## Model Fitting
+
+The model that we will use in this work will be a Regression Tree. This model will provide us some benefits, the main ones being:
+
+**1** - We will not need to assume any hypothesis about the data, which is good due to the amount of variables.
+
+**2** - We also will not need to pre-process the data, we can use the raw data to fit the model.
+
+Loading the required packages
+```{r message=FALSE, warning=FALSE}
+library("rpart")
+library("rpart.plot")
+library("caTools")
+library("caret")
+```
+
+Spliting the dataset into train and test.
+```{r}
+split = sample.split(german$default, SplitRatio = 0.75)
+train = subset(german, split==TRUE)
+test = subset(german, split==FALSE)
+```
+
+Fitting the Regression Tree
+```{r}
+tree = rpart(default ~ account_check_status + duration_in_month + credit_history +
+        purpose + credit_amount + savings + present_emp_since + 
+        installment_as_income_perc + personal_status_sex + other_debtors + present_res_since +
+        property + age + other_installment_plans + housing +
+        credits_this_bank + job + people_under_maintenance + telephone + foreign_worker, data = train, method = "class")
+```
+
+Generated Tree
+```{r}
+prp(tree)
+tree
+```
+
+
+
+
+
+Confusion Matrix for train set.
+```{r}
+fit = predict(tree, type = "class")
+confusionMatrix(fit, as.factor(train$default))
+```
+
+Confusion Matrix for test set.
+```{r}
+fit_test = predict(tree, type = "class", newdata = test[,-1])
+confusionMatrix(fit_test, as.factor(test$default))
+```
+
+We can see that the accuracy of train set is a bit far from the test set. This is not a favorable scenario for the model, as it indicates a possible overfitted model, but as long as the model baseline (percentage of the greater class) is 70% of accurate, this regression tree is much better than the baseline model.
+
+We could tune the model making some adjustment on the hyperparameters, like give a extra cost for example to False Positve cases. 
+
+False Positive, means they won't pay the loan (default = 1), but the model thinks they will. (predicted = 0)
+
+False Negative, means they will  pay the loan (default = 0), but the model said they won't. (predicted = 1)
+
+Generally, the False Positive error in this case is worse, so lets make some example with a cost on that error.
+
+```{r}
+cost_matrix = matrix(c(0,2,1,0), nrow=2, ncol = 2)
+cost_matrix
+```
+
+```{r}
+tree_p = rpart(default ~ account_check_status + duration_in_month + credit_history +
+        purpose + credit_amount + savings + present_emp_since + 
+        installment_as_income_perc + personal_status_sex + other_debtors + present_res_since +
+        property + age + other_installment_plans + housing +
+        credits_this_bank + job + people_under_maintenance + telephone + foreign_worker, data = train, method = "class", 
+        parms =  list(loss = cost_matrix))
+```
+
+```{r}
+fit = predict(tree_p, type = "class")
+confusionMatrix(fit, as.factor(train$default))
+```
+
+In other hand, we could remove some varibles, e.g. telephone, or reduce dimensionality of the problem, like applying a PCA. In the case o PCA, besides being a simple technique, could provide us more information of the data.
+
+Lets try it.
+
+## PCA
+To apply the PCA decomposition, we need to pre process the data, and convert categorical values into numerical values. To help us, we going to create some "dummy varibles".
+
+Extract the default column.
+```{r}
+data_risk = german$default
+data = german[, -1]
+```
+
+Organizing dataset.
+```{r} 
+data = cbind(data[, c(2,5,13)], data[ , -c(2,5,13)])
+```
+
+Creating dummy variables
+```{r message=FALSE}
+library("fastDummies")
+results <- dummy_columns(data, names(data[, -1:-3]))
+data_dummy = results[ , -4:-20]
+```
+
+Applying PCA
+```{r}
+pca = prcomp(data_dummy)
+summary(pca)
+```
+
+We won't go into to details of PCA technique, but the import thing to us have in mind is the fact of that the data can be represented by the first components. In this case, the **Cumulative Proportion** on PC2 is higher than 99%, i.e., more than 99% is explained with the first 2 components.
+
+Plotting this two components:
+```{r}
+plot(pca$x[, c(1,2)])
+points(pca$x[which(data_risk == 1), c(1,2)], col = "red", pch =20)
+points(pca$x[which(data_risk == 0), c(1,2)], col = "blue", pch =5)
+```
+
+As we can see above, there isn't a clear division between the class, which indicate that accuracy of Regression Tree is pretty reasonable.
+
+## Conclusion
+Although the small numbers of observations, and the absence of a clearer division on the dataset classes, a simple Regression Tree (in sense of the generated tree model) proved capable to tackle the problem of making predictions on German Credit dataset.
+
+
+
+
