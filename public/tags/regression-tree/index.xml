@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>regression tree on DFS</title>
+    <link>/tags/regression-tree/</link>
+    <description>Recent content in regression tree on DFS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 06 Feb 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/regression-tree/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>German Credit and Regression Tree</title>
+      <link>/post/german-credit-and-regression-tree/</link>
+      <pubDate>Thu, 06 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/german-credit-and-regression-tree/</guid>
+      <description>ObjetiveTrain a model and use to make predictions for German Credit dataset
+Datagerman = read.csv(path)str(german)## &amp;#39;data.frame&amp;#39;: 1000 obs. of 21 variables:## $ default : int 0 1 0 0 1 0 0 0 0 1 ...## $ account_check_status : Factor w/ 4 levels &amp;quot;&amp;lt; 0 DM&amp;quot;,&amp;quot;&amp;gt;= 200 DM / salary assignments for at least 1 year&amp;quot;,..: 1 3 4 1 1 4 4 3 4 3 .</description>
+    </item>
+    
+  </channel>
+</rss>
