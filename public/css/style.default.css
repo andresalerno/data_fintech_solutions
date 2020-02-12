@@ -1240,9 +1240,6 @@ fieldset[disabled] .btn-template-primary.active {
   list-style-type: none;
   text-align: center;
   margin: 0 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .customers .item img {
   display: inline-block;
@@ -1763,11 +1760,11 @@ fieldset[disabled] .btn-template-primary.active {
 }
 .bar {
   position: relative;
-  /* background: #38a7bb; */
+  background: #38a7bb;
   padding: 60px 0;
 }
 .bar.background-pentagon {
-  /* background: url('../img/texture-bw.png') center center repeat; */
+  background: url('../img/texture-bw.png') center center repeat;
   border-top: solid 1px #999999;
   border-bottom: solid 1px #999999;
 }

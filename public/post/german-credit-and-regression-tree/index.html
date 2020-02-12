@@ -270,35 +270,51 @@ test = subset(german, split==FALSE)</code></pre>
 ## node), split, n, loss, yval, (yprob)
 ##       * denotes terminal node
 ## 
-##   1) root 750 225 0 (0.7000000 0.3000000)  
-##     2) account_check_status=&gt;= 200 DM / salary assignments for at least 1 year,no checking account 348  43 0 (0.8764368 0.1235632) *
-##     3) account_check_status=&lt; 0 DM,0 &lt;= ... &lt; 200 DM 402 182 0 (0.5472637 0.4527363)  
-##       6) duration_in_month&lt; 22.5 225  79 0 (0.6488889 0.3511111)  
-##        12) purpose=business,car (used),domestic appliances,education,furniture/equipment,retraining 94  18 0 (0.8085106 0.1914894) *
-##        13) purpose=(vacation - does not exist?),car (new),radio/television,repairs 131  61 0 (0.5343511 0.4656489)  
-##          26) credit_history=critical account/ other credits existing (not at this bank),delay in paying off in the past,existing credits paid back duly till now 115  46 0 (0.6000000 0.4000000)  
-##            52) other_installment_plans=none,stores 102  36 0 (0.6470588 0.3529412)  
-##             104) credit_amount&gt;=1511 61  15 0 (0.7540984 0.2459016) *
-##             105) credit_amount&lt; 1511 41  20 1 (0.4878049 0.5121951)  
-##               210) property=if not A121 : building society savings agreement/ life insurance,real estate,unknown / no property 28  10 0 (0.6428571 0.3571429) *
-##               211) property=if not A121/A122 : car or other, not in attribute 6 13   2 1 (0.1538462 0.8461538) *
-##            53) other_installment_plans=bank 13   3 1 (0.2307692 0.7692308) *
-##          27) credit_history=all credits at this bank paid back duly,no credits taken/ all credits paid back duly 16   1 1 (0.0625000 0.9375000) *
-##       7) duration_in_month&gt;=22.5 177  74 1 (0.4180791 0.5819209)  
-##        14) purpose=car (used),education,furniture/equipment,repairs 42  15 0 (0.6428571 0.3571429)  
-##          28) credit_amount&lt; 8097.5 30   6 0 (0.8000000 0.2000000) *
-##          29) credit_amount&gt;=8097.5 12   3 1 (0.2500000 0.7500000) *
-##        15) purpose=(vacation - does not exist?),business,car (new),domestic appliances,radio/television 135  47 1 (0.3481481 0.6518519)  
-##          30) savings=.. &gt;= 1000 DM ,unknown/ no savings account 20   6 0 (0.7000000 0.3000000) *
-##          31) savings=... &lt; 100 DM,100 &lt;= ... &lt; 500 DM,500 &lt;= ... &lt; 1000 DM  115  33 1 (0.2869565 0.7130435)  
-##            62) credit_amount&lt; 4209 66  25 1 (0.3787879 0.6212121)  
-##             124) credit_amount&gt;=2313 40  20 0 (0.5000000 0.5000000)  
-##               248) credit_amount&lt; 2511.5 9   1 0 (0.8888889 0.1111111) *
-##               249) credit_amount&gt;=2511.5 31  12 1 (0.3870968 0.6129032)  
-##                 498) installment_as_income_perc&lt; 2.5 7   2 0 (0.7142857 0.2857143) *
-##                 499) installment_as_income_perc&gt;=2.5 24   7 1 (0.2916667 0.7083333) *
-##             125) credit_amount&lt; 2313 26   5 1 (0.1923077 0.8076923) *
-##            63) credit_amount&gt;=4209 49   8 1 (0.1632653 0.8367347) *</code></pre>
+##     1) root 750 225 0 (0.70000000 0.30000000)  
+##       2) account_check_status=&gt;= 200 DM / salary assignments for at least 1 year,no checking account 341  47 0 (0.86217009 0.13782991)  
+##         4) purpose=car (used),domestic appliances,furniture/equipment,radio/television,repairs,retraining 205  15 0 (0.92682927 0.07317073) *
+##         5) purpose=(vacation - does not exist?),business,car (new),education 136  32 0 (0.76470588 0.23529412)  
+##          10) other_installment_plans=none 108  16 0 (0.85185185 0.14814815) *
+##          11) other_installment_plans=bank,stores 28  12 1 (0.42857143 0.57142857)  
+##            22) duration_in_month&lt; 15 8   2 0 (0.75000000 0.25000000) *
+##            23) duration_in_month&gt;=15 20   6 1 (0.30000000 0.70000000) *
+##       3) account_check_status=&lt; 0 DM,0 &lt;= ... &lt; 200 DM 409 178 0 (0.56479218 0.43520782)  
+##         6) duration_in_month&lt; 31.5 331 124 0 (0.62537764 0.37462236)  
+##          12) credit_history=critical account/ other credits existing (not at this bank),delay in paying off in the past,existing credits paid back duly till now 294  99 0 (0.66326531 0.33673469)  
+##            24) duration_in_month&lt; 11.5 63  10 0 (0.84126984 0.15873016) *
+##            25) duration_in_month&gt;=11.5 231  89 0 (0.61471861 0.38528139)  
+##              50) purpose=business,car (used) 40   6 0 (0.85000000 0.15000000) *
+##              51) purpose=(vacation - does not exist?),car (new),domestic appliances,education,furniture/equipment,radio/television,repairs,retraining 191  83 0 (0.56544503 0.43455497)  
+##               102) other_installment_plans=none 159  63 0 (0.60377358 0.39622642)  
+##                 204) other_debtors=guarantor 10   0 0 (1.00000000 0.00000000) *
+##                 205) other_debtors=co-applicant,none 149  63 0 (0.57718121 0.42281879)  
+##                   410) savings=.. &gt;= 1000 DM ,500 &lt;= ... &lt; 1000 DM  12   1 0 (0.91666667 0.08333333) *
+##                   411) savings=... &lt; 100 DM,100 &lt;= ... &lt; 500 DM,unknown/ no savings account 137  62 0 (0.54744526 0.45255474)  
+##                     822) credit_history=critical account/ other credits existing (not at this bank),delay in paying off in the past 46  14 0 (0.69565217 0.30434783) *
+##                     823) credit_history=existing credits paid back duly till now 91  43 1 (0.47252747 0.52747253)  
+##                      1646) credit_amount&gt;=1047.5 78  37 0 (0.52564103 0.47435897)  
+##                        3292) age&gt;=25.5 50  20 0 (0.60000000 0.40000000)  
+##                          6584) age&lt; 30.5 20   2 0 (0.90000000 0.10000000) *
+##                          6585) age&gt;=30.5 30  12 1 (0.40000000 0.60000000)  
+##                           13170) age&gt;=33.5 22  10 0 (0.54545455 0.45454545)  
+##                             26340) property=if not A121/A122 : car or other, not in attribute 6,real estate 12   3 0 (0.75000000 0.25000000) *
+##                             26341) property=if not A121 : building society savings agreement/ life insurance,unknown / no property 10   3 1 (0.30000000 0.70000000) *
+##                           13171) age&lt; 33.5 8   0 1 (0.00000000 1.00000000) *
+##                        3293) age&lt; 25.5 28  11 1 (0.39285714 0.60714286)  
+##                          6586) personal_status_sex=male : divorced/separated,male : single 7   2 0 (0.71428571 0.28571429) *
+##                          6587) personal_status_sex=female : divorced/separated/married,male : married/widowed 21   6 1 (0.28571429 0.71428571) *
+##                      1647) credit_amount&lt; 1047.5 13   2 1 (0.15384615 0.84615385) *
+##               103) other_installment_plans=bank,stores 32  12 1 (0.37500000 0.62500000)  
+##                 206) credit_amount&gt;=2309.5 13   5 0 (0.61538462 0.38461538) *
+##                 207) credit_amount&lt; 2309.5 19   4 1 (0.21052632 0.78947368) *
+##          13) credit_history=all credits at this bank paid back duly,no credits taken/ all credits paid back duly 37  12 1 (0.32432432 0.67567568)  
+##            26) property=if not A121/A122 : car or other, not in attribute 6,real estate 18   7 0 (0.61111111 0.38888889) *
+##            27) property=if not A121 : building society savings agreement/ life insurance,unknown / no property 19   1 1 (0.05263158 0.94736842) *
+##         7) duration_in_month&gt;=31.5 78  24 1 (0.30769231 0.69230769)  
+##          14) present_emp_since=4 &lt;= ... &lt; 7 years,unemployed 27  12 0 (0.55555556 0.44444444)  
+##            28) purpose=(vacation - does not exist?),business,education,furniture/equipment,radio/television 11   1 0 (0.90909091 0.09090909) *
+##            29) purpose=car (new),car (used),domestic appliances 16   5 1 (0.31250000 0.68750000) *
+##          15) present_emp_since=.. &gt;= 7 years,... &lt; 1 year ,1 &lt;= ... &lt; 4 years 51   9 1 (0.17647059 0.82352941) *</code></pre>
 <p>Confusion Matrix for train set.</p>
 <pre class="r"><code>fit = predict(tree, type = &quot;class&quot;)
 confusionMatrix(fit, as.factor(train$default))
@@ -306,26 +322,26 @@ confusionMatrix(fit, as.factor(train$default))
 ## 
 ##           Reference
 ## Prediction   0   1
-##          0 496 101
-##          1  29 124
+##          0 489  84
+##          1  36 141
 ##                                           
-##                Accuracy : 0.8267          
-##                  95% CI : (0.7976, 0.8531)
+##                Accuracy : 0.84            
+##                  95% CI : (0.8118, 0.8655)
 ##     No Information Rate : 0.7             
-##     P-Value [Acc &gt; NIR] : 1.147e-15       
+##     P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
 ##                                           
-##                   Kappa : 0.5458          
+##                   Kappa : 0.5943          
 ##                                           
-##  Mcnemar&#39;s Test P-Value : 4.751e-10       
+##  Mcnemar&#39;s Test P-Value : 1.783e-05       
 ##                                           
-##             Sensitivity : 0.9448          
-##             Specificity : 0.5511          
-##          Pos Pred Value : 0.8308          
-##          Neg Pred Value : 0.8105          
+##             Sensitivity : 0.9314          
+##             Specificity : 0.6267          
+##          Pos Pred Value : 0.8534          
+##          Neg Pred Value : 0.7966          
 ##              Prevalence : 0.7000          
-##          Detection Rate : 0.6613          
-##    Detection Prevalence : 0.7960          
-##       Balanced Accuracy : 0.7479          
+##          Detection Rate : 0.6520          
+##    Detection Prevalence : 0.7640          
+##       Balanced Accuracy : 0.7790          
 ##                                           
 ##        &#39;Positive&#39; Class : 0               
 ## </code></pre>
@@ -336,26 +352,26 @@ confusionMatrix(fit_test, as.factor(test$default))
 ## 
 ##           Reference
 ## Prediction   0   1
-##          0 156  48
-##          1  19  27
+##          0 150  45
+##          1  25  30
 ##                                           
-##                Accuracy : 0.732           
-##                  95% CI : (0.6725, 0.7859)
+##                Accuracy : 0.72            
+##                  95% CI : (0.6599, 0.7747)
 ##     No Information Rate : 0.7             
-##     P-Value [Acc &gt; NIR] : 0.1501195       
+##     P-Value [Acc &gt; NIR] : 0.26919         
 ##                                           
-##                   Kappa : 0.2827          
+##                   Kappa : 0.2784          
 ##                                           
-##  Mcnemar&#39;s Test P-Value : 0.0006245       
+##  Mcnemar&#39;s Test P-Value : 0.02315         
 ##                                           
-##             Sensitivity : 0.8914          
-##             Specificity : 0.3600          
-##          Pos Pred Value : 0.7647          
-##          Neg Pred Value : 0.5870          
+##             Sensitivity : 0.8571          
+##             Specificity : 0.4000          
+##          Pos Pred Value : 0.7692          
+##          Neg Pred Value : 0.5455          
 ##              Prevalence : 0.7000          
-##          Detection Rate : 0.6240          
-##    Detection Prevalence : 0.8160          
-##       Balanced Accuracy : 0.6257          
+##          Detection Rate : 0.6000          
+##    Detection Prevalence : 0.7800          
+##       Balanced Accuracy : 0.6286          
 ##                                           
 ##        &#39;Positive&#39; Class : 0               
 ## </code></pre>
@@ -381,26 +397,26 @@ confusionMatrix(fit, as.factor(train$default))
 ## 
 ##           Reference
 ## Prediction   0   1
-##          0 444  68
-##          1  81 157
+##          0 372  37
+##          1 153 188
 ##                                           
-##                Accuracy : 0.8013          
-##                  95% CI : (0.7709, 0.8293)
+##                Accuracy : 0.7467          
+##                  95% CI : (0.7139, 0.7774)
 ##     No Information Rate : 0.7             
-##     P-Value [Acc &gt; NIR] : 2.054e-10       
+##     P-Value [Acc &gt; NIR] : 0.002656        
 ##                                           
-##                   Kappa : 0.5347          
+##                   Kappa : 0.4743          
 ##                                           
-##  Mcnemar&#39;s Test P-Value : 0.3256          
+##  Mcnemar&#39;s Test P-Value : &lt; 2.2e-16       
 ##                                           
-##             Sensitivity : 0.8457          
-##             Specificity : 0.6978          
-##          Pos Pred Value : 0.8672          
-##          Neg Pred Value : 0.6597          
+##             Sensitivity : 0.7086          
+##             Specificity : 0.8356          
+##          Pos Pred Value : 0.9095          
+##          Neg Pred Value : 0.5513          
 ##              Prevalence : 0.7000          
-##          Detection Rate : 0.5920          
-##    Detection Prevalence : 0.6827          
-##       Balanced Accuracy : 0.7717          
+##          Detection Rate : 0.4960          
+##    Detection Prevalence : 0.5453          
+##       Balanced Accuracy : 0.7721          
 ##                                           
 ##        &#39;Positive&#39; Class : 0               
 ## </code></pre>
@@ -605,7 +621,7 @@ points(pca$x[which(data_risk == 0), c(1,2)], col = &quot;blue&quot;, pch =5)</co
             </li>
             
             <li>
-                <a href="/categories/r-programming">r-programming (3)</a>
+                <a href="/categories/r-programming">r-programming (4)</a>
             </li>
             
             <li>
@@ -779,6 +795,19 @@ points(pca$x[which(data_risk == 0), c(1,2)], col = &quot;blue&quot;, pch =5)</co
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="/blog/2020/02/07/2020-02-07-german-credit-and-regression-tree/">
+                          
+                            <img src="/img/banners/banner-5.png" class="img-responsive" alt="German Credit and Regression Tree">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="/blog/2020/02/07/2020-02-07-german-credit-and-regression-tree/">German Credit and Regression Tree</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="/blog/2020/01/19/2020-01-19-correlation-and-regression/">
                           
                             <img src="/img/banners/banner-5.png" class="img-responsive" alt="Correlation and Regression">
@@ -800,19 +829,6 @@ points(pca$x[which(data_risk == 0), c(1,2)], col = &quot;blue&quot;, pch =5)</co
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="/blog/2020/01/13/2020-01-13-classifying-using-logistic-regression/">Classifying using Logistic Regression</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="/blog/2020/01/05/2020-01-05-knn-algorithm/">
-                          
-                            <img src="/img/banners/banner-5.png" class="img-responsive" alt="Diagnosing breast cancer with the kNN algorithm">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="/blog/2020/01/05/2020-01-05-knn-algorithm/">Diagnosing breast cancer with the kNN algorithm</a></h5>
                     </div>
                 </div>
                 

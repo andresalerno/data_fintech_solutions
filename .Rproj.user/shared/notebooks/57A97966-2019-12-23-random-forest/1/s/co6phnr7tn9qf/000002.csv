@@ -1,2 +1,0 @@
-"0","# calculating the minimun in each column"
-"0","min_data <- apply(BHData, 2, min)"

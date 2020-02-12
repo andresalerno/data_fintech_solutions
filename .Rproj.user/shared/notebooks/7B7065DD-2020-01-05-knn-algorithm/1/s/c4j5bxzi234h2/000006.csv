@@ -1,7 +1,0 @@
-"0",""
-"0","path <- ""C:/Users/andre/OneDrive/Área de Trabalho/salerno/blogdown/datasets/breast_cancer"""
-"0",""
-"0","path <- paste0(path, ""/wisc_bc_data.csv"")"
-"0",""
-"0","wbcd <- read.csv(path, stringsAsFactors = FALSE)"
-"0",""

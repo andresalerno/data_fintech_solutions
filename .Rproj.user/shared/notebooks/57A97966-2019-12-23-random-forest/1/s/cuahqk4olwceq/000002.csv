@@ -1,2 +1,0 @@
-"0","# calculating the maximun in each column"
-"0","max_data <- apply(BHData, 2, max)"

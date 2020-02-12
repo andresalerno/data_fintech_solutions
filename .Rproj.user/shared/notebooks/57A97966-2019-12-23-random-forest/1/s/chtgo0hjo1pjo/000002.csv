@@ -1,1 +1,0 @@
-"0","mse1 <- mean((BHDataScaled$medv - Pred1)^2)"

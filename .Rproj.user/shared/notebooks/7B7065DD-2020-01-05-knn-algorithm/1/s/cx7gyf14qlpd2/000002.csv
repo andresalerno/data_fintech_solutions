@@ -1,3 +1,0 @@
-"0",""
-"0","wbcd_n <- as.data.frame(lapply(wbcd[2:31], normalize))"
-"0",""

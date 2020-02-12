@@ -1,6 +1,0 @@
-"0",""
-"0","names(BCData)<- c('Id', 'ClumpThickness', 'CellSize','CellShape',     "
-"0","                   'MarginalAdhesion','SECellSize', 'BareNuclei',"
-"0","                   'BlandChromatin','NormalNucleoli',"
-"0","                   'Mitoses','Class')"
-"0",""
