@@ -1,15 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>algorithm on DFS</title>
+    <title>Algorithm on DFS</title>
     <link>/tags/algorithm/</link>
-    <description>Recent content in algorithm on DFS</description>
+    <description>Recent content in Algorithm on DFS</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 29 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A Game of Chance</title>
+      <link>/blog/2020/02/29/2020-02-29-a-game-of-chance/</link>
+      <pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2020/02/29/2020-02-29-a-game-of-chance/</guid>
+      <description>&amp;quot;&amp;quot;&amp;quot;Simulating the dice game Craps&amp;quot;&amp;quot;&amp;quot;## &amp;#39;Simulating the dice game Craps&amp;#39;import randomdef roll_dice():&amp;quot;&amp;quot;&amp;quot;Roll two dice and return their face values as a tuple.&amp;quot;&amp;quot;&amp;quot;die1 = random.randrange(1,7)die2 = random.randrange(1,7)return (die1, die2)def display_dice(dice):&amp;quot;&amp;quot;&amp;quot;Display one roll of the two dice.&amp;quot;&amp;quot;&amp;quot;die1, die2 = diceprint(f&amp;#39;Player rolled {die1} + {die2} = {sum(dice)}&amp;#39;)die_values = roll_dice() #first rolldisplay_dice(die_values)# determine game status and point, based on first roll.</description>
+    </item>
     
     <item>
       <title>Binary Search Algorithm</title>

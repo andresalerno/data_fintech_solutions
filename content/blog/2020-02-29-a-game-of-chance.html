@@ -1,0 +1,64 @@
+---
+title: "A Game of Chance"
+author: "Salerno"
+date: "2020-02-29"
+categories: ["Python"]
+tags: ["Game", "Programming", "Algorithm"]
+draft: FALSE
+banner: img/banners/python.png
+---
+
+
+
+<pre class="python"><code>
+&quot;&quot;&quot;Simulating the dice game Craps&quot;&quot;&quot;</code></pre>
+<pre><code>## &#39;Simulating the dice game Craps&#39;</code></pre>
+<pre class="python"><code>import random
+
+def roll_dice():
+    &quot;&quot;&quot;Roll two dice and return their face values as a tuple.&quot;&quot;&quot;
+    die1 = random.randrange(1,7)
+    die2 = random.randrange(1,7)
+    return (die1, die2)
+
+def display_dice(dice):
+    &quot;&quot;&quot;Display one roll of the two dice.&quot;&quot;&quot;
+    die1, die2 = dice
+    print(f&#39;Player rolled {die1} + {die2} = {sum(dice)}&#39;)
+    
+die_values = roll_dice() #first roll
+display_dice(die_values)
+
+# determine game status and point, based on first roll.</code></pre>
+<pre><code>## Player rolled 4 + 2 = 6</code></pre>
+<pre class="python"><code>sum_of_dice = sum(die_values)
+
+if sum_of_dice in (7, 11):
+  game_status = &quot;WON&quot;
+elif sum_of_dice in (2, 3, 12):
+  game_status = &quot;LOST&quot;
+else:
+  game_status = &quot;CONTINUE&quot;
+  my_point = sum_of_dice
+  print(&quot;Point is&quot;, my_point)
+  
+# continue rolling until player wins or loses</code></pre>
+<pre><code>## Point is 6</code></pre>
+<pre class="python"><code>while game_status == &quot;CONTINUE&quot;:
+  die_values = roll_dice()
+  display_dice(die_values)
+  sum_of_dice = sum(die_values)
+
+  if sum_of_dice == my_point:
+    game_status = &quot;WON&quot;
+  elif sum_of_dice == 7:
+    game_status = &quot;LOST&quot;
+    
+# display &quot;wins or &quot;loses&quot; message</code></pre>
+<pre><code>## Player rolled 4 + 5 = 9
+## Player rolled 6 + 1 = 7</code></pre>
+<pre class="python"><code>if game_status == &quot;WON&quot;:
+  print(&quot;Player wins&quot;)
+else:
+  print(&quot;Player loses&quot;)</code></pre>
+<pre><code>## Player loses</code></pre>
