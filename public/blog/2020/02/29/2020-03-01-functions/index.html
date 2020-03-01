@@ -7,13 +7,13 @@
   <meta name="googlebot" content="index,follow,snippet,archive">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <title>Posts</title>
-  <meta name="author" content="DevCows" />
+  <title>Functions</title>
+  <meta name="author" content="Salerno" />
   
   
   
   
-  <meta name="keywords" content="devows, hugo, go">
+  <meta name="keywords" content="devows, hugo, go, Game, Programming, Algorithm">
   
   
   <meta name="description" content="Site template made by devcows using hugo">
@@ -66,28 +66,39 @@
   
   <meta property="og:locale" content="en_us">
   <meta property="og:site_name" content="DFS">
-  <meta property="og:title" content="Posts">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="/post/" />
+  <meta property="og:title" content="Functions">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="/blog/2020/02/29/2020-03-01-functions/" />
   <meta property="og:description" content="Site template made by devcows using hugo">
-  <meta property="og:image" content="/img/sharing-default.png">
+  <meta property="og:image" content="/img/banners/python.png">
   <meta property="og:image:type" content="image/png">
   
   
   
-    <meta property="og:image:width" content="800">
-    <meta property="og:image:height" content="420">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="512">
   
   
-  <meta property="og:updated_time" content="2020-02-06T00:00:00Z">
+  <meta property="og:updated_time" content="2020-02-29T00:00:00Z">
+  
+    
+    
+    <meta property="article:section" content="Python">
+    <meta property="article:tag" content="Game">
+    <meta property="article:tag" content="Programming">
+    <meta property="article:tag" content="Algorithm">
+    
+    
+    <meta property="article:published_time" content="2020-02-29T00:00:00Z">
+    <meta property="article:modified_time" content="2020-02-29T00:00:00Z">
   
 
   
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@GoHugoIO">
-  <meta name="twitter:title" content="Posts">
+  <meta name="twitter:title" content="Functions">
   
-  <meta name="twitter:image" content="/img/sharing-default.png">
+  <meta name="twitter:image" content="/img/banners/python.png">
   
   <meta name="twitter:description" content="Site template made by devcows using hugo">
   
@@ -108,9 +119,9 @@
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand home" href="/">
-                    <img src="/img/logo.png" alt="Posts logo" class="logo hidden-xs hidden-sm">
+                    <img src="/img/logo.png" alt="Functions logo" class="logo hidden-xs hidden-sm">
                     
-                    <span class="sr-only">Posts - go to homepage</span>
+                    <span class="sr-only">Functions - go to homepage</span>
                 </a>
                 <div class="navbar-buttons">
                     <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
@@ -133,7 +144,7 @@
                   </li>
                   
                   
-                  <li class="dropdown">
+                  <li class="dropdown active">
                     
                     <a href="/blog/">Blog</a>
                     
@@ -181,7 +192,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Posts</h1>
+                <h1>Functions</h1>
             </div>
         </div>
     </div>
@@ -190,23 +201,254 @@
 
         <div id="content">
             <div class="container">
+
                 <div class="row">
+
                     
 
-                    <div class="col-md-9" id="blog-listing-medium">
+                    <div class="col-md-9" id="blog-post">
 
                         
+                          <p class="text-muted text-uppercase mb-small text-right">
+                            By <a href="#">Salerno</a>
+                             | 
+                            February 29, 2020
+                          </p>
                         
 
-                        <ul class="pager">
-                            
-                            <li class="previous disabled"><a href="#">&larr; Newer</a></li>
-                            
+                        <div id="post-content">
+                          
 
-                            
-                            <li class="next disabled"><a href="#">Older &rarr;</a></li>
-                            
-                        </ul>
+
+<div id="defining-functions" class="section level2">
+<h2>1. Defining functions</h2>
+<pre class="python"><code>
+def square(number):
+  print(&quot;The square of&quot;, number, &quot;is&quot;, number ** 2)
+
+square(7)</code></pre>
+<pre><code>## The square of 7 is 49</code></pre>
+</div>
+<div id="functions-with-multiple-parameters" class="section level2">
+<h2>2. Functions with multiple parameters</h2>
+<pre class="python"><code>
+def maximum(value1, value2, value3):
+  max_value = value1
+  if value2 &gt; max_value:
+    max_value = value2
+  if value3 &gt; max_value:
+    max_value = value3
+  return max_value
+
+
+maximum(12, 27, 36)</code></pre>
+<pre><code>## 36</code></pre>
+<pre class="python"><code>maximum(&#39;yellow&#39;, &#39;red&#39;, &#39;orange&#39;)</code></pre>
+<pre><code>## &#39;yellow&#39;</code></pre>
+</div>
+<div id="random-number-generation" class="section level2">
+<h2>3. Random-Number Generation</h2>
+<pre class="python"><code>
+
+import random
+
+random.seed(10)
+
+for roll in range(10):
+  print(random.randrange(1,7), end=&quot; &quot;)</code></pre>
+<pre><code>## 5 1 4 4 5 1 2 4 4 3</code></pre>
+<pre class="python"><code>
+import random
+
+for i in range(20):
+  print(&quot;H&quot; if random.randrange(2) == 0 else &quot;T&quot;, end=&quot; &quot;)</code></pre>
+<pre><code>## H H T T H H T H T H T T T T T T H T T H</code></pre>
+</div>
+<div id="unpacking-tuples" class="section level2">
+<h2>4. Unpacking tuples</h2>
+<pre class="python"><code>
+student = (&quot;Sue&quot;, [89, 94, 85])
+
+name, grades = student
+
+print(f&#39;{name}: {grades}&#39;)</code></pre>
+<pre><code>## Sue: [89, 94, 85]</code></pre>
+</div>
+<div id="math-module-functions" class="section level2">
+<h2>5. Math Module Functions</h2>
+<pre class="python"><code>
+import math
+
+math.ceil(9.2)</code></pre>
+<pre><code>## 10</code></pre>
+<pre class="python"><code>math.floor(9.2)</code></pre>
+<pre><code>## 9</code></pre>
+<pre class="python"><code>math.exp(9.2)</code></pre>
+<pre><code>## 9897.129058743909</code></pre>
+<pre class="python"><code>math.log(9.2)</code></pre>
+<pre><code>## 2.2192034840549946</code></pre>
+<pre class="python"><code>math.log10(9.2)</code></pre>
+<pre><code>## 0.9637878273455552</code></pre>
+<pre class="python"><code>math.pow(3, 2)</code></pre>
+<pre><code>## 9.0</code></pre>
+<pre class="python"><code>math.sqrt(49)</code></pre>
+<pre><code>## 7.0</code></pre>
+<pre class="python"><code>math.fabs(-10)</code></pre>
+<pre><code>## 10.0</code></pre>
+<pre class="python"><code>math.fmod(9.8, 4.0)</code></pre>
+<pre><code>## 1.8000000000000007</code></pre>
+</div>
+<div id="default-parameter-values" class="section level2">
+<h2>6. Default Parameter Values</h2>
+<pre class="python"><code>
+def rectangle_area(length=2, width=3):
+  return length * width
+  
+rectangle_area()</code></pre>
+<pre><code>## 6</code></pre>
+<pre class="python"><code>rectangle_area(10)</code></pre>
+<pre><code>## 30</code></pre>
+<pre class="python"><code>rectangle_area(10, 5)</code></pre>
+<pre><code>## 50</code></pre>
+</div>
+<div id="arbitrary-argument-lists" class="section level2">
+<h2>7. Arbitrary Argument Lists</h2>
+<pre class="python"><code>
+def average(*args):
+  return sum(args) / len(args)
+  
+average(5, 10)</code></pre>
+<pre><code>## 7.5</code></pre>
+<pre class="python"><code>average(5, 10, 15)</code></pre>
+<pre><code>## 10.0</code></pre>
+<pre class="python"><code>average(5, 10, 15, 20)</code></pre>
+<pre><code>## 12.5</code></pre>
+<pre class="python"><code>grades = [88, 75, 96, 55, 83]
+
+average(*grades)</code></pre>
+<pre><code>## 79.4</code></pre>
+</div>
+<div id="methods-functions-that-belong-to-objects" class="section level2">
+<h2>8. Methods: Functions that belong to objects</h2>
+<pre class="python"><code>
+s = &quot;Hello&quot;
+
+s.lower()</code></pre>
+<pre><code>## &#39;hello&#39;</code></pre>
+<pre class="python"><code>s.upper()</code></pre>
+<pre><code>## &#39;HELLO&#39;</code></pre>
+<pre class="python"><code>s
+</code></pre>
+<pre><code>## &#39;Hello&#39;</code></pre>
+</div>
+<div id="scope-rules" class="section level2">
+<h2>9. Scope rules</h2>
+<pre class="python"><code>
+#acessing a global variable from a function
+
+x = 7
+
+def access_global():
+  print(&#39;x printed from access_global:&#39;, x)
+
+access_global()</code></pre>
+<pre><code>## x printed from access_global: 7</code></pre>
+<pre class="python"><code>
+# trying to modify a global variable
+
+def try_to_modify_global():
+  x = 3.5
+  print(&#39;x printed from try_to_modify_global:&#39;, x)
+
+try_to_modify_global()</code></pre>
+<pre><code>## x printed from try_to_modify_global: 3.5</code></pre>
+<pre class="python"><code>x</code></pre>
+<pre><code>## 7</code></pre>
+<pre class="python"><code>
+def modify_global():
+  global x
+  x = &#39;hello&#39;
+  print(&#39;x printed from modify_global:&#39;, x)
+
+modify_global()</code></pre>
+<pre><code>## x printed from modify_global: hello</code></pre>
+<pre class="python"><code>x</code></pre>
+<pre><code>## &#39;hello&#39;</code></pre>
+</div>
+<div id="import" class="section level2">
+<h2>10. Import</h2>
+<pre class="python"><code>
+from math import ceil, floor
+
+ceil(10.7)</code></pre>
+<pre><code>## 11</code></pre>
+<pre class="python"><code>floor(10.7)</code></pre>
+<pre><code>## 10</code></pre>
+<pre class="python"><code># wildcards
+
+from math import *
+
+e</code></pre>
+<pre><code>## 2.718281828459045</code></pre>
+</div>
+<div id="binding-names-for-modules-and-module-identifiers" class="section level2">
+<h2>11. Binding names for modules and module identifiers</h2>
+<pre class="python"><code>
+import statistics as stats
+
+grades = [85, 93, 45, 87, 93]
+
+stats.mean(grades)</code></pre>
+<pre><code>## 80.6</code></pre>
+</div>
+<div id="object-identities" class="section level2">
+<h2>12. Object Identities</h2>
+<pre class="python"><code>
+id(grades)</code></pre>
+<pre><code>## 508150528</code></pre>
+</div>
+<div id="data-science-measures-of-dispersion" class="section level2">
+<h2>13. Data Science: Measures of Dispersion</h2>
+<pre class="python"><code>
+import math, statistics
+
+y = [-2.5, -0.5, -1.5, 2.5, 1.5, -0.5, 0.5, 1.5, -1.5]
+
+statistics.pvariance(y)</code></pre>
+<pre><code>## 2.4691358024691357</code></pre>
+<pre class="python"><code>statistics.pstdev(y)</code></pre>
+<pre><code>## 1.5713484026367723</code></pre>
+<pre class="python"><code>math.sqrt(statistics.pvariance(y))</code></pre>
+<pre><code>## 1.5713484026367723</code></pre>
+</div>
+
+                        </div>
+                        
+                        
+                        <div id="comments">
+                            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "andresalerno" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                        </div>
+                        
+
                     </div>
                     
 
@@ -448,6 +690,7 @@
 
                 </div>
                 
+
             </div>
             
         </div>
