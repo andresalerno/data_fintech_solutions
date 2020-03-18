@@ -75,6 +75,7 @@ print(df.head())
 
 _ = pd.plotting.scatter_matrix(df, c = y, figsize = [8, 8],
 s=150, marker = 'D')
+plt.savefig('./_bookdown_files/_main_files/figure-html/iris.png')
 plt.show()
 
 ```
@@ -131,6 +132,7 @@ knn.score(X_test, y_test)
 
 ## 7. Overfitting and underfitting
 
+
 ```{python}
 
 # Setup arrays to store train and test accuracies
@@ -159,6 +161,7 @@ plt.plot(neighbors, train_accuracy, label = 'Training Accuracy')
 plt.legend()
 plt.xlabel('Number of Neighbors')
 plt.ylabel('Accuracy')
+plt.savefig('./_bookdown_files/_main_files/figure-html/knn.png')
 plt.show()
 
 

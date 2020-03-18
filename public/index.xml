@@ -6,10 +6,57 @@
     <description>Recent content on DFS</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Supervised Learning with Scikit-Learn</title>
+      <link>/blog/2020/03/18/2020-03-18-supervised-learning-with-scikit-learn/</link>
+      <pubDate>Wed, 18 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2020/03/18/2020-03-18-supervised-learning-with-scikit-learn/</guid>
+      <description>1. The Iris dataset in scikit-learnfrom sklearn import datasetsimport pandas as pdimport numpy as npimport matplotlib.pyplot as pltplt.style.use(&amp;#39;ggplot&amp;#39;)iris = datasets.load_iris()type(iris)## &amp;lt;class &amp;#39;sklearn.utils.Bunch&amp;#39;&amp;gt;print(iris.keys())## dict_keys([&amp;#39;data&amp;#39;, &amp;#39;target&amp;#39;, &amp;#39;target_names&amp;#39;, &amp;#39;DESCR&amp;#39;, &amp;#39;feature_names&amp;#39;, &amp;#39;filename&amp;#39;])print(iris.DESCR)## .. _iris_dataset:## ## Iris plants dataset## --------------------## ## **Data Set Characteristics:**## ## :Number of Instances: 150 (50 in each of three classes)## :Number of Attributes: 4 numeric, predictive attributes and the class## :Attribute Information:## - sepal length in cm## - sepal width in cm## - petal length in cm## - petal width in cm## - class:## - Iris-Setosa## - Iris-Versicolour## - Iris-Virginica## ## :Summary Statistics:## ## ============== ==== ==== ======= ===== ====================## Min Max Mean SD Class Correlation## ============== ==== ==== ======= ===== ====================## sepal length: 4.</description>
+    </item>
+    
+    <item>
+      <title>Python Data Science - part 1</title>
+      <link>/blog/2020/03/15/2020-03-15-python-data-science-part-1/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2020/03/15/2020-03-15-python-data-science-part-1/</guid>
+      <description>1. Single Parameter Function# Define shout with the parameter, worddef shout(word):&amp;quot;&amp;quot;&amp;quot;Print a string with three exclamation marks&amp;quot;&amp;quot;&amp;quot;# Concatenate the strings: shout_wordshout_word = word + &amp;#39;!!!&amp;#39;# Print shout_wordprint(shout_word)# Call shout with the string &amp;#39;congratulations&amp;#39;shout(&amp;quot;Congratulations&amp;quot;)## Congratulations!!!2. Functions that return single values# Define shout with the parameter, worddef shout(word):&amp;quot;&amp;quot;&amp;quot;Return a string with three exclamation marks&amp;quot;&amp;quot;&amp;quot;# Concatenate the strings: shout_wordshout_word = word + &amp;quot;!</description>
+    </item>
+    
+    <item>
+      <title>Linear Models - Scikit Learn</title>
+      <link>/blog/2020/03/14/2020-03-14-linear-models-scikit-learn/</link>
+      <pubDate>Sat, 14 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2020/03/14/2020-03-14-linear-models-scikit-learn/</guid>
+      <description>1. Linear ModelsThe target value is expected to be a linear combination of the features.
+1.1. Ordinary Least Squares (OLS)The OLS is a optimization math technique that aim to find the better adjustment for a set data and try to minimize the residual sum of squares between the observed targets in the dataset and the targets predicted by the linear approximation.
+from sklearn import linear_modelreg = linear_model.</description>
+    </item>
+    
+    <item>
+      <title>TensorFlow 2 - Quickstart for Beginners</title>
+      <link>/blog/2020/03/14/2020-03-14-tensorflow-2-quickstart-for-beginners/</link>
+      <pubDate>Sat, 14 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2020/03/14/2020-03-14-tensorflow-2-quickstart-for-beginners/</guid>
+      <description>from __future__ import absolute_import, division, print_function, unicode_literalsimport tensorflow as tfmnist = tf.keras.datasets.mnist(x_train, y_train), (x_test, y_test) = mnist.load_data()x_train, x_test = x_train / 255.0, x_test / 255.0model = tf.keras.models.Sequential([tf.keras.layers.Flatten(input_shape=(28, 28)),tf.keras.layers.Dense(128, activation=&amp;#39;relu&amp;#39;),tf.keras.layers.Dropout(0.2),tf.keras.layers.Dense(10)])predictions = model(x_train[:1]).numpy()## WARNING:tensorflow:Layer flatten is casting an input tensor from dtype float64 to the layer&amp;#39;s dtype of float32, which is new behavior in TensorFlow 2.</description>
+    </item>
+    
+    <item>
+      <title>Iterables versus Iterators</title>
+      <link>/blog/2020/03/09/2020-03-09-iterables-versus-iterators/</link>
+      <pubDate>Mon, 09 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2020/03/09/2020-03-09-iterables-versus-iterators/</guid>
+      <description>1. Defining a listflash1 = [&amp;#39;jay garrick&amp;#39;, &amp;#39;barry allen&amp;#39;, &amp;#39;wally west&amp;#39;, &amp;#39;bart allen&amp;#39;]a = 1</description>
+    </item>
     
     <item>
       <title>A Game of Chance</title>

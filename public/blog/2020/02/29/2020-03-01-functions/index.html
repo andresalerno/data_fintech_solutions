@@ -405,7 +405,7 @@ stats.mean(grades)</code></pre>
 <h2>12. Object Identities</h2>
 <pre class="python"><code>
 id(grades)</code></pre>
-<pre><code>## 508150528</code></pre>
+<pre><code>## 426617288</code></pre>
 </div>
 <div id="data-science-measures-of-dispersion" class="section level2">
 <h2>13. Data Science: Measures of Dispersion</h2>
@@ -420,6 +420,28 @@ statistics.pvariance(y)</code></pre>
 <pre><code>## 1.5713484026367723</code></pre>
 <pre class="python"><code>math.sqrt(statistics.pvariance(y))</code></pre>
 <pre><code>## 1.5713484026367723</code></pre>
+</div>
+<div id="example" class="section level2">
+<h2>14. Example</h2>
+<pre class="python"><code>
+from sklearn import datasets
+import pandas as pd
+
+iris = datasets.load_iris()
+data_iris = iris.data
+
+digits = datasets.load_digits()
+data_digits = digits.data
+
+type(iris)</code></pre>
+<pre><code>## &lt;class &#39;sklearn.utils.Bunch&#39;&gt;</code></pre>
+<pre class="python"><code>type(data_iris)</code></pre>
+<pre><code>## &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
+<pre class="python"><code>type(digits)</code></pre>
+<pre><code>## &lt;class &#39;sklearn.utils.Bunch&#39;&gt;</code></pre>
+<pre class="python"><code>type(data_digits)
+</code></pre>
+<pre><code>## &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
 </div>
 
                         </div>
@@ -514,6 +536,10 @@ statistics.pvariance(y)</code></pre>
             </li>
             
             <li>
+                <a href="/categories/data-science">data-science (2)</a>
+            </li>
+            
+            <li>
                 <a href="/categories/logistic-regression">logistic-regression (1)</a>
             </li>
             
@@ -522,11 +548,15 @@ statistics.pvariance(y)</code></pre>
             </li>
             
             <li>
+                <a href="/categories/machine-learning">machine-learning (3)</a>
+            </li>
+            
+            <li>
                 <a href="/categories/models">models (4)</a>
             </li>
             
             <li>
-                <a href="/categories/programming">programming (6)</a>
+                <a href="/categories/programming">programming (11)</a>
             </li>
             
             <li>
@@ -534,7 +564,7 @@ statistics.pvariance(y)</code></pre>
             </li>
             
             <li>
-                <a href="/categories/python">python (4)</a>
+                <a href="/categories/python">python (9)</a>
             </li>
             
             <li>
@@ -546,7 +576,15 @@ statistics.pvariance(y)</code></pre>
             </li>
             
             <li>
+                <a href="/categories/scikit-learn">scikit-learn (1)</a>
+            </li>
+            
+            <li>
                 <a href="/categories/starting">starting (1)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/tensorflow">tensorflow (1)</a>
             </li>
             
         </ul>
@@ -720,40 +758,40 @@ statistics.pvariance(y)</code></pre>
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
-                        <a href="/blog/2020/02/29/2020-02-29-a-game-of-chance/">
+                        <a href="/blog/2020/03/18/2020-03-18-supervised-learning-with-scikit-learn/">
                           
-                            <img src="/img/banners/python.png" class="img-responsive" alt="A Game of Chance">
+                            <img src="/img/banners/python.png" class="img-responsive" alt="Supervised Learning with Scikit-Learn">
                           
                         </a>
                     </div>
                     <div class="name same-height-always">
-                        <h5><a href="/blog/2020/02/29/2020-02-29-a-game-of-chance/">A Game of Chance</a></h5>
+                        <h5><a href="/blog/2020/03/18/2020-03-18-supervised-learning-with-scikit-learn/">Supervised Learning with Scikit-Learn</a></h5>
                     </div>
                 </div>
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
-                        <a href="/blog/2020/02/29/2020-03-01-functions/">
+                        <a href="/blog/2020/03/15/2020-03-15-python-data-science-part-1/">
                           
-                            <img src="/img/banners/python.png" class="img-responsive" alt="Functions">
+                            <img src="/img/banners/python.png" class="img-responsive" alt="Python Data Science - part 1">
                           
                         </a>
                     </div>
                     <div class="name same-height-always">
-                        <h5><a href="/blog/2020/02/29/2020-03-01-functions/">Functions</a></h5>
+                        <h5><a href="/blog/2020/03/15/2020-03-15-python-data-science-part-1/">Python Data Science - part 1</a></h5>
                     </div>
                 </div>
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
-                        <a href="/blog/2020/02/07/2020-02-07-german-credit-and-regression-tree/">
+                        <a href="/blog/2020/03/14/2020-03-14-linear-models-scikit-learn/">
                           
-                            <img src="/img/banners/banner-5.png" class="img-responsive" alt="German Credit and Regression Tree">
+                            <img src="/img/banners/python.png" class="img-responsive" alt="Linear Models - Scikit Learn">
                           
                         </a>
                     </div>
                     <div class="name same-height-always">
-                        <h5><a href="/blog/2020/02/07/2020-02-07-german-credit-and-regression-tree/">German Credit and Regression Tree</a></h5>
+                        <h5><a href="/blog/2020/03/14/2020-03-14-linear-models-scikit-learn/">Linear Models - Scikit Learn</a></h5>
                     </div>
                 </div>
                 

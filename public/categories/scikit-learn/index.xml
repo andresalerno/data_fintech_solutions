@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Scikit Learn on DFS</title>
+    <link>/categories/scikit-learn/</link>
+    <description>Recent content in Scikit Learn on DFS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 14 Mar 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/scikit-learn/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linear Models - Scikit Learn</title>
+      <link>/blog/2020/03/14/2020-03-14-linear-models-scikit-learn/</link>
+      <pubDate>Sat, 14 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2020/03/14/2020-03-14-linear-models-scikit-learn/</guid>
+      <description>1. Linear ModelsThe target value is expected to be a linear combination of the features.
+1.1. Ordinary Least Squares (OLS)The OLS is a optimization math technique that aim to find the better adjustment for a set data and try to minimize the residual sum of squares between the observed targets in the dataset and the targets predicted by the linear approximation.
+from sklearn import linear_modelreg = linear_model.</description>
+    </item>
+    
+  </channel>
+</rss>
