@@ -385,24 +385,6 @@ knn.score(X_test, y_test)</code></pre>
 </div>
 <div id="overfitting-and-underfitting" class="section level2">
 <h2>7. Overfitting and underfitting</h2>
-</div>
-<div id="head" class="section level1">
-<h1>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</h1>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>d80c49f28fe1b24796b1a0b1f73af6c293d10e37</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 <pre class="python"><code>
 # Setup arrays to store train and test accuracies
 neighbors = np.arange(1, 9)
@@ -451,11 +433,11 @@ for i, k in enumerate(neighbors):
 <pre class="python"><code>plt.title(&#39;k-NN: Varying Number of Neighbors&#39;)</code></pre>
 <pre><code>## Text(0.5, 1.0, &#39;k-NN: Varying Number of Neighbors&#39;)</code></pre>
 <pre class="python"><code>plt.plot(neighbors, test_accuracy, label = &#39;Testing Accuracy&#39;)</code></pre>
-<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002E771108&gt;]</code></pre>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002E750AC8&gt;]</code></pre>
 <pre class="python"><code>plt.plot(neighbors, train_accuracy, label = &#39;Training Accuracy&#39;)</code></pre>
-<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002E78EC48&gt;]</code></pre>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002E787D88&gt;]</code></pre>
 <pre class="python"><code>plt.legend()</code></pre>
-<pre><code>## &lt;matplotlib.legend.Legend object at 0x000000002E755448&gt;</code></pre>
+<pre><code>## &lt;matplotlib.legend.Legend object at 0x000000002E765448&gt;</code></pre>
 <pre class="python"><code>plt.xlabel(&#39;Number of Neighbors&#39;)</code></pre>
 <pre><code>## Text(0.5, 0, &#39;Number of Neighbors&#39;)</code></pre>
 <pre class="python"><code>plt.ylabel(&#39;Accuracy&#39;)</code></pre>

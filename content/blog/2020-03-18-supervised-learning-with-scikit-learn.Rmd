@@ -132,8 +132,7 @@ knn.score(X_test, y_test)
 
 ## 7. Overfitting and underfitting
 
-<<<<<<< HEAD
-=======
+
 ```{r, echo=FALSE}
 
 #library(png)
@@ -144,7 +143,7 @@ knn.score(X_test, y_test)
 
 ```
 
->>>>>>> d80c49f28fe1b24796b1a0b1f73af6c293d10e37
+
 
 ```{python}
 
