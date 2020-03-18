@@ -257,8 +257,20 @@ math.sqrt(statistics.pvariance(y))
 ```{python}
 
 from sklearn import datasets
+import pandas as pd
+
 iris = datasets.load_iris()
+data_iris = iris.data
+
 digits = datasets.load_digits()
+data_digits = digits.data
+
+type(iris)
+type(data_iris)
+
+type(digits)
+type(data_digits)
+
 
 ```
 
