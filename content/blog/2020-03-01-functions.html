@@ -195,7 +195,7 @@ stats.mean(grades)</code></pre>
 <h2>12. Object Identities</h2>
 <pre class="python"><code>
 id(grades)</code></pre>
-<pre><code>## 541914696</code></pre>
+<pre><code>## 426617288</code></pre>
 </div>
 <div id="data-science-measures-of-dispersion" class="section level2">
 <h2>13. Data Science: Measures of Dispersion</h2>
@@ -215,6 +215,21 @@ statistics.pvariance(y)</code></pre>
 <h2>14. Example</h2>
 <pre class="python"><code>
 from sklearn import datasets
+import pandas as pd
+
 iris = datasets.load_iris()
-digits = datasets.load_digits()</code></pre>
+data_iris = iris.data
+
+digits = datasets.load_digits()
+data_digits = digits.data
+
+type(iris)</code></pre>
+<pre><code>## &lt;class &#39;sklearn.utils.Bunch&#39;&gt;</code></pre>
+<pre class="python"><code>type(data_iris)</code></pre>
+<pre><code>## &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
+<pre class="python"><code>type(digits)</code></pre>
+<pre><code>## &lt;class &#39;sklearn.utils.Bunch&#39;&gt;</code></pre>
+<pre class="python"><code>type(data_digits)
+</code></pre>
+<pre><code>## &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
 </div>
