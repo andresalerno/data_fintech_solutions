@@ -132,6 +132,19 @@ knn.score(X_test, y_test)
 
 ## 7. Overfitting and underfitting
 
+<<<<<<< HEAD
+=======
+```{r, echo=FALSE}
+
+#library(png)
+
+#path1 <- list.dirs('C:/blogdown/content/blog/_bookdown_files/_main_files/figure-html')
+
+#png::readPNG(path1, native = TRUE, info = TRUE)
+
+```
+
+>>>>>>> d80c49f28fe1b24796b1a0b1f73af6c293d10e37
 
 ```{python}
 
