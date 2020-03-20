@@ -1,0 +1,332 @@
+---
+title: "Introduction to Importing Data in Python"
+author: "Salerno"
+date: "2020-03-19"
+categories: ["Python", "Data Science", "Programming"]
+tags: []
+draft: FALSE
+banner: img/banners/python.png
+---
+
+
+
+<div id="importing-entire-text-files" class="section level2">
+<h2>1. Importing entire text files</h2>
+<pre class="python"><code>
+# Open a file: file
+file = open(&#39;c:/blogdown/moby_dick.txt&#39;, mode=&#39;r&#39;)
+
+# Print it
+print(file.read())
+
+# Check whether file is closed</code></pre>
+<pre><code>## CHAPTER 1. Loomings.
+## 
+## Call me Ishmael. Some years ago--never mind how long precisely--having
+## little or no money in my purse, and nothing particular to interest me on
+## shore, I thought I would sail about a little and see the watery part of
+## the world. It is a way I have of driving off the spleen and regulating
+## the circulation. Whenever I find myself growing grim about the mouth;
+## whenever it is a damp, drizzly November in my soul; whenever I find
+## myself involuntarily pausing before coffin warehouses, and bringing up
+## the rear of every funeral I meet; and especially whenever my hypos get
+## such an upper hand of me, that it requires a strong moral principle to
+## prevent me from deliberately stepping into the street, and methodically
+## knocking people&#39;s hats off--then, I account it high time to get to sea
+## as soon as I can. This is my substitute for pistol and ball. With a
+## philosophical flourish Cato throws himself upon his sword; I quietly
+## take to the ship. There is nothing surprising in this. If they but knew
+## it, almost all men in their degree, some time or other, cherish very
+## nearly the same feelings towards the ocean with me.</code></pre>
+<pre class="python"><code>print(file.closed)
+
+# Close file</code></pre>
+<pre><code>## False</code></pre>
+<pre class="python"><code>file.close()
+
+# Check whether file is closed
+print(file.closed)</code></pre>
+<pre><code>## True</code></pre>
+</div>
+<div id="importing-text-files-line-by-line" class="section level2">
+<h2>2. Importing text files line by line</h2>
+<pre class="python"><code>
+# Read &amp; print the first 3 lines
+with open(&#39;c:/blogdown/moby_dick.txt&#39;) as file:
+    print(file.readline())
+    print(file.readline())
+    print(file.readline())</code></pre>
+<pre><code>## CHAPTER 1. Loomings.
+## 
+## 
+## 
+## Call me Ishmael. Some years ago--never mind how long precisely--having</code></pre>
+</div>
+<div id="using-numpy-to-import-flat-files" class="section level2">
+<h2>3. Using NumPy to import flat files</h2>
+<pre class="python"><code>
+# Import package
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Assign filename to variable: file
+file = &#39;c:/blogdown/mnist_kaggle_some_rows.csv&#39;
+
+# Load file as array: digits
+digits = np.loadtxt(file, delimiter=&#39;,&#39;)
+
+# Print datatype of digits
+print(type(digits))
+
+# Select and reshape a row</code></pre>
+<pre><code>## &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
+<pre class="python"><code>im = digits[21, 1:]
+im_sq = np.reshape(im, (28, 28))
+# Plot reshaped data (matplotlib.pyplot already loaded as plt)
+plt.imshow(im_sq, cmap=&#39;Greys&#39;, interpolation=&#39;nearest&#39;)
+plt.show()
+</code></pre>
+<p><img src="/blog/2020-03-19-introduction-to-importing-data-in-python_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
+<div id="customizing-your-numpy-import" class="section level2">
+<h2>4. Customizing your NumPy import</h2>
+<pre class="python"><code>
+# Assign filename: file
+file = &#39;c:/blogdown/seaslug.txt&#39;
+
+# Import file: data
+data = np.loadtxt(file, delimiter=&#39;\t&#39;, dtype=str)
+
+# Print the first element of data
+print(data[0])
+
+# Import data as floats and skip the first row: data_float</code></pre>
+<pre><code>## [&#39;Time&#39; &#39;Percent&#39;]</code></pre>
+<pre class="python"><code>data_float = np.loadtxt(file, delimiter=&#39;\t&#39;, dtype=float, skiprows=1)
+
+# Print the 10th element of data_float
+print(data_float[9])
+
+# Plot a scatterplot of the data</code></pre>
+<pre><code>## [0.    0.357]</code></pre>
+<pre class="python"><code>plt.scatter(data_float[:, 0], data_float[:, 1])
+plt.xlabel(&#39;time (min.)&#39;)
+plt.ylabel(&#39;percentage of larvae&#39;)
+plt.show()</code></pre>
+<p><img src="/blog/2020-03-19-introduction-to-importing-data-in-python_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="working-with-mixed-datatypes" class="section level2">
+<h2>5. Working with mixed datatypes</h2>
+<pre class="python"><code>
+data = &#39;c:/blogdown/titanic_sub.csv&#39;
+
+data = np.genfromtxt(data, delimiter=&#39;,&#39;, names=True, dtype=None)</code></pre>
+<pre><code>## C:/ProgramData/Anaconda3/python.exe:1: VisibleDeprecationWarning: Reading unicode strings without specifying the encoding argument is deprecated. Set the encoding, use None for the system default.</code></pre>
+<pre class="python"><code>np.shape(data)</code></pre>
+<pre><code>## (891,)</code></pre>
+<pre class="python"><code>print(data[&#39;Fare&#39;])</code></pre>
+<pre><code>## [  7.25    71.2833   7.925   53.1      8.05     8.4583  51.8625  21.075
+##   11.1333  30.0708  16.7     26.55     8.05    31.275    7.8542  16.
+##   29.125   13.      18.       7.225   26.      13.       8.0292  35.5
+##   21.075   31.3875   7.225  263.       7.8792   7.8958  27.7208 146.5208
+##    7.75    10.5     82.1708  52.       7.2292   8.05    18.      11.2417
+##    9.475   21.       7.8958  41.5792   7.8792   8.05    15.5      7.75
+##   21.6792  17.8     39.6875   7.8     76.7292  26.      61.9792  35.5
+##   10.5      7.2292  27.75    46.9      7.2292  80.      83.475   27.9
+##   27.7208  15.2458  10.5      8.1583   7.925    8.6625  10.5     46.9
+##   73.5     14.4542  56.4958   7.65     7.8958   8.05    29.      12.475
+##    9.       9.5      7.7875  47.1     10.5     15.85    34.375    8.05
+##  263.       8.05     8.05     7.8542  61.175   20.575    7.25     8.05
+##   34.6542  63.3583  23.      26.       7.8958   7.8958  77.2875   8.6542
+##    7.925    7.8958   7.65     7.775    7.8958  24.15    52.      14.4542
+##    8.05     9.825   14.4583   7.925    7.75    21.     247.5208  31.275
+##   73.5      8.05    30.0708  13.      77.2875  11.2417   7.75     7.1417
+##   22.3583   6.975    7.8958   7.05    14.5     26.      13.      15.0458
+##   26.2833  53.1      9.2167  79.2     15.2458   7.75    15.85     6.75
+##   11.5     36.75     7.7958  34.375   26.      13.      12.525   66.6
+##    8.05    14.5      7.3125  61.3792   7.7333   8.05     8.6625  69.55
+##   16.1     15.75     7.775    8.6625  39.6875  20.525   55.      27.9
+##   25.925   56.4958  33.5     29.125   11.1333   7.925   30.6958   7.8542
+##   25.4667  28.7125  13.       0.      69.55    15.05    31.3875  39.
+##   22.025   50.      15.5     26.55    15.5      7.8958  13.      13.
+##    7.8542  26.      27.7208 146.5208   7.75     8.4042   7.75    13.
+##    9.5     69.55     6.4958   7.225    8.05    10.4625  15.85    18.7875
+##    7.75    31.       7.05    21.       7.25    13.       7.75   113.275
+##    7.925   27.      76.2917  10.5      8.05    13.       8.05     7.8958
+##   90.       9.35    10.5      7.25    13.      25.4667  83.475    7.775
+##   13.5     31.3875  10.5      7.55    26.      26.25    10.5     12.275
+##   14.4542  15.5     10.5      7.125    7.225   90.       7.775   14.5
+##   52.5542  26.       7.25    10.4625  26.55    16.1     20.2125  15.2458
+##   79.2     86.5    512.3292  26.       7.75    31.3875  79.65     0.
+##    7.75    10.5     39.6875   7.775  153.4625 135.6333  31.       0.
+##   19.5     29.7      7.75    77.9583   7.75     0.      29.125   20.25
+##    7.75     7.8542   9.5      8.05    26.       8.6625   9.5      7.8958
+##   13.       7.75    78.85    91.0792  12.875    8.85     7.8958  27.7208
+##    7.2292 151.55    30.5    247.5208   7.75    23.25     0.      12.35
+##    8.05   151.55   110.8833 108.9     24.      56.9292  83.1583 262.375
+##   26.       7.8958  26.25     7.8542  26.      14.     164.8667 134.5
+##    7.25     7.8958  12.35    29.      69.55   135.6333   6.2375  13.
+##   20.525   57.9792  23.25    28.5    153.4625  18.     133.65     7.8958
+##   66.6    134.5      8.05    35.5     26.     263.      13.      13.
+##   13.      13.      13.      16.1     15.9      8.6625   9.225   35.
+##    7.2292  17.8      7.225    9.5     55.      13.       7.8792   7.8792
+##   27.9     27.7208  14.4542   7.05    15.5      7.25    75.25     7.2292
+##    7.75    69.3     55.4417   6.4958   8.05   135.6333  21.075   82.1708
+##    7.25   211.5      4.0125   7.775  227.525   15.7417   7.925   52.
+##    7.8958  73.5     46.9     13.       7.7292  12.     120.       7.7958
+##    7.925  113.275   16.7      7.7958   7.8542  26.      10.5     12.65
+##    7.925    8.05     9.825   15.85     8.6625  21.       7.75    18.75
+##    7.775   25.4667   7.8958   6.8583  90.       0.       7.925    8.05
+##   32.5     13.      13.      24.15     7.8958   7.7333   7.875   14.4
+##   20.2125   7.25    26.      26.       7.75     8.05    26.55    16.1
+##   26.       7.125   55.9    120.      34.375   18.75   263.      10.5
+##   26.25     9.5      7.775   13.       8.1125  81.8583  19.5     26.55
+##   19.2583  30.5     27.75    19.9667  27.75    89.1042   8.05     7.8958
+##   26.55    51.8625  10.5      7.75    26.55     8.05    38.5     13.
+##    8.05     7.05     0.      26.55     7.725   19.2583   7.25     8.6625
+##   27.75    13.7917   9.8375  52.      21.       7.0458   7.5208  12.2875
+##   46.9      0.       8.05     9.5875  91.0792  25.4667  90.      29.7
+##    8.05    15.9     19.9667   7.25    30.5     49.5042   8.05    14.4583
+##   78.2667  15.1    151.55     7.7958   8.6625   7.75     7.6292   9.5875
+##   86.5    108.9     26.      26.55    22.525   56.4958   7.75     8.05
+##   26.2875  59.4      7.4958  34.0208  10.5     24.15    26.       7.8958
+##   93.5      7.8958   7.225   57.9792   7.2292   7.75    10.5    221.7792
+##    7.925   11.5     26.       7.2292   7.2292  22.3583   8.6625  26.25
+##   26.55   106.425   14.5     49.5     71.      31.275   31.275   26.
+##  106.425   26.      26.      13.8625  20.525   36.75   110.8833  26.
+##    7.8292   7.225    7.775   26.55    39.6    227.525   79.65    17.4
+##    7.75     7.8958  13.5      8.05     8.05    24.15     7.8958  21.075
+##    7.2292   7.8542  10.5     51.4792  26.3875   7.75     8.05    14.5
+##   13.      55.9     14.4583   7.925   30.     110.8833  26.      40.125
+##    8.7125  79.65    15.      79.2      8.05     8.05     7.125   78.2667
+##    7.25     7.75    26.      24.15    33.       0.       7.225   56.9292
+##   27.       7.8958  42.4      8.05    26.55    15.55     7.8958  30.5
+##   41.5792 153.4625  31.275    7.05    15.5      7.75     8.05    65.
+##   14.4     16.1     39.      10.5     14.4542  52.5542  15.7417   7.8542
+##   16.1     32.3208  12.35    77.9583   7.8958   7.7333  30.       7.0542
+##   30.5      0.      27.9     13.       7.925   26.25    39.6875  16.1
+##    7.8542  69.3     27.9     56.4958  19.2583  76.7292   7.8958  35.5
+##    7.55     7.55     7.8958  23.       8.4333   7.8292   6.75    73.5
+##    7.8958  15.5     13.     113.275  133.65     7.225   25.5875   7.4958
+##    7.925   73.5     13.       7.775    8.05    52.      39.      52.
+##   10.5     13.       0.       7.775    8.05     9.8417  46.9    512.3292
+##    8.1375  76.7292   9.225   46.9     39.      41.5792  39.6875  10.1708
+##    7.7958 211.3375  57.      13.4167  56.4958   7.225   26.55    13.5
+##    8.05     7.7333 110.8833   7.65   227.525   26.2875  14.4542   7.7417
+##    7.8542  26.      13.5     26.2875 151.55    15.2458  49.5042  26.55
+##   52.       9.4833  13.       7.65   227.525   10.5     15.5      7.775
+##   33.       7.0542  13.      13.      53.1      8.6625  21.       7.7375
+##   26.       7.925  211.3375  18.7875   0.      13.      13.      16.1
+##   34.375  512.3292   7.8958   7.8958  30.      78.85   262.375   16.1
+##    7.925   71.      20.25    13.      53.1      7.75    23.      12.475
+##    9.5      7.8958  65.      14.5      7.7958  11.5      8.05    86.5
+##   14.5      7.125    7.2292 120.       7.775   77.9583  39.6      7.75
+##   24.15     8.3625   9.5      7.8542  10.5      7.225   23.       7.75
+##    7.75    12.475    7.7375 211.3375   7.2292  57.      30.      23.45
+##    7.05     7.25     7.4958  29.125   20.575   79.2      7.75    26.
+##   69.55    30.6958   7.8958  13.      25.9292   8.6833   7.2292  24.15
+##   13.      26.25   120.       8.5167   6.975    7.775    0.       7.775
+##   13.      53.1      7.8875  24.15    10.5     31.275    8.05     0.
+##    7.925   37.0042   6.45    27.9     93.5      8.6625   0.      12.475
+##   39.6875   6.95    56.4958  37.0042   7.75    80.      14.4542  18.75
+##    7.2292   7.8542   8.3     83.1583   8.6625   8.05    56.4958  29.7
+##    7.925   10.5     31.       6.4375   8.6625   7.55    69.55     7.8958
+##   33.      89.1042  31.275    7.775   15.2458  39.4     26.       9.35
+##  164.8667  26.55    19.2583   7.2292  14.1083  11.5     25.9292  69.55
+##   13.      13.      13.8583  50.4958   9.5     11.1333   7.8958  52.5542
+##    5.       9.      24.       7.225    9.8458   7.8958   7.8958  83.1583
+##   26.       7.8958  10.5167  10.5      7.05    29.125   13.      30.
+##   23.45    30.       7.75  ]</code></pre>
+</div>
+<div id="working-with-mixed-datatypes-2" class="section level2">
+<h2>6. Working with mixed datatypes (2)</h2>
+<pre class="python"><code>
+data = &#39;c:/blogdown/titanic_sub.csv&#39;
+
+# Import file using np.recfromcsv: d
+d = np.recfromcsv(data)
+
+# Print out first three entries of d</code></pre>
+<pre><code>## C:\ProgramData\Anaconda3\lib\site-packages\numpy\lib\npyio.py:2372: VisibleDeprecationWarning: Reading unicode strings without specifying the encoding argument is deprecated. Set the encoding, use None for the system default.
+##   output = genfromtxt(fname, **kwargs)</code></pre>
+<pre class="python"><code>print(d[:3])
+</code></pre>
+<pre><code>## [(1, 0, 3, b&#39;male&#39;, 22., 1, 0, b&#39;A/5 21171&#39;,  7.25  , b&#39;&#39;, b&#39;S&#39;)
+##  (2, 1, 1, b&#39;female&#39;, 38., 1, 0, b&#39;PC 17599&#39;, 71.2833, b&#39;C85&#39;, b&#39;C&#39;)
+##  (3, 1, 3, b&#39;female&#39;, 26., 0, 0, b&#39;STON/O2. 3101282&#39;,  7.925 , b&#39;&#39;, b&#39;S&#39;)]</code></pre>
+</div>
+<div id="using-pandas-to-import-flatfiles-as-dataframes" class="section level2">
+<h2>7. Using Pandas to import flatfiles as DataFrames</h2>
+<pre class="python"><code>
+# Import pandas as pd
+import pandas as pd
+
+# Assign the filename: file
+file = &#39;c:/blogdown/titanic_sub.csv&#39;
+
+# Read the file into a DataFrame: df
+df = pd.read_csv(file)
+
+# View the head of the DataFrame
+print(df.head())</code></pre>
+<pre><code>##    PassengerId  Survived  Pclass  ...     Fare  Cabin  Embarked
+## 0            1         0       3  ...   7.2500    NaN         S
+## 1            2         1       1  ...  71.2833    C85         C
+## 2            3         1       3  ...   7.9250    NaN         S
+## 3            4         1       1  ...  53.1000   C123         S
+## 4            5         0       3  ...   8.0500    NaN         S
+## 
+## [5 rows x 11 columns]</code></pre>
+<pre class="python"><code>type(df)
+</code></pre>
+<pre><code>## &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;</code></pre>
+</div>
+<div id="using-pandas-to-import-flat-files-as-dataframes-2" class="section level2">
+<h2>8. Using pandas to import flat files as DataFrames (2)</h2>
+<pre class="python"><code>
+# Assign the filename: file
+file = &#39;c:/blogdown/titanic_sub.csv&#39;
+
+# Read the first 5 rows of the file into a DataFrame: data
+data = pd.read_csv(file, nrows=5, header=None)
+
+# Build a numpy array from the DataFrame: data_array
+data_array = np.array(data)
+
+# Print the datatype of data_array to the shell
+print(type(data_array))</code></pre>
+<pre><code>## &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
+</div>
+<div id="customizing-your-pandas-import" class="section level2">
+<h2>9. Customizing your pandas import</h2>
+<pre class="python"><code>
+# Import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+
+# Assign filename: file
+file = &#39;c:/blogdown/titanic_corrupt.txt&#39;
+
+# Import file: data
+data = pd.read_csv(file, sep=&#39;\t&#39;, comment=&#39;#&#39;, na_values=&#39;Nothing&#39;)
+
+# Print the head of the DataFrame
+print(data.head())
+
+# Plot &#39;Age&#39; variable in a histogram</code></pre>
+<pre><code>##    PassengerId  Survived  Pclass  ...     Fare  Cabin    Embarked
+## 0            1         0       3  ...   7.2500    NaN  S #dfafdad
+## 1            2         1       1  ...  71.2833    C85           C
+## 2            3         1       3  ...   7.9250    NaN           S
+## 3            4         1       1  ...  53.1000   C123           S
+## 4            5         0       3  ...   8.0500    NaN           S
+## 
+## [5 rows x 11 columns]</code></pre>
+<pre class="python"><code>pd.DataFrame.hist(data[[&#39;Age&#39;]])</code></pre>
+<pre><code>## array([[&lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000000208D4AC8&gt;]],
+##       dtype=object)</code></pre>
+<pre class="python"><code>plt.xlabel(&#39;Age (years)&#39;)
+plt.ylabel(&#39;count&#39;)
+plt.show()
+</code></pre>
+<p><img src="/blog/2020-03-19-introduction-to-importing-data-in-python_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
