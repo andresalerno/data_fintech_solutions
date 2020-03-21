@@ -293,6 +293,28 @@ im_sq = np.reshape(im, (28, 28))
 plt.imshow(im_sq, cmap=&#39;Greys&#39;, interpolation=&#39;nearest&#39;)
 plt.show()
 </code></pre>
+<pre><code>## Traceback (most recent call last):
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\backends\backend_qt5.py&quot;, line 508, in _draw_idle
+##     self.draw()
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\backends\backend_agg.py&quot;, line 388, in draw
+##     self.figure.draw(self.renderer)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\artist.py&quot;, line 38, in draw_wrapper
+##     return draw(artist, renderer, *args, **kwargs)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\figure.py&quot;, line 1709, in draw
+##     renderer, self, artists, self.suppressComposite)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\image.py&quot;, line 135, in _draw_list_compositing_images
+##     a.draw(renderer)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\artist.py&quot;, line 38, in draw_wrapper
+##     return draw(artist, renderer, *args, **kwargs)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\axes\_base.py&quot;, line 2607, in draw
+##     self._update_title_position(renderer)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\axes\_base.py&quot;, line 2548, in _update_title_position
+##     ax.xaxis.get_ticks_position() in choices):
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\axis.py&quot;, line 2146, in get_ticks_position
+##     self._get_ticks_position()]
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\axis.py&quot;, line 1833, in _get_ticks_position
+##     minor = self.minorTicks[0]
+## IndexError: list index out of range</code></pre>
 <p><img src="/blog/2020-03-19-introduction-to-importing-data-in-python_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 <div id="customizing-your-numpy-import" class="section level2">
@@ -529,13 +551,532 @@ print(data.head())
 ## 
 ## [5 rows x 11 columns]</code></pre>
 <pre class="python"><code>pd.DataFrame.hist(data[[&#39;Age&#39;]])</code></pre>
-<pre><code>## array([[&lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000000208D4AC8&gt;]],
+<pre><code>## array([[&lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002025C248&gt;]],
 ##       dtype=object)</code></pre>
 <pre class="python"><code>plt.xlabel(&#39;Age (years)&#39;)
 plt.ylabel(&#39;count&#39;)
 plt.show()
 </code></pre>
 <p><img src="/blog/2020-03-19-introduction-to-importing-data-in-python_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
+<div id="not-so-flat-any-more" class="section level2">
+<h2>10. Not so flat any more</h2>
+<pre class="python"><code>
+import os
+wd = os.getcwd()
+os.listdir(wd)
+</code></pre>
+<pre><code>## [&#39;2015-07-23-r-rmarkdown.html&#39;, &#39;2015-07-23-r-rmarkdown.Rmd&#39;, &#39;2019-12-18-linear-regression.html&#39;, &#39;2019-12-18-linear-regression.Rmd&#39;, &#39;2019-12-19-data-frame.html&#39;, &#39;2019-12-19-data-frame.Rmd&#39;, &#39;2019-12-21-exponential-smoothing-model.html&#39;, &#39;2019-12-21-exponential-smoothing-model.Rmd&#39;, &#39;2019-12-23-r-packages-for-regression.html&#39;, &#39;2019-12-23-r-packages-for-regression.Rmd&#39;, &#39;2019-12-23-random-forest.html&#39;, &#39;2019-12-23-random-forest.Rmd&#39;, &#39;2019-12-27-quicksort-algorithm.html&#39;, &#39;2019-12-27-quicksort-algorithm.Rmd&#39;, &#39;2019-12-28-binary-search.html&#39;, &#39;2019-12-28-binary-search.Rmd&#39;, &#39;2020-01-05-knn-algorithm.html&#39;, &#39;2020-01-05-knn-algorithm.Rmd&#39;, &#39;2020-01-13-classifying-using-logistic-regression.html&#39;, &#39;2020-01-13-classifying-using-logistic-regression.Rmd&#39;, &#39;2020-01-19-correlation-and-regression.html&#39;, &#39;2020-01-19-correlation-and-regression.Rmd&#39;, &#39;2020-02-07-german-credit-and-regression-tree.html&#39;, &#39;2020-02-07-german-credit-and-regression-tree.Rmd&#39;, &#39;2020-02-29-a-game-of-chance.html&#39;, &#39;2020-02-29-a-game-of-chance.Rmd&#39;, &#39;2020-03-01-functions.html&#39;, &#39;2020-03-01-functions.Rmd&#39;, &#39;2020-03-09-iterables-versus-iterators.html&#39;, &#39;2020-03-09-iterables-versus-iterators.Rmd&#39;, &#39;2020-03-14-linear-models-scikit-learn.html&#39;, &#39;2020-03-14-linear-models-scikit-learn.Rmd&#39;, &#39;2020-03-14-tensorflow-2-quickstart-for-beginners.html&#39;, &#39;2020-03-14-tensorflow-2-quickstart-for-beginners.Rmd&#39;, &#39;2020-03-15-python-data-science-part-1.html&#39;, &#39;2020-03-15-python-data-science-part-1.Rmd&#39;, &#39;2020-03-18-supervised-learning-with-scikit-learn.html&#39;, &#39;2020-03-18-supervised-learning-with-scikit-learn.Rmd&#39;, &#39;2020-03-19-introduction-to-importing-data-in-python.html&#39;, &#39;2020-03-19-introduction-to-importing-data-in-python.Rmd&#39;, &#39;2020-03-19-introduction-to-importing-data-in-python_files&#39;, &#39;Chinook.sqlite&#39;, &#39;creating-a-new-theme.md&#39;, &#39;go-is-for-lovers.md&#39;, &#39;heart-disease-uci.zip&#39;, &#39;heart.csv&#39;, &#39;hugo-is-for-lovers.md&#39;, &#39;linked-post.md&#39;, &#39;migrate-from-jekyll.md&#39;, &#39;Northwind.sqlite&#39;, &#39;_book&#39;, &#39;_bookdown_files&#39;]</code></pre>
+</div>
+<div id="listing-sheets-in-excel-files" class="section level2">
+<h2>11. Listing sheets in Excel files</h2>
+<pre class="python"><code>
+# Import pandas
+import pandas as pd
+
+# Assign spreadsheet filename: file
+file = &#39;c:/blogdown/battledeath.xlsx&#39;
+
+# Load spreadsheet: xls
+xls = pd.ExcelFile(file)
+
+# Print sheet names
+print(xls.sheet_names)
+</code></pre>
+<pre><code>## [&#39;2002&#39;, &#39;2004&#39;]</code></pre>
+</div>
+<div id="importing-sheets-from-excel-files" class="section level2">
+<h2>12. Importing sheets from Excel files</h2>
+<pre class="python"><code>
+# Assign spreadsheet filename: file
+file = &#39;c:/blogdown/battledeath.xlsx&#39;
+
+# Load spreadsheet: xls
+xls = pd.ExcelFile(file)
+
+# Load a sheet into a DataFrame by name: df1
+file1 = xls.parse(&#39;2004&#39;)
+
+# Print the head of the DataFrame df1
+print(file1.head())
+
+# Load a sheet into a DataFrame by index: df2</code></pre>
+<pre><code>##   War(country)      2004
+## 0  Afghanistan  9.451028
+## 1      Albania  0.130354
+## 2      Algeria  3.407277
+## 3      Andorra  0.000000
+## 4       Angola  2.597931</code></pre>
+<pre class="python"><code>file2 = xls.parse(0)
+
+# Print the head of the DataFrame df2
+print(file2.head())</code></pre>
+<pre><code>##   War, age-adjusted mortality due to       2002
+## 0                        Afghanistan  36.083990
+## 1                            Albania   0.128908
+## 2                            Algeria  18.314120
+## 3                            Andorra   0.000000
+## 4                             Angola  18.964560</code></pre>
+</div>
+<div id="customizing-your-spreadsheet-import" class="section level2">
+<h2>13. Customizing your spreadsheet import</h2>
+<pre class="python"><code>
+# Assign spreadsheet filename: file
+file = &#39;c:/blogdown/battledeath.xlsx&#39;
+
+# Load spreadsheet: xls
+xls = pd.ExcelFile(file)
+
+# Parse the first sheet and rename the columns: df1
+df1 = xls.parse(0, skiprows=1, names=(&#39;Country&#39;, &#39;AAM due to War (2002)&#39;))
+
+# Print the head of the DataFrame df1
+print(df1.head())
+
+# Parse the first column of the second sheet and rename the column: df2</code></pre>
+<pre><code>##                Country  AAM due to War (2002)
+## 0              Albania               0.128908
+## 1              Algeria              18.314120
+## 2              Andorra               0.000000
+## 3               Angola              18.964560
+## 4  Antigua and Barbuda               0.000000</code></pre>
+<pre class="python"><code>df2 = xls.parse(1, usecols=[0], skiprows=[0], names=[&#39;Country&#39;])
+
+# Print the head of the DataFrame df2
+print(df2.head())
+</code></pre>
+<pre><code>##                Country
+## 0              Albania
+## 1              Algeria
+## 2              Andorra
+## 3               Angola
+## 4  Antigua and Barbuda</code></pre>
+</div>
+<div id="importing-sas-files" class="section level2">
+<h2>14. Importing SAS files</h2>
+<pre class="python"><code>
+# Import sas7bdat package
+from sas7bdat import SAS7BDAT 
+
+# Save file to a DataFrame: df_sas
+with SAS7BDAT(&#39;c:/blogdown/sales.sas7bdat&#39;) as file:
+    df_sas = file.to_data_frame()
+
+# Print head of DataFrame
+print(df_sas.head())
+
+# Plot histogram of DataFrame features (pandas and pyplot already imported)</code></pre>
+<pre><code>##      YEAR     P           S
+## 0  1950.0  12.9  181.899994
+## 1  1951.0  11.9  245.000000
+## 2  1952.0  10.7  250.199997
+## 3  1953.0  11.3  265.899994
+## 4  1954.0  11.2  248.500000</code></pre>
+<pre class="python"><code>pd.DataFrame.hist(df_sas[[&#39;P&#39;]])</code></pre>
+<pre><code>## array([[&lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002C1DBB88&gt;]],
+##       dtype=object)</code></pre>
+<pre class="python"><code>plt.ylabel(&#39;count&#39;)
+plt.show()</code></pre>
+<p><img src="/blog/2020-03-19-introduction-to-importing-data-in-python_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+</div>
+<div id="importing-stata-files" class="section level2">
+<h2>15. Importing Stata files</h2>
+<pre class="python"><code>
+# Import pandas
+import pandas as pd
+
+# Load Stata file into a pandas DataFrame: df
+df = pd.read_stata(&#39;c:/blogdown/disarea.dta&#39;)
+
+# Print the head of the DataFrame df
+print(df.head())
+
+# Plot histogram of one column of the DataFrame</code></pre>
+<pre><code>##   wbcode               country  disa1  disa2  ...  disa22  disa23  disa24  disa25
+## 0    AFG           Afghanistan   0.00   0.00  ...    0.00    0.02    0.00    0.00
+## 1    AGO                Angola   0.32   0.02  ...    0.99    0.98    0.61    0.00
+## 2    ALB               Albania   0.00   0.00  ...    0.00    0.00    0.00    0.16
+## 3    ARE  United Arab Emirates   0.00   0.00  ...    0.00    0.00    0.00    0.00
+## 4    ARG             Argentina   0.00   0.24  ...    0.00    0.01    0.00    0.11
+## 
+## [5 rows x 27 columns]</code></pre>
+<pre class="python"><code>pd.DataFrame.hist(df[[&#39;disa10&#39;]])</code></pre>
+<pre><code>## array([[&lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002C1DB648&gt;]],
+##       dtype=object)</code></pre>
+<pre class="python"><code>plt.xlabel(&#39;Extent of disease&#39;)
+plt.ylabel(&#39;Number of countries&#39;)
+plt.show()</code></pre>
+<p><img src="/blog/2020-03-19-introduction-to-importing-data-in-python_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+</div>
+<div id="using-h5py-to-import-hdf5-files" class="section level2">
+<h2>16. Using h5py to import HDF5 files</h2>
+<pre class="python"><code>
+# Import packages
+import numpy as np
+import h5py
+
+# Assign filename: file
+file = &#39;c:/blogdown/L-L1_LOSC_4_V1-1126259446-32.hdf5&#39;
+
+# Load file: data
+data = h5py.File(file, &#39;r&#39;)
+
+# Print the datatype of the loaded file
+print(type(data))
+
+# Print the keys of the file</code></pre>
+<pre><code>## &lt;class &#39;h5py._hl.files.File&#39;&gt;</code></pre>
+<pre class="python"><code>for key in data.keys():
+    print(key)
+</code></pre>
+<pre><code>## meta
+## quality
+## strain</code></pre>
+</div>
+<div id="extracting-data-from-your-hdf5-file" class="section level2">
+<h2>17. Extracting data from your HDF5 file</h2>
+<pre class="python"><code>
+# Import packages
+import numpy as np
+import h5py
+
+# Assign filename: file
+file = &#39;c:/blogdown/L-L1_LOSC_4_V1-1126259446-32.hdf5&#39;
+
+# Load file: data
+data = h5py.File(file, &#39;r&#39;)
+
+
+# Get the HDF5 group: group
+group = data[&#39;strain&#39;]
+
+# Check out keys of group
+for key in group.keys():
+    print(key)
+
+# Set variable equal to time series data: strain</code></pre>
+<pre><code>## Strain</code></pre>
+<pre class="python"><code>strain = data[&#39;strain&#39;][&#39;Strain&#39;].value
+
+# Set number of time points to sample: num_samples</code></pre>
+<pre><code>## C:/ProgramData/Anaconda3/python.exe:1: H5pyDeprecationWarning: dataset.value has been deprecated. Use dataset[()] instead.</code></pre>
+<pre class="python"><code>num_samples = 10000
+
+# Set time vector
+time = np.arange(0, 1, 1/num_samples)
+
+# Plot data
+plt.plot(time, strain[:num_samples])
+plt.xlabel(&#39;GPS Time (s)&#39;)
+plt.ylabel(&#39;strain&#39;)
+plt.show()
+</code></pre>
+<p><img src="/blog/2020-03-19-introduction-to-importing-data-in-python_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+</div>
+<div id="loading-.mat-files" class="section level2">
+<h2>18. Loading .mat files</h2>
+<pre class="python"><code>
+# Import package
+import scipy.io
+
+# Load MATLAB file: mat
+mat = scipy.io.loadmat(&#39;c:/blogdown/albeck_gene_expression.mat&#39;)
+
+# Print the datatype type of mat
+print(type(mat))
+</code></pre>
+<pre><code>## &lt;class &#39;dict&#39;&gt;</code></pre>
+</div>
+<div id="the-structure-of-.mat-in-python" class="section level2">
+<h2>19. The structure of .mat in Python</h2>
+<pre class="python"><code>
+import scipy.io
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+# Load MATLAB file: mat
+mat = scipy.io.loadmat(&#39;c:/blogdown/albeck_gene_expression.mat&#39;)
+
+# Print the keys of the MATLAB dictionary
+print(mat.keys())
+
+# Print the type of the value corresponding to the key &#39;CYratioCyt&#39;</code></pre>
+<pre><code>## dict_keys([&#39;__header__&#39;, &#39;__version__&#39;, &#39;__globals__&#39;, &#39;rfpCyt&#39;, &#39;rfpNuc&#39;, &#39;cfpNuc&#39;, &#39;cfpCyt&#39;, &#39;yfpNuc&#39;, &#39;yfpCyt&#39;, &#39;CYratioCyt&#39;])</code></pre>
+<pre class="python"><code>print(type(mat[&#39;CYratioCyt&#39;]))
+
+# Print the shape of the value corresponding to the key &#39;CYratioCyt&#39;</code></pre>
+<pre><code>## &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
+<pre class="python"><code>print(mat[&#39;CYratioCyt&#39;].shape)
+
+# Subset the array and plot it</code></pre>
+<pre><code>## (200, 137)</code></pre>
+<pre class="python"><code>data = mat[&#39;CYratioCyt&#39;][25, 5:]
+fig = plt.figure()
+plt.plot(data)
+plt.xlabel(&#39;time (min.)&#39;)
+plt.ylabel(&#39;normalized fluorescence (measure of expression)&#39;)
+plt.show()</code></pre>
+<p><img src="/blog/2020-03-19-introduction-to-importing-data-in-python_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+</div>
+<div id="creating-a-database-engine" class="section level2">
+<h2>20. Creating a database engine</h2>
+<pre class="python"><code>
+# Import necessary module
+from sqlalchemy import create_engine
+
+file = &#39;sqlite:///c:/blogdown/Chinook.sqlite&#39;
+
+# Create engine: engine
+engine = create_engine(file)
+
+table_names = engine.table_names()
+print(table_names)</code></pre>
+<pre><code>## [&#39;Album&#39;, &#39;Artist&#39;, &#39;Customer&#39;, &#39;Employee&#39;, &#39;Genre&#39;, &#39;Invoice&#39;, &#39;InvoiceLine&#39;, &#39;MediaType&#39;, &#39;Playlist&#39;, &#39;PlaylistTrack&#39;, &#39;Track&#39;]</code></pre>
+</div>
+<div id="the-hello-world-of-sql-queries" class="section level2">
+<h2>21. The Hello World of SQL Queries!</h2>
+<pre class="python"><code>
+# Import packages
+from sqlalchemy import create_engine
+import pandas as pd
+
+file = &#39;sqlite:///c:/blogdown/Chinook.sqlite&#39;
+
+# Create engine: engine
+engine = create_engine(file)
+
+# Open engine connection: con
+con = engine.connect()
+
+# Perform query: rs
+rs = con.execute(&#39;SELECT * FROM Album&#39;)
+
+# Save results of the query to DataFrame: df
+df = pd.DataFrame(rs.fetchall())
+
+# Close connection
+con.close()
+
+# Print head of DataFrame df
+print(df.head())
+</code></pre>
+<pre><code>##    0                                      1  2
+## 0  1  For Those About To Rock We Salute You  1
+## 1  2                      Balls to the Wall  2
+## 2  3                      Restless and Wild  2
+## 3  4                      Let There Be Rock  1
+## 4  5                               Big Ones  3</code></pre>
+</div>
+<div id="customizing-the-hello-world-of-sql-queries" class="section level2">
+<h2>22. Customizing the Hello World of SQL Queries</h2>
+<pre class="python"><code>
+# Import packages
+from sqlalchemy import create_engine
+import pandas as pd
+
+file = &#39;sqlite:///c:/blogdown/Chinook.sqlite&#39;
+
+# Create engine: engine
+engine = create_engine(file)
+
+# Open engine in context manager
+# Perform query and save results to DataFrame: df
+with engine.connect() as con:
+    rs = con.execute(&quot;SELECT LastName, Title FROM Employee&quot;)
+    df = pd.DataFrame(rs.fetchmany(size=3))
+    df.columns = rs.keys()
+
+# Print the length of the DataFrame df
+print(len(df))
+
+# Print the head of the DataFrame df</code></pre>
+<pre><code>## 3</code></pre>
+<pre class="python"><code>print(df.head())
+</code></pre>
+<pre><code>##   LastName                Title
+## 0    Adams      General Manager
+## 1  Edwards        Sales Manager
+## 2  Peacock  Sales Support Agent</code></pre>
+</div>
+<div id="filtering-your-database-records-using-sqls-where" class="section level2">
+<h2>23. Filtering your database records using SQL’s WHERE</h2>
+<pre class="python"><code>
+# Import packages
+from sqlalchemy import create_engine
+import pandas as pd
+
+file = &#39;sqlite:///c:/blogdown/Chinook.sqlite&#39;
+
+# Create engine: engine
+engine = create_engine(file)
+
+# Open engine in context manager
+# Perform query and save results to DataFrame: df
+with engine.connect() as con:
+    rs = con.execute(&quot;SELECT * FROM Employee WHERE EmployeeId &gt;= 6&quot;)
+    df = pd.DataFrame(rs.fetchall())
+    df.columns = rs.keys()
+
+# Print the head of the DataFrame df
+print(df.head())</code></pre>
+<pre><code>##    EmployeeId  LastName  ...                Fax                    Email
+## 0           6  Mitchell  ...  +1 (403) 246-9899  michael@chinookcorp.com
+## 1           7      King  ...  +1 (403) 456-8485   robert@chinookcorp.com
+## 2           8  Callahan  ...  +1 (403) 467-8772    laura@chinookcorp.com
+## 
+## [3 rows x 15 columns]</code></pre>
+</div>
+<div id="ordering-your-sql-records-with-order-by" class="section level2">
+<h2>24. Ordering your SQL records with ORDER BY</h2>
+<pre class="python"><code>
+
+# Import packages
+from sqlalchemy import create_engine
+import pandas as pd
+
+file = &#39;sqlite:///c:/blogdown/Chinook.sqlite&#39;
+
+# Create engine: engine
+engine = create_engine(file)
+
+# Open engine in context manager
+with engine.connect() as con:
+    rs = con.execute(&quot;SELECT * FROM Employee ORDER BY BirthDate&quot;)
+    df = pd.DataFrame(rs.fetchall())
+
+    # Set the DataFrame&#39;s column names
+    df.columns = rs.keys()
+
+# Print head of DataFrame
+print(df.head())
+</code></pre>
+<pre><code>##    EmployeeId  LastName  ...                Fax                     Email
+## 0           4      Park  ...  +1 (403) 263-4289  margaret@chinookcorp.com
+## 1           2   Edwards  ...  +1 (403) 262-3322     nancy@chinookcorp.com
+## 2           1     Adams  ...  +1 (780) 428-3457    andrew@chinookcorp.com
+## 3           5   Johnson  ...   1 (780) 836-9543     steve@chinookcorp.com
+## 4           8  Callahan  ...  +1 (403) 467-8772     laura@chinookcorp.com
+## 
+## [5 rows x 15 columns]</code></pre>
+</div>
+<div id="pandas-and-the-hello-world-of-sql-queries" class="section level2">
+<h2>25. Pandas and The Hello World of SQL Queries!</h2>
+<pre class="python"><code>
+
+# Import packages
+from sqlalchemy import create_engine
+import pandas as pd
+
+file = &#39;sqlite:///c:/blogdown/Chinook.sqlite&#39;
+
+# Create engine: engine
+engine = create_engine(file)
+
+# Execute query and store records in DataFrame: df
+df = pd.read_sql_query(&quot;SELECT * FROM Album&quot;, engine)
+
+# Print head of DataFrame
+print(df.head())
+
+# Open engine in context manager and store query result in df1</code></pre>
+<pre><code>##    AlbumId                                  Title  ArtistId
+## 0        1  For Those About To Rock We Salute You         1
+## 1        2                      Balls to the Wall         2
+## 2        3                      Restless and Wild         2
+## 3        4                      Let There Be Rock         1
+## 4        5                               Big Ones         3</code></pre>
+<pre class="python"><code>with engine.connect() as con:
+    rs = con.execute(&quot;SELECT * FROM Album&quot;)
+    df1 = pd.DataFrame(rs.fetchall())
+    df1.columns = rs.keys()
+
+# Confirm that both methods yield the same result
+print(df.equals(df1))</code></pre>
+<pre><code>## True</code></pre>
+</div>
+<div id="pandas-for-more-complex-querying" class="section level2">
+<h2>26. Pandas for more complex querying</h2>
+<pre class="python"><code>
+# Import packages
+from sqlalchemy import create_engine
+import pandas as pd
+
+file = &#39;sqlite:///c:/blogdown/Chinook.sqlite&#39;
+
+# Create engine: engine
+engine = create_engine(file)
+
+
+# Execute query and store records in DataFrame: df
+df = pd.read_sql_query(&quot;SELECT * FROM Employee WHERE EmployeeId &gt;= 6 ORDER BY BirthDate&quot;, engine)
+
+# Print head of DataFrame
+print(df.head())
+</code></pre>
+<pre><code>##    EmployeeId  LastName  ...                Fax                    Email
+## 0           8  Callahan  ...  +1 (403) 467-8772    laura@chinookcorp.com
+## 1           7      King  ...  +1 (403) 456-8485   robert@chinookcorp.com
+## 2           6  Mitchell  ...  +1 (403) 246-9899  michael@chinookcorp.com
+## 
+## [3 rows x 15 columns]</code></pre>
+</div>
+<div id="the-power-of-sql-lies-in-relationships-between-tables-inner-join" class="section level2">
+<h2>27. The power of SQL lies in relationships between tables: INNER JOIN</h2>
+<pre class="python"><code>
+# Import packages
+from sqlalchemy import create_engine
+import pandas as pd
+
+file = &#39;sqlite:///c:/blogdown/Chinook.sqlite&#39;
+
+# Create engine: engine
+engine = create_engine(file)
+
+# Open engine in context manager
+# Perform query and save results to DataFrame: df
+with engine.connect() as con:
+    rs = con.execute(&quot;SELECT Title, Name FROM Album INNER JOIN Artist on Album.ArtistID = Artist.ArtistID&quot;)
+    df = pd.DataFrame(rs.fetchall())
+    df.columns = rs.keys()
+
+# Print head of DataFrame df
+print(df.head())
+</code></pre>
+<pre><code>##                                    Title       Name
+## 0  For Those About To Rock We Salute You      AC/DC
+## 1                      Balls to the Wall     Accept
+## 2                      Restless and Wild     Accept
+## 3                      Let There Be Rock      AC/DC
+## 4                               Big Ones  Aerosmith</code></pre>
+</div>
+<div id="filtering-your-inner-join" class="section level2">
+<h2>28. Filtering your INNER JOIN</h2>
+<pre class="python"><code>
+
+# Import packages
+from sqlalchemy import create_engine
+import pandas as pd
+
+file = &#39;sqlite:///c:/blogdown/Chinook.sqlite&#39;
+
+# Create engine: engine
+engine = create_engine(file)
+
+# Execute query and store records in DataFrame: df
+df = pd.read_sql_query(&quot;SELECT * FROM PlaylistTrack INNER JOIN Track on PlaylistTrack.TrackId = Track.TrackId WHERE Milliseconds &lt; 250000&quot;, engine)
+
+# Print head of DataFrame
+print(df.head())
+</code></pre>
+<pre><code>##    PlaylistId  TrackId  TrackId  ... Milliseconds    Bytes  UnitPrice
+## 0           1     3390     3390  ...       217732  3559040       0.99
+## 1           1     3392     3392  ...       230758  3766605       0.99
+## 2           1     3393     3393  ...       218916  3577821       0.99
+## 3           1     3394     3394  ...       228366  3728955       0.99
+## 4           1     3395     3395  ...       213831  3497176       0.99
+## 
+## [5 rows x 11 columns]</code></pre>
 </div>
 
                         </div>
@@ -630,7 +1171,7 @@ plt.show()
             </li>
             
             <li>
-                <a href="/categories/data-science">data-science (3)</a>
+                <a href="/categories/data-science">data-science (4)</a>
             </li>
             
             <li>
@@ -650,7 +1191,7 @@ plt.show()
             </li>
             
             <li>
-                <a href="/categories/programming">programming (12)</a>
+                <a href="/categories/programming">programming (13)</a>
             </li>
             
             <li>
@@ -658,7 +1199,7 @@ plt.show()
             </li>
             
             <li>
-                <a href="/categories/python">python (10)</a>
+                <a href="/categories/python">python (11)</a>
             </li>
             
             <li>
@@ -852,6 +1393,19 @@ plt.show()
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="/blog/2020/03/21/2020-03-21-intermediate-importing-data-in-python/">
+                          
+                            <img src="/img/banners/python.png" class="img-responsive" alt="Intermediate Importing Data in Python">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="/blog/2020/03/21/2020-03-21-intermediate-importing-data-in-python/">Intermediate Importing Data in Python</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="/blog/2020/03/19/2020-03-19-introduction-to-importing-data-in-python/">
                           
                             <img src="/img/banners/python.png" class="img-responsive" alt="Introduction to Importing Data in Python">
@@ -873,19 +1427,6 @@ plt.show()
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="/blog/2020/03/18/2020-03-18-supervised-learning-with-scikit-learn/">Supervised Learning with Scikit-Learn</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="/blog/2020/03/15/2020-03-15-python-data-science-part-1/">
-                          
-                            <img src="/img/banners/python.png" class="img-responsive" alt="Python Data Science - part 1">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="/blog/2020/03/15/2020-03-15-python-data-science-part-1/">Python Data Science - part 1</a></h5>
                     </div>
                 </div>
                 

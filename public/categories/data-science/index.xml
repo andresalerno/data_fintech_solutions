@@ -6,10 +6,19 @@
     <description>Recent content in Data Science on DFS</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/data-science/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Intermediate Importing Data in Python</title>
+      <link>/blog/2020/03/21/2020-03-21-intermediate-importing-data-in-python/</link>
+      <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2020/03/21/2020-03-21-intermediate-importing-data-in-python/</guid>
+      <description>1. Importing flat files from the web: your turn!# Import packagefrom urllib.request import urlretrieve# Import pandasimport pandas as pd# Assign url of file: urlurl = &amp;#39;https://s3.amazonaws.com/assets.datacamp.com/production/course_1606/datasets/winequality-red.csv&amp;#39;# Save file locallyurlretrieve(url, &amp;#39;winequality-red.csv&amp;#39;)# Read file into a DataFrame and print its head## (&amp;#39;winequality-red.csv&amp;#39;, &amp;lt;http.client.HTTPMessage object at 0x000000001FBF52C8&amp;gt;)df = pd.read_csv(&amp;#39;winequality-red.csv&amp;#39;, sep=&amp;#39;;&amp;#39;)print(df.head())## fixed acidity volatile acidity citric acid ... sulphates alcohol quality## 0 7.</description>
+    </item>
     
     <item>
       <title>Introduction to Importing Data in Python</title>

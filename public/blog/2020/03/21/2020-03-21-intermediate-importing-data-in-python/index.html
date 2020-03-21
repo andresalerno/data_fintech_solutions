@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>Intermediate Importing Data in Python</title>
+  <meta name="author" content="Salerno" />
+  
+  
+  
+  
+  <meta name="keywords" content="devows, hugo, go">
+  
+  
+  <meta name="description" content="Site template made by devcows using hugo">
+
+  <meta name="generator" content="Hugo 0.61.0" />
+
+  
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  
+  <link href="/css/animate.css" rel="stylesheet">
+
+  
+  
+    <link href="/css/style.green.css" rel="stylesheet" id="theme-stylesheet">
+  
+
+  
+  <link href="/css/custom.css" rel="stylesheet">
+
+  
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+
+  
+  <link href="/css/owl.carousel.css" rel="stylesheet">
+  <link href="/css/owl.theme.css" rel="stylesheet">
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="DFS">
+
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:locale" content="en_us">
+  <meta property="og:site_name" content="DFS">
+  <meta property="og:title" content="Intermediate Importing Data in Python">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="/blog/2020/03/21/2020-03-21-intermediate-importing-data-in-python/" />
+  <meta property="og:description" content="Site template made by devcows using hugo">
+  <meta property="og:image" content="/img/banners/python.png">
+  <meta property="og:image:type" content="image/png">
+  
+  
+  
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="512">
+  
+  
+  <meta property="og:updated_time" content="2020-03-21T00:00:00Z">
+  
+    
+    
+    <meta property="article:section" content="Python">
+    
+    
+    <meta property="article:published_time" content="2020-03-21T00:00:00Z">
+    <meta property="article:modified_time" content="2020-03-21T00:00:00Z">
+  
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@GoHugoIO">
+  <meta name="twitter:title" content="Intermediate Importing Data in Python">
+  
+  <meta name="twitter:image" content="/img/banners/python.png">
+  
+  <meta name="twitter:description" content="Site template made by devcows using hugo">
+  
+
+</head>
+
+
+  <body>
+
+    <div id="all">
+
+        <header>
+
+          <div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
+
+    <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand home" href="/">
+                    <img src="/img/logo.png" alt="Intermediate Importing Data in Python logo" class="logo hidden-xs hidden-sm">
+                    
+                    <span class="sr-only">Intermediate Importing Data in Python - go to homepage</span>
+                </a>
+                <div class="navbar-buttons">
+                    <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                      <span class="sr-only">Toggle Navigation</span>
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+                </div>
+            </div>
+            
+
+            <div class="navbar-collapse collapse" id="navigation">
+                <ul class="nav navbar-nav navbar-right">
+                  
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/">Home</a>
+                    
+                  </li>
+                  
+                  
+                  <li class="dropdown active">
+                    
+                    <a href="/blog/">Blog</a>
+                    
+                  </li>
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/contact/">Contact</a>
+                    
+                  </li>
+                  
+                </ul>
+            </div>
+            
+
+            <div class="collapse clearfix" id="search">
+
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+
+                    <button type="submit" class="btn btn-template-main"><i class="fas fa-search"></i></button>
+
+                </span>
+                    </div>
+                </form>
+
+            </div>
+            
+
+        </div>
+    </div>
+    
+
+</div>
+
+
+
+
+        </header>
+
+        <div id="heading-breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Intermediate Importing Data in Python</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <div id="content">
+            <div class="container">
+
+                <div class="row">
+
+                    
+
+                    <div class="col-md-9" id="blog-post">
+
+                        
+                          <p class="text-muted text-uppercase mb-small text-right">
+                            By <a href="#">Salerno</a>
+                             | 
+                            March 21, 2020
+                          </p>
+                        
+
+                        <div id="post-content">
+                          
+
+
+<div id="importing-flat-files-from-the-web-your-turn" class="section level2">
+<h2>1. Importing flat files from the web: your turn!</h2>
+<pre class="python"><code>
+# Import package
+from urllib.request import urlretrieve
+
+# Import pandas
+import pandas as pd
+
+# Assign url of file: url
+url = &#39;https://s3.amazonaws.com/assets.datacamp.com/production/course_1606/datasets/winequality-red.csv&#39;
+
+# Save file locally
+urlretrieve(url, &#39;winequality-red.csv&#39;)
+
+# Read file into a DataFrame and print its head</code></pre>
+<pre><code>## (&#39;winequality-red.csv&#39;, &lt;http.client.HTTPMessage object at 0x000000001FBF52C8&gt;)</code></pre>
+<pre class="python"><code>df = pd.read_csv(&#39;winequality-red.csv&#39;, sep=&#39;;&#39;)
+print(df.head())</code></pre>
+<pre><code>##    fixed acidity  volatile acidity  citric acid  ...  sulphates  alcohol  quality
+## 0            7.4              0.70         0.00  ...       0.56      9.4        5
+## 1            7.8              0.88         0.00  ...       0.68      9.8        5
+## 2            7.8              0.76         0.04  ...       0.65      9.8        5
+## 3           11.2              0.28         0.56  ...       0.58      9.8        6
+## 4            7.4              0.70         0.00  ...       0.56      9.4        5
+## 
+## [5 rows x 12 columns]</code></pre>
+</div>
+<div id="opening-and-reading-flat-files-from-the-web" class="section level2">
+<h2>2. Opening and reading flat files from the web</h2>
+<pre class="python"><code>
+# Import packages
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Assign url of file: url
+url = &#39;https://s3.amazonaws.com/assets.datacamp.com/production/course_1606/datasets/winequality-red.csv&#39;
+
+# Read file into a DataFrame: df
+df = pd.read_csv(url, sep=&#39;;&#39;)
+
+# Print the head of the DataFrame
+print(df.head())
+
+# Plot first column of df</code></pre>
+<pre><code>##    fixed acidity  volatile acidity  citric acid  ...  sulphates  alcohol  quality
+## 0            7.4              0.70         0.00  ...       0.56      9.4        5
+## 1            7.8              0.88         0.00  ...       0.68      9.8        5
+## 2            7.8              0.76         0.04  ...       0.65      9.8        5
+## 3           11.2              0.28         0.56  ...       0.58      9.8        6
+## 4            7.4              0.70         0.00  ...       0.56      9.4        5
+## 
+## [5 rows x 12 columns]</code></pre>
+<pre class="python"><code>pd.DataFrame.hist(df.iloc[:, 0:1])</code></pre>
+<pre><code>## array([[&lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000000270AEC48&gt;]],
+##       dtype=object)</code></pre>
+<pre class="python"><code>plt.xlabel(&#39;fixed acidity (g(tartaric acid)/dm$^3$)&#39;)
+plt.ylabel(&#39;count&#39;)
+plt.show()
+</code></pre>
+<p><img src="/blog/2020-03-21-intermediate-importing-data-in-python_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+<div id="importing-non-flat-files-from-the-web" class="section level2">
+<h2>3. Importing non-flat files from the web</h2>
+<pre class="python"><code>
+# Import package
+import pandas as pd
+
+# Assign url of file: url
+url = &#39;http://s3.amazonaws.com/assets.datacamp.com/course/importing_data_into_r/latitude.xls&#39;
+
+# Read in all sheets of Excel file: xls
+xls = pd.read_excel(url, sheet_name=None)
+
+# Print the sheetnames to the shell
+print(xls.keys())
+
+# Print the head of the first sheet (using its name, NOT its index)</code></pre>
+<pre><code>## dict_keys([&#39;1700&#39;, &#39;1900&#39;])</code></pre>
+<pre class="python"><code>print(xls[&#39;1700&#39;].head())
+</code></pre>
+<pre><code>##                  country       1700
+## 0            Afghanistan  34.565000
+## 1  Akrotiri and Dhekelia  34.616667
+## 2                Albania  41.312000
+## 3                Algeria  36.720000
+## 4         American Samoa -14.307000</code></pre>
+</div>
+<div id="printing-http-request-results-in-python-using-urllib" class="section level2">
+<h2>4. Printing HTTP request results in Python using urllib</h2>
+<pre class="python"><code>
+from urllib.request import urlopen, Request
+
+# Specify the url
+url = &quot;http://www.datacamp.com/teach/documentation&quot;
+
+# This packages the request: request
+request = Request(url)
+
+# Sends the request and catches the response: response
+response = urlopen(request)
+
+# Print the datatype of response
+print(type(response))
+
+# Extract the response: html</code></pre>
+<pre><code>## &lt;class &#39;http.client.HTTPResponse&#39;&gt;</code></pre>
+<pre class="python"><code>html = response.read()
+
+# Print the html
+print(html)
+
+# Be polite and close the response!</code></pre>
+<pre><code>## b&#39;&lt;!doctype html&gt;\n&lt;html lang=&quot;en&quot; data-direction=&quot;ltr&quot;&gt;\n  &lt;head&gt;\n    &lt;link href=&quot;https://fonts.intercomcdn.com&quot; rel=&quot;preconnect&quot; crossorigin&gt;\n      &lt;script src=&quot;https://www.googletagmanager.com/gtag/js?id=UA-39297847-9&quot; async=&quot;async&quot; nonce=&quot;VA7beatjZc9vRtdol6pb20y2A0wJP2yBX/ICTIxIrp8=&quot;&gt;&lt;/script&gt;\n      &lt;script nonce=&quot;VA7beatjZc9vRtdol6pb20y2A0wJP2yBX/ICTIxIrp8=&quot;&gt;\n        window.dataLayer = window.dataLayer || [];\n        function gtag(){dataLayer.push(arguments);}\n        gtag(\&#39;js\&#39;, new Date());\n        gtag(\&#39;config\&#39;, \&#39;UA-39297847-9\&#39;);\n&lt;/script&gt;\n    &lt;meta charset=&quot;utf-8&quot;&gt;\n    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;\n    &lt;title&gt;DataCamp Help Center&lt;/title&gt;\n    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;\n    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;\n\n      &lt;link rel=&quot;alternate&quot; href=&quot;http://instructor-support.datacamp.com/en/&quot; hreflang=&quot;en&quot;&gt;\n\n      &lt;meta name=&quot;intercom:trackingEvent&quot; content=&quot;{&amp;quot;name&amp;quot;:&amp;quot;Viewed Help Center&amp;quot;,&amp;quot;metadata&amp;quot;:{&amp;quot;action&amp;quot;:&amp;quot;viewed&amp;quot;,&amp;quot;object&amp;quot;:&amp;quot;educate_home&amp;quot;,&amp;quot;place&amp;quot;:&amp;quot;help_center&amp;quot;,&amp;quot;owner&amp;quot;:&amp;quot;educate&amp;quot;,&amp;quot;default_locale&amp;quot;:&amp;quot;en&amp;quot;,&amp;quot;current_locale&amp;quot;:&amp;quot;en&amp;quot;,&amp;quot;is_default_locale&amp;quot;:true}}&quot; /&gt;\n\n    &lt;link rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;https://static.intercomassets.com/alexandria/assets/application-00b67c7c87b72734807679ffe67cf68adf711566c397121c5d3432b6d9ff1657.css&quot; /&gt;\n    &lt;link rel=&quot;canonical&quot; href=&quot;http://instructor-support.datacamp.com/en/&quot;/&gt;\n\n        &lt;link href=&quot;https://static.intercomassets.com/assets/educate/educate-favicon-64x64-at-2x-52016a3500a250d0b118c0a04ddd13b1a7364a27759483536dd1940bccdefc20.png&quot; rel=&quot;shortcut icon&quot; type=&quot;image/png&quot; /&gt;\n      &lt;style&gt;\n        .header, .avatar__image-extra { background-color: #263e63; }\n        .article a, .c__primary { color: #263e63; }\n        .avatar__fallback { background-color: #263e63; }\n        article a.intercom-h2b-button { background-color: #263e63; border: 0; }\n      &lt;/style&gt;\n\n      &lt;meta property=&quot;og:title&quot; content=&quot;DataCamp Help Center&quot; /&gt;\n  &lt;meta name=&quot;twitter:title&quot; content=&quot;DataCamp Help Center&quot; /&gt;\n\n\n&lt;meta property=&quot;og:type&quot; content=&quot;website&quot; /&gt;\n&lt;meta property=&quot;og:image&quot; content=&quot;&quot; /&gt;\n\n&lt;meta name=&quot;twitter:image&quot; content=&quot;&quot; /&gt;\n\n  &lt;/head&gt;\n  &lt;body class=&quot;&quot;&gt;\n    &lt;header class=&quot;header&quot;&gt;\n  &lt;div class=&quot;container header__container o__ltr&quot; dir=&quot;ltr&quot;&gt;\n    &lt;div class=&quot;content&quot;&gt;\n      &lt;div class=&quot;mo o__centered o__reversed header__meta_wrapper&quot;&gt;\n        &lt;div class=&quot;mo__body header__site_name&quot;&gt;\n          &lt;div class=&quot;header__logo&quot;&gt;\n            &lt;a href=&quot;/en/&quot;&gt;\n                &lt;img alt=&quot;DataCamp Help Center&quot; src=&quot;https://downloads.intercomcdn.com/i/o/81221/856b63d438031754b681746b/4ea2737e4266936fb423911d9c587812.png&quot; /&gt;\n            &lt;/a&gt;\n          &lt;/div&gt;\n        &lt;/div&gt;\n        &lt;div class=&quot;mo__aside&quot;&gt;\n          &lt;div class=&quot;header__links&quot;&gt;\n              &lt;a target=&quot;_blank&quot; rel=\&#39;noopener\&#39; href=&quot;http://www.datacamp.com/teach&quot; class=&quot;header__home__url&quot;&gt;&lt;svg width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 14 14&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;title&gt;Group 65&lt;/title&gt;&lt;g stroke=&quot;#FFF&quot; fill=&quot;none&quot; fill-rule=&quot;evenodd&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M11.5 6.73v6.77H.5v-11h7.615M4.5 9.5l7-7M13.5 5.5v-5h-5&quot;/&gt;&lt;/g&gt;&lt;/svg&gt;&lt;span&gt;Go to DataCamp&lt;/span&gt;&lt;/a&gt;\n            \n          &lt;/div&gt;\n        &lt;/div&gt;\n      &lt;/div&gt;\n          &lt;h1 class=&quot;header__headline&quot;&gt;Advice and answers from the DataCamp Team&lt;/h1&gt;\n      &lt;form action=&quot;/en/&quot; autocomplete=&quot;off&quot; class=&quot;header__form search&quot;&gt;\n        &lt;input type=&quot;text&quot; autocomplete=&quot;off&quot; class=&quot;search__input js__search-input o__ltr&quot; placeholder=&quot;Search for articles...&quot; tabindex=&quot;1&quot; name=&quot;q&quot; value=&quot;&quot;&gt;\n        &lt;div class=&quot;search_icons&quot;&gt;\n          &lt;button type=&quot;submit&quot; class=&quot;search__submit o__ltr&quot;&gt;&lt;/button&gt;\n          &lt;a class=&quot;search__clear-text__icon&quot;&gt;\n            &lt;svg class=&quot;interface-icon&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 16 16&quot;&gt;\n              &lt;path d=&quot;M8.018 6.643L5.375 4 4 5.375l2.643 2.643L4 10.643 5.375 12l2.643-2.625L10.625 12 12 10.643 9.357 8.018 12 5.375 10.643 4z&quot; /&gt;\n            &lt;/svg&gt;\n          &lt;/a&gt;\n      &lt;/form&gt;\n      &lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/header&gt;\n\n    &lt;div class=&quot;container&quot;&gt;\n      &lt;div class=&quot;content educate_content&quot;&gt;&lt;section class=&quot;section&quot;&gt;\n    &lt;div class=&quot;g__space&quot;&gt;\n      &lt;a href=&quot;/en/collections/1256585-getting-started&quot; class=&quot;paper &quot;&gt;\n        &lt;div class=&quot;collection o__ltr&quot;&gt;\n          &lt;div class=&quot;collection__photo&quot;&gt;\n            &lt;svg role=\&#39;img\&#39; viewBox=\&#39;0 0 48 48\&#39;&gt;&lt;g id=&quot;chat-star&quot; stroke-width=&quot;2&quot; fill=&quot;none&quot; fill-rule=&quot;evenodd&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M20 34.942c-2.083-.12-4.292-.42-6-.942L3 39l4-9c-3.858-3.086-6-7.246-6-12C1 8.61 10.328 1 21.835 1 33.343 1 43 8.61 43 18c0 1.044-.117 2.065-.342 3.057&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M36.016 25L40 33h7l-6 5 3 9-8-5.494L28 47l3-9-6-5h7l4.016-8z&quot;&gt;&lt;/path&gt;&lt;/g&gt;&lt;/svg&gt;\n          &lt;/div&gt;\n          &lt;div class=&quot;collection_meta&quot; dir=&quot;ltr&quot;&gt;\n            &lt;h2 class=&quot;t__h3 c__primary&quot;&gt;Getting Started&lt;/h2&gt;\n            &lt;p class=&quot;paper__preview&quot;&gt;Everything you need to know to begin your DataCamp journey!&lt;/p&gt;\n            &lt;div class=&quot;avatar&quot;&gt;\n  &lt;div class=&quot;avatar__photo avatars__images o__ltr&quot;&gt;\n        &lt;img src=&quot;https://static.intercomassets.com/avatars/2352718/square_128/Rebecca_Robins_-_Headshot-1535969735.jpg?1535969735&quot; alt=&quot;Becca Robins avatar&quot; class=&quot;avatar__image&quot;&gt;\n\n        &lt;img src=&quot;https://static.intercomassets.com/avatars/2637958/square_128/YR_Headshot-1539175806.JPG?1539175806&quot; alt=&quot;Yashas Roy avatar&quot; class=&quot;avatar__image&quot;&gt;\n\n        &lt;img src=&quot;https://static.intercomassets.com/avatars/2678519/square_128/pic2-1539176502.JPG?1539176502&quot; alt=&quot;Jen Bricker avatar&quot; class=&quot;avatar__image&quot;&gt;\n\n      &lt;span class=&quot;avatar__image avatar__fallback&quot;&gt;+1&lt;/span&gt;\n  &lt;/div&gt;\n  &lt;div class=&quot;avatar__info&quot;&gt;\n    &lt;div&gt;\n      &lt;span class=&quot;c__darker&quot;&gt;\n        11 articles in this collection\n      &lt;/span&gt;\n      &lt;br&gt;\n      Written by &lt;span class=\&#39;c__darker\&#39;&gt; Becca Robins,&lt;/span&gt; &lt;span class=\&#39;c__darker\&#39;&gt; Yashas Roy,&lt;/span&gt; &lt;span class=\&#39;c__darker\&#39;&gt; Jen Bricker&lt;/span&gt; and 1 other\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n          &lt;/div&gt;\n        &lt;/div&gt;\n      &lt;/a&gt;\n    &lt;/div&gt;\n    &lt;div class=&quot;g__space&quot;&gt;\n      &lt;a href=&quot;/en/collections/1256578-courses&quot; class=&quot;paper &quot;&gt;\n        &lt;div class=&quot;collection o__ltr&quot;&gt;\n          &lt;div class=&quot;collection__photo&quot;&gt;\n            &lt;svg role=\&#39;img\&#39; viewBox=\&#39;0 0 48 48\&#39;&gt;&lt;g id=&quot;devices-laptop&quot; stroke-width=&quot;2&quot; fill=&quot;none&quot; fill-rule=&quot;evenodd&quot; stroke-linecap=&quot;round&quot;&gt;&lt;path d=&quot;M41 31H7V11h34v20z&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M3 35V10a3 3 0 0 1 3-3h36a3 3 0 0 1 3 3v25m-16 0v2H19v-2H1v4a2 2 0 0 0 2 2h42a2 2 0 0 0 2-2v-4H29z&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;/path&gt;&lt;/g&gt;&lt;/svg&gt;\n          &lt;/div&gt;\n          &lt;div class=&quot;collection_meta&quot; dir=&quot;ltr&quot;&gt;\n            &lt;h2 class=&quot;t__h3 c__primary&quot;&gt;Courses&lt;/h2&gt;\n            &lt;p class=&quot;paper__preview&quot;&gt;Everything you need to know about creating DataCamp courses.&lt;/p&gt;\n            &lt;div class=&quot;avatar&quot;&gt;\n  &lt;div class=&quot;avatar__photo avatars__images o__ltr&quot;&gt;\n        &lt;img src=&quot;https://static.intercomassets.com/avatars/2298587/square_128/about_pic-1539247923.jpg?1539247923&quot; alt=&quot;Vincent Vankrunkelsven avatar&quot; class=&quot;avatar__image&quot;&gt;\n\n        &lt;span class=&quot;avatar__image avatar__fallback&quot;&gt; D &lt;/span&gt;\n\n        &lt;img src=&quot;https://static.intercomassets.com/avatars/2352718/square_128/Rebecca_Robins_-_Headshot-1535969735.jpg?1535969735&quot; alt=&quot;Becca Robins avatar&quot; class=&quot;avatar__image&quot;&gt;\n\n      &lt;span class=&quot;avatar__image avatar__fallback&quot;&gt;+6&lt;/span&gt;\n  &lt;/div&gt;\n  &lt;div class=&quot;avatar__info&quot;&gt;\n    &lt;div&gt;\n      &lt;span class=&quot;c__darker&quot;&gt;\n        86 articles in this collection\n      &lt;/span&gt;\n      &lt;br&gt;\n      Written by &lt;span class=\&#39;c__darker\&#39;&gt; Vincent Vankrunkelsven,&lt;/span&gt; &lt;span class=\&#39;c__darker\&#39;&gt; Dieter De Mesmaeker,&lt;/span&gt; &lt;span class=\&#39;c__darker\&#39;&gt; Becca Robins&lt;/span&gt; and 6 others\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n          &lt;/div&gt;\n        &lt;/div&gt;\n      &lt;/a&gt;\n    &lt;/div&gt;\n    &lt;div class=&quot;g__space&quot;&gt;\n      &lt;a href=&quot;/en/collections/1256594-daily-practice&quot; class=&quot;paper &quot;&gt;\n        &lt;div class=&quot;collection o__ltr&quot;&gt;\n          &lt;div class=&quot;collection__photo&quot;&gt;\n            &lt;svg role=\&#39;img\&#39; viewBox=\&#39;0 0 48 48\&#39;&gt;&lt;g id=&quot;tools-dashboard&quot; stroke-width=&quot;2&quot; fill=&quot;none&quot; fill-rule=&quot;evenodd&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M27 31a3 3 0 0 1-6 0 3 3 0 0 1 6 0zm-.88-2.12l9.9-9.9M5 32h4m34 .002L39 32m2.553-8.27l-3.696 1.53M31.27 13.447l-1.53 3.695M24 12v4m-7.27-2.553l1.53 3.695m-7.694.422l2.826 2.83M6.447 23.73l3.695 1.53&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M24 8C11.297 8 1 18.3 1 31v9h46v-9C47 18.3 36.703 8 24 8z&quot;&gt;&lt;/path&gt;&lt;/g&gt;&lt;/svg&gt;\n          &lt;/div&gt;\n          &lt;div class=&quot;collection_meta&quot; dir=&quot;ltr&quot;&gt;\n            &lt;h2 class=&quot;t__h3 c__primary&quot;&gt;Daily Practice&lt;/h2&gt;\n            &lt;p class=&quot;paper__preview&quot;&gt;Everything you need to know about creating DataCamp Daily Practice.&lt;/p&gt;\n            &lt;div class=&quot;avatar&quot;&gt;\n  &lt;div class=&quot;avatar__photo avatars__images o__ltr&quot;&gt;\n        &lt;img src=&quot;https://static.intercomassets.com/avatars/2734728/square_128/Anneleen_Beckers-xtra-small-1541624054.jpg?1541624054&quot; alt=&quot;Anneleen Beckers avatar&quot; class=&quot;avatar__image&quot;&gt;\n\n  &lt;/div&gt;\n  &lt;div class=&quot;avatar__info&quot;&gt;\n    &lt;div&gt;\n      &lt;span class=&quot;c__darker&quot;&gt;\n        15 articles in this collection\n      &lt;/span&gt;\n      &lt;br&gt;\n      Written by &lt;span class=\&#39;c__darker\&#39;&gt; Anneleen Beckers&lt;/span&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n          &lt;/div&gt;\n        &lt;/div&gt;\n      &lt;/a&gt;\n    &lt;/div&gt;\n    &lt;div class=&quot;g__space&quot;&gt;\n      &lt;a href=&quot;/en/collections/1256569-projects&quot; class=&quot;paper &quot;&gt;\n        &lt;div class=&quot;collection o__ltr&quot;&gt;\n          &lt;div class=&quot;collection__photo&quot;&gt;\n            &lt;svg role=\&#39;img\&#39; viewBox=\&#39;0 0 48 48\&#39;&gt;&lt;g id=&quot;book-opened2&quot;&gt;&lt;path d=&quot;M24 11c0-3.866 10.297-7 23-7v33c-12.703 0-23 3.134-23 7 0-3.866-10.3-7-23-7V4c12.7 0 23 3.134 23 7zm0 0v32m-5-27.52c-3.22-1.232-7.773-2.128-13-2.48m13 8.48c-3.22-1.232-7.773-2.128-13-2.48m13 8.48c-3.22-1.232-7.773-2.128-13-2.48m13 8.48c-3.22-1.23-7.773-2.127-13-2.48m23-15.52c3.223-1.232 7.773-2.128 13-2.48m-13 8.48c3.223-1.232 7.773-2.128 13-2.48m-13 8.48c3.223-1.232 7.773-2.128 13-2.48m-13 8.48c3.223-1.23 7.773-2.127 13-2.48&quot; stroke-width=&quot;2&quot; fill=&quot;none&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;/path&gt;&lt;/g&gt;&lt;/svg&gt;\n          &lt;/div&gt;\n          &lt;div class=&quot;collection_meta&quot; dir=&quot;ltr&quot;&gt;\n            &lt;h2 class=&quot;t__h3 c__primary&quot;&gt;Projects&lt;/h2&gt;\n            &lt;p class=&quot;paper__preview&quot;&gt;Everything you need to know about creating DataCamp projects.&lt;/p&gt;\n            &lt;div class=&quot;avatar&quot;&gt;\n  &lt;div class=&quot;avatar__photo avatars__images o__ltr&quot;&gt;\n        &lt;img src=&quot;https://static.intercomassets.com/avatars/2352718/square_128/Rebecca_Robins_-_Headshot-1535969735.jpg?1535969735&quot; alt=&quot;Becca Robins avatar&quot; class=&quot;avatar__image&quot;&gt;\n\n        &lt;img src=&quot;https://static.intercomassets.com/avatars/2366194/square_128/richie-in-hairnet-1537451295.JPG?1537451295&quot; alt=&quot;Richie Cotton avatar&quot; class=&quot;avatar__image&quot;&gt;\n\n  &lt;/div&gt;\n  &lt;div class=&quot;avatar__info&quot;&gt;\n    &lt;div&gt;\n      &lt;span class=&quot;c__darker&quot;&gt;\n        20 articles in this collection\n      &lt;/span&gt;\n      &lt;br&gt;\n      Written by &lt;span class=\&#39;c__darker\&#39;&gt; Becca Robins&lt;/span&gt; and &lt;span class=\&#39;c__darker\&#39;&gt; Richie Cotton&lt;/span&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n          &lt;/div&gt;\n        &lt;/div&gt;\n      &lt;/a&gt;\n    &lt;/div&gt;\n    &lt;div class=&quot;g__space&quot;&gt;\n      &lt;a href=&quot;/en/collections/1256556-course-editor-basics&quot; class=&quot;paper &quot;&gt;\n        &lt;div class=&quot;collection o__ltr&quot;&gt;\n          &lt;div class=&quot;collection__photo&quot;&gt;\n            &lt;svg role=\&#39;img\&#39; viewBox=\&#39;0 0 48 48\&#39;&gt;&lt;g id=&quot;book-bookmark&quot; stroke-width=&quot;2&quot; fill=&quot;none&quot; fill-rule=&quot;evenodd&quot; stroke-linecap=&quot;round&quot;&gt;&lt;path d=&quot;M35 31l-6-6-6 6V7h12v24z&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M35 9h6v38H11a4 4 0 0 1-4-4V5&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M39 9V1H11a4 4 0 0 0 0 8h12&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;/path&gt;&lt;/g&gt;&lt;/svg&gt;\n          &lt;/div&gt;\n          &lt;div class=&quot;collection_meta&quot; dir=&quot;ltr&quot;&gt;\n            &lt;h2 class=&quot;t__h3 c__primary&quot;&gt;Course Editor Basics&lt;/h2&gt;\n            &lt;p class=&quot;paper__preview&quot;&gt;Everything you need to know to get going with our online course editor.&lt;/p&gt;\n            &lt;div class=&quot;avatar&quot;&gt;\n  &lt;div class=&quot;avatar__photo avatars__images o__ltr&quot;&gt;\n        &lt;img src=&quot;https://static.intercomassets.com/avatars/2352718/square_128/Rebecca_Robins_-_Headshot-1535969735.jpg?1535969735&quot; alt=&quot;Becca Robins avatar&quot; class=&quot;avatar__image&quot;&gt;\n\n        &lt;img src=&quot;https://static.intercomassets.com/avatars/2678765/square_128/peterson-1539265042.jpg?1539265042&quot; alt=&quot;Amy Peterson avatar&quot; class=&quot;avatar__image&quot;&gt;\n\n        &lt;img src=&quot;https://static.intercomassets.com/avatars/2914180/square_128/Sara_Billen_Photo-1555505647.png?1555505647&quot; alt=&quot;Sara Billen avatar&quot; class=&quot;avatar__image&quot;&gt;\n\n  &lt;/div&gt;\n  &lt;div class=&quot;avatar__info&quot;&gt;\n    &lt;div&gt;\n      &lt;span class=&quot;c__darker&quot;&gt;\n        5 articles in this collection\n      &lt;/span&gt;\n      &lt;br&gt;\n      Written by &lt;span class=\&#39;c__darker\&#39;&gt; Becca Robins,&lt;/span&gt; &lt;span class=\&#39;c__darker\&#39;&gt; Amy Peterson,&lt;/span&gt; and &lt;span class=\&#39;c__darker\&#39;&gt; Sara Billen&lt;/span&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n          &lt;/div&gt;\n        &lt;/div&gt;\n      &lt;/a&gt;\n    &lt;/div&gt;\n    &lt;div class=&quot;g__space&quot;&gt;\n      &lt;a href=&quot;/en/collections/2184250-live-courses-and-maintenance&quot; class=&quot;paper &quot;&gt;\n        &lt;div class=&quot;collection o__ltr&quot;&gt;\n          &lt;div class=&quot;collection__photo&quot;&gt;\n            &lt;svg role=\&#39;img\&#39; viewBox=\&#39;0 0 48 48\&#39;&gt;&lt;g id=&quot;book-bookmark&quot; stroke-width=&quot;2&quot; fill=&quot;none&quot; fill-rule=&quot;evenodd&quot; stroke-linecap=&quot;round&quot;&gt;&lt;path d=&quot;M35 31l-6-6-6 6V7h12v24z&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M35 9h6v38H11a4 4 0 0 1-4-4V5&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M39 9V1H11a4 4 0 0 0 0 8h12&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;/path&gt;&lt;/g&gt;&lt;/svg&gt;\n          &lt;/div&gt;\n          &lt;div class=&quot;collection_meta&quot; dir=&quot;ltr&quot;&gt;\n            &lt;h2 class=&quot;t__h3 c__primary&quot;&gt;Live Courses and Maintenance &lt;/h2&gt;\n            &lt;p class=&quot;paper__preview&quot;&gt;Everything you need to know about maintaining your Live Content on DataCamp&lt;/p&gt;\n            &lt;div class=&quot;avatar&quot;&gt;\n  &lt;div class=&quot;avatar__photo avatars__images o__ltr&quot;&gt;\n        &lt;img src=&quot;https://static.intercomassets.com/avatars/3848524/square_128/profile_pic-1583526870.jpg?1583526870&quot; alt=&quot;Kelsey McNeillie avatar&quot; class=&quot;avatar__image&quot;&gt;\n\n  &lt;/div&gt;\n  &lt;div class=&quot;avatar__info&quot;&gt;\n    &lt;div&gt;\n      &lt;span class=&quot;c__darker&quot;&gt;\n        21 articles in this collection\n      &lt;/span&gt;\n      &lt;br&gt;\n      Written by &lt;span class=\&#39;c__darker\&#39;&gt; Kelsey McNeillie&lt;/span&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n          &lt;/div&gt;\n        &lt;/div&gt;\n      &lt;/a&gt;\n    &lt;/div&gt;\n    &lt;div class=&quot;g__space&quot;&gt;\n      &lt;a href=&quot;/en/collections/2052717-instructor-advisory-board&quot; class=&quot;paper &quot;&gt;\n        &lt;div class=&quot;collection o__ltr&quot;&gt;\n          &lt;div class=&quot;collection__photo&quot;&gt;\n            &lt;svg role=\&#39;img\&#39; viewBox=\&#39;0 0 48 48\&#39;&gt;&lt;g id=&quot;chat-star&quot; stroke-width=&quot;2&quot; fill=&quot;none&quot; fill-rule=&quot;evenodd&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M20 34.942c-2.083-.12-4.292-.42-6-.942L3 39l4-9c-3.858-3.086-6-7.246-6-12C1 8.61 10.328 1 21.835 1 33.343 1 43 8.61 43 18c0 1.044-.117 2.065-.342 3.057&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M36.016 25L40 33h7l-6 5 3 9-8-5.494L28 47l3-9-6-5h7l4.016-8z&quot;&gt;&lt;/path&gt;&lt;/g&gt;&lt;/svg&gt;\n          &lt;/div&gt;\n          &lt;div class=&quot;collection_meta&quot; dir=&quot;ltr&quot;&gt;\n            &lt;h2 class=&quot;t__h3 c__primary&quot;&gt;Instructor Advisory Board&lt;/h2&gt;\n            &lt;p class=&quot;paper__preview&quot;&gt;Learn more about the DataCamp Instructor Advisory Board&lt;/p&gt;\n            &lt;div class=&quot;avatar&quot;&gt;\n  &lt;div class=&quot;avatar__photo avatars__images o__ltr&quot;&gt;\n        &lt;img src=&quot;https://static.intercomassets.com/avatars/2678519/square_128/pic2-1539176502.JPG?1539176502&quot; alt=&quot;Jen Bricker avatar&quot; class=&quot;avatar__image&quot;&gt;\n\n  &lt;/div&gt;\n  &lt;div class=&quot;avatar__info&quot;&gt;\n    &lt;div&gt;\n      &lt;span class=&quot;c__darker&quot;&gt;\n        2 articles in this collection\n      &lt;/span&gt;\n      &lt;br&gt;\n      Written by &lt;span class=\&#39;c__darker\&#39;&gt; Jen Bricker&lt;/span&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n          &lt;/div&gt;\n        &lt;/div&gt;\n      &lt;/a&gt;\n    &lt;/div&gt;\n    &lt;div class=&quot;g__space&quot;&gt;\n      &lt;a href=&quot;/en/collections/1335793-tips-tricks&quot; class=&quot;paper &quot;&gt;\n        &lt;div class=&quot;collection o__ltr&quot;&gt;\n          &lt;div class=&quot;collection__photo&quot;&gt;\n            &lt;svg role=\&#39;img\&#39; viewBox=\&#39;0 0 48 48\&#39;&gt;&lt;g id=&quot;comms-mail&quot; stroke-width=&quot;2&quot; fill=&quot;none&quot; fill-rule=&quot;evenodd&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M47 3L1 22l18 7L47 3z&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M47 3l-8 37-20-11L47 3zM19 29v16l7-12&quot;&gt;&lt;/path&gt;&lt;/g&gt;&lt;/svg&gt;\n          &lt;/div&gt;\n          &lt;div class=&quot;collection_meta&quot; dir=&quot;ltr&quot;&gt;\n            &lt;h2 class=&quot;t__h3 c__primary&quot;&gt;Tips &amp;amp; Tricks&lt;/h2&gt;\n            &lt;p class=&quot;paper__preview&quot;&gt;Become a DataCamp wizard!&lt;/p&gt;\n            &lt;div class=&quot;avatar&quot;&gt;\n  &lt;div class=&quot;avatar__photo avatars__images o__ltr&quot;&gt;\n        &lt;img src=&quot;https://static.intercomassets.com/avatars/2352718/square_128/Rebecca_Robins_-_Headshot-1535969735.jpg?1535969735&quot; alt=&quot;Becca Robins avatar&quot; class=&quot;avatar__image&quot;&gt;\n\n        &lt;img src=&quot;https://static.intercomassets.com/avatars/3421044/square_128/19412139-1572371206.png?1572371206&quot; alt=&quot;Maggie Matsui avatar&quot; class=&quot;avatar__image&quot;&gt;\n\n  &lt;/div&gt;\n  &lt;div class=&quot;avatar__info&quot;&gt;\n    &lt;div&gt;\n      &lt;span class=&quot;c__darker&quot;&gt;\n        6 articles in this collection\n      &lt;/span&gt;\n      &lt;br&gt;\n      Written by &lt;span class=\&#39;c__darker\&#39;&gt; Becca Robins&lt;/span&gt; and &lt;span class=\&#39;c__darker\&#39;&gt; Maggie Matsui&lt;/span&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n          &lt;/div&gt;\n        &lt;/div&gt;\n      &lt;/a&gt;\n    &lt;/div&gt;\n    &lt;div class=&quot;g__space&quot;&gt;\n      &lt;a href=&quot;/en/collections/1256565-frequently-asked-questions-faq&quot; class=&quot;paper &quot;&gt;\n        &lt;div class=&quot;collection o__ltr&quot;&gt;\n          &lt;div class=&quot;collection__photo&quot;&gt;\n            &lt;svg role=\&#39;img\&#39; viewBox=\&#39;0 0 48 48\&#39;&gt;&lt;g id=&quot;chat-question&quot; fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;&gt;&lt;path d=&quot;M47 21.268c0 10.363-10.297 18.765-23 18.765-2.835 0-5.55-.418-8.058-1.184L2.725 45 7.9 34.668c-4.258-3.406-6.9-8.15-6.9-13.4C1 10.904 11.297 2.502 24 2.502s23 8.402 23 18.766z&quot; stroke-width=&quot;2&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M25 28.502a2 2 0 1 0 0 4 2 2 0 0 0 0-4&quot; fill=&quot;#231F1F&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M19 17.75c0-3.312 2.686-6.124 6-6.124 3.313 0 6 2.626 6 5.938 0 3.315-2.687 5.938-6 5.938V26&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;/path&gt;&lt;/g&gt;&lt;/svg&gt;\n          &lt;/div&gt;\n          &lt;div class=&quot;collection_meta&quot; dir=&quot;ltr&quot;&gt;\n            &lt;h2 class=&quot;t__h3 c__primary&quot;&gt;Frequently Asked Questions (FAQ)&lt;/h2&gt;\n            &lt;p class=&quot;paper__preview&quot;&gt;Common questions that arise during content creation.&lt;/p&gt;\n            &lt;div class=&quot;avatar&quot;&gt;\n  &lt;div class=&quot;avatar__photo avatars__images o__ltr&quot;&gt;\n        &lt;img src=&quot;https://static.intercomassets.com/avatars/2352718/square_128/Rebecca_Robins_-_Headshot-1535969735.jpg?1535969735&quot; alt=&quot;Becca Robins avatar&quot; class=&quot;avatar__image&quot;&gt;\n\n        &lt;span class=&quot;avatar__image avatar__fallback&quot;&gt; B &lt;/span&gt;\n\n        &lt;img src=&quot;https://static.intercomassets.com/avatars/2366194/square_128/richie-in-hairnet-1537451295.JPG?1537451295&quot; alt=&quot;Richie Cotton avatar&quot; class=&quot;avatar__image&quot;&gt;\n\n      &lt;span class=&quot;avatar__image avatar__fallback&quot;&gt;+2&lt;/span&gt;\n  &lt;/div&gt;\n  &lt;div class=&quot;avatar__info&quot;&gt;\n    &lt;div&gt;\n      &lt;span class=&quot;c__darker&quot;&gt;\n        43 articles in this collection\n      &lt;/span&gt;\n      &lt;br&gt;\n      Written by &lt;span class=\&#39;c__darker\&#39;&gt; Becca Robins,&lt;/span&gt; &lt;span class=\&#39;c__darker\&#39;&gt; Boris Gordts,&lt;/span&gt; &lt;span class=\&#39;c__darker\&#39;&gt; Richie Cotton&lt;/span&gt; and 2 others\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n          &lt;/div&gt;\n        &lt;/div&gt;\n      &lt;/a&gt;\n    &lt;/div&gt;\n    &lt;div class=&quot;g__space&quot;&gt;\n      &lt;a href=&quot;/en/collections/1340920-miscellaneous&quot; class=&quot;paper &quot;&gt;\n        &lt;div class=&quot;collection o__ltr&quot;&gt;\n          &lt;div class=&quot;collection__photo&quot;&gt;\n            &lt;svg role=\&#39;img\&#39; viewBox=\&#39;0 0 48 48\&#39;&gt;&lt;g id=&quot;tools-edit&quot;&gt;&lt;path d=&quot;M14.932 43.968L2 47l3.033-12.93 31.2-31.203a4 4 0 0 1 5.658 0l4.247 4.243a4 4 0 0 1 0 5.656L14.932 43.968zm29.84-29.735L34.82 4.28m7.125 12.782L31.992 7.11M15.436 43.465l-9.9-9.9&quot; stroke-width=&quot;2&quot; fill=&quot;none&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;/path&gt;&lt;/g&gt;&lt;/svg&gt;\n          &lt;/div&gt;\n          &lt;div class=&quot;collection_meta&quot; dir=&quot;ltr&quot;&gt;\n            &lt;h2 class=&quot;t__h3 c__primary&quot;&gt;Miscellaneous&lt;/h2&gt;\n            &lt;p class=&quot;paper__preview&quot;&gt;Have a question for DataCamp, but not about creating content? You&amp;#39;ll probably find the answer here.&lt;/p&gt;\n            &lt;div class=&quot;avatar&quot;&gt;\n  &lt;div class=&quot;avatar__photo avatars__images o__ltr&quot;&gt;\n        &lt;img src=&quot;https://static.intercomassets.com/avatars/2352718/square_128/Rebecca_Robins_-_Headshot-1535969735.jpg?1535969735&quot; alt=&quot;Becca Robins avatar&quot; class=&quot;avatar__image&quot;&gt;\n\n        &lt;img src=&quot;https://static.intercomassets.com/avatars/2830289/square_128/IMG_0665_a-1545331304.jpg?1545331304&quot; alt=&quot;Lisa Monteleone avatar&quot; class=&quot;avatar__image&quot;&gt;\n\n        &lt;img src=&quot;https://static.intercomassets.com/avatars/2859053/square_128/gabriel_about_pic-1546620603.jpg?1546620603&quot; alt=&quot;Gabriel de Selding avatar&quot; class=&quot;avatar__image&quot;&gt;\n\n  &lt;/div&gt;\n  &lt;div class=&quot;avatar__info&quot;&gt;\n    &lt;div&gt;\n      &lt;span class=&quot;c__darker&quot;&gt;\n        9 articles in this collection\n      &lt;/span&gt;\n      &lt;br&gt;\n      Written by &lt;span class=\&#39;c__darker\&#39;&gt; Becca Robins,&lt;/span&gt; &lt;span class=\&#39;c__darker\&#39;&gt; Lisa Monteleone,&lt;/span&gt; and &lt;span class=\&#39;c__darker\&#39;&gt; Gabriel de Selding&lt;/span&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n          &lt;/div&gt;\n        &lt;/div&gt;\n      &lt;/a&gt;\n    &lt;/div&gt;\n&lt;/section&gt;\n&lt;/div&gt;\n    &lt;/div&gt;\n    &lt;footer class=&quot;footer&quot;&gt;\n  &lt;div class=&quot;container&quot;&gt;\n    &lt;div class=&quot;content&quot;&gt;\n      &lt;div class=&quot;u__cf&quot;  dir=&quot;ltr&quot;&gt;\n        &lt;div class=&quot;footer__logo&quot;&gt;\n          &lt;a href=&quot;/en/&quot;&gt;\n              &lt;img alt=&quot;DataCamp Help Center&quot; src=&quot;https://downloads.intercomcdn.com/i/o/81221/856b63d438031754b681746b/4ea2737e4266936fb423911d9c587812.png&quot; /&gt;\n          &lt;/a&gt;\n        &lt;/div&gt;\n          &lt;div class=&quot;footer__advert logo&quot;&gt;\n            &lt;img src=&quot;https://static.intercomassets.com/alexandria/assets/intercom-a6a6ac0f033657af1aebe2e9e15b94a3cd5eabf6ae8b9916df6ea49099a894d8.png&quot; alt=&quot;Intercom&quot; /&gt;\n            &lt;a href=&quot;https://www.intercom.com/intercom-link?company=DataCamp&amp;amp;solution=customer-support&amp;amp;utm_campaign=intercom-link&amp;amp;utm_content=We+run+on+Intercom&amp;amp;utm_medium=help-center&amp;amp;utm_referrer=http%3A%2F%2Finstructor-support.datacamp.com%2Fen&amp;amp;utm_source=desktop-web&quot;&gt;We run on Intercom&lt;/a&gt;\n          &lt;/div&gt;\n      &lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/footer&gt;\n\n    \n  &lt;script nonce=&quot;VA7beatjZc9vRtdol6pb20y2A0wJP2yBX/ICTIxIrp8=&quot;&gt;\n    window.intercomSettings = {&quot;app_id&quot;:&quot;ug0ps1rq&quot;};\n&lt;/script&gt;\n  &lt;script nonce=&quot;VA7beatjZc9vRtdol6pb20y2A0wJP2yBX/ICTIxIrp8=&quot;&gt;\n    (function(){var w=window;var ic=w.Intercom;if(typeof ic===&quot;function&quot;){ic(\&#39;reattach_activator\&#39;);ic(\&#39;update\&#39;,intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement(\&#39;script\&#39;);s.type=\&#39;text/javascript\&#39;;s.async=true;s.src=&quot;https://widget.intercom.io/widget/ug0ps1rq&quot;;var x=d.getElementsByTagName(\&#39;script\&#39;)[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent(\&#39;onload\&#39;,l);}else{w.addEventListener(\&#39;load\&#39;,l,false);}}})()\n&lt;/script&gt;\n\n    \n\n    &lt;script src=&quot;https://static.intercomassets.com/alexandria/assets/application-d1f56ac2d9a90e64c3156d7ef53701ccbc10cc933f0ef6f3aba2dc9ffd0b9e86.js&quot; nonce=&quot;VA7beatjZc9vRtdol6pb20y2A0wJP2yBX/ICTIxIrp8=&quot;&gt;&lt;/script&gt;\n    \n  &lt;/body&gt;\n&lt;/html&gt;\n&#39;</code></pre>
+<pre class="python"><code>response.close()
+</code></pre>
+</div>
+<div id="performing-http-requests-in-python-using-requests" class="section level2">
+<h2>5. Performing HTTP requests in Python using requests</h2>
+<pre class="python"><code>
+# Import package
+import requests
+
+# Specify the url: url
+url = &#39;http://www.datacamp.com/teach/documentation&#39;
+
+# Packages the request, send the request and catch the response: r
+r = requests.get(url)
+
+# Extract the response: text
+text = r.text
+
+# Print the html
+print(text)</code></pre>
+<pre><code>## &lt;!doctype html&gt;
+## &lt;html lang=&quot;en&quot; data-direction=&quot;ltr&quot;&gt;
+##   &lt;head&gt;
+##     &lt;link href=&quot;https://fonts.intercomcdn.com&quot; rel=&quot;preconnect&quot; crossorigin&gt;
+##       &lt;script src=&quot;https://www.googletagmanager.com/gtag/js?id=UA-39297847-9&quot; async=&quot;async&quot; nonce=&quot;sM+cGU4FPPwLdBB6IBG1G2mVf8IOqbOx2okGxJi2VLo=&quot;&gt;&lt;/script&gt;
+##       &lt;script nonce=&quot;sM+cGU4FPPwLdBB6IBG1G2mVf8IOqbOx2okGxJi2VLo=&quot;&gt;
+##         window.dataLayer = window.dataLayer || [];
+##         function gtag(){dataLayer.push(arguments);}
+##         gtag(&#39;js&#39;, new Date());
+##         gtag(&#39;config&#39;, &#39;UA-39297847-9&#39;);
+## &lt;/script&gt;
+##     &lt;meta charset=&quot;utf-8&quot;&gt;
+##     &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+##     &lt;title&gt;DataCamp Help Center&lt;/title&gt;
+##     &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+##     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+## 
+##       &lt;link rel=&quot;alternate&quot; href=&quot;http://instructor-support.datacamp.com/en/&quot; hreflang=&quot;en&quot;&gt;
+## 
+##       &lt;meta name=&quot;intercom:trackingEvent&quot; content=&quot;{&amp;quot;name&amp;quot;:&amp;quot;Viewed Help Center&amp;quot;,&amp;quot;metadata&amp;quot;:{&amp;quot;action&amp;quot;:&amp;quot;viewed&amp;quot;,&amp;quot;object&amp;quot;:&amp;quot;educate_home&amp;quot;,&amp;quot;place&amp;quot;:&amp;quot;help_center&amp;quot;,&amp;quot;owner&amp;quot;:&amp;quot;educate&amp;quot;,&amp;quot;default_locale&amp;quot;:&amp;quot;en&amp;quot;,&amp;quot;current_locale&amp;quot;:&amp;quot;en&amp;quot;,&amp;quot;is_default_locale&amp;quot;:true}}&quot; /&gt;
+## 
+##     &lt;link rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;https://static.intercomassets.com/alexandria/assets/application-00b67c7c87b72734807679ffe67cf68adf711566c397121c5d3432b6d9ff1657.css&quot; /&gt;
+##     &lt;link rel=&quot;canonical&quot; href=&quot;http://instructor-support.datacamp.com/en/&quot;/&gt;
+## 
+##         &lt;link href=&quot;https://static.intercomassets.com/assets/educate/educate-favicon-64x64-at-2x-52016a3500a250d0b118c0a04ddd13b1a7364a27759483536dd1940bccdefc20.png&quot; rel=&quot;shortcut icon&quot; type=&quot;image/png&quot; /&gt;
+##       &lt;style&gt;
+##         .header, .avatar__image-extra { background-color: #263e63; }
+##         .article a, .c__primary { color: #263e63; }
+##         .avatar__fallback { background-color: #263e63; }
+##         article a.intercom-h2b-button { background-color: #263e63; border: 0; }
+##       &lt;/style&gt;
+## 
+##       &lt;meta property=&quot;og:title&quot; content=&quot;DataCamp Help Center&quot; /&gt;
+##   &lt;meta name=&quot;twitter:title&quot; content=&quot;DataCamp Help Center&quot; /&gt;
+## 
+## 
+## &lt;meta property=&quot;og:type&quot; content=&quot;website&quot; /&gt;
+## &lt;meta property=&quot;og:image&quot; content=&quot;&quot; /&gt;
+## 
+## &lt;meta name=&quot;twitter:image&quot; content=&quot;&quot; /&gt;
+## 
+##   &lt;/head&gt;
+##   &lt;body class=&quot;&quot;&gt;
+##     &lt;header class=&quot;header&quot;&gt;
+##   &lt;div class=&quot;container header__container o__ltr&quot; dir=&quot;ltr&quot;&gt;
+##     &lt;div class=&quot;content&quot;&gt;
+##       &lt;div class=&quot;mo o__centered o__reversed header__meta_wrapper&quot;&gt;
+##         &lt;div class=&quot;mo__body header__site_name&quot;&gt;
+##           &lt;div class=&quot;header__logo&quot;&gt;
+##             &lt;a href=&quot;/en/&quot;&gt;
+##                 &lt;img alt=&quot;DataCamp Help Center&quot; src=&quot;https://downloads.intercomcdn.com/i/o/81221/856b63d438031754b681746b/4ea2737e4266936fb423911d9c587812.png&quot; /&gt;
+##             &lt;/a&gt;
+##           &lt;/div&gt;
+##         &lt;/div&gt;
+##         &lt;div class=&quot;mo__aside&quot;&gt;
+##           &lt;div class=&quot;header__links&quot;&gt;
+##               &lt;a target=&quot;_blank&quot; rel=&#39;noopener&#39; href=&quot;http://www.datacamp.com/teach&quot; class=&quot;header__home__url&quot;&gt;&lt;svg width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 14 14&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;title&gt;Group 65&lt;/title&gt;&lt;g stroke=&quot;#FFF&quot; fill=&quot;none&quot; fill-rule=&quot;evenodd&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M11.5 6.73v6.77H.5v-11h7.615M4.5 9.5l7-7M13.5 5.5v-5h-5&quot;/&gt;&lt;/g&gt;&lt;/svg&gt;&lt;span&gt;Go to DataCamp&lt;/span&gt;&lt;/a&gt;
+##             
+##           &lt;/div&gt;
+##         &lt;/div&gt;
+##       &lt;/div&gt;
+##           &lt;h1 class=&quot;header__headline&quot;&gt;Advice and answers from the DataCamp Team&lt;/h1&gt;
+##       &lt;form action=&quot;/en/&quot; autocomplete=&quot;off&quot; class=&quot;header__form search&quot;&gt;
+##         &lt;input type=&quot;text&quot; autocomplete=&quot;off&quot; class=&quot;search__input js__search-input o__ltr&quot; placeholder=&quot;Search for articles...&quot; tabindex=&quot;1&quot; name=&quot;q&quot; value=&quot;&quot;&gt;
+##         &lt;div class=&quot;search_icons&quot;&gt;
+##           &lt;button type=&quot;submit&quot; class=&quot;search__submit o__ltr&quot;&gt;&lt;/button&gt;
+##           &lt;a class=&quot;search__clear-text__icon&quot;&gt;
+##             &lt;svg class=&quot;interface-icon&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 16 16&quot;&gt;
+##               &lt;path d=&quot;M8.018 6.643L5.375 4 4 5.375l2.643 2.643L4 10.643 5.375 12l2.643-2.625L10.625 12 12 10.643 9.357 8.018 12 5.375 10.643 4z&quot; /&gt;
+##             &lt;/svg&gt;
+##           &lt;/a&gt;
+##       &lt;/form&gt;
+##       &lt;/div&gt;
+##     &lt;/div&gt;
+##   &lt;/div&gt;
+## &lt;/header&gt;
+## 
+##     &lt;div class=&quot;container&quot;&gt;
+##       &lt;div class=&quot;content educate_content&quot;&gt;&lt;section class=&quot;section&quot;&gt;
+##     &lt;div class=&quot;g__space&quot;&gt;
+##       &lt;a href=&quot;/en/collections/1256585-getting-started&quot; class=&quot;paper &quot;&gt;
+##         &lt;div class=&quot;collection o__ltr&quot;&gt;
+##           &lt;div class=&quot;collection__photo&quot;&gt;
+##             &lt;svg role=&#39;img&#39; viewBox=&#39;0 0 48 48&#39;&gt;&lt;g id=&quot;chat-star&quot; stroke-width=&quot;2&quot; fill=&quot;none&quot; fill-rule=&quot;evenodd&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M20 34.942c-2.083-.12-4.292-.42-6-.942L3 39l4-9c-3.858-3.086-6-7.246-6-12C1 8.61 10.328 1 21.835 1 33.343 1 43 8.61 43 18c0 1.044-.117 2.065-.342 3.057&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M36.016 25L40 33h7l-6 5 3 9-8-5.494L28 47l3-9-6-5h7l4.016-8z&quot;&gt;&lt;/path&gt;&lt;/g&gt;&lt;/svg&gt;
+##           &lt;/div&gt;
+##           &lt;div class=&quot;collection_meta&quot; dir=&quot;ltr&quot;&gt;
+##             &lt;h2 class=&quot;t__h3 c__primary&quot;&gt;Getting Started&lt;/h2&gt;
+##             &lt;p class=&quot;paper__preview&quot;&gt;Everything you need to know to begin your DataCamp journey!&lt;/p&gt;
+##             &lt;div class=&quot;avatar&quot;&gt;
+##   &lt;div class=&quot;avatar__photo avatars__images o__ltr&quot;&gt;
+##         &lt;img src=&quot;https://static.intercomassets.com/avatars/2352718/square_128/Rebecca_Robins_-_Headshot-1535969735.jpg?1535969735&quot; alt=&quot;Becca Robins avatar&quot; class=&quot;avatar__image&quot;&gt;
+## 
+##         &lt;img src=&quot;https://static.intercomassets.com/avatars/2637958/square_128/YR_Headshot-1539175806.JPG?1539175806&quot; alt=&quot;Yashas Roy avatar&quot; class=&quot;avatar__image&quot;&gt;
+## 
+##         &lt;img src=&quot;https://static.intercomassets.com/avatars/2678519/square_128/pic2-1539176502.JPG?1539176502&quot; alt=&quot;Jen Bricker avatar&quot; class=&quot;avatar__image&quot;&gt;
+## 
+##       &lt;span class=&quot;avatar__image avatar__fallback&quot;&gt;+1&lt;/span&gt;
+##   &lt;/div&gt;
+##   &lt;div class=&quot;avatar__info&quot;&gt;
+##     &lt;div&gt;
+##       &lt;span class=&quot;c__darker&quot;&gt;
+##         11 articles in this collection
+##       &lt;/span&gt;
+##       &lt;br&gt;
+##       Written by &lt;span class=&#39;c__darker&#39;&gt; Becca Robins,&lt;/span&gt; &lt;span class=&#39;c__darker&#39;&gt; Yashas Roy,&lt;/span&gt; &lt;span class=&#39;c__darker&#39;&gt; Jen Bricker&lt;/span&gt; and 1 other
+##     &lt;/div&gt;
+##   &lt;/div&gt;
+## &lt;/div&gt;
+## 
+##           &lt;/div&gt;
+##         &lt;/div&gt;
+##       &lt;/a&gt;
+##     &lt;/div&gt;
+##     &lt;div class=&quot;g__space&quot;&gt;
+##       &lt;a href=&quot;/en/collections/1256578-courses&quot; class=&quot;paper &quot;&gt;
+##         &lt;div class=&quot;collection o__ltr&quot;&gt;
+##           &lt;div class=&quot;collection__photo&quot;&gt;
+##             &lt;svg role=&#39;img&#39; viewBox=&#39;0 0 48 48&#39;&gt;&lt;g id=&quot;devices-laptop&quot; stroke-width=&quot;2&quot; fill=&quot;none&quot; fill-rule=&quot;evenodd&quot; stroke-linecap=&quot;round&quot;&gt;&lt;path d=&quot;M41 31H7V11h34v20z&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M3 35V10a3 3 0 0 1 3-3h36a3 3 0 0 1 3 3v25m-16 0v2H19v-2H1v4a2 2 0 0 0 2 2h42a2 2 0 0 0 2-2v-4H29z&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;/path&gt;&lt;/g&gt;&lt;/svg&gt;
+##           &lt;/div&gt;
+##           &lt;div class=&quot;collection_meta&quot; dir=&quot;ltr&quot;&gt;
+##             &lt;h2 class=&quot;t__h3 c__primary&quot;&gt;Courses&lt;/h2&gt;
+##             &lt;p class=&quot;paper__preview&quot;&gt;Everything you need to know about creating DataCamp courses.&lt;/p&gt;
+##             &lt;div class=&quot;avatar&quot;&gt;
+##   &lt;div class=&quot;avatar__photo avatars__images o__ltr&quot;&gt;
+##         &lt;img src=&quot;https://static.intercomassets.com/avatars/2298587/square_128/about_pic-1539247923.jpg?1539247923&quot; alt=&quot;Vincent Vankrunkelsven avatar&quot; class=&quot;avatar__image&quot;&gt;
+## 
+##         &lt;span class=&quot;avatar__image avatar__fallback&quot;&gt; D &lt;/span&gt;
+## 
+##         &lt;img src=&quot;https://static.intercomassets.com/avatars/2352718/square_128/Rebecca_Robins_-_Headshot-1535969735.jpg?1535969735&quot; alt=&quot;Becca Robins avatar&quot; class=&quot;avatar__image&quot;&gt;
+## 
+##       &lt;span class=&quot;avatar__image avatar__fallback&quot;&gt;+6&lt;/span&gt;
+##   &lt;/div&gt;
+##   &lt;div class=&quot;avatar__info&quot;&gt;
+##     &lt;div&gt;
+##       &lt;span class=&quot;c__darker&quot;&gt;
+##         86 articles in this collection
+##       &lt;/span&gt;
+##       &lt;br&gt;
+##       Written by &lt;span class=&#39;c__darker&#39;&gt; Vincent Vankrunkelsven,&lt;/span&gt; &lt;span class=&#39;c__darker&#39;&gt; Dieter De Mesmaeker,&lt;/span&gt; &lt;span class=&#39;c__darker&#39;&gt; Becca Robins&lt;/span&gt; and 6 others
+##     &lt;/div&gt;
+##   &lt;/div&gt;
+## &lt;/div&gt;
+## 
+##           &lt;/div&gt;
+##         &lt;/div&gt;
+##       &lt;/a&gt;
+##     &lt;/div&gt;
+##     &lt;div class=&quot;g__space&quot;&gt;
+##       &lt;a href=&quot;/en/collections/1256594-daily-practice&quot; class=&quot;paper &quot;&gt;
+##         &lt;div class=&quot;collection o__ltr&quot;&gt;
+##           &lt;div class=&quot;collection__photo&quot;&gt;
+##             &lt;svg role=&#39;img&#39; viewBox=&#39;0 0 48 48&#39;&gt;&lt;g id=&quot;tools-dashboard&quot; stroke-width=&quot;2&quot; fill=&quot;none&quot; fill-rule=&quot;evenodd&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M27 31a3 3 0 0 1-6 0 3 3 0 0 1 6 0zm-.88-2.12l9.9-9.9M5 32h4m34 .002L39 32m2.553-8.27l-3.696 1.53M31.27 13.447l-1.53 3.695M24 12v4m-7.27-2.553l1.53 3.695m-7.694.422l2.826 2.83M6.447 23.73l3.695 1.53&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M24 8C11.297 8 1 18.3 1 31v9h46v-9C47 18.3 36.703 8 24 8z&quot;&gt;&lt;/path&gt;&lt;/g&gt;&lt;/svg&gt;
+##           &lt;/div&gt;
+##           &lt;div class=&quot;collection_meta&quot; dir=&quot;ltr&quot;&gt;
+##             &lt;h2 class=&quot;t__h3 c__primary&quot;&gt;Daily Practice&lt;/h2&gt;
+##             &lt;p class=&quot;paper__preview&quot;&gt;Everything you need to know about creating DataCamp Daily Practice.&lt;/p&gt;
+##             &lt;div class=&quot;avatar&quot;&gt;
+##   &lt;div class=&quot;avatar__photo avatars__images o__ltr&quot;&gt;
+##         &lt;img src=&quot;https://static.intercomassets.com/avatars/2734728/square_128/Anneleen_Beckers-xtra-small-1541624054.jpg?1541624054&quot; alt=&quot;Anneleen Beckers avatar&quot; class=&quot;avatar__image&quot;&gt;
+## 
+##   &lt;/div&gt;
+##   &lt;div class=&quot;avatar__info&quot;&gt;
+##     &lt;div&gt;
+##       &lt;span class=&quot;c__darker&quot;&gt;
+##         15 articles in this collection
+##       &lt;/span&gt;
+##       &lt;br&gt;
+##       Written by &lt;span class=&#39;c__darker&#39;&gt; Anneleen Beckers&lt;/span&gt;
+##     &lt;/div&gt;
+##   &lt;/div&gt;
+## &lt;/div&gt;
+## 
+##           &lt;/div&gt;
+##         &lt;/div&gt;
+##       &lt;/a&gt;
+##     &lt;/div&gt;
+##     &lt;div class=&quot;g__space&quot;&gt;
+##       &lt;a href=&quot;/en/collections/1256569-projects&quot; class=&quot;paper &quot;&gt;
+##         &lt;div class=&quot;collection o__ltr&quot;&gt;
+##           &lt;div class=&quot;collection__photo&quot;&gt;
+##             &lt;svg role=&#39;img&#39; viewBox=&#39;0 0 48 48&#39;&gt;&lt;g id=&quot;book-opened2&quot;&gt;&lt;path d=&quot;M24 11c0-3.866 10.297-7 23-7v33c-12.703 0-23 3.134-23 7 0-3.866-10.3-7-23-7V4c12.7 0 23 3.134 23 7zm0 0v32m-5-27.52c-3.22-1.232-7.773-2.128-13-2.48m13 8.48c-3.22-1.232-7.773-2.128-13-2.48m13 8.48c-3.22-1.232-7.773-2.128-13-2.48m13 8.48c-3.22-1.23-7.773-2.127-13-2.48m23-15.52c3.223-1.232 7.773-2.128 13-2.48m-13 8.48c3.223-1.232 7.773-2.128 13-2.48m-13 8.48c3.223-1.232 7.773-2.128 13-2.48m-13 8.48c3.223-1.23 7.773-2.127 13-2.48&quot; stroke-width=&quot;2&quot; fill=&quot;none&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;/path&gt;&lt;/g&gt;&lt;/svg&gt;
+##           &lt;/div&gt;
+##           &lt;div class=&quot;collection_meta&quot; dir=&quot;ltr&quot;&gt;
+##             &lt;h2 class=&quot;t__h3 c__primary&quot;&gt;Projects&lt;/h2&gt;
+##             &lt;p class=&quot;paper__preview&quot;&gt;Everything you need to know about creating DataCamp projects.&lt;/p&gt;
+##             &lt;div class=&quot;avatar&quot;&gt;
+##   &lt;div class=&quot;avatar__photo avatars__images o__ltr&quot;&gt;
+##         &lt;img src=&quot;https://static.intercomassets.com/avatars/2352718/square_128/Rebecca_Robins_-_Headshot-1535969735.jpg?1535969735&quot; alt=&quot;Becca Robins avatar&quot; class=&quot;avatar__image&quot;&gt;
+## 
+##         &lt;img src=&quot;https://static.intercomassets.com/avatars/2366194/square_128/richie-in-hairnet-1537451295.JPG?1537451295&quot; alt=&quot;Richie Cotton avatar&quot; class=&quot;avatar__image&quot;&gt;
+## 
+##   &lt;/div&gt;
+##   &lt;div class=&quot;avatar__info&quot;&gt;
+##     &lt;div&gt;
+##       &lt;span class=&quot;c__darker&quot;&gt;
+##         20 articles in this collection
+##       &lt;/span&gt;
+##       &lt;br&gt;
+##       Written by &lt;span class=&#39;c__darker&#39;&gt; Becca Robins&lt;/span&gt; and &lt;span class=&#39;c__darker&#39;&gt; Richie Cotton&lt;/span&gt;
+##     &lt;/div&gt;
+##   &lt;/div&gt;
+## &lt;/div&gt;
+## 
+##           &lt;/div&gt;
+##         &lt;/div&gt;
+##       &lt;/a&gt;
+##     &lt;/div&gt;
+##     &lt;div class=&quot;g__space&quot;&gt;
+##       &lt;a href=&quot;/en/collections/1256556-course-editor-basics&quot; class=&quot;paper &quot;&gt;
+##         &lt;div class=&quot;collection o__ltr&quot;&gt;
+##           &lt;div class=&quot;collection__photo&quot;&gt;
+##             &lt;svg role=&#39;img&#39; viewBox=&#39;0 0 48 48&#39;&gt;&lt;g id=&quot;book-bookmark&quot; stroke-width=&quot;2&quot; fill=&quot;none&quot; fill-rule=&quot;evenodd&quot; stroke-linecap=&quot;round&quot;&gt;&lt;path d=&quot;M35 31l-6-6-6 6V7h12v24z&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M35 9h6v38H11a4 4 0 0 1-4-4V5&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M39 9V1H11a4 4 0 0 0 0 8h12&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;/path&gt;&lt;/g&gt;&lt;/svg&gt;
+##           &lt;/div&gt;
+##           &lt;div class=&quot;collection_meta&quot; dir=&quot;ltr&quot;&gt;
+##             &lt;h2 class=&quot;t__h3 c__primary&quot;&gt;Course Editor Basics&lt;/h2&gt;
+##             &lt;p class=&quot;paper__preview&quot;&gt;Everything you need to know to get going with our online course editor.&lt;/p&gt;
+##             &lt;div class=&quot;avatar&quot;&gt;
+##   &lt;div class=&quot;avatar__photo avatars__images o__ltr&quot;&gt;
+##         &lt;img src=&quot;https://static.intercomassets.com/avatars/2352718/square_128/Rebecca_Robins_-_Headshot-1535969735.jpg?1535969735&quot; alt=&quot;Becca Robins avatar&quot; class=&quot;avatar__image&quot;&gt;
+## 
+##         &lt;img src=&quot;https://static.intercomassets.com/avatars/2678765/square_128/peterson-1539265042.jpg?1539265042&quot; alt=&quot;Amy Peterson avatar&quot; class=&quot;avatar__image&quot;&gt;
+## 
+##         &lt;img src=&quot;https://static.intercomassets.com/avatars/2914180/square_128/Sara_Billen_Photo-1555505647.png?1555505647&quot; alt=&quot;Sara Billen avatar&quot; class=&quot;avatar__image&quot;&gt;
+## 
+##   &lt;/div&gt;
+##   &lt;div class=&quot;avatar__info&quot;&gt;
+##     &lt;div&gt;
+##       &lt;span class=&quot;c__darker&quot;&gt;
+##         5 articles in this collection
+##       &lt;/span&gt;
+##       &lt;br&gt;
+##       Written by &lt;span class=&#39;c__darker&#39;&gt; Becca Robins,&lt;/span&gt; &lt;span class=&#39;c__darker&#39;&gt; Amy Peterson,&lt;/span&gt; and &lt;span class=&#39;c__darker&#39;&gt; Sara Billen&lt;/span&gt;
+##     &lt;/div&gt;
+##   &lt;/div&gt;
+## &lt;/div&gt;
+## 
+##           &lt;/div&gt;
+##         &lt;/div&gt;
+##       &lt;/a&gt;
+##     &lt;/div&gt;
+##     &lt;div class=&quot;g__space&quot;&gt;
+##       &lt;a href=&quot;/en/collections/2184250-live-courses-and-maintenance&quot; class=&quot;paper &quot;&gt;
+##         &lt;div class=&quot;collection o__ltr&quot;&gt;
+##           &lt;div class=&quot;collection__photo&quot;&gt;
+##             &lt;svg role=&#39;img&#39; viewBox=&#39;0 0 48 48&#39;&gt;&lt;g id=&quot;book-bookmark&quot; stroke-width=&quot;2&quot; fill=&quot;none&quot; fill-rule=&quot;evenodd&quot; stroke-linecap=&quot;round&quot;&gt;&lt;path d=&quot;M35 31l-6-6-6 6V7h12v24z&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M35 9h6v38H11a4 4 0 0 1-4-4V5&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M39 9V1H11a4 4 0 0 0 0 8h12&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;/path&gt;&lt;/g&gt;&lt;/svg&gt;
+##           &lt;/div&gt;
+##           &lt;div class=&quot;collection_meta&quot; dir=&quot;ltr&quot;&gt;
+##             &lt;h2 class=&quot;t__h3 c__primary&quot;&gt;Live Courses and Maintenance &lt;/h2&gt;
+##             &lt;p class=&quot;paper__preview&quot;&gt;Everything you need to know about maintaining your Live Content on DataCamp&lt;/p&gt;
+##             &lt;div class=&quot;avatar&quot;&gt;
+##   &lt;div class=&quot;avatar__photo avatars__images o__ltr&quot;&gt;
+##         &lt;img src=&quot;https://static.intercomassets.com/avatars/3848524/square_128/profile_pic-1583526870.jpg?1583526870&quot; alt=&quot;Kelsey McNeillie avatar&quot; class=&quot;avatar__image&quot;&gt;
+## 
+##   &lt;/div&gt;
+##   &lt;div class=&quot;avatar__info&quot;&gt;
+##     &lt;div&gt;
+##       &lt;span class=&quot;c__darker&quot;&gt;
+##         21 articles in this collection
+##       &lt;/span&gt;
+##       &lt;br&gt;
+##       Written by &lt;span class=&#39;c__darker&#39;&gt; Kelsey McNeillie&lt;/span&gt;
+##     &lt;/div&gt;
+##   &lt;/div&gt;
+## &lt;/div&gt;
+## 
+##           &lt;/div&gt;
+##         &lt;/div&gt;
+##       &lt;/a&gt;
+##     &lt;/div&gt;
+##     &lt;div class=&quot;g__space&quot;&gt;
+##       &lt;a href=&quot;/en/collections/2052717-instructor-advisory-board&quot; class=&quot;paper &quot;&gt;
+##         &lt;div class=&quot;collection o__ltr&quot;&gt;
+##           &lt;div class=&quot;collection__photo&quot;&gt;
+##             &lt;svg role=&#39;img&#39; viewBox=&#39;0 0 48 48&#39;&gt;&lt;g id=&quot;chat-star&quot; stroke-width=&quot;2&quot; fill=&quot;none&quot; fill-rule=&quot;evenodd&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M20 34.942c-2.083-.12-4.292-.42-6-.942L3 39l4-9c-3.858-3.086-6-7.246-6-12C1 8.61 10.328 1 21.835 1 33.343 1 43 8.61 43 18c0 1.044-.117 2.065-.342 3.057&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M36.016 25L40 33h7l-6 5 3 9-8-5.494L28 47l3-9-6-5h7l4.016-8z&quot;&gt;&lt;/path&gt;&lt;/g&gt;&lt;/svg&gt;
+##           &lt;/div&gt;
+##           &lt;div class=&quot;collection_meta&quot; dir=&quot;ltr&quot;&gt;
+##             &lt;h2 class=&quot;t__h3 c__primary&quot;&gt;Instructor Advisory Board&lt;/h2&gt;
+##             &lt;p class=&quot;paper__preview&quot;&gt;Learn more about the DataCamp Instructor Advisory Board&lt;/p&gt;
+##             &lt;div class=&quot;avatar&quot;&gt;
+##   &lt;div class=&quot;avatar__photo avatars__images o__ltr&quot;&gt;
+##         &lt;img src=&quot;https://static.intercomassets.com/avatars/2678519/square_128/pic2-1539176502.JPG?1539176502&quot; alt=&quot;Jen Bricker avatar&quot; class=&quot;avatar__image&quot;&gt;
+## 
+##   &lt;/div&gt;
+##   &lt;div class=&quot;avatar__info&quot;&gt;
+##     &lt;div&gt;
+##       &lt;span class=&quot;c__darker&quot;&gt;
+##         2 articles in this collection
+##       &lt;/span&gt;
+##       &lt;br&gt;
+##       Written by &lt;span class=&#39;c__darker&#39;&gt; Jen Bricker&lt;/span&gt;
+##     &lt;/div&gt;
+##   &lt;/div&gt;
+## &lt;/div&gt;
+## 
+##           &lt;/div&gt;
+##         &lt;/div&gt;
+##       &lt;/a&gt;
+##     &lt;/div&gt;
+##     &lt;div class=&quot;g__space&quot;&gt;
+##       &lt;a href=&quot;/en/collections/1335793-tips-tricks&quot; class=&quot;paper &quot;&gt;
+##         &lt;div class=&quot;collection o__ltr&quot;&gt;
+##           &lt;div class=&quot;collection__photo&quot;&gt;
+##             &lt;svg role=&#39;img&#39; viewBox=&#39;0 0 48 48&#39;&gt;&lt;g id=&quot;comms-mail&quot; stroke-width=&quot;2&quot; fill=&quot;none&quot; fill-rule=&quot;evenodd&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M47 3L1 22l18 7L47 3z&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M47 3l-8 37-20-11L47 3zM19 29v16l7-12&quot;&gt;&lt;/path&gt;&lt;/g&gt;&lt;/svg&gt;
+##           &lt;/div&gt;
+##           &lt;div class=&quot;collection_meta&quot; dir=&quot;ltr&quot;&gt;
+##             &lt;h2 class=&quot;t__h3 c__primary&quot;&gt;Tips &amp;amp; Tricks&lt;/h2&gt;
+##             &lt;p class=&quot;paper__preview&quot;&gt;Become a DataCamp wizard!&lt;/p&gt;
+##             &lt;div class=&quot;avatar&quot;&gt;
+##   &lt;div class=&quot;avatar__photo avatars__images o__ltr&quot;&gt;
+##         &lt;img src=&quot;https://static.intercomassets.com/avatars/2352718/square_128/Rebecca_Robins_-_Headshot-1535969735.jpg?1535969735&quot; alt=&quot;Becca Robins avatar&quot; class=&quot;avatar__image&quot;&gt;
+## 
+##         &lt;img src=&quot;https://static.intercomassets.com/avatars/3421044/square_128/19412139-1572371206.png?1572371206&quot; alt=&quot;Maggie Matsui avatar&quot; class=&quot;avatar__image&quot;&gt;
+## 
+##   &lt;/div&gt;
+##   &lt;div class=&quot;avatar__info&quot;&gt;
+##     &lt;div&gt;
+##       &lt;span class=&quot;c__darker&quot;&gt;
+##         6 articles in this collection
+##       &lt;/span&gt;
+##       &lt;br&gt;
+##       Written by &lt;span class=&#39;c__darker&#39;&gt; Becca Robins&lt;/span&gt; and &lt;span class=&#39;c__darker&#39;&gt; Maggie Matsui&lt;/span&gt;
+##     &lt;/div&gt;
+##   &lt;/div&gt;
+## &lt;/div&gt;
+## 
+##           &lt;/div&gt;
+##         &lt;/div&gt;
+##       &lt;/a&gt;
+##     &lt;/div&gt;
+##     &lt;div class=&quot;g__space&quot;&gt;
+##       &lt;a href=&quot;/en/collections/1256565-frequently-asked-questions-faq&quot; class=&quot;paper &quot;&gt;
+##         &lt;div class=&quot;collection o__ltr&quot;&gt;
+##           &lt;div class=&quot;collection__photo&quot;&gt;
+##             &lt;svg role=&#39;img&#39; viewBox=&#39;0 0 48 48&#39;&gt;&lt;g id=&quot;chat-question&quot; fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;&gt;&lt;path d=&quot;M47 21.268c0 10.363-10.297 18.765-23 18.765-2.835 0-5.55-.418-8.058-1.184L2.725 45 7.9 34.668c-4.258-3.406-6.9-8.15-6.9-13.4C1 10.904 11.297 2.502 24 2.502s23 8.402 23 18.766z&quot; stroke-width=&quot;2&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M25 28.502a2 2 0 1 0 0 4 2 2 0 0 0 0-4&quot; fill=&quot;#231F1F&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M19 17.75c0-3.312 2.686-6.124 6-6.124 3.313 0 6 2.626 6 5.938 0 3.315-2.687 5.938-6 5.938V26&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;/path&gt;&lt;/g&gt;&lt;/svg&gt;
+##           &lt;/div&gt;
+##           &lt;div class=&quot;collection_meta&quot; dir=&quot;ltr&quot;&gt;
+##             &lt;h2 class=&quot;t__h3 c__primary&quot;&gt;Frequently Asked Questions (FAQ)&lt;/h2&gt;
+##             &lt;p class=&quot;paper__preview&quot;&gt;Common questions that arise during content creation.&lt;/p&gt;
+##             &lt;div class=&quot;avatar&quot;&gt;
+##   &lt;div class=&quot;avatar__photo avatars__images o__ltr&quot;&gt;
+##         &lt;img src=&quot;https://static.intercomassets.com/avatars/2352718/square_128/Rebecca_Robins_-_Headshot-1535969735.jpg?1535969735&quot; alt=&quot;Becca Robins avatar&quot; class=&quot;avatar__image&quot;&gt;
+## 
+##         &lt;span class=&quot;avatar__image avatar__fallback&quot;&gt; B &lt;/span&gt;
+## 
+##         &lt;img src=&quot;https://static.intercomassets.com/avatars/2366194/square_128/richie-in-hairnet-1537451295.JPG?1537451295&quot; alt=&quot;Richie Cotton avatar&quot; class=&quot;avatar__image&quot;&gt;
+## 
+##       &lt;span class=&quot;avatar__image avatar__fallback&quot;&gt;+2&lt;/span&gt;
+##   &lt;/div&gt;
+##   &lt;div class=&quot;avatar__info&quot;&gt;
+##     &lt;div&gt;
+##       &lt;span class=&quot;c__darker&quot;&gt;
+##         43 articles in this collection
+##       &lt;/span&gt;
+##       &lt;br&gt;
+##       Written by &lt;span class=&#39;c__darker&#39;&gt; Becca Robins,&lt;/span&gt; &lt;span class=&#39;c__darker&#39;&gt; Boris Gordts,&lt;/span&gt; &lt;span class=&#39;c__darker&#39;&gt; Richie Cotton&lt;/span&gt; and 2 others
+##     &lt;/div&gt;
+##   &lt;/div&gt;
+## &lt;/div&gt;
+## 
+##           &lt;/div&gt;
+##         &lt;/div&gt;
+##       &lt;/a&gt;
+##     &lt;/div&gt;
+##     &lt;div class=&quot;g__space&quot;&gt;
+##       &lt;a href=&quot;/en/collections/1340920-miscellaneous&quot; class=&quot;paper &quot;&gt;
+##         &lt;div class=&quot;collection o__ltr&quot;&gt;
+##           &lt;div class=&quot;collection__photo&quot;&gt;
+##             &lt;svg role=&#39;img&#39; viewBox=&#39;0 0 48 48&#39;&gt;&lt;g id=&quot;tools-edit&quot;&gt;&lt;path d=&quot;M14.932 43.968L2 47l3.033-12.93 31.2-31.203a4 4 0 0 1 5.658 0l4.247 4.243a4 4 0 0 1 0 5.656L14.932 43.968zm29.84-29.735L34.82 4.28m7.125 12.782L31.992 7.11M15.436 43.465l-9.9-9.9&quot; stroke-width=&quot;2&quot; fill=&quot;none&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;/path&gt;&lt;/g&gt;&lt;/svg&gt;
+##           &lt;/div&gt;
+##           &lt;div class=&quot;collection_meta&quot; dir=&quot;ltr&quot;&gt;
+##             &lt;h2 class=&quot;t__h3 c__primary&quot;&gt;Miscellaneous&lt;/h2&gt;
+##             &lt;p class=&quot;paper__preview&quot;&gt;Have a question for DataCamp, but not about creating content? You&amp;#39;ll probably find the answer here.&lt;/p&gt;
+##             &lt;div class=&quot;avatar&quot;&gt;
+##   &lt;div class=&quot;avatar__photo avatars__images o__ltr&quot;&gt;
+##         &lt;img src=&quot;https://static.intercomassets.com/avatars/2352718/square_128/Rebecca_Robins_-_Headshot-1535969735.jpg?1535969735&quot; alt=&quot;Becca Robins avatar&quot; class=&quot;avatar__image&quot;&gt;
+## 
+##         &lt;img src=&quot;https://static.intercomassets.com/avatars/2830289/square_128/IMG_0665_a-1545331304.jpg?1545331304&quot; alt=&quot;Lisa Monteleone avatar&quot; class=&quot;avatar__image&quot;&gt;
+## 
+##         &lt;img src=&quot;https://static.intercomassets.com/avatars/2859053/square_128/gabriel_about_pic-1546620603.jpg?1546620603&quot; alt=&quot;Gabriel de Selding avatar&quot; class=&quot;avatar__image&quot;&gt;
+## 
+##   &lt;/div&gt;
+##   &lt;div class=&quot;avatar__info&quot;&gt;
+##     &lt;div&gt;
+##       &lt;span class=&quot;c__darker&quot;&gt;
+##         9 articles in this collection
+##       &lt;/span&gt;
+##       &lt;br&gt;
+##       Written by &lt;span class=&#39;c__darker&#39;&gt; Becca Robins,&lt;/span&gt; &lt;span class=&#39;c__darker&#39;&gt; Lisa Monteleone,&lt;/span&gt; and &lt;span class=&#39;c__darker&#39;&gt; Gabriel de Selding&lt;/span&gt;
+##     &lt;/div&gt;
+##   &lt;/div&gt;
+## &lt;/div&gt;
+## 
+##           &lt;/div&gt;
+##         &lt;/div&gt;
+##       &lt;/a&gt;
+##     &lt;/div&gt;
+## &lt;/section&gt;
+## &lt;/div&gt;
+##     &lt;/div&gt;
+##     &lt;footer class=&quot;footer&quot;&gt;
+##   &lt;div class=&quot;container&quot;&gt;
+##     &lt;div class=&quot;content&quot;&gt;
+##       &lt;div class=&quot;u__cf&quot;  dir=&quot;ltr&quot;&gt;
+##         &lt;div class=&quot;footer__logo&quot;&gt;
+##           &lt;a href=&quot;/en/&quot;&gt;
+##               &lt;img alt=&quot;DataCamp Help Center&quot; src=&quot;https://downloads.intercomcdn.com/i/o/81221/856b63d438031754b681746b/4ea2737e4266936fb423911d9c587812.png&quot; /&gt;
+##           &lt;/a&gt;
+##         &lt;/div&gt;
+##           &lt;div class=&quot;footer__advert logo&quot;&gt;
+##             &lt;img src=&quot;https://static.intercomassets.com/alexandria/assets/intercom-a6a6ac0f033657af1aebe2e9e15b94a3cd5eabf6ae8b9916df6ea49099a894d8.png&quot; alt=&quot;Intercom&quot; /&gt;
+##             &lt;a href=&quot;https://www.intercom.com/intercom-link?company=DataCamp&amp;amp;solution=customer-support&amp;amp;utm_campaign=intercom-link&amp;amp;utm_content=We+run+on+Intercom&amp;amp;utm_medium=help-center&amp;amp;utm_referrer=http%3A%2F%2Finstructor-support.datacamp.com%2Fen&amp;amp;utm_source=desktop-web&quot;&gt;We run on Intercom&lt;/a&gt;
+##           &lt;/div&gt;
+##       &lt;/div&gt;
+##     &lt;/div&gt;
+##   &lt;/div&gt;
+## &lt;/footer&gt;
+## 
+##     
+##   &lt;script nonce=&quot;sM+cGU4FPPwLdBB6IBG1G2mVf8IOqbOx2okGxJi2VLo=&quot;&gt;
+##     window.intercomSettings = {&quot;app_id&quot;:&quot;ug0ps1rq&quot;};
+## &lt;/script&gt;
+##   &lt;script nonce=&quot;sM+cGU4FPPwLdBB6IBG1G2mVf8IOqbOx2okGxJi2VLo=&quot;&gt;
+##     (function(){var w=window;var ic=w.Intercom;if(typeof ic===&quot;function&quot;){ic(&#39;reattach_activator&#39;);ic(&#39;update&#39;,intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement(&#39;script&#39;);s.type=&#39;text/javascript&#39;;s.async=true;s.src=&quot;https://widget.intercom.io/widget/ug0ps1rq&quot;;var x=d.getElementsByTagName(&#39;script&#39;)[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent(&#39;onload&#39;,l);}else{w.addEventListener(&#39;load&#39;,l,false);}}})()
+## &lt;/script&gt;
+## 
+##     
+## 
+##     &lt;script src=&quot;https://static.intercomassets.com/alexandria/assets/application-d1f56ac2d9a90e64c3156d7ef53701ccbc10cc933f0ef6f3aba2dc9ffd0b9e86.js&quot; nonce=&quot;sM+cGU4FPPwLdBB6IBG1G2mVf8IOqbOx2okGxJi2VLo=&quot;&gt;&lt;/script&gt;
+##     
+##   &lt;/body&gt;
+## &lt;/html&gt;</code></pre>
+</div>
+<div id="parsing-html-with-beautifulsoup" class="section level2">
+<h2>6. Parsing HTML with BeautifulSoup</h2>
+<pre class="python"><code>
+# Import packages
+import requests
+from bs4 import BeautifulSoup
+
+# Specify url: url
+url = &#39;https://www.python.org/~guido/&#39;
+
+# Package the request, send the request and catch the response: r
+r = requests.get(url)
+
+# Extracts the response as html: html_doc
+html_doc = r.text
+
+# Create a BeautifulSoup object from the HTML: soup
+soup = BeautifulSoup(html_doc)
+
+# Prettify the BeautifulSoup object: pretty_soup
+pretty_soup = soup.prettify()
+
+# Print the response
+print(pretty_soup)</code></pre>
+<pre><code>## &lt;html&gt;
+##  &lt;head&gt;
+##   &lt;title&gt;
+##    Guido&#39;s Personal Home Page
+##   &lt;/title&gt;
+##  &lt;/head&gt;
+##  &lt;body bgcolor=&quot;#FFFFFF&quot; text=&quot;#000000&quot;&gt;
+##   &lt;h1&gt;
+##    &lt;a href=&quot;pics.html&quot;&gt;
+##     &lt;img border=&quot;0&quot; src=&quot;images/IMG_2192.jpg&quot;/&gt;
+##    &lt;/a&gt;
+##    Guido van Rossum - Personal Home Page
+##    &lt;a href=&quot;pics.html&quot;&gt;
+##     &lt;img border=&quot;0&quot; height=&quot;216&quot; src=&quot;images/guido-headshot-2019.jpg&quot; width=&quot;270&quot;/&gt;
+##    &lt;/a&gt;
+##   &lt;/h1&gt;
+##   &lt;p&gt;
+##    &lt;a href=&quot;http://www.washingtonpost.com/wp-srv/business/longterm/microsoft/stories/1998/raymond120398.htm&quot;&gt;
+##     &lt;i&gt;
+##      &quot;Gawky and proud of it.&quot;
+##     &lt;/i&gt;
+##    &lt;/a&gt;
+##    &lt;h3&gt;
+##     &lt;a href=&quot;images/df20000406.jpg&quot;&gt;
+##      Who I Am
+##     &lt;/a&gt;
+##    &lt;/h3&gt;
+##    &lt;p&gt;
+##     Read
+## my
+##     &lt;a href=&quot;http://neopythonic.blogspot.com/2016/04/kings-day-speech.html&quot;&gt;
+##      &quot;King&#39;s
+## Day Speech&quot;
+##     &lt;/a&gt;
+##     for some inspiration.
+##     &lt;p&gt;
+##      I am the author of the
+##      &lt;a href=&quot;http://www.python.org&quot;&gt;
+##       Python
+##      &lt;/a&gt;
+##      programming language.  See also my
+##      &lt;a href=&quot;Resume.html&quot;&gt;
+##       resume
+##      &lt;/a&gt;
+##      and my
+##      &lt;a href=&quot;Publications.html&quot;&gt;
+##       publications list
+##      &lt;/a&gt;
+##      , a
+##      &lt;a href=&quot;bio.html&quot;&gt;
+##       brief bio
+##      &lt;/a&gt;
+##      , assorted
+##      &lt;a href=&quot;http://legacy.python.org/doc/essays/&quot;&gt;
+##       writings
+##      &lt;/a&gt;
+##      ,
+##      &lt;a href=&quot;http://legacy.python.org/doc/essays/ppt/&quot;&gt;
+##       presentations
+##      &lt;/a&gt;
+##      and
+##      &lt;a href=&quot;interviews.html&quot;&gt;
+##       interviews
+##      &lt;/a&gt;
+##      (all about Python), some
+##      &lt;a href=&quot;pics.html&quot;&gt;
+##       pictures of me
+##      &lt;/a&gt;
+##      ,
+##      &lt;a href=&quot;http://neopythonic.blogspot.com&quot;&gt;
+##       my new blog
+##      &lt;/a&gt;
+##      , and
+## my
+##      &lt;a href=&quot;http://www.artima.com/weblogs/index.jsp?blogger=12088&quot;&gt;
+##       old
+## blog
+##      &lt;/a&gt;
+##      on Artima.com.  I am
+##      &lt;a href=&quot;https://twitter.com/gvanrossum&quot;&gt;
+##       @gvanrossum
+##      &lt;/a&gt;
+##      on Twitter.
+##      &lt;p&gt;
+##       I am retired, working on personal projects (and maybe a book).
+## I have worked for Dropbox, Google, Elemental Security, Zope
+## Corporation, BeOpen.com, CNRI, CWI, and SARA.  (See
+## my
+##       &lt;a href=&quot;Resume.html&quot;&gt;
+##        resume
+##       &lt;/a&gt;
+##       .)  I created Python while at CWI.
+##       &lt;h3&gt;
+##        How to Reach Me
+##       &lt;/h3&gt;
+##       &lt;p&gt;
+##        You can send email for me to guido (at) python.org.
+## I read everything sent there, but I receive too much email to respond
+## to everything.
+##        &lt;h3&gt;
+##         My Name
+##        &lt;/h3&gt;
+##        &lt;p&gt;
+##         My name often poses difficulties for Americans.
+##         &lt;p&gt;
+##          &lt;b&gt;
+##           Pronunciation:
+##          &lt;/b&gt;
+##          in Dutch, the &quot;G&quot; in Guido is a hard G,
+## pronounced roughly like the &quot;ch&quot; in Scottish &quot;loch&quot;.  (Listen to the
+##          &lt;a href=&quot;guido.au&quot;&gt;
+##           sound clip
+##          &lt;/a&gt;
+##          .)  However, if you&#39;re
+## American, you may also pronounce it as the Italian &quot;Guido&quot;.  I&#39;m not
+## too worried about the associations with mob assassins that some people
+## have. :-)
+##          &lt;p&gt;
+##           &lt;b&gt;
+##            Spelling:
+##           &lt;/b&gt;
+##           my last name is two words, and I&#39;d like to keep it
+## that way, the spelling on some of my credit cards notwithstanding.
+## Dutch spelling rules dictate that when used in combination with my
+## first name, &quot;van&quot; is not capitalized: &quot;Guido van Rossum&quot;.  But when my
+## last name is used alone to refer to me, it is capitalized, for
+## example: &quot;As usual, Van Rossum was right.&quot;
+##           &lt;p&gt;
+##            &lt;b&gt;
+##             Alphabetization:
+##            &lt;/b&gt;
+##            in America, I show up in the alphabet under
+## &quot;V&quot;.  But in Europe, I show up under &quot;R&quot;.  And some of my friends put
+## me under &quot;G&quot; in their address book...
+##            &lt;h3&gt;
+##             More Hyperlinks
+##            &lt;/h3&gt;
+##            &lt;ul&gt;
+##             &lt;li&gt;
+##              Here&#39;s a collection of
+##              &lt;a href=&quot;http://legacy.python.org/doc/essays/&quot;&gt;
+##               essays
+##              &lt;/a&gt;
+##              relating to Python
+## that I&#39;ve written, including the foreword I wrote for Mark Lutz&#39; book
+## &quot;Programming Python&quot;.
+##              &lt;p&gt;
+##               &lt;li&gt;
+##                I own the official
+##                &lt;a href=&quot;images/license.jpg&quot;&gt;
+##                 &lt;img align=&quot;center&quot; border=&quot;0&quot; height=&quot;75&quot; src=&quot;images/license_thumb.jpg&quot; width=&quot;100&quot;/&gt;
+##                 Python license.
+##                &lt;/a&gt;
+##                &lt;p&gt;
+##                &lt;/p&gt;
+##               &lt;/li&gt;
+##              &lt;/p&gt;
+##             &lt;/li&gt;
+##            &lt;/ul&gt;
+##            &lt;h3&gt;
+##             The Audio File Formats FAQ
+##            &lt;/h3&gt;
+##            &lt;p&gt;
+##             I was the original creator and maintainer of the Audio File Formats
+## FAQ.  It is now maintained by Chris Bagwell
+## at
+##             &lt;a href=&quot;http://www.cnpbagwell.com/audio-faq&quot;&gt;
+##              http://www.cnpbagwell.com/audio-faq
+##             &lt;/a&gt;
+##             .  And here is a link to
+##             &lt;a href=&quot;http://sox.sourceforge.net/&quot;&gt;
+##              SOX
+##             &lt;/a&gt;
+##             , to which I contributed
+## some early code.
+##            &lt;/p&gt;
+##           &lt;/p&gt;
+##          &lt;/p&gt;
+##         &lt;/p&gt;
+##        &lt;/p&gt;
+##       &lt;/p&gt;
+##      &lt;/p&gt;
+##     &lt;/p&gt;
+##    &lt;/p&gt;
+##   &lt;/p&gt;
+##  &lt;/body&gt;
+## &lt;/html&gt;
+## &lt;hr/&gt;
+## &lt;a href=&quot;images/internetdog.gif&quot;&gt;
+##  &quot;On the Internet, nobody knows you&#39;re
+## a dog.&quot;
+## &lt;/a&gt;
+## &lt;hr/&gt;</code></pre>
+</div>
+<div id="turning-a-webpage-into-data-using-beautifulsoup-getting-the-text" class="section level2">
+<h2>7. Turning a webpage into data using BeautifulSoup: getting the text</h2>
+<pre class="python"><code>
+# Import packages
+import requests
+from bs4 import BeautifulSoup
+
+# Specify url: url
+url = &#39;https://www.python.org/~guido/&#39;
+
+# Package the request, send the request and catch the response: r
+r = requests.get(url)
+
+# Extract the response as html: html_doc
+html_doc = r.text
+
+# Create a BeautifulSoup object from the HTML: soup
+soup = BeautifulSoup(html_doc)
+
+# Get the title of Guido&#39;s webpage: guido_title
+guido_title = soup.title
+
+# Print the title of Guido&#39;s webpage to the shell
+print(guido_title)
+
+# Get Guido&#39;s text: guido_text</code></pre>
+<pre><code>## &lt;title&gt;Guido&#39;s Personal Home Page&lt;/title&gt;</code></pre>
+<pre class="python"><code>guido_text = soup.get_text()
+
+# Print Guido&#39;s text to the shell
+print(guido_text)</code></pre>
+<pre><code>## 
+## 
+## Guido&#39;s Personal Home Page
+## 
+## 
+## 
+## 
+## Guido van Rossum - Personal Home Page
+## 
+## 
+## &quot;Gawky and proud of it.&quot;
+## Who I Am
+## Read
+## my &quot;King&#39;s
+## Day Speech&quot; for some inspiration.
+## 
+## I am the author of the Python
+## programming language.  See also my resume
+## and my publications list, a brief bio, assorted writings, presentations and interviews (all about Python), some
+## pictures of me,
+## my new blog, and
+## my old
+## blog on Artima.com.  I am
+## @gvanrossum on Twitter.
+## 
+## I am retired, working on personal projects (and maybe a book).
+## I have worked for Dropbox, Google, Elemental Security, Zope
+## Corporation, BeOpen.com, CNRI, CWI, and SARA.  (See
+## my resume.)  I created Python while at CWI.
+## 
+## How to Reach Me
+## You can send email for me to guido (at) python.org.
+## I read everything sent there, but I receive too much email to respond
+## to everything.
+## 
+## My Name
+## My name often poses difficulties for Americans.
+## 
+## Pronunciation: in Dutch, the &quot;G&quot; in Guido is a hard G,
+## pronounced roughly like the &quot;ch&quot; in Scottish &quot;loch&quot;.  (Listen to the
+## sound clip.)  However, if you&#39;re
+## American, you may also pronounce it as the Italian &quot;Guido&quot;.  I&#39;m not
+## too worried about the associations with mob assassins that some people
+## have. :-)
+## 
+## Spelling: my last name is two words, and I&#39;d like to keep it
+## that way, the spelling on some of my credit cards notwithstanding.
+## Dutch spelling rules dictate that when used in combination with my
+## first name, &quot;van&quot; is not capitalized: &quot;Guido van Rossum&quot;.  But when my
+## last name is used alone to refer to me, it is capitalized, for
+## example: &quot;As usual, Van Rossum was right.&quot;
+## 
+## Alphabetization: in America, I show up in the alphabet under
+## &quot;V&quot;.  But in Europe, I show up under &quot;R&quot;.  And some of my friends put
+## me under &quot;G&quot; in their address book...
+## 
+## 
+## More Hyperlinks
+## 
+## Here&#39;s a collection of essays relating to Python
+## that I&#39;ve written, including the foreword I wrote for Mark Lutz&#39; book
+## &quot;Programming Python&quot;.
+## I own the official 
+## Python license.
+## 
+## The Audio File Formats FAQ
+## I was the original creator and maintainer of the Audio File Formats
+## FAQ.  It is now maintained by Chris Bagwell
+## at http://www.cnpbagwell.com/audio-faq.  And here is a link to
+## SOX, to which I contributed
+## some early code.
+## 
+## 
+## 
+## &quot;On the Internet, nobody knows you&#39;re
+## a dog.&quot;</code></pre>
+</div>
+<div id="turning-a-webpage-into-data-using-beautifulsoup-getting-the-hyperlinks" class="section level2">
+<h2>8. Turning a webpage into data using BeautifulSoup: getting the hyperlinks</h2>
+<pre class="python"><code>
+# Import packages
+import requests
+from bs4 import BeautifulSoup
+
+# Specify url
+url = &#39;https://www.python.org/~guido/&#39;
+
+# Package the request, send the request and catch the response: r
+r = requests.get(url)
+
+# Extracts the response as html: html_doc
+html_doc = r.text
+
+# create a BeautifulSoup object from the HTML: soup
+soup = BeautifulSoup(html_doc)
+
+# Print the title of Guido&#39;s webpage
+print(soup.title)
+
+# Find all &#39;a&#39; tags (which define hyperlinks): a_tags</code></pre>
+<pre><code>## &lt;title&gt;Guido&#39;s Personal Home Page&lt;/title&gt;</code></pre>
+<pre class="python"><code>a_tags = soup.find_all(&#39;a&#39;)
+
+# Print the URLs to the shell
+for link in a_tags:
+    print(link.get(&#39;href&#39;))</code></pre>
+<pre><code>## pics.html
+## pics.html
+## http://www.washingtonpost.com/wp-srv/business/longterm/microsoft/stories/1998/raymond120398.htm
+## images/df20000406.jpg
+## http://neopythonic.blogspot.com/2016/04/kings-day-speech.html
+## http://www.python.org
+## Resume.html
+## Publications.html
+## bio.html
+## http://legacy.python.org/doc/essays/
+## http://legacy.python.org/doc/essays/ppt/
+## interviews.html
+## pics.html
+## http://neopythonic.blogspot.com
+## http://www.artima.com/weblogs/index.jsp?blogger=12088
+## https://twitter.com/gvanrossum
+## Resume.html
+## guido.au
+## http://legacy.python.org/doc/essays/
+## images/license.jpg
+## http://www.cnpbagwell.com/audio-faq
+## http://sox.sourceforge.net/
+## images/internetdog.gif</code></pre>
+</div>
+<div id="loading-and-exploring-a-json" class="section level2">
+<h2>9. Loading and exploring a JSON</h2>
+<pre class="python"><code>
+import json
+
+# Load JSON: json_data
+with open(&quot;c:/blogdown/a_movie.json&quot;) as json_file:
+    json_data = json.load(json_file)
+
+# Print each key-value pair in json_data
+for k in json_data.keys():
+    print(k + &#39;: &#39;, json_data[k])</code></pre>
+<pre><code>## Ratings:  [{&#39;Source&#39;: &#39;Internet Movie Database&#39;, &#39;Value&#39;: &#39;7.7/10&#39;}, {&#39;Source&#39;: &#39;Rotten Tomatoes&#39;, &#39;Value&#39;: &#39;95%&#39;}, {&#39;Source&#39;: &#39;Metacritic&#39;, &#39;Value&#39;: &#39;95/100&#39;}]
+## Country:  USA
+## imdbVotes:  550,434
+## Rated:  PG-13
+## Plot:  Harvard student Mark Zuckerberg creates the social networking site that would become known as Facebook, but is later sued by two brothers who claimed he stole their idea, and the co-founder who was later squeezed out of the business.
+## Genre:  Biography, Drama
+## Response:  True
+## Released:  01 Oct 2010
+## Language:  English, French
+## DVD:  11 Jan 2011
+## Poster:  https://m.media-amazon.com/images/M/MV5BMTM2ODk0NDAwMF5BMl5BanBnXkFtZTcwNTM1MDc2Mw@@._V1_SX300.jpg
+## Production:  Columbia Pictures
+## Director:  David Fincher
+## Title:  The Social Network
+## imdbRating:  7.7
+## Writer:  Aaron Sorkin (screenplay), Ben Mezrich (book)
+## Year:  2010
+## Metascore:  95
+## Type:  movie
+## Runtime:  120 min
+## Website:  http://www.thesocialnetwork-movie.com/
+## imdbID:  tt1285016
+## Actors:  Jesse Eisenberg, Rooney Mara, Bryan Barter, Dustin Fitzsimons
+## Awards:  Won 3 Oscars. Another 165 wins &amp; 168 nominations.
+## BoxOffice:  $96,400,000</code></pre>
+</div>
+<div id="api-requests" class="section level2">
+<h2>10. API requests</h2>
+<pre class="python"><code>
+# Import requests package
+import requests
+
+# Assign URL to variable: url
+url = &#39;http://www.omdbapi.com/?apikey=72bc447a&amp;t=the+social+network&#39;
+
+# Package the request, send the request and catch the response: r
+r = requests.get(url)
+
+# Print the text of the response
+print(r.text)
+</code></pre>
+<pre><code>## {&quot;Title&quot;:&quot;The Social Network&quot;,&quot;Year&quot;:&quot;2010&quot;,&quot;Rated&quot;:&quot;PG-13&quot;,&quot;Released&quot;:&quot;01 Oct 2010&quot;,&quot;Runtime&quot;:&quot;120 min&quot;,&quot;Genre&quot;:&quot;Biography, Drama&quot;,&quot;Director&quot;:&quot;David Fincher&quot;,&quot;Writer&quot;:&quot;Aaron Sorkin (screenplay), Ben Mezrich (book)&quot;,&quot;Actors&quot;:&quot;Jesse Eisenberg, Rooney Mara, Bryan Barter, Dustin Fitzsimons&quot;,&quot;Plot&quot;:&quot;As Harvard student Mark Zuckerberg creates the social networking site that would become known as Facebook, he is sued by the twins who claimed he stole their idea, and by the co-founder who was later squeezed out of the business.&quot;,&quot;Language&quot;:&quot;English, French&quot;,&quot;Country&quot;:&quot;USA&quot;,&quot;Awards&quot;:&quot;Won 3 Oscars. Another 171 wins &amp; 183 nominations.&quot;,&quot;Poster&quot;:&quot;https://m.media-amazon.com/images/M/MV5BOGUyZDUxZjEtMmIzMC00MzlmLTg4MGItZWJmMzBhZjE0Mjc1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg&quot;,&quot;Ratings&quot;:[{&quot;Source&quot;:&quot;Internet Movie Database&quot;,&quot;Value&quot;:&quot;7.7/10&quot;},{&quot;Source&quot;:&quot;Rotten Tomatoes&quot;,&quot;Value&quot;:&quot;96%&quot;},{&quot;Source&quot;:&quot;Metacritic&quot;,&quot;Value&quot;:&quot;95/100&quot;}],&quot;Metascore&quot;:&quot;95&quot;,&quot;imdbRating&quot;:&quot;7.7&quot;,&quot;imdbVotes&quot;:&quot;590,040&quot;,&quot;imdbID&quot;:&quot;tt1285016&quot;,&quot;Type&quot;:&quot;movie&quot;,&quot;DVD&quot;:&quot;11 Jan 2011&quot;,&quot;BoxOffice&quot;:&quot;$96,400,000&quot;,&quot;Production&quot;:&quot;Columbia Pictures&quot;,&quot;Website&quot;:&quot;N/A&quot;,&quot;Response&quot;:&quot;True&quot;}</code></pre>
+</div>
+<div id="jsonfrom-the-web-to-python" class="section level2">
+<h2>11. JSON–from the web to Python</h2>
+<pre class="python"><code>
+# Import package
+import requests
+
+# Assign URL to variable: url
+url = &#39;http://www.omdbapi.com/?apikey=72bc447a&amp;t=social+network&#39;
+
+# Package the request, send the request and catch the response: r
+r = requests.get(url)
+
+# Decode the JSON data into a dictionary: json_data
+json_data = r.json()
+
+# Print each key-value pair in json_data
+for k in json_data.keys():
+    print(k + &#39;: &#39;, json_data[k])
+</code></pre>
+<pre><code>## Title:  The Social Network
+## Year:  2010
+## Rated:  PG-13
+## Released:  01 Oct 2010
+## Runtime:  120 min
+## Genre:  Biography, Drama
+## Director:  David Fincher
+## Writer:  Aaron Sorkin (screenplay), Ben Mezrich (book)
+## Actors:  Jesse Eisenberg, Rooney Mara, Bryan Barter, Dustin Fitzsimons
+## Plot:  As Harvard student Mark Zuckerberg creates the social networking site that would become known as Facebook, he is sued by the twins who claimed he stole their idea, and by the co-founder who was later squeezed out of the business.
+## Language:  English, French
+## Country:  USA
+## Awards:  Won 3 Oscars. Another 171 wins &amp; 183 nominations.
+## Poster:  https://m.media-amazon.com/images/M/MV5BOGUyZDUxZjEtMmIzMC00MzlmLTg4MGItZWJmMzBhZjE0Mjc1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg
+## Ratings:  [{&#39;Source&#39;: &#39;Internet Movie Database&#39;, &#39;Value&#39;: &#39;7.7/10&#39;}, {&#39;Source&#39;: &#39;Rotten Tomatoes&#39;, &#39;Value&#39;: &#39;96%&#39;}, {&#39;Source&#39;: &#39;Metacritic&#39;, &#39;Value&#39;: &#39;95/100&#39;}]
+## Metascore:  95
+## imdbRating:  7.7
+## imdbVotes:  590,040
+## imdbID:  tt1285016
+## Type:  movie
+## DVD:  11 Jan 2011
+## BoxOffice:  $96,400,000
+## Production:  Columbia Pictures
+## Website:  N/A
+## Response:  True</code></pre>
+</div>
+
+                        </div>
+                        
+                        
+                        <div id="comments">
+                            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "andresalerno" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                        </div>
+                        
+
+                    </div>
+                    
+
+                    
+
+                    
+
+                    <div class="col-md-3">
+
+                        
+
+                        
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+      <h3 class="panel-title">Search</h3>
+    </div>
+
+    <div class="panel-body">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" role="search">
+            <div class="input-group">
+                <input type="search" name="q" class="form-control" placeholder="Search">
+                <input type="hidden" name="sitesearch" value="/">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-template-main"><i class="fas fa-search"></i></button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">Categories</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="nav nav-pills nav-stacked">
+            
+            
+            <li>
+                <a href="/categories/algorithm">algorithm (2)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/binary-search">binary-search (1)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/classification">classification (2)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/data-frame">data-frame (2)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/data-science">data-science (4)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/logistic-regression">logistic-regression (1)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/lorem">lorem (1)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/machine-learning">machine-learning (3)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/models">models (4)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/programming">programming (13)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/pseudo">pseudo (1)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/python">python (11)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/r">r (3)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/r-programming">r-programming (4)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/scikit-learn">scikit-learn (1)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/starting">starting (1)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/tensorflow">tensorflow (1)</a>
+            </li>
+            
+        </ul>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="panel sidebar-menu">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">Tags</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="tag-cloud">
+            
+            
+            <li>
+                <a href="/tags/algorithm"><i class="fas fa-tags"></i> algorithm</a>
+            </li>
+            
+            <li>
+                <a href="/tags/classification"><i class="fas fa-tags"></i> classification</a>
+            </li>
+            
+            <li>
+                <a href="/tags/data-frame"><i class="fas fa-tags"></i> data-frame</a>
+            </li>
+            
+            <li>
+                <a href="/tags/exponential-smoothing"><i class="fas fa-tags"></i> exponential-smoothing</a>
+            </li>
+            
+            <li>
+                <a href="/tags/game"><i class="fas fa-tags"></i> game</a>
+            </li>
+            
+            <li>
+                <a href="/tags/go"><i class="fas fa-tags"></i> go</a>
+            </li>
+            
+            <li>
+                <a href="/tags/golang"><i class="fas fa-tags"></i> golang</a>
+            </li>
+            
+            <li>
+                <a href="/tags/hugo"><i class="fas fa-tags"></i> hugo</a>
+            </li>
+            
+            <li>
+                <a href="/tags/ipsum"><i class="fas fa-tags"></i> ipsum</a>
+            </li>
+            
+            <li>
+                <a href="/tags/knn"><i class="fas fa-tags"></i> knn</a>
+            </li>
+            
+            <li>
+                <a href="/tags/linear-regression"><i class="fas fa-tags"></i> linear-regression</a>
+            </li>
+            
+            <li>
+                <a href="/tags/logistic-regression"><i class="fas fa-tags"></i> logistic-regression</a>
+            </li>
+            
+            <li>
+                <a href="/tags/modeling"><i class="fas fa-tags"></i> modeling</a>
+            </li>
+            
+            <li>
+                <a href="/tags/models"><i class="fas fa-tags"></i> models</a>
+            </li>
+            
+            <li>
+                <a href="/tags/pca"><i class="fas fa-tags"></i> pca</a>
+            </li>
+            
+            <li>
+                <a href="/tags/plot"><i class="fas fa-tags"></i> plot</a>
+            </li>
+            
+            <li>
+                <a href="/tags/programming"><i class="fas fa-tags"></i> programming</a>
+            </li>
+            
+            <li>
+                <a href="/tags/python"><i class="fas fa-tags"></i> python</a>
+            </li>
+            
+            <li>
+                <a href="/tags/r-markdown"><i class="fas fa-tags"></i> r-markdown</a>
+            </li>
+            
+            <li>
+                <a href="/tags/r-programming"><i class="fas fa-tags"></i> r-programming</a>
+            </li>
+            
+            <li>
+                <a href="/tags/random-forest"><i class="fas fa-tags"></i> random-forest</a>
+            </li>
+            
+            <li>
+                <a href="/tags/regression"><i class="fas fa-tags"></i> regression</a>
+            </li>
+            
+            <li>
+                <a href="/tags/regression-tree"><i class="fas fa-tags"></i> regression-tree</a>
+            </li>
+            
+            <li>
+                <a href="/tags/statistic"><i class="fas fa-tags"></i> statistic</a>
+            </li>
+            
+            <li>
+                <a href="/tags/theme"><i class="fas fa-tags"></i> theme</a>
+            </li>
+            
+        </ul>
+    </div>
+
+</div>
+
+
+
+
+
+
+                        
+
+                    </div>
+                    
+
+                    
+
+                </div>
+                
+
+            </div>
+            
+        </div>
+        
+
+        <footer id="footer">
+    <div class="container">
+
+        
+        <div class="col-md-4 col-sm-6">
+            <h4>About us</h4>
+
+            <p>A Data Fintech Solutions is a company that has in her DNA the use the most consistent tech and financial tools associated with the most recent tech solutions.</p>
+
+            <hr class="hidden-md hidden-lg hidden-sm">
+
+        </div>
+        
+        
+
+        <div class="col-md-4 col-sm-6">
+
+             
+            <h4>Recent posts</h4>
+
+            <div class="blog-entries">
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="/blog/2020/03/21/2020-03-21-intermediate-importing-data-in-python/">
+                          
+                            <img src="/img/banners/python.png" class="img-responsive" alt="Intermediate Importing Data in Python">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="/blog/2020/03/21/2020-03-21-intermediate-importing-data-in-python/">Intermediate Importing Data in Python</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="/blog/2020/03/19/2020-03-19-introduction-to-importing-data-in-python/">
+                          
+                            <img src="/img/banners/python.png" class="img-responsive" alt="Introduction to Importing Data in Python">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="/blog/2020/03/19/2020-03-19-introduction-to-importing-data-in-python/">Introduction to Importing Data in Python</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="/blog/2020/03/18/2020-03-18-supervised-learning-with-scikit-learn/">
+                          
+                            <img src="/img/banners/python.png" class="img-responsive" alt="Supervised Learning with Scikit-Learn">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="/blog/2020/03/18/2020-03-18-supervised-learning-with-scikit-learn/">Supervised Learning with Scikit-Learn</a></h5>
+                    </div>
+                </div>
+                
+            </div>
+
+            <hr class="hidden-md hidden-lg">
+             
+
+        </div>
+        
+
+        
+        <div class="col-md-4 col-sm-6">
+
+          <h4>Contact</h4>
+
+            <p class="text-uppercase"><strong>Data Fintech Solutions</strong>
+        <br>
+        <br>São José dos Campos
+        <br>
+        <strong>Parayba Valley</strong>
+      </p>
+      
+
+            <a href="/contact" class="btn btn-small btn-template-main">Go to contact page</a>
+
+            <hr class="hidden-md hidden-lg hidden-sm">
+
+        </div>
+        
+        
+
+    </div>
+    
+</footer>
+
+
+
+
+
+
+
+<div id="copyright">
+    <div class="container">
+        <div class="col-md-12">
+            
+            <p class="pull-left">Copyright © 2019 - 2020 · Data Fintech Solutions - All Rights Reserved.</p>
+            
+            <p class="pull-right">
+              Template by <a href="https://bootstrapious.com/p/universal-business-e-commerce-template">Bootstrapious</a>.
+              
+
+              Ported to Hugo by <a href="https://github.com/devcows/hugo-universal-theme">DevCows</a>.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    </div>
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-154740345-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+<script src="//code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0/jquery.counterup.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax.js"></script>
+
+<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAIUDnabrE-98Y_3EWdNun6iNBED38BsV0&v=3.exp"></script>
+
+<script src="/js/hpneo.gmaps.js"></script>
+<script src="/js/gmaps.init.js"></script>
+<script src="/js/front.js"></script>
+
+
+<script src="/js/owl.carousel.min.js"></script>
+
+
+
+  </body>
+</html>
