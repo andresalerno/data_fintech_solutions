@@ -1,25 +1,118 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
     <loc>/blog/</loc>
-    <lastmod>2020-03-21T00:00:00+00:00</lastmod>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2020-03-21T00:00:00+00:00</lastmod>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/data-science/</loc>
-    <lastmod>2020-03-21T00:00:00+00:00</lastmod>
+    <loc>/categories/classification/</loc>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/2020/03/27/2020-03-27-credit-card-fraud-detection/</loc>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-03-21T00:00:00+00:00</lastmod>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/data-science/</loc>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/keras/</loc>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/machine-learning/</loc>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/modeling/</loc>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/pca/</loc>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/r/</loc>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/r-markdown/</loc>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/r-programming/</loc>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/r-programming/</loc>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/statistic/</loc>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/tensorflow/</loc>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/classification/</loc>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/models/</loc>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -30,21 +123,18 @@
   <url>
     <loc>/categories/programming/</loc>
     <lastmod>2020-03-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/python/</loc>
     <lastmod>2020-03-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>/blog/2020/03/19/2020-03-19-introduction-to-importing-data-in-python/</loc>
     <lastmod>2020-03-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/machine-learning/</loc>
-    <lastmod>2020-03-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -65,11 +155,7 @@
   <url>
     <loc>/categories/scikit-learn/</loc>
     <lastmod>2020-03-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/tensorflow/</loc>
-    <lastmod>2020-03-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -90,6 +176,7 @@
   <url>
     <loc>/tags/algorithm/</loc>
     <lastmod>2020-02-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -100,21 +187,13 @@
   <url>
     <loc>/tags/game/</loc>
     <lastmod>2020-02-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/programming/</loc>
     <lastmod>2020-02-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-02-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/classification/</loc>
-    <lastmod>2020-02-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -123,23 +202,9 @@
   </url>
   
   <url>
-    <loc>/tags/pca/</loc>
-    <lastmod>2020-02-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/r-programming/</loc>
-    <lastmod>2020-02-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/regression-tree/</loc>
     <lastmod>2020-02-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/classification/</loc>
-    <lastmod>2020-02-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -150,6 +215,7 @@
   <url>
     <loc>/post/</loc>
     <lastmod>2020-02-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -160,16 +226,7 @@
   <url>
     <loc>/tags/knn/</loc>
     <lastmod>2020-01-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/modeling/</loc>
-    <lastmod>2020-01-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/statistic/</loc>
-    <lastmod>2020-01-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -180,21 +237,12 @@
   <url>
     <loc>/categories/logistic-regression/</loc>
     <lastmod>2020-01-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>/blog/2020/01/05/2020-01-05-knn-algorithm/</loc>
     <lastmod>2020-01-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/algorithm/</loc>
-    <lastmod>2019-12-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/binary-search/</loc>
-    <lastmod>2019-12-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -205,21 +253,24 @@
   <url>
     <loc>/tags/python/</loc>
     <lastmod>2019-12-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/algorithm/</loc>
+    <lastmod>2019-12-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/binary-search/</loc>
+    <lastmod>2019-12-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>/blog/2019/12/26/2019-12-27-quicksort-algorithm/</loc>
     <lastmod>2019-12-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2019-12-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/r-markdown/</loc>
-    <lastmod>2019-12-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -235,11 +286,13 @@
   <url>
     <loc>/tags/random-forest/</loc>
     <lastmod>2019-12-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/regression/</loc>
     <lastmod>2019-12-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -249,21 +302,6 @@
   
   <url>
     <loc>/post/data-frame/</loc>
-    <lastmod>2019-12-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/data-frame/</loc>
-    <lastmod>2019-12-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/data-frame/</loc>
-    <lastmod>2019-12-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/exponential-smoothing/</loc>
     <lastmod>2019-12-18T00:00:00+00:00</lastmod>
   </url>
   
@@ -283,43 +321,44 @@
   </url>
   
   <url>
-    <loc>/tags/linear-regression/</loc>
-    <lastmod>2019-12-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/post/logistic-regression/</loc>
     <lastmod>2019-12-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
+    <loc>/categories/data-frame/</loc>
+    <lastmod>2019-12-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/data-frame/</loc>
+    <lastmod>2019-12-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/exponential-smoothing/</loc>
+    <lastmod>2019-12-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/linear-regression/</loc>
+    <lastmod>2019-12-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/logistic-regression/</loc>
     <lastmod>2019-12-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/models/</loc>
     <lastmod>2019-12-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/models/</loc>
-    <lastmod>2019-12-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/r-programming/</loc>
-    <lastmod>2019-12-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/golang/</loc>
-    <lastmod>2015-10-02T21:49:20+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/hugo/</loc>
-    <lastmod>2015-10-02T21:49:20+02:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -328,18 +367,32 @@
   </url>
   
   <url>
-    <loc>/tags/theme/</loc>
+    <loc>/tags/golang/</loc>
     <lastmod>2015-10-02T21:49:20+02:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/go/</loc>
-    <lastmod>2015-09-17T13:47:08+02:00</lastmod>
+    <loc>/tags/hugo/</loc>
+    <lastmod>2015-10-02T21:49:20+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/theme/</loc>
+    <lastmod>2015-10-02T21:49:20+02:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>/blog/2015/09/17/go-is-for-lovers/</loc>
     <lastmod>2015-09-17T13:47:08+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/go/</loc>
+    <lastmod>2015-09-17T13:47:08+02:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -350,6 +403,7 @@
   <url>
     <loc>/categories/pseudo/</loc>
     <lastmod>2015-08-03T13:39:46+02:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -360,6 +414,7 @@
   <url>
     <loc>/tags/plot/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -370,6 +425,7 @@
   <url>
     <loc>/categories/starting/</loc>
     <lastmod>2015-06-24T13:50:46+02:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -391,15 +447,17 @@
   </url>
   
   <url>
+    <loc>/blog/1/01/01/migrate-from-jekyll/</loc>
+  </url>
+  
+  <url>
     <loc>/tags/ipsum/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/lorem/</loc>
-  </url>
-  
-  <url>
-    <loc>/blog/1/01/01/migrate-from-jekyll/</loc>
+    <priority>0</priority>
   </url>
   
 </urlset>

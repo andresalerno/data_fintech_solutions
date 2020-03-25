@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on DFS</title>
@@ -6,17 +6,71 @@
     <description>Recent content in Categories on DFS</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Classification</title>
+      <link>/categories/classification/</link>
+      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/classification/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Data Science</title>
       <link>/categories/data-science/</link>
-      <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/categories/data-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>/categories/machine-learning/</link>
+      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>/categories/r/</link>
+      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R Programming</title>
+      <link>/categories/r-programming/</link>
+      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/r-programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TensorFlow</title>
+      <link>/categories/tensorflow/</link>
+      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/tensorflow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>models</title>
+      <link>/categories/models/</link>
+      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/models/</guid>
       <description></description>
     </item>
     
@@ -39,47 +93,11 @@
     </item>
     
     <item>
-      <title>Machine Learning</title>
-      <link>/categories/machine-learning/</link>
-      <pubDate>Wed, 18 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/machine-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Scikit Learn</title>
       <link>/categories/scikit-learn/</link>
       <pubDate>Sat, 14 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/categories/scikit-learn/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>TensorFlow</title>
-      <link>/categories/tensorflow/</link>
-      <pubDate>Sat, 14 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/tensorflow/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R Programming</title>
-      <link>/categories/r-programming/</link>
-      <pubDate>Fri, 07 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/r-programming/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Classification</title>
-      <link>/categories/classification/</link>
-      <pubDate>Thu, 06 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/classification/</guid>
       <description></description>
     </item>
     
@@ -111,29 +129,11 @@
     </item>
     
     <item>
-      <title>R</title>
-      <link>/categories/r/</link>
-      <pubDate>Mon, 23 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/r/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>data frame</title>
       <link>/categories/data-frame/</link>
       <pubDate>Wed, 18 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>/categories/data-frame/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>models</title>
-      <link>/categories/models/</link>
-      <pubDate>Wed, 18 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/models/</guid>
       <description></description>
     </item>
     

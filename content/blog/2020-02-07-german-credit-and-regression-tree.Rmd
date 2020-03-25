@@ -20,7 +20,7 @@ Train a model and use to make predictions for German Credit dataset
 ```{r setup, include=FALSE}
 
 knitr::opts_chunk$set(collapse = TRUE, warnings = FALSE, echo = TRUE)
-path = "C:/Users/Bruno Ferrari/Documents/2019/Estagio/BlogAndre/data_fintech_solutions/datasets/german/german_credit.csv"
+path = "C:/Users/Bruno Ferrari/Documents/Bruno/Estagio/BlogAndre/data_fintech_solutions/datasets/german/german_credit.csv"
 
 ```
 
