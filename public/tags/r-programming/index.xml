@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R Programming on DFS</title>
@@ -6,10 +6,22 @@
     <description>Recent content in R Programming on DFS</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/r-programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Credit Card Fraud Detection</title>
+      <link>/blog/2020/03/27/2020-03-27-credit-card-fraud-detection/</link>
+      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2020/03/27/2020-03-27-credit-card-fraud-detection/</guid>
+      <description>ObjectiveOur goal is to train a Neural Network to detect fraudulent credit card transactions in a dataset referring to two days transactions by european cardholders.
+Source: https://www.kaggle.com/mlg-ulb/creditcardfraud/data
+Datacredit = read.csv(path)The datasets contains transactions made by credit cards in September 2013 by european cardholders.This dataset presents transactions that occurred in two days.
+As we can see, this dataset consists of thirty explanatory variables, and a response variable which represents whether a transation was a fraud or not.</description>
+    </item>
     
     <item>
       <title>Data Frame</title>
