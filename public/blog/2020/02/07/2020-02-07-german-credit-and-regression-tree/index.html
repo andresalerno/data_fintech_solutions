@@ -264,45 +264,31 @@ test = subset(german, split==FALSE)</code></pre>
 ## node), split, n, loss, yval, (yprob)
 ##       * denotes terminal node
 ## 
-##    1) root 750 225 0 (0.70000000 0.30000000)  
-##      2) account_check_status=&gt;= 200 DM / salary assignments for at least 1 year,no checking account 347  50 0 (0.85590778 0.14409222) *
-##      3) account_check_status=&lt; 0 DM,0 &lt;= ... &lt; 200 DM 403 175 0 (0.56575682 0.43424318)  
-##        6) duration_in_month&lt; 22.5 231  76 0 (0.67099567 0.32900433)  
-##         12) credit_history=critical account/ other credits existing (not at this bank),delay in paying off in the past 79  14 0 (0.82278481 0.17721519) *
-##         13) credit_history=all credits at this bank paid back duly,existing credits paid back duly till now,no credits taken/ all credits paid back duly 152  62 0 (0.59210526 0.40789474)  
-##           26) other_debtors=co-applicant,guarantor 19   0 0 (1.00000000 0.00000000) *
-##           27) other_debtors=none 133  62 0 (0.53383459 0.46616541)  
-##             54) purpose=business,education,retraining 14   1 0 (0.92857143 0.07142857) *
-##             55) purpose=(vacation - does not exist?),car (new),car (used),domestic appliances,radio/television,repairs 119  58 1 (0.48739496 0.51260504)  
-##              110) credit_history=existing credits paid back duly till now 105  49 0 (0.53333333 0.46666667)  
-##                220) savings=.. &gt;= 1000 DM ,500 &lt;= ... &lt; 1000 DM ,unknown/ no savings account 26   7 0 (0.73076923 0.26923077) *
-##                221) savings=... &lt; 100 DM,100 &lt;= ... &lt; 500 DM 79  37 1 (0.46835443 0.53164557)  
-##                  442) credit_amount&gt;=1387.5 39  16 0 (0.58974359 0.41025641)  
-##                    884) telephone=none 26   8 0 (0.69230769 0.30769231) *
-##                    885) telephone=yes, registered under the customers name  13   5 1 (0.38461538 0.61538462) *
-##                  443) credit_amount&lt; 1387.5 40  14 1 (0.35000000 0.65000000)  
-##                    886) credit_amount&lt; 1211.5 30  14 1 (0.46666667 0.53333333)  
-##                     1772) credit_amount&gt;=1014.5 9   1 0 (0.88888889 0.11111111) *
-##                     1773) credit_amount&lt; 1014.5 21   6 1 (0.28571429 0.71428571)  
-##                       3546) credit_amount&lt; 668 7   2 0 (0.71428571 0.28571429) *
-##                       3547) credit_amount&gt;=668 14   1 1 (0.07142857 0.92857143) *
-##                    887) credit_amount&gt;=1211.5 10   0 1 (0.00000000 1.00000000) *
-##              111) credit_history=all credits at this bank paid back duly,no credits taken/ all credits paid back duly 14   2 1 (0.14285714 0.85714286) *
-##        7) duration_in_month&gt;=22.5 172  73 1 (0.42441860 0.57558140)  
-##         14) savings=.. &gt;= 1000 DM ,unknown/ no savings account 28   7 0 (0.75000000 0.25000000) *
-##         15) savings=... &lt; 100 DM,100 &lt;= ... &lt; 500 DM,500 &lt;= ... &lt; 1000 DM  144  52 1 (0.36111111 0.63888889)  
-##           30) purpose=car (used) 23   7 0 (0.69565217 0.30434783)  
-##             60) credit_amount&lt; 7588.5 16   2 0 (0.87500000 0.12500000) *
-##             61) credit_amount&gt;=7588.5 7   2 1 (0.28571429 0.71428571) *
-##           31) purpose=(vacation - does not exist?),business,car (new),domestic appliances,education,furniture/equipment,radio/television,repairs 121  36 1 (0.29752066 0.70247934)  
-##             62) duration_in_month&lt; 43.5 97  35 1 (0.36082474 0.63917526)  
-##              124) present_emp_since=.. &gt;= 7 years,4 &lt;= ... &lt; 7 years 37  18 0 (0.51351351 0.48648649)  
-##                248) purpose=(vacation - does not exist?),business,car (new),domestic appliances,furniture/equipment 27  10 0 (0.62962963 0.37037037) *
-##                249) purpose=radio/television 10   2 1 (0.20000000 0.80000000) *
-##              125) present_emp_since=... &lt; 1 year ,1 &lt;= ... &lt; 4 years,unemployed 60  16 1 (0.26666667 0.73333333)  
-##                250) purpose=radio/television 15   6 0 (0.60000000 0.40000000) *
-##                251) purpose=(vacation - does not exist?),business,car (new),domestic appliances,education,furniture/equipment 45   7 1 (0.15555556 0.84444444) *
-##             63) duration_in_month&gt;=43.5 24   1 1 (0.04166667 0.95833333) *</code></pre>
+##   1) root 750 225 0 (0.70000000 0.30000000)  
+##     2) account_check_status=&gt;= 200 DM / salary assignments for at least 1 year,no checking account 347  48 0 (0.86167147 0.13832853) *
+##     3) account_check_status=&lt; 0 DM,0 &lt;= ... &lt; 200 DM 403 177 0 (0.56079404 0.43920596)  
+##       6) duration_in_month&lt; 33 320 122 0 (0.61875000 0.38125000)  
+##        12) credit_history=critical account/ other credits existing (not at this bank) 75  15 0 (0.80000000 0.20000000) *
+##        13) credit_history=all credits at this bank paid back duly,delay in paying off in the past,existing credits paid back duly till now,no credits taken/ all credits paid back duly 245 107 0 (0.56326531 0.43673469)  
+##          26) other_debtors=guarantor 24   2 0 (0.91666667 0.08333333) *
+##          27) other_debtors=co-applicant,none 221 105 0 (0.52488688 0.47511312)  
+##            54) savings=.. &gt;= 1000 DM ,500 &lt;= ... &lt; 1000 DM ,unknown/ no savings account 56  16 0 (0.71428571 0.28571429) *
+##            55) savings=... &lt; 100 DM,100 &lt;= ... &lt; 500 DM 165  76 1 (0.46060606 0.53939394)  
+##             110) credit_amount&lt; 7586.5 156  76 1 (0.48717949 0.51282051)  
+##               220) credit_amount&gt;=1338.5 105  45 0 (0.57142857 0.42857143)  
+##                 440) credit_history=delay in paying off in the past,existing credits paid back duly till now 85  31 0 (0.63529412 0.36470588)  
+##                   880) present_emp_since=.. &gt;= 7 years,1 &lt;= ... &lt; 4 years,4 &lt;= ... &lt; 7 years,unemployed 67  20 0 (0.70149254 0.29850746) *
+##                   881) present_emp_since=... &lt; 1 year  18   7 1 (0.38888889 0.61111111) *
+##                 441) credit_history=all credits at this bank paid back duly,no credits taken/ all credits paid back duly 20   6 1 (0.30000000 0.70000000) *
+##               221) credit_amount&lt; 1338.5 51  16 1 (0.31372549 0.68627451)  
+##                 442) credit_amount&lt; 653 7   1 0 (0.85714286 0.14285714) *
+##                 443) credit_amount&gt;=653 44  10 1 (0.22727273 0.77272727) *
+##             111) credit_amount&gt;=7586.5 9   0 1 (0.00000000 1.00000000) *
+##       7) duration_in_month&gt;=33 83  28 1 (0.33734940 0.66265060)  
+##        14) present_emp_since=4 &lt;= ... &lt; 7 years,unemployed 29  13 0 (0.55172414 0.44827586)  
+##          28) age&gt;=29.5 20   5 0 (0.75000000 0.25000000) *
+##          29) age&lt; 29.5 9   1 1 (0.11111111 0.88888889) *
+##        15) present_emp_since=.. &gt;= 7 years,... &lt; 1 year ,1 &lt;= ... &lt; 4 years 54  12 1 (0.22222222 0.77777778) *</code></pre>
 <p>Confusion Matrix for train set.</p>
 <pre class="r"><code>fit = predict(tree, type = &quot;class&quot;)
 confusionMatrix(fit, as.factor(train$default))
@@ -310,26 +296,26 @@ confusionMatrix(fit, as.factor(train$default))
 ## 
 ##           Reference
 ## Prediction   0   1
-##          0 505 108
-##          1  20 117
+##          0 489 107
+##          1  36 118
 ##                                           
-##                Accuracy : 0.8293          
-##                  95% CI : (0.8005, 0.8556)
+##                Accuracy : 0.8093          
+##                  95% CI : (0.7794, 0.8369)
 ##     No Information Rate : 0.7             
-##     P-Value [Acc &gt; NIR] : 2.665e-16       
+##     P-Value [Acc &gt; NIR] : 6.302e-12       
 ##                                           
-##                   Kappa : 0.5425          
+##                   Kappa : 0.501           
 ##                                           
-##  Mcnemar&#39;s Test P-Value : 1.474e-14       
+##  Mcnemar&#39;s Test P-Value : 4.808e-09       
 ##                                           
-##             Sensitivity : 0.9619          
-##             Specificity : 0.5200          
-##          Pos Pred Value : 0.8238          
-##          Neg Pred Value : 0.8540          
+##             Sensitivity : 0.9314          
+##             Specificity : 0.5244          
+##          Pos Pred Value : 0.8205          
+##          Neg Pred Value : 0.7662          
 ##              Prevalence : 0.7000          
-##          Detection Rate : 0.6733          
-##    Detection Prevalence : 0.8173          
-##       Balanced Accuracy : 0.7410          
+##          Detection Rate : 0.6520          
+##    Detection Prevalence : 0.7947          
+##       Balanced Accuracy : 0.7279          
 ##                                           
 ##        &#39;Positive&#39; Class : 0               
 ## </code></pre>
@@ -340,26 +326,26 @@ confusionMatrix(fit_test, as.factor(test$default))
 ## 
 ##           Reference
 ## Prediction   0   1
-##          0 155  43
-##          1  20  32
+##          0 150  42
+##          1  25  33
 ##                                           
-##                Accuracy : 0.748           
-##                  95% CI : (0.6894, 0.8006)
+##                Accuracy : 0.732           
+##                  95% CI : (0.6725, 0.7859)
 ##     No Information Rate : 0.7             
-##     P-Value [Acc &gt; NIR] : 0.054493        
+##     P-Value [Acc &gt; NIR] : 0.15012         
 ##                                           
-##                   Kappa : 0.3424          
+##                   Kappa : 0.3177          
 ##                                           
-##  Mcnemar&#39;s Test P-Value : 0.005576        
+##  Mcnemar&#39;s Test P-Value : 0.05062         
 ##                                           
-##             Sensitivity : 0.8857          
-##             Specificity : 0.4267          
-##          Pos Pred Value : 0.7828          
-##          Neg Pred Value : 0.6154          
+##             Sensitivity : 0.8571          
+##             Specificity : 0.4400          
+##          Pos Pred Value : 0.7812          
+##          Neg Pred Value : 0.5690          
 ##              Prevalence : 0.7000          
-##          Detection Rate : 0.6200          
-##    Detection Prevalence : 0.7920          
-##       Balanced Accuracy : 0.6562          
+##          Detection Rate : 0.6000          
+##    Detection Prevalence : 0.7680          
+##       Balanced Accuracy : 0.6486          
 ##                                           
 ##        &#39;Positive&#39; Class : 0               
 ## </code></pre>
@@ -385,28 +371,28 @@ confusionMatrix(fit, as.factor(train$default))
 ## 
 ##           Reference
 ## Prediction   0   1
-##          0 410  54
-##          1 115 171
-##                                          
-##                Accuracy : 0.7747         
-##                  95% CI : (0.743, 0.8041)
-##     No Information Rate : 0.7            
-##     P-Value [Acc &gt; NIR] : 2.837e-06      
-##                                          
-##                   Kappa : 0.5021         
-##                                          
-##  Mcnemar&#39;s Test P-Value : 3.924e-06      
-##                                          
-##             Sensitivity : 0.7810         
-##             Specificity : 0.7600         
-##          Pos Pred Value : 0.8836         
-##          Neg Pred Value : 0.5979         
-##              Prevalence : 0.7000         
-##          Detection Rate : 0.5467         
-##    Detection Prevalence : 0.6187         
-##       Balanced Accuracy : 0.7705         
-##                                          
-##        &#39;Positive&#39; Class : 0              
+##          0 417  43
+##          1 108 182
+##                                           
+##                Accuracy : 0.7987          
+##                  95% CI : (0.7682, 0.8268)
+##     No Information Rate : 0.7             
+##     P-Value [Acc &gt; NIR] : 6.141e-10       
+##                                           
+##                   Kappa : 0.5572          
+##                                           
+##  Mcnemar&#39;s Test P-Value : 1.906e-07       
+##                                           
+##             Sensitivity : 0.7943          
+##             Specificity : 0.8089          
+##          Pos Pred Value : 0.9065          
+##          Neg Pred Value : 0.6276          
+##              Prevalence : 0.7000          
+##          Detection Rate : 0.5560          
+##    Detection Prevalence : 0.6133          
+##       Balanced Accuracy : 0.8016          
+##                                           
+##        &#39;Positive&#39; Class : 0               
 ## </code></pre>
 <p>In other hand, we could remove some varibles, e.g. telephone, or reduce dimensionality of the problem, like applying a PCA. In the case o PCA, besides being a simple technique, could provide us more information of the data.</p>
 <p>Lets try it.</p>
