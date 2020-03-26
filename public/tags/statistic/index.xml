@@ -24,6 +24,18 @@ As we can see, this dataset consists of thirty explanatory variables, and a resp
     </item>
     
     <item>
+      <title>Credit Card Fraud Detection</title>
+      <link>/blog/2020/03/26/2020-03-26-credit-card-fraud-detection/</link>
+      <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2020/03/26/2020-03-26-credit-card-fraud-detection/</guid>
+      <description>ObjectiveOur goal is to train a Neural Network to detect fraudulent credit card transactions in a dataset referring to two days transactions by european cardholders.
+Source: https://www.kaggle.com/mlg-ulb/creditcardfraud/data
+Datacredit = read.csv(path)The datasets contains transactions made by credit cards in September 2013 by european cardholders.This dataset presents transactions that occurred in two days.
+As we can see, this dataset consists of thirty explanatory variables, and a response variable which represents whether a transation was a fraud or not.</description>
+    </item>
+    
+    <item>
       <title>Correlation and Regression</title>
       <link>/blog/2020/01/19/2020-01-19-correlation-and-regression/</link>
       <pubDate>Sun, 19 Jan 2020 00:00:00 +0000</pubDate>
