@@ -29,93 +29,6 @@
     <loc>/</loc>
     <lastmod>2020-03-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
-<<<<<<< HEAD
-=======
-  </url>
-  
-  <url>
-    <loc>/categories/data-science/</loc>
-    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/keras/</loc>
-    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/machine-learning/</loc>
-    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/modeling/</loc>
-    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/pca/</loc>
-    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/r-markdown/</loc>
-    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/r-programming/</loc>
-    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/r-programming/</loc>
-    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/statistic/</loc>
-    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/tensorflow/</loc>
-    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/classification/</loc>
-    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/models/</loc>
-    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
->>>>>>> 42004a345bdbdb21531a01274c39187ff7979967
   </url>
   
   <url>
@@ -205,6 +118,11 @@
   <url>
     <loc>/blog/2020/03/21/2020-03-21-intermediate-importing-data-in-python/</loc>
     <lastmod>2020-03-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/programming/</loc>
+    <lastmod>2020-03-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -215,20 +133,11 @@
   </url>
   
   <url>
-    <loc>/categories/programming/</loc>
-    <lastmod>2020-03-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-<<<<<<< HEAD
     <loc>/blog/2020/03/19/2020-03-19-introduction-to-importing-data-in-python/</loc>
     <lastmod>2020-03-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-=======
->>>>>>> 42004a345bdbdb21531a01274c39187ff7979967
     <loc>/blog/2020/03/18/2020-03-18-supervised-learning-with-scikit-learn/</loc>
     <lastmod>2020-03-18T00:00:00+00:00</lastmod>
   </url>
@@ -265,15 +174,6 @@
   </url>
   
   <url>
-<<<<<<< HEAD
-=======
-    <loc>/tags/algorithm/</loc>
-    <lastmod>2020-02-29T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
->>>>>>> 42004a345bdbdb21531a01274c39187ff7979967
     <loc>/blog/2020/02/29/2020-03-01-functions/</loc>
     <lastmod>2020-02-29T00:00:00+00:00</lastmod>
   </url>
@@ -288,15 +188,12 @@
     <loc>/tags/algorithm/</loc>
     <lastmod>2020-02-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
-<<<<<<< HEAD
   </url>
   
   <url>
     <loc>/tags/programming/</loc>
     <lastmod>2020-02-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
-=======
->>>>>>> 42004a345bdbdb21531a01274c39187ff7979967
   </url>
   
   <url>
