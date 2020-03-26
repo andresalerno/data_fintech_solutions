@@ -75,25 +75,45 @@
     </item>
     
     <item>
+<<<<<<< HEAD
       <title>Game</title>
       <link>/tags/game/</link>
       <pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/game/</guid>
+=======
+      <title>Algorithm</title>
+      <link>/tags/algorithm/</link>
+      <pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/algorithm/</guid>
+>>>>>>> 42004a345bdbdb21531a01274c39187ff7979967
       <description></description>
     </item>
     
     <item>
+<<<<<<< HEAD
       <title>algorithm</title>
       <link>/tags/algorithm/</link>
       <pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/algorithm/</guid>
+=======
+      <title>Game</title>
+      <link>/tags/game/</link>
+      <pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/game/</guid>
+>>>>>>> 42004a345bdbdb21531a01274c39187ff7979967
       <description></description>
     </item>
     
     <item>
+<<<<<<< HEAD
       <title>programming</title>
+=======
+      <title>Programming</title>
+>>>>>>> 42004a345bdbdb21531a01274c39187ff7979967
       <link>/tags/programming/</link>
       <pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate>
       
