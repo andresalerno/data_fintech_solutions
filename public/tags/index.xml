@@ -75,20 +75,20 @@
     </item>
     
     <item>
-      <title>Algorithm</title>
-      <link>/tags/algorithm/</link>
-      <pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/algorithm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Game</title>
       <link>/tags/game/</link>
       <pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/game/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>algorithm</title>
+      <link>/tags/algorithm/</link>
+      <pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/algorithm/</guid>
       <description></description>
     </item>
     

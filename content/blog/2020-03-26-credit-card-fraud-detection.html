@@ -186,36 +186,32 @@ confusionMatrix(data = as.factor(y_dummy), reference = as.factor(credit$Class), 
 ##                                           
 ##        &#39;Positive&#39; Class : 1               
 ## </code></pre>
-<p>Here we can see the results of our model, which has a 99,94% of accuracy, slightly above of the dummy model but other statics are also important, such as a Recall rate which measures how well the model can correctly forecast the fraud class, which is our main objective. Considering again how unballanced are the class, we have here a good rate of 72.36%</p>
+<p>Here we can see the results of our model, which has a 99,94% of accuracy, slightly above of the dummy model but other statics are also important, such as a Recall rate which measures how well the model can correctly forecast the fraud class, which is our main objective. Considering again how unballanced are the class, we have here a good rate high than 70%</p>
 <pre class="r"><code>y_pred = model %&gt;% predict_classes(as.matrix(test[,-c(30)]))
-confusionMatrix(as.factor(y_pred), as.factor(test$Class), mode = &quot;everything&quot;, positive = &quot;1&quot;)
+confusionMatrix(as.factor(y_pred), as.factor(test$Class), mode = &quot;prec_recall&quot;, positive = &quot;1&quot;)
 ## Confusion Matrix and Statistics
 ## 
 ##           Reference
 ## Prediction     0     1
-##          0 71068    36
-##          1    11    87
+##          0 71060    29
+##          1    19    94
 ##                                           
 ##                Accuracy : 0.9993          
 ##                  95% CI : (0.9991, 0.9995)
 ##     No Information Rate : 0.9983          
-##     P-Value [Acc &gt; NIR] : 3.825e-15       
+##     P-Value [Acc &gt; NIR] : 9.938e-15       
 ##                                           
-##                   Kappa : 0.787           
+##                   Kappa : 0.7963          
 ##                                           
-##  Mcnemar&#39;s Test P-Value : 0.0004639       
+##  Mcnemar&#39;s Test P-Value : 0.1939          
 ##                                           
-##             Sensitivity : 0.707317        
-##             Specificity : 0.999845        
-##          Pos Pred Value : 0.887755        
-##          Neg Pred Value : 0.999494        
-##               Precision : 0.887755        
-##                  Recall : 0.707317        
-##                      F1 : 0.787330        
+##               Precision : 0.831858        
+##                  Recall : 0.764228        
+##                      F1 : 0.796610        
 ##              Prevalence : 0.001727        
-##          Detection Rate : 0.001222        
-##    Detection Prevalence : 0.001376        
-##       Balanced Accuracy : 0.853581        
+##          Detection Rate : 0.001320        
+##    Detection Prevalence : 0.001587        
+##       Balanced Accuracy : 0.881980        
 ##                                           
 ##        &#39;Positive&#39; Class : 1               
 ## </code></pre>
