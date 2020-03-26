@@ -74,12 +74,15 @@
   </url>
   
   <url>
+<<<<<<< HEAD
     <loc>/tags/r-programming/</loc>
     <lastmod>2020-03-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+=======
+>>>>>>> d2d56c0982ec5e4c28d939de01264732175aadb2
     <loc>/categories/r-programming/</loc>
     <lastmod>2020-03-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
