@@ -186,6 +186,7 @@ As discussed above, we have two main caracteristics of the data:
 
 So, because of that, we going to use a Neural Network to indentify fraud transactions. Neural Networks have huge capacities in sense to adapt well in many raw data and therefore not need (in general) does data transformations. This is important because we do not have access to original data.
 
+Packages used in this job.
 ```{r message=FALSE, warning=FALSE}
 library("caTools")
 library("caret")
