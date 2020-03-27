@@ -6,7 +6,7 @@
     <description>Recent content in Categories on DFS</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 27 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Classification</title>
       <link>/categories/classification/</link>
-      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/categories/classification/</guid>
       <description></description>
@@ -23,7 +23,7 @@
     <item>
       <title>Data Science</title>
       <link>/categories/data-science/</link>
-      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/categories/data-science/</guid>
       <description></description>
@@ -32,7 +32,7 @@
     <item>
       <title>Machine Learning</title>
       <link>/categories/machine-learning/</link>
-      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/categories/machine-learning/</guid>
       <description></description>
@@ -41,7 +41,7 @@
     <item>
       <title>R</title>
       <link>/categories/r/</link>
-      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/categories/r/</guid>
       <description></description>
@@ -50,7 +50,7 @@
     <item>
       <title>R Programming</title>
       <link>/categories/r-programming/</link>
-      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/categories/r-programming/</guid>
       <description></description>
@@ -59,7 +59,7 @@
     <item>
       <title>TensorFlow</title>
       <link>/categories/tensorflow/</link>
-      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/categories/tensorflow/</guid>
       <description></description>
@@ -68,9 +68,18 @@
     <item>
       <title>models</title>
       <link>/categories/models/</link>
-      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/categories/models/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programming</title>
+      <link>/categories/programming/</link>
+      <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/programming/</guid>
       <description></description>
     </item>
     
@@ -80,15 +89,6 @@
       <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/categories/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>programming</title>
-      <link>/categories/programming/</link>
-      <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/programming/</guid>
       <description></description>
     </item>
     
