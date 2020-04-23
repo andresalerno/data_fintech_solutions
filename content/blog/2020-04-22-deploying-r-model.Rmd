@@ -22,7 +22,7 @@ tags:
 banner: img/banners/banner-5.png
 ---
 
-# Objective 1
+# Objective
 Our goal here is to create a R Model and put-in into production by deploying it as web service API using **Docker** to containerize (encapsulate) it and **Microsoft Azure** to host it.
 
 
@@ -144,7 +144,7 @@ You also need to create a account on **Microsoft Azure**. You can have a free tr
 
 Checking the commands:
 
-![](./images/teminalcheck.JPG)
+![](images/teminalcheck.JPG)
 
 ### Docker
 
@@ -222,23 +222,23 @@ The two first ones also could be set in the `define` part of the code, or in the
 So to make our life easier we going to login into https://portal.azure.com/#home to create a `RESOUCE GROUP`.
 
 After login, to create that we need to go here:
-![](./images/rscgroup.png)
+![](images/rscgroup.png)
 
 Set the name and the region which we want - this name will be used in `resourceGroupName`
-![](./images/rscscreen1.png)
+![](images/rscscreen1.png)
 
 And finally we get this.
-![](./images/rscscreen2.png)
+![](images/rscscreen2.png)
 
 The number which appers in **Subscription ID** it is the number we are going to use in `subscriptionId`.
 
 Now we going to run the script. Make sure all .R file, the Dockerfile and the script are in the same directory. If the script works properly we going to see this at final:
 
-![](./images/terminalok.PNG)
+![](images/terminalok.PNG)
 
-![](./images/apiok1.png)
+![](images/apiok1.png)
 
-![](./images/apiok2.png)
+![](images/apiok2.png)
 
 And the red links is our API web service !
 
@@ -253,7 +253,7 @@ $ curl --data "wt=2.8&hp=120" "api-transmission-model.brazilsouth.azurecontainer
 
 And you should get this:
 
-![](./images/rqtsapi.png)
+![](images/rqtsapi.png)
 
 # Conclusions
 
