@@ -2,7 +2,7 @@
 title: Deploying R Model as API Web Service using Docker and Microsoft Azure
 author: Bruno Ferrari
 date: '2020-04-22'
-slug: deploying-r-model-as-api-web-service-using-docker-and-microsoft-azure
+slug: deploying-r-model
 categories:
   - Logistic Regression
   - models
@@ -22,7 +22,7 @@ tags:
 banner: img/banners/banner-5.png
 ---
 
-# Objective
+# Objective 1
 Our goal here is to create a R Model and put-in into production by deploying it as web service API using **Docker** to containerize (encapsulate) it and **Microsoft Azure** to host it.
 
 
@@ -97,7 +97,7 @@ As in the first endpoint, we have a comment of what is this function, after that
 In a nutshell, to note some difference between `@get` and `@post`, `@get` will be used to when we ask for data from an API and `@post` when we need to send data to an API. If you want to understand more, at the `plumber` documentation you can see better how this annotations at the` api.R` code properly works.
 
 Ok, now we already have set how ours api will work, let's check how this outputs are on R.
-```{r}
+```{r message=FALSE, warning=FALSE}
 plot_am()
 model_predict(120, 2.8)
 ```
@@ -144,7 +144,7 @@ You also need to create a account on **Microsoft Azure**. You can have a free tr
 
 Checking the commands:
 
-![](./images/teminalcheck.jpg)
+![](./images/teminalcheck.JPG)
 
 ### Docker
 
@@ -171,9 +171,6 @@ $ docker run --rm -p 8000:8000 trestletech/plumber /usr/local/lib/R/site-library
 This will ask Plumber to plumb and run the file you specified on port 8000 of that new container. Because you used the `-p` argument, port 8000 of your local machine will be forwarded into your container. You can test this by running this on the machine where Docker is running: `$ curl localhost:8000/mean`. You should get an single number in an array back `[-0.1993]`.
 
 We want to build upon trestletech/plumber image our own Docker image. For that we need to write an Dockerfile. Dockerfiles have a vast array of options and possible configurations, so [see the official](https://docs.docker.com/engine/reference/builder/) docs if you want to learn more about any of these options.
-
-
-
 
 ```{r echo=FALSE}
 Dockerfile="\n" 
@@ -261,6 +258,7 @@ And you should get this:
 # Conclusions
 
 We built a simple model API with R `plumber` package, containerized it with **Docker**, and deployed it to the web with **Microsoft Azure**. This makes ours models more collaborating with other developers and much more accessible. They only need to learn how to use your API to integrate your model into their applications and systems.
+
 
 
 

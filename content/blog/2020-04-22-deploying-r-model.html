@@ -2,7 +2,7 @@
 title: Deploying R Model as API Web Service using Docker and Microsoft Azure
 author: Bruno Ferrari
 date: '2020-04-22'
-slug: deploying-r-model-as-api-web-service-using-docker-and-microsoft-azure
+slug: deploying-r-model
 categories:
   - Logistic Regression
   - models
@@ -24,8 +24,8 @@ banner: img/banners/banner-5.png
 
 
 
-<div id="objective" class="section level1">
-<h1>Objective</h1>
+<div id="objective-1" class="section level1">
+<h1>Objective 1</h1>
 <p>Our goal here is to create a R Model and put-in into production by deploying it as web service API using <strong>Docker</strong> to containerize (encapsulate) it and <strong>Microsoft Azure</strong> to host it.</p>
 </div>
 <div id="r-model" class="section level1">
@@ -99,7 +99,7 @@ One is hosted at the path /plotam and returns an image showing a simple R plot.<
 <p>In a nutshell, to note some difference between <code>@get</code> and <code>@post</code>, <code>@get</code> will be used to when we ask for data from an API and <code>@post</code> when we need to send data to an API. If you want to understand more, at the <code>plumber</code> documentation you can see better how this annotations at the<code>api.R</code> code properly works.</p>
 <p>Ok, now we already have set how ours api will work, let’s check how this outputs are on R.</p>
 <pre class="r"><code>plot_am()</code></pre>
-<p><img src="/blog/2020-04-22-deploying-r-model-as-api-web-service-using-docker-and-microsoft-azure_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="/blog/2020-04-22-deploying-r-model_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <pre class="r"><code>model_predict(120, 2.8)
 ##         1 
 ## 0.6418125</code></pre>
@@ -125,7 +125,7 @@ pr &lt;- plumb(&quot;api.R&quot;)</code></pre>
 <p><a href="https://docs.microsoft.com/cli/azure/install-azure-cli" class="uri">https://docs.microsoft.com/cli/azure/install-azure-cli</a></p>
 <p>You also need to create a account on <strong>Microsoft Azure</strong>. You can have a free trial for 30-days on that.</p>
 <p>Checking the commands:</p>
-<p><img src="images/teminalcheck.jpg" /></p>
+<p><img src="images/teminalcheck.JPG" /></p>
 <div id="docker" class="section level3">
 <h3>Docker</h3>
 <p>Docker is a platform that allow you to run processes in an isolated environment, that environment might have certain resources/software pre-configured or may emulate a particular environment.</p>
