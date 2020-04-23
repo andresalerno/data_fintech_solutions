@@ -3,14 +3,115 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/tags/api/</loc>
+    <lastmod>2020-04-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/blog/</loc>
-    <lastmod>2020-03-26T00:00:00+00:00</lastmod>
+    <lastmod>2020-04-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2020-03-26T00:00:00+00:00</lastmod>
+    <lastmod>2020-04-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-04-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/data-science/</loc>
+    <lastmod>2020-04-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/deploying-model/</loc>
+    <lastmod>2020-04-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/2020/04/22/2020-04-22-deploying-r-model-as-api-web-service-using-docker-and-microsoft-azure/</loc>
+    <lastmod>2020-04-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/docker/</loc>
+    <lastmod>2020-04-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/logistic-regression/</loc>
+    <lastmod>2020-04-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/machine-learning/</loc>
+    <lastmod>2020-04-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/microsoft-azure/</loc>
+    <lastmod>2020-04-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/modeling/</loc>
+    <lastmod>2020-04-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/plumber/</loc>
+    <lastmod>2020-04-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/r/</loc>
+    <lastmod>2020-04-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-04-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/web-service/</loc>
+    <lastmod>2020-04-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/logistic-regression/</loc>
+    <lastmod>2020-04-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/models/</loc>
+    <lastmod>2020-04-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/models/</loc>
+    <lastmod>2020-04-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -26,31 +127,7 @@
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2020-03-26T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/data-science/</loc>
-    <lastmod>2020-03-26T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/keras/</loc>
-    <lastmod>2020-03-26T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/machine-learning/</loc>
-    <lastmod>2020-03-26T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/modeling/</loc>
     <lastmod>2020-03-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -62,19 +139,7 @@
   </url>
   
   <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2020-03-26T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/r-markdown/</loc>
-    <lastmod>2020-03-26T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/r-programming/</loc>
     <lastmod>2020-03-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -86,13 +151,13 @@
   </url>
   
   <url>
-    <loc>/tags/statistic/</loc>
+    <loc>/categories/r-programming/</loc>
     <lastmod>2020-03-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>/tags/statistic/</loc>
     <lastmod>2020-03-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -110,24 +175,18 @@
   </url>
   
   <url>
-    <loc>/categories/models/</loc>
-    <lastmod>2020-03-26T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/blog/2020/03/21/2020-03-21-intermediate-importing-data-in-python/</loc>
     <lastmod>2020-03-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/python/</loc>
+    <loc>/categories/programming/</loc>
     <lastmod>2020-03-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/programming/</loc>
+    <loc>/categories/python/</loc>
     <lastmod>2020-03-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -235,12 +294,6 @@
   </url>
   
   <url>
-    <loc>/categories/logistic-regression/</loc>
-    <lastmod>2020-01-13T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/blog/2020/01/05/2020-01-05-knn-algorithm/</loc>
     <lastmod>2020-01-05T00:00:00+00:00</lastmod>
   </url>
@@ -326,13 +379,13 @@
   </url>
   
   <url>
-    <loc>/categories/data-frame/</loc>
+    <loc>/tags/data-frame/</loc>
     <lastmod>2019-12-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/data-frame/</loc>
+    <loc>/categories/data-frame/</loc>
     <lastmod>2019-12-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -345,18 +398,6 @@
   
   <url>
     <loc>/tags/linear-regression/</loc>
-    <lastmod>2019-12-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/logistic-regression/</loc>
-    <lastmod>2019-12-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/models/</loc>
     <lastmod>2019-12-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

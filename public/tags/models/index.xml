@@ -6,10 +6,21 @@
     <description>Recent content in models on DFS</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/models/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Deploying R Model as API Web Service using Docker and Microsoft Azure</title>
+      <link>/blog/2020/04/22/2020-04-22-deploying-r-model-as-api-web-service-using-docker-and-microsoft-azure/</link>
+      <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2020/04/22/2020-04-22-deploying-r-model-as-api-web-service-using-docker-and-microsoft-azure/</guid>
+      <description>ObjectiveOur goal here is to create a R Model and put-in into production by deploying it as web service API using Docker to containerize (encapsulate) it and Microsoft Azure to host it.
+R ModelTo create the model, we going to use mtcars dataset which one’s is present inside R.
+head(mtcars)## mpg cyl disp hp drat wt qsec vs am gear carb## Mazda RX4 21.0 6 160 110 3.</description>
+    </item>
     
     <item>
       <title>Exponential Smoothing Model</title>

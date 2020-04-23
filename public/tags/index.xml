@@ -6,10 +6,55 @@
     <description>Recent content in Tags on DFS</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 26 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>API</title>
+      <link>/tags/api/</link>
+      <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Modeling</title>
+      <link>/tags/modeling/</link>
+      <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/modeling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web Service</title>
+      <link>/tags/web-service/</link>
+      <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/web-service/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>logistic regression</title>
+      <link>/tags/logistic-regression/</link>
+      <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/logistic-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>models</title>
+      <link>/tags/models/</link>
+      <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/models/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Keras</title>
@@ -17,15 +62,6 @@
       <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/keras/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Modeling</title>
-      <link>/tags/modeling/</link>
-      <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/modeling/</guid>
       <description></description>
     </item>
     
@@ -170,24 +206,6 @@
       <pubDate>Wed, 18 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/linear-regression/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>logistic regression</title>
-      <link>/tags/logistic-regression/</link>
-      <pubDate>Wed, 18 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/logistic-regression/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>models</title>
-      <link>/tags/models/</link>
-      <pubDate>Wed, 18 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/models/</guid>
       <description></description>
     </item>
     
