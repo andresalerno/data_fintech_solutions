@@ -2,12 +2,9 @@
 title: 'Supervised Learning in R: Classification'
 author: "Salerno"
 date: '2020-08-19'
-categories:
-- R Programming
-- Classification
-- ML
-draft: no
+categories: ["R Programming", "Classification", "ML"]
 tags: []
+draft: FALSE
 banner: img/banners/banner-5.png
 ---
 
