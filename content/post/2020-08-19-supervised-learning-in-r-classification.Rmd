@@ -23,7 +23,7 @@ After several trips with a human behind the wheel, it is time for the self-drivi
 As it begins to drive away, its camera captures the following image:
 
 ```{r pressure, echo=FALSE, fig.cap="A caption", out.width = '100%'}
-knitr::include_graphics("/data_fintech_solutions/public/img/temp.png")
+knitr::include_graphics("/data_fintech_solutions/static/img/temp.png")
 ```
 
 Can you apply a kNN classifier to help the car recognize this sign?
