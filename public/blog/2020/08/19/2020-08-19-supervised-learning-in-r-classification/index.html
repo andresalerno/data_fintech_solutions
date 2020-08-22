@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>Supervised Learning in R: Classification</title>
+  <meta name="author" content="Salerno" />
+  
+  
+  
+  
+  <meta name="keywords" content="devows, hugo, go">
+  
+  
+  <meta name="description" content="Site template made by devcows using hugo">
+
+  <meta name="generator" content="Hugo 0.61.0" />
+
+  
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  
+  <link href="/css/animate.css" rel="stylesheet">
+
+  
+  
+    <link href="/css/style.green.css" rel="stylesheet" id="theme-stylesheet">
+  
+
+  
+  <link href="/css/custom.css" rel="stylesheet">
+
+  
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+
+  
+  <link href="/css/owl.carousel.css" rel="stylesheet">
+  <link href="/css/owl.theme.css" rel="stylesheet">
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="DFS">
+
+  
+  
+  
+  
+  
+  
+  <meta property="og:updated_time" content="2020-08-19T00:00:00Z">
+  
+    
+    
+    <meta property="article:section" content="R Programming">
+    
+    
+    <meta property="article:published_time" content="2020-08-19T00:00:00Z">
+    <meta property="article:modified_time" content="2020-08-19T00:00:00Z">
+  
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@GoHugoIO">
+  <meta name="twitter:title" content="Supervised Learning in R: Classification">
+  
+  <meta name="twitter:description" content="Site template made by devcows using hugo">
+  
+
+</head>
+
+
+  <body>
+
+    <div id="all">
+
+        <header>
+
+          <div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
+
+    <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand home" href="/">
+                    <img src="/img/logo.png" alt="Supervised Learning in R: Classification logo" class="logo hidden-xs hidden-sm">
+                    
+                    <span class="sr-only">Supervised Learning in R: Classification - go to homepage</span>
+                </a>
+                <div class="navbar-buttons">
+                    <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                      <span class="sr-only">Toggle Navigation</span>
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+                </div>
+            </div>
+            
+
+            <div class="navbar-collapse collapse" id="navigation">
+                <ul class="nav navbar-nav navbar-right">
+                  
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/">Home</a>
+                    
+                  </li>
+                  
+                  
+                  <li class="dropdown active">
+                    
+                    <a href="/blog/">Blog</a>
+                    
+                  </li>
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/contact/">Contact</a>
+                    
+                  </li>
+                  
+                </ul>
+            </div>
+            
+
+            <div class="collapse clearfix" id="search">
+
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+
+                    <button type="submit" class="btn btn-template-main"><i class="fas fa-search"></i></button>
+
+                </span>
+                    </div>
+                </form>
+
+            </div>
+            
+
+        </div>
+    </div>
+    
+
+</div>
+
+
+
+
+        </header>
+
+        <div id="heading-breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Supervised Learning in R: Classification</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <div id="content">
+            <div class="container">
+
+                <div class="row">
+
+                    
+
+                    <div class="col-md-9" id="blog-post">
+
+                        
+                          <p class="text-muted text-uppercase mb-small text-right">
+                            By <a href="#">Salerno</a>
+                             | 
+                            August 19, 2020
+                          </p>
+                        
+
+                        <div id="post-content">
+                          
+
+
+<div id="chapter-1---k-nearest-neighbors-knn" class="section level1">
+<h1>Chapter 1 - k-Nearest Neighbors (kNN)</h1>
+<div id="recognizing-a-road-sign-with-knn" class="section level2">
+<h2>1.1 - Recognizing a road sign with kNN</h2>
+<p>After several trips with a human behind the wheel, it is time for the self-driving car to attempt the test course alone.</p>
+<p>As it begins to drive away, its camera captures the following image:</p>
+<div class="figure"><span id="fig:pressure"></span>
+<img src="C:/data_fintech_solutions/temp.png" alt="A caption" width="100%" />
+<p class="caption">
+Figure 1: A caption
+</p>
+</div>
+<p>Can you apply a kNN classifier to help the car recognize this sign?</p>
+<p>The dataset <code>signs</code> must be loaded in your workspace along with the dataframe next_sign, which holds the observation you want to classify.</p>
+<pre class="r"><code>
+library(class)
+## Warning: package &#39;class&#39; was built under R version 3.6.3
+
+signs &lt;- read.csv(file = &quot;/data_fintech_solutions/knn_traffic_signs.csv&quot;, header = TRUE, sep = &quot;,&quot;)
+
+dim(signs)
+## [1] 206  51
+
+names(signs)
+##  [1] &quot;id&quot;        &quot;sample&quot;    &quot;sign_type&quot; &quot;r1&quot;        &quot;g1&quot;        &quot;b1&quot;       
+##  [7] &quot;r2&quot;        &quot;g2&quot;        &quot;b2&quot;        &quot;r3&quot;        &quot;g3&quot;        &quot;b3&quot;       
+## [13] &quot;r4&quot;        &quot;g4&quot;        &quot;b4&quot;        &quot;r5&quot;        &quot;g5&quot;        &quot;b5&quot;       
+## [19] &quot;r6&quot;        &quot;g6&quot;        &quot;b6&quot;        &quot;r7&quot;        &quot;g7&quot;        &quot;b7&quot;       
+## [25] &quot;r8&quot;        &quot;g8&quot;        &quot;b8&quot;        &quot;r9&quot;        &quot;g9&quot;        &quot;b9&quot;       
+## [31] &quot;r10&quot;       &quot;g10&quot;       &quot;b10&quot;       &quot;r11&quot;       &quot;g11&quot;       &quot;b11&quot;      
+## [37] &quot;r12&quot;       &quot;g12&quot;       &quot;b12&quot;       &quot;r13&quot;       &quot;g13&quot;       &quot;b13&quot;      
+## [43] &quot;r14&quot;       &quot;g14&quot;       &quot;b14&quot;       &quot;r15&quot;       &quot;g15&quot;       &quot;b15&quot;      
+## [49] &quot;r16&quot;       &quot;g16&quot;       &quot;b16&quot;</code></pre>
+<pre class="r"><code># get the number of observations
+n_obs &lt;- nrow(signs)
+
+# Shuffle row indices: permuted_rows
+permuted_rows &lt;- sample(n_obs)
+
+# Randomly order data: signs_shuffled
+signs_shuffled &lt;- signs[permuted_rows, ]
+
+# Identify row to split on: split
+split &lt;- round(n_obs * 0.7)
+
+# Create train
+train &lt;- signs_shuffled[1:split, 3:51]
+
+# Create test
+test &lt;- signs_shuffled[(split + 1):n_obs, 3:51]
+
+# Create a vector of labels
+sign_types &lt;- signs_shuffled$sign_type[1:split]
+
+next_sign &lt;- signs_shuffled[206, 3:51]</code></pre>
+<pre class="r"><code>
+# Classify the next sign observed
+signs_pred &lt;- knn(train = train[-1], test = test[-1], cl = sign_types)</code></pre>
+<p>You have just trained your first nearest neighbor classifier!</p>
+</div>
+<div id="thinking-like-knn" class="section level2">
+<h2>1.2 - Thinking like kNN</h2>
+<p>With your help, the test car successfully identified the sign and stopped safely at the intersection.</p>
+<p>How did the <code>knn()</code> function correctly classify the stop sign?</p>
+<p>It was happened because the sign was in some way similar to another stop sign. In fact, kNN learning anytyhing! It simply looks for the most similar example.</p>
+</div>
+<div id="exploring-the-traffic-sign-dataset" class="section level2">
+<h2>1.3 - Exploring the traffic sign dataset</h2>
+<p>To better understand how the <code>knn()</code> function was able to classify the stop sign, it may help to examine the training dataset it used.</p>
+<p>Each previously observed street sign was divided into a 4x4 grid, and the red, green, and blue level for each of the 16 center pixels is recorded as illustrated here.</p>
+<div class="figure"><span id="fig:pressure1"></span>
+<img src="C:/data_fintech_solutions/temp_1.png" alt="A caption" width="100%" />
+<p class="caption">
+Figure 2: A caption
+</p>
+</div>
+<p>The result is a dataset that records the sign_type as well as 16 x 3 = 48 color properties of each sign.</p>
+<pre class="r"><code># Examine the structure of the signs dataset
+str(signs)
+## &#39;data.frame&#39;:    206 obs. of  51 variables:
+##  $ id       : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ sample   : Factor w/ 3 levels &quot;example&quot;,&quot;test&quot;,..: 3 3 3 3 3 3 3 2 3 3 ...
+##  $ sign_type: Factor w/ 3 levels &quot;pedestrian&quot;,&quot;speed&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ r1       : int  155 142 57 22 169 75 136 118 149 13 ...
+##  $ g1       : int  228 217 54 35 179 67 149 105 225 34 ...
+##  $ b1       : int  251 242 50 41 170 60 157 69 241 28 ...
+##  $ r2       : int  135 166 187 171 231 131 200 244 34 5 ...
+##  $ g2       : int  188 204 201 178 254 89 203 245 45 21 ...
+##  $ b2       : int  101 44 68 26 27 53 107 67 1 11 ...
+##  $ r3       : int  156 142 51 19 97 214 150 132 155 123 ...
+##  $ g3       : int  227 217 51 27 107 144 167 123 226 154 ...
+##  $ b3       : int  245 242 45 29 99 75 134 12 238 140 ...
+##  $ r4       : int  145 147 59 19 123 156 171 138 147 21 ...
+##  $ g4       : int  211 219 62 27 147 169 218 123 222 46 ...
+##  $ b4       : int  228 242 65 29 152 190 252 85 242 41 ...
+##  $ r5       : int  166 164 156 42 221 67 171 254 170 36 ...
+##  $ g5       : int  233 228 171 37 236 50 158 254 191 60 ...
+##  $ b5       : int  245 229 50 3 117 36 108 92 113 26 ...
+##  $ r6       : int  212 84 254 217 205 37 157 241 26 75 ...
+##  $ g6       : int  254 116 255 228 225 36 186 240 37 108 ...
+##  $ b6       : int  52 17 36 19 80 42 11 108 12 44 ...
+##  $ r7       : int  212 217 211 221 235 44 26 254 34 13 ...
+##  $ g7       : int  254 254 226 235 254 42 35 254 45 27 ...
+##  $ b7       : int  11 26 70 20 60 44 10 99 19 25 ...
+##  $ r8       : int  188 155 78 181 90 192 180 108 221 133 ...
+##  $ g8       : int  229 203 73 183 110 131 211 106 249 163 ...
+##  $ b8       : int  117 128 64 73 9 73 236 27 184 126 ...
+##  $ r9       : int  170 213 220 237 216 123 129 135 226 83 ...
+##  $ g9       : int  216 253 234 234 236 74 109 123 246 125 ...
+##  $ b9       : int  120 51 59 44 66 22 73 40 59 19 ...
+##  $ r10      : int  211 217 254 251 229 36 161 254 30 13 ...
+##  $ g10      : int  254 255 255 254 255 34 190 254 40 27 ...
+##  $ b10      : int  3 21 51 2 12 37 10 115 34 25 ...
+##  $ r11      : int  212 217 253 235 235 44 161 254 34 9 ...
+##  $ g11      : int  254 255 255 243 254 42 190 254 44 23 ...
+##  $ b11      : int  19 21 44 12 60 44 6 99 35 18 ...
+##  $ r12      : int  172 158 66 19 163 197 187 138 241 85 ...
+##  $ g12      : int  235 225 68 27 168 114 215 123 255 128 ...
+##  $ b12      : int  244 237 68 29 152 21 236 85 54 21 ...
+##  $ r13      : int  172 164 69 20 124 171 141 118 205 83 ...
+##  $ g13      : int  235 227 65 29 117 102 142 105 229 125 ...
+##  $ b13      : int  244 237 59 34 91 26 140 75 46 19 ...
+##  $ r14      : int  172 182 76 64 188 197 189 131 226 85 ...
+##  $ g14      : int  228 228 84 61 205 114 171 124 246 128 ...
+##  $ b14      : int  235 143 22 4 78 21 140 5 59 21 ...
+##  $ r15      : int  177 171 82 211 125 123 214 106 235 85 ...
+##  $ g15      : int  235 228 93 222 147 74 221 94 252 128 ...
+##  $ b15      : int  244 196 17 78 20 22 201 53 67 21 ...
+##  $ r16      : int  22 164 58 19 160 180 188 101 237 83 ...
+##  $ g16      : int  52 227 60 27 183 107 211 91 254 125 ...
+##  $ b16      : int  53 237 60 29 187 26 227 59 53 19 ...
+
+# Count the number of signs of each type
+table(signs$sign_type)
+## 
+## pedestrian      speed       stop 
+##         65         70         71
+
+# Check r10&#39;s average red level by sign type
+aggregate(r10 ~ sign_type, data = signs, mean)
+##    sign_type       r10
+## 1 pedestrian 108.78462
+## 2      speed  83.08571
+## 3       stop 142.50704</code></pre>
+<p>As you might have expected, stop signs tend to have a higher average red value. This is how kNN identifies similar signs.</p>
+</div>
+<div id="classifying-a-collection-of-road-signs" class="section level2">
+<h2>1.4 - Classifying a collection of road signs</h2>
+<p>Now that the autonomous vehicle has successfully stopped on its own, your team feels confident allowing the car to continue the test course.</p>
+<p>The test course includes 59 additional road signs divided into three types:</p>
+<div class="figure"><span id="fig:pressure2-1"></span>
+<img src="C:/data_fintech_solutions/temp_2.png" alt="A caption" width="100%" />
+<p class="caption">
+Figure 3: A caption
+</p>
+</div>
+<div class="figure"><span id="fig:pressure2-2"></span>
+<img src="C:/data_fintech_solutions/temp_3.png" alt="A caption" width="100%" />
+<p class="caption">
+Figure 4: A caption
+</p>
+</div>
+<div class="figure"><span id="fig:pressure2-3"></span>
+<img src="C:/data_fintech_solutions/temp_4.png" alt="A caption" width="100%" />
+<p class="caption">
+Figure 5: A caption
+</p>
+</div>
+<p>At the conclusion of the trial, you are asked to measure the car’s overall performance at recognizing these signs.</p>
+<p>So is the dataframe test_signs, which holds a set of observations you’ll test your model on.</p>
+<pre class="r"><code>
+# Create a confusion matrix of the predicted versus actual values
+signs_actual &lt;- test$sign_type
+table(signs_actual, signs_pred)
+##             signs_pred
+## signs_actual pedestrian speed stop
+##   pedestrian         20     0    0
+##   speed               0    21    2
+##   stop                0     0   19
+
+# Compute the accuracy
+mean(signs_actual == signs_pred)
+## [1] 0.9677419</code></pre>
+<p>That self-driving car is really coming along! The confusion matrix lets you look for patterns in the classifier’s</p>
+</div>
+<div id="understanding-the-impact-of-k" class="section level2">
+<h2>1.5 - Understanding the impact of ‘k’</h2>
+<p>There is a complex relationship between k and classification accuracy. Bigger is not always better.</p>
+<p>Which of these is a valid reason for keeping k as small as possible (but no smaller)?</p>
+<p>A smaller k may utilize more subtle patterns.</p>
+</div>
+<div id="testing-other-k-values" class="section level2">
+<h2>1.6 - Testing other ‘k’ values</h2>
+<p>By default, the <code>knn()</code> function in the class package uses only the single nearest neighbor.</p>
+<p>Setting a k parameter allows the algorithm to consider additional nearby neighbors. This enlarges the collection of neighbors which will vote on the predicted class.</p>
+<p>Compare k values of 1, 7, and 15 to examine the impact on traffic sign classification accuracy.</p>
+<p>The class package is already loaded in your workspace along with the datasets signs, signs_test, and sign_types. The object signs_actual holds the true values of the signs.</p>
+<pre class="r"><code>
+# Compute the accuracy of the baseline model (default k = 1)
+k_1 &lt;- knn(train = train[-1], test = test[-1], cl = sign_types)
+mean(signs_actual == k_1)
+## [1] 0.9677419
+
+# Modify the above to set k = 7
+k_7 &lt;- knn(train = train[-1], test = test[-1], cl = sign_types, k = 7)
+mean(signs_actual == k_7)
+## [1] 0.9193548
+
+# Set k = 15 and compare to the above
+k_15 &lt;- knn(train = train[-1], test = test[-1], cl = sign_types, k = 15)
+mean(signs_actual == k_15)
+## [1] 0.9354839</code></pre>
+</div>
+<div id="seeing-how-the-neighbors-voted" class="section level2">
+<h2>1.7 - Seeing how the neighbors voted</h2>
+<p>When multiple nearest neighbors hold a vote, it can sometimes be useful to examine whether the voters were unanimous or widely separated.</p>
+<p>For example, knowing more about the voters’ confidence in the classification could allow an autonomous vehicle to use caution in the case there is any chance at all that a stop sign is ahead.</p>
+<p>In this exercise, you will learn how to obtain the voting results from the knn() function.</p>
+<pre class="r"><code>
+# Use the prob parameter to get the proportion of votes for the winning class
+sign_pred &lt;- knn(train = train[-1], test = test[-1], cl= sign_types, k = 7, prob = TRUE)
+
+# Get the &quot;prob&quot; attribute from the predicted classes
+sign_prob &lt;- attr(sign_pred, &quot;prob&quot;)
+
+# Examine the first several predictions
+head(sign_pred)
+## [1] pedestrian stop       pedestrian pedestrian speed      stop      
+## Levels: pedestrian speed stop
+
+# Examine the proportion of votes for the winning class
+head(sign_prob)
+## [1] 1.0000000 0.4285714 1.0000000 0.8571429 1.0000000 1.0000000</code></pre>
+<p>Wow! Awesome job! Now you can get an idea of how certain your kNN learner is about its classifications.</p>
+</div>
+<div id="why-normalize-data" class="section level2">
+<h2>1.8 - Why normalize data?</h2>
+<p>Before applying kNN to a classification task, it is common practice to rescale the data using a technique like min-max normalization. What is the purpose of this step?</p>
+<p>It is to ensure all data elements may contribute equal shares to distance. Rescaling reduces the influence of extreme values on kNN’s distance function.</p>
+</div>
+</div>
+
+                        </div>
+                        
+                        
+                        <div id="comments">
+                            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "andresalerno" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                        </div>
+                        
+
+                    </div>
+                    
+
+                    
+
+                    
+
+                    <div class="col-md-3">
+
+                        
+
+                        
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+      <h3 class="panel-title">Search</h3>
+    </div>
+
+    <div class="panel-body">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" role="search">
+            <div class="input-group">
+                <input type="search" name="q" class="form-control" placeholder="Search">
+                <input type="hidden" name="sitesearch" value="/">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-template-main"><i class="fas fa-search"></i></button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">Categories</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="nav nav-pills nav-stacked">
+            
+            
+            <li>
+                <a href="/categories/algorithm">algorithm (2)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/binary-search">binary-search (1)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/classification">classification (5)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/data-frame">data-frame (2)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/data-science">data-science (6)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/deploying-model">deploying-model (1)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/docker">docker (1)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/logistic-regression">logistic-regression (2)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/lorem">lorem (1)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/machine-learning">machine-learning (5)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/microsoft-azure">microsoft-azure (1)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/ml">ml (2)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/models">models (6)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/plumber">plumber (1)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/programming">programming (13)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/pseudo">pseudo (1)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/python">python (11)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/r">r (5)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/r-programming">r-programming (7)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/scikit-learn">scikit-learn (1)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/starting">starting (1)</a>
+            </li>
+            
+            <li>
+                <a href="/categories/tensorflow">tensorflow (2)</a>
+            </li>
+            
+        </ul>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="panel sidebar-menu">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">Tags</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="tag-cloud">
+            
+            
+            <li>
+                <a href="/tags/algorithm"><i class="fas fa-tags"></i> algorithm</a>
+            </li>
+            
+            <li>
+                <a href="/tags/api"><i class="fas fa-tags"></i> api</a>
+            </li>
+            
+            <li>
+                <a href="/tags/classification"><i class="fas fa-tags"></i> classification</a>
+            </li>
+            
+            <li>
+                <a href="/tags/data-frame"><i class="fas fa-tags"></i> data-frame</a>
+            </li>
+            
+            <li>
+                <a href="/tags/exponential-smoothing"><i class="fas fa-tags"></i> exponential-smoothing</a>
+            </li>
+            
+            <li>
+                <a href="/tags/game"><i class="fas fa-tags"></i> game</a>
+            </li>
+            
+            <li>
+                <a href="/tags/go"><i class="fas fa-tags"></i> go</a>
+            </li>
+            
+            <li>
+                <a href="/tags/golang"><i class="fas fa-tags"></i> golang</a>
+            </li>
+            
+            <li>
+                <a href="/tags/hugo"><i class="fas fa-tags"></i> hugo</a>
+            </li>
+            
+            <li>
+                <a href="/tags/ipsum"><i class="fas fa-tags"></i> ipsum</a>
+            </li>
+            
+            <li>
+                <a href="/tags/keras"><i class="fas fa-tags"></i> keras</a>
+            </li>
+            
+            <li>
+                <a href="/tags/knn"><i class="fas fa-tags"></i> knn</a>
+            </li>
+            
+            <li>
+                <a href="/tags/linear-regression"><i class="fas fa-tags"></i> linear-regression</a>
+            </li>
+            
+            <li>
+                <a href="/tags/logistic-regression"><i class="fas fa-tags"></i> logistic-regression</a>
+            </li>
+            
+            <li>
+                <a href="/tags/modeling"><i class="fas fa-tags"></i> modeling</a>
+            </li>
+            
+            <li>
+                <a href="/tags/models"><i class="fas fa-tags"></i> models</a>
+            </li>
+            
+            <li>
+                <a href="/tags/pca"><i class="fas fa-tags"></i> pca</a>
+            </li>
+            
+            <li>
+                <a href="/tags/plot"><i class="fas fa-tags"></i> plot</a>
+            </li>
+            
+            <li>
+                <a href="/tags/programming"><i class="fas fa-tags"></i> programming</a>
+            </li>
+            
+            <li>
+                <a href="/tags/python"><i class="fas fa-tags"></i> python</a>
+            </li>
+            
+            <li>
+                <a href="/tags/r-markdown"><i class="fas fa-tags"></i> r-markdown</a>
+            </li>
+            
+            <li>
+                <a href="/tags/r-programming"><i class="fas fa-tags"></i> r-programming</a>
+            </li>
+            
+            <li>
+                <a href="/tags/random-forest"><i class="fas fa-tags"></i> random-forest</a>
+            </li>
+            
+            <li>
+                <a href="/tags/regression"><i class="fas fa-tags"></i> regression</a>
+            </li>
+            
+            <li>
+                <a href="/tags/regression-tree"><i class="fas fa-tags"></i> regression-tree</a>
+            </li>
+            
+            <li>
+                <a href="/tags/statistic"><i class="fas fa-tags"></i> statistic</a>
+            </li>
+            
+            <li>
+                <a href="/tags/theme"><i class="fas fa-tags"></i> theme</a>
+            </li>
+            
+            <li>
+                <a href="/tags/web-service"><i class="fas fa-tags"></i> web-service</a>
+            </li>
+            
+        </ul>
+    </div>
+
+</div>
+
+
+
+
+
+
+                        
+
+                    </div>
+                    
+
+                    
+
+                </div>
+                
+
+            </div>
+            
+        </div>
+        
+
+        <footer id="footer">
+    <div class="container">
+
+        
+        <div class="col-md-4 col-sm-6">
+            <h4>About us</h4>
+
+            <p>A Data Fintech Solutions is a company that has in her DNA the use the most consistent tech and financial tools associated with the most recent tech solutions.</p>
+
+            <hr class="hidden-md hidden-lg hidden-sm">
+
+        </div>
+        
+        
+
+        <div class="col-md-4 col-sm-6">
+
+             
+            <h4>Recent posts</h4>
+
+            <div class="blog-entries">
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="/blog/2020/08/19/2020-08-19-supervised-learning-in-r-classification/">
+                          
+                            <img src="/img/banners/banner-5.png" class="img-responsive" alt="Supervised Learning in R: Classification">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="/blog/2020/08/19/2020-08-19-supervised-learning-in-r-classification/">Supervised Learning in R: Classification</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="/blog/2020/04/22/2020-04-22-deploying-r-model/">
+                          
+                            <img src="/img/banners/banner-5.png" class="img-responsive" alt="Deploying R Model as API Web Service using Docker and Microsoft Azure">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="/blog/2020/04/22/2020-04-22-deploying-r-model/">Deploying R Model as API Web Service using Docker and Microsoft Azure</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="/blog/2020/03/26/2020-03-26-credit-card-fraud-detection/">
+                          
+                            <img src="/img/banners/banner-5.png" class="img-responsive" alt="Credit Card Fraud Detection">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="/blog/2020/03/26/2020-03-26-credit-card-fraud-detection/">Credit Card Fraud Detection</a></h5>
+                    </div>
+                </div>
+                
+            </div>
+
+            <hr class="hidden-md hidden-lg">
+             
+
+        </div>
+        
+
+        
+        <div class="col-md-4 col-sm-6">
+
+          <h4>Contact</h4>
+
+            <p class="text-uppercase"><strong>Data Fintech Solutions</strong>
+        <br>
+        <br>São José dos Campos
+        <br>
+        <strong>Parayba Valley</strong>
+      </p>
+      
+
+            <a href="/contact" class="btn btn-small btn-template-main">Go to contact page</a>
+
+            <hr class="hidden-md hidden-lg hidden-sm">
+
+        </div>
+        
+        
+
+    </div>
+    
+</footer>
+
+
+
+
+
+
+
+<div id="copyright">
+    <div class="container">
+        <div class="col-md-12">
+            
+            <p class="pull-left">Copyright © 2019 - 2020 · Data Fintech Solutions - All Rights Reserved.</p>
+            
+            <p class="pull-right">
+              Template by <a href="https://bootstrapious.com/p/universal-business-e-commerce-template">Bootstrapious</a>.
+              
+
+              Ported to Hugo by <a href="https://github.com/devcows/hugo-universal-theme">DevCows</a>.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    </div>
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-154740345-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+<script src="//code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0/jquery.counterup.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax.js"></script>
+
+<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAIUDnabrE-98Y_3EWdNun6iNBED38BsV0&v=3.exp"></script>
+
+<script src="/js/hpneo.gmaps.js"></script>
+<script src="/js/gmaps.init.js"></script>
+<script src="/js/front.js"></script>
+
+
+<script src="/js/owl.carousel.min.js"></script>
+
+
+
+  </body>
+</html>

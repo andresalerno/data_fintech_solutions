@@ -367,13 +367,13 @@ signs_actual &lt;- test$sign_type
 table(signs_actual, signs_pred)
 ##             signs_pred
 ## signs_actual pedestrian speed stop
-##   pedestrian         20     0    0
-##   speed               0    21    2
-##   stop                0     0   19
+##   pedestrian         16     2    1
+##   speed               0    21    1
+##   stop                0     2   19
 
 # Compute the accuracy
 mean(signs_actual == signs_pred)
-## [1] 0.9677419</code></pre>
+## [1] 0.9032258</code></pre>
 <p>That self-driving car is really coming along! The confusion matrix lets you look for patterns in the classifier’s</p>
 </div>
 <div id="understanding-the-impact-of-k" class="section level2">
@@ -392,17 +392,17 @@ mean(signs_actual == signs_pred)
 # Compute the accuracy of the baseline model (default k = 1)
 k_1 &lt;- knn(train = train[-1], test = test[-1], cl = sign_types)
 mean(signs_actual == k_1)
-## [1] 0.9677419
+## [1] 0.9032258
 
 # Modify the above to set k = 7
 k_7 &lt;- knn(train = train[-1], test = test[-1], cl = sign_types, k = 7)
 mean(signs_actual == k_7)
-## [1] 0.9193548
+## [1] 0.9032258
 
 # Set k = 15 and compare to the above
 k_15 &lt;- knn(train = train[-1], test = test[-1], cl = sign_types, k = 15)
 mean(signs_actual == k_15)
-## [1] 0.9354839</code></pre>
+## [1] 0.8709677</code></pre>
 </div>
 <div id="seeing-how-the-neighbors-voted" class="section level2">
 <h2>1.7 - Seeing how the neighbors voted</h2>
@@ -418,12 +418,12 @@ sign_prob &lt;- attr(sign_pred, &quot;prob&quot;)
 
 # Examine the first several predictions
 head(sign_pred)
-## [1] pedestrian stop       pedestrian pedestrian speed      stop      
+## [1] pedestrian stop       pedestrian stop       speed      stop      
 ## Levels: pedestrian speed stop
 
 # Examine the proportion of votes for the winning class
 head(sign_prob)
-## [1] 1.0000000 0.4285714 1.0000000 0.8571429 1.0000000 1.0000000</code></pre>
+## [1] 0.7142857 1.0000000 0.8571429 1.0000000 0.8571429 1.0000000</code></pre>
 <p>Wow! Awesome job! Now you can get an idea of how certain your kNN learner is about its classifications.</p>
 </div>
 <div id="why-normalize-data" class="section level2">
@@ -517,7 +517,7 @@ head(sign_prob)
             </li>
             
             <li>
-                <a href="/categories/classification">classification (4)</a>
+                <a href="/categories/classification">classification (5)</a>
             </li>
             
             <li>
@@ -553,7 +553,7 @@ head(sign_prob)
             </li>
             
             <li>
-                <a href="/categories/ml">ml (1)</a>
+                <a href="/categories/ml">ml (2)</a>
             </li>
             
             <li>
@@ -581,7 +581,7 @@ head(sign_prob)
             </li>
             
             <li>
-                <a href="/categories/r-programming">r-programming (6)</a>
+                <a href="/categories/r-programming">r-programming (7)</a>
             </li>
             
             <li>
@@ -779,6 +779,19 @@ head(sign_prob)
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="/blog/2020/08/19/2020-08-19-supervised-learning-in-r-classification/">
+                          
+                            <img src="/img/banners/banner-5.png" class="img-responsive" alt="Supervised Learning in R: Classification">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="/blog/2020/08/19/2020-08-19-supervised-learning-in-r-classification/">Supervised Learning in R: Classification</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="/blog/2020/04/22/2020-04-22-deploying-r-model/">
                           
                             <img src="/img/banners/banner-5.png" class="img-responsive" alt="Deploying R Model as API Web Service using Docker and Microsoft Azure">
@@ -800,19 +813,6 @@ head(sign_prob)
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="/blog/2020/03/26/2020-03-26-credit-card-fraud-detection/">Credit Card Fraud Detection</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="/blog/2020/03/21/2020-03-21-intermediate-importing-data-in-python/">
-                          
-                            <img src="/img/banners/python.png" class="img-responsive" alt="Intermediate Importing Data in Python">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="/blog/2020/03/21/2020-03-21-intermediate-importing-data-in-python/">Intermediate Importing Data in Python</a></h5>
                     </div>
                 </div>
                 

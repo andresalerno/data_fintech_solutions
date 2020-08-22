@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/blog/</loc>
+    <lastmod>2020-08-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
     <lastmod>2020-08-19T00:00:00+00:00</lastmod>
   </url>
@@ -33,17 +38,17 @@
   </url>
   
   <url>
+    <loc>/blog/2020/08/19/2020-08-19-supervised-learning-in-r-classification/</loc>
+    <lastmod>2020-08-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/2020-08-19-supervised-learning-in-r-classification/</loc>
     <lastmod>2020-08-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/api/</loc>
-    <lastmod>2020-04-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/</loc>
     <lastmod>2020-04-22T00:00:00+00:00</lastmod>
   </url>
   
@@ -93,12 +98,12 @@
   </url>
   
   <url>
-    <loc>/tags/models/</loc>
+    <loc>/categories/models/</loc>
     <lastmod>2020-04-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/models/</loc>
+    <loc>/tags/models/</loc>
     <lastmod>2020-04-22T00:00:00+00:00</lastmod>
   </url>
   
@@ -328,12 +333,12 @@
   </url>
   
   <url>
-    <loc>/tags/data-frame/</loc>
+    <loc>/categories/data-frame/</loc>
     <lastmod>2019-12-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/data-frame/</loc>
+    <loc>/tags/data-frame/</loc>
     <lastmod>2019-12-18T00:00:00+00:00</lastmod>
   </url>
   

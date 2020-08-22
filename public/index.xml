@@ -13,6 +13,18 @@
     
     <item>
       <title>Supervised Learning in R: Classification</title>
+      <link>/blog/2020/08/19/2020-08-19-supervised-learning-in-r-classification/</link>
+      <pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2020/08/19/2020-08-19-supervised-learning-in-r-classification/</guid>
+      <description>Chapter 1 - k-Nearest Neighbors (kNN)1.1 - Recognizing a road sign with kNNAfter several trips with a human behind the wheel, it is time for the self-driving car to attempt the test course alone.
+As it begins to drive away, its camera captures the following image:
+Figure 1: A captionCan you apply a kNN classifier to help the car recognize this sign?
+The dataset signs must be loaded in your workspace along with the dataframe next_sign, which holds the observation you want to classify.</description>
+    </item>
+    
+    <item>
+      <title>Supervised Learning in R: Classification</title>
       <link>/post/2020-08-19-supervised-learning-in-r-classification/</link>
       <pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate>
       
