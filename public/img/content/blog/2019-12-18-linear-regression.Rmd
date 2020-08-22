@@ -1,0 +1,119 @@
+---
+title: "Linear Regression"
+author: "Salerno"
+date: '2019-12-18'
+slug: linear-regression
+tags: ["linear regression", "models"]
+categories: models
+draft: FALSE
+banner: img/banners/banner-5.png
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, warnings = FALSE, echo = TRUE)
+```
+
+## Data
+
+We are using the `MASS` library that contains the Boston dataset. These records measure the median house value for 506 neighborhoods around Boston.
+
+```{r}
+library(MASS)
+data <- MASS::Boston
+fix(Boston)
+names(Boston)
+
+```
+
+## A simple Linear Regression
+
+We are using the `lm()` function to fit a simple linear regression model. The `medv` is a response variable and `lstat` the predictor variable.
+
+The basic syntax is `lm(y~x, data)`.
+
+```{r}
+
+attach(Boston)
+lm.fit = lm(medv~lstat)
+
+lm.fit
+
+cor(lstat, medv)
+
+```
+
+## Summary Function
+
+This functio give us some insights about the dataset.
+
+
+```{r}
+summary(Boston)
+```
+
+This gives us p-values and standard errors for the coefficients, as well as the R2 statistic and F-statistic for the model.
+
+```{r}
+summary(lm.fit)
+```
+
+We can use the funcion `names()` to find out more details and information stored in the `lm.fit`
+
+```{r}
+names(lm.fit)
+
+lm.fit$coefficients
+
+coef(lm.fit)
+
+```
+
+## Confidence Intervals for Model Parameters
+
+Computes confidence intervals for one or more parameters in a fitted model. There is a default and a method for objects inheriting from class "lm".
+
+```{r}
+confint(lm.fit)
+```
+
+We can realize below that with 95% confidence interval associated with `lstat` value of 10 is respectively 24.47 and 25.63.
+
+```{r}
+predict (lm.fit, data.frame(lstat=(c(5 ,10 ,15))), interval ="confidence")
+```
+
+For the `prediction interval` with the same parameters describe above we have, respectively, 12.82 and 37.27.
+
+```{r}
+predict (lm.fit, data.frame(lstat=(c(5 ,10 ,15))), interval ="prediction")
+```
+
+```{r}
+plot(lstat, medv)
+abline(lm.fit)
+```
+
+```{r}
+plot(lstat ,medv ,col ="red ")
+plot(lstat ,medv ,pch =20)
+plot(lstat ,medv ,pch ="+")
+plot (1:20 ,1:20, pch =1:20)
+abline (lm.fit ,lwd =3)
+abline (lm.fit ,lwd =3, col ="red ")
+```
+
+```{r}
+par(mfrow =c(2,2))
+plot(lm.fit)
+```
+
+```{r}
+plot(predict (lm.fit), residuals (lm.fit))
+plot(predict (lm.fit), rstudent (lm.fit))
+```
+
+```{r}
+plot(hatvalues(lm.fit ))
+which.max (hatvalues(lm.fit))
+```
+

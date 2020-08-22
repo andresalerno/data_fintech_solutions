@@ -1,0 +1,207 @@
+---
+title: 'Supervised Learning in R: Classification'
+author: "Salerno"
+date: '2020-08-19'
+categories: ["R Programming", "Classification", "ML"]
+tags: []
+draft: FALSE
+banner: img/banners/banner-5.png
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, warnings = FALSE, echo = TRUE)
+```
+
+# Chapter 1 - k-Nearest Neighbors (kNN)
+
+## 1.1 - Recognizing a road sign with kNN
+
+After several trips with a human behind the wheel, it is time for the self-driving car to attempt the test course alone.
+
+As it begins to drive away, its camera captures the following image:
+
+```{r pressure, echo=FALSE, fig.cap="A caption", out.width = '100%'}
+knitr::include_graphics("/data_fintech_solutions/temp.png")
+```
+
+Can you apply a kNN classifier to help the car recognize this sign?
+
+The dataset `signs` must be loaded in your workspace along with the dataframe next_sign, which holds the observation you want to classify.
+
+
+```{r}
+
+library(class)
+
+signs <- read.csv(file = "/data_fintech_solutions/knn_traffic_signs.csv", header = TRUE, sep = ",")
+
+dim(signs)
+
+names(signs)
+
+```
+
+
+
+```{r}
+# get the number of observations
+n_obs <- nrow(signs)
+
+# Shuffle row indices: permuted_rows
+permuted_rows <- sample(n_obs)
+
+# Randomly order data: signs_shuffled
+signs_shuffled <- signs[permuted_rows, ]
+
+# Identify row to split on: split
+split <- round(n_obs * 0.7)
+
+# Create train
+train <- signs_shuffled[1:split, 3:51]
+
+# Create test
+test <- signs_shuffled[(split + 1):n_obs, 3:51]
+
+# Create a vector of labels
+sign_types <- signs_shuffled$sign_type[1:split]
+
+next_sign <- signs_shuffled[206, 3:51]
+
+```
+
+```{r}
+
+# Classify the next sign observed
+signs_pred <- knn(train = train[-1], test = test[-1], cl = sign_types)
+
+```
+
+You have just trained your first nearest neighbor classifier!
+
+## 1.2 - Thinking like kNN
+
+With your help, the test car successfully identified the sign and stopped safely at the intersection.
+
+How did the `knn()` function correctly classify the stop sign?
+
+It was happened because the sign was in some way similar to another stop sign. In fact, kNN learning anytyhing! It simply looks for the most similar example.
+
+## 1.3 - Exploring the traffic sign dataset
+
+To better understand how the `knn()` function was able to classify the stop sign, it may help to examine the training dataset it used.
+
+Each previously observed street sign was divided into a 4x4 grid, and the red, green, and blue level for each of the 16 center pixels is recorded as illustrated here.
+
+```{r pressure1, echo=FALSE, fig.cap="A caption", out.width = '100%'}
+knitr::include_graphics("/data_fintech_solutions/temp_1.png")
+```
+
+The result is a dataset that records the sign_type as well as 16 x 3 = 48 color properties of each sign.
+
+```{r}
+# Examine the structure of the signs dataset
+str(signs)
+
+# Count the number of signs of each type
+table(signs$sign_type)
+
+# Check r10's average red level by sign type
+aggregate(r10 ~ sign_type, data = signs, mean)
+```
+
+As you might have expected, stop signs tend to have a higher average red value. This is how kNN identifies similar signs.
+
+## 1.4 - Classifying a collection of road signs
+
+Now that the autonomous vehicle has successfully stopped on its own, your team feels confident allowing the car to continue the test course.
+
+The test course includes 59 additional road signs divided into three types:
+
+```{r pressure2, echo=FALSE, fig.cap="A caption", out.width = '100%'}
+knitr::include_graphics("/data_fintech_solutions/temp_2.png")
+knitr::include_graphics("/data_fintech_solutions/temp_3.png")
+knitr::include_graphics("/data_fintech_solutions/temp_4.png")
+```
+
+At the conclusion of the trial, you are asked to measure the car's overall performance at recognizing these signs.
+
+So is the dataframe test_signs, which holds a set of observations you'll test your model on.
+
+```{r}
+
+# Create a confusion matrix of the predicted versus actual values
+signs_actual <- test$sign_type
+table(signs_actual, signs_pred)
+
+# Compute the accuracy
+mean(signs_actual == signs_pred)
+
+```
+
+That self-driving car is really coming along! The confusion matrix lets you look for patterns in the classifier's
+
+## 1.5 - Understanding the impact of 'k'
+
+There is a complex relationship between k and classification accuracy. Bigger is not always better.
+
+Which of these is a valid reason for keeping k as small as possible (but no smaller)?
+
+A smaller k may utilize more subtle patterns.
+
+
+## 1.6 - Testing other 'k' values
+
+By default, the `knn()` function in the class package uses only the single nearest neighbor.
+
+Setting a k parameter allows the algorithm to consider additional nearby neighbors. This enlarges the collection of neighbors which will vote on the predicted class.
+
+Compare k values of 1, 7, and 15 to examine the impact on traffic sign classification accuracy.
+
+The class package is already loaded in your workspace along with the datasets signs, signs_test, and sign_types. The object signs_actual holds the true values of the signs.
+
+```{r}
+
+# Compute the accuracy of the baseline model (default k = 1)
+k_1 <- knn(train = train[-1], test = test[-1], cl = sign_types)
+mean(signs_actual == k_1)
+
+# Modify the above to set k = 7
+k_7 <- knn(train = train[-1], test = test[-1], cl = sign_types, k = 7)
+mean(signs_actual == k_7)
+
+# Set k = 15 and compare to the above
+k_15 <- knn(train = train[-1], test = test[-1], cl = sign_types, k = 15)
+mean(signs_actual == k_15)
+```
+
+## 1.7 - Seeing how the neighbors voted
+
+When multiple nearest neighbors hold a vote, it can sometimes be useful to examine whether the voters were unanimous or widely separated.
+
+For example, knowing more about the voters' confidence in the classification could allow an autonomous vehicle to use caution in the case there is any chance at all that a stop sign is ahead.
+
+In this exercise, you will learn how to obtain the voting results from the knn() function.
+
+```{r}
+
+# Use the prob parameter to get the proportion of votes for the winning class
+sign_pred <- knn(train = train[-1], test = test[-1], cl= sign_types, k = 7, prob = TRUE)
+
+# Get the "prob" attribute from the predicted classes
+sign_prob <- attr(sign_pred, "prob")
+
+# Examine the first several predictions
+head(sign_pred)
+
+# Examine the proportion of votes for the winning class
+head(sign_prob)
+
+```
+
+Wow! Awesome job! Now you can get an idea of how certain your kNN learner is about its classifications.
+
+## 1.8 - Why normalize data?
+
+Before applying kNN to a classification task, it is common practice to rescale the data using a technique like min-max normalization. What is the purpose of this step?
+
+It is to ensure all data elements may contribute equal shares to distance. Rescaling reduces the influence of extreme values on kNN's distance function.

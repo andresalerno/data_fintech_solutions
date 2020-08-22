@@ -1,0 +1,268 @@
+---
+title: Credit Card Fraud Detection
+author: Bruno Ferrari
+date: '2020-03-26'
+categories:
+  - Classification
+  - Data Science
+  - Machine Learning
+  - models
+  - R
+  - R Programming
+  - TensorFlow
+tags:
+  - classification
+  - Keras
+  - Modeling
+  - PCA
+  - R Markdown
+  - R Programming
+  - Statistic
+slug: credit-card-fraud-detection
+banner: img/banners/banner-5.png
+---
+
+## Objective
+Our goal is to train a Neural Network to detect fraudulent credit card transactions in a dataset referring to two days transactions by european cardholders.
+
+Source: https://www.kaggle.com/mlg-ulb/creditcardfraud/data
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(collapse = TRUE, warnings = FALSE, echo = TRUE)
+path = "C:/Users/Bruno Ferrari/Documents/Bruno/Estagio/Creditcard_Frad/creditcard.csv"
+
+```
+
+## Data
+
+```{r leitutra}
+credit = read.csv(path)
+```
+
+The datasets contains transactions made by credit cards in September 2013 by european cardholders.
+This dataset presents transactions that occurred in two days. 
+
+As we can see, this dataset consists of thirty explanatory variables, and a response variable which represents whether a transation was a fraud or not. Due to confidentiality issues it contains only numerical input variables which are the result of a PCA transformation, the only variables which have not been transformed with PCA are 'Time' and 'Amount' (this time variable is not relevant for us, because is only a marker the transations that happened first).
+
+```{r}
+str(credit)
+```
+
+
+Other aspect of this dataset is that it has a highly unbalanced classes, the positive class (frauds) account for 0.172% of all transactions.
+
+```{r plot classes, echo=FALSE}
+x = barplot(table(credit$Class), names = c("Not Fraud", "Fraud"))
+text(x, 0, round(table(credit$Class), 2),cex=1,pos=3) 
+```
+
+Exploiting the fact of what PCA has already been applied to data, we can makes some visual inspect of the data. If we remember the characteristics PCA technique, we have the fact which the firsts components can be used to summarize of the dataset.
+
+```{r plot_pca12, echo=FALSE}
+par(mfrow = c(1,1))
+plot(credit[, c(2,3)], type = "n", main = "Both Cases")
+points(credit[which(credit$Class == 0), c(2,3)], col = "blue", pch = 20, cex = 0.5)
+points(credit[which(credit$Class == 1), c(2,3)], col = "red", pch = 1)
+
+
+par(mfrow = c(1,2))
+
+plot(credit[, c(2,3)], type = "n", main = "Fraud Cases")
+#points(credit[which(credit$Class == 0), c(2,4)], col = "blue", pch = 20, cex = 0.5)
+points(credit[which(credit$Class == 1), c(2,3)], col = "red", pch = 1)
+
+plot(credit[, c(2,3)], type = "n", main = "Not Fraud Cases")
+points(credit[which(credit$Class == 0), c(2,3)], col = "blue", pch = 20)
+#points(credit[which(credit$Class == 1), c(2,4)], col = "red", pch = 1)
+```
+
+```{r plot_pca13, echo=FALSE}
+par(mfrow = c(1,1))
+plot(credit[, c(2,4)], type = "n", main = "Both Cases")
+points(credit[which(credit$Class == 0), c(2,4)], col = "blue", pch = 20, cex = 0.5)
+points(credit[which(credit$Class == 1), c(2,4)], col = "red", pch = 1)
+
+
+par(mfrow = c(1,2))
+
+plot(credit[, c(2,4)], type = "n", main = "Fraud Cases")
+#points(credit[which(credit$Class == 0), c(2,4)], col = "blue", pch = 20, cex = 0.5)
+points(credit[which(credit$Class == 1), c(2,4)], col = "red", pch = 1)
+
+plot(credit[, c(2,4)], type = "n", main = "Not Fraud Cases")
+points(credit[which(credit$Class == 0), c(2,4)], col = "blue", pch = 20)
+#points(credit[which(credit$Class == 1), c(2,4)], col = "red", pch = 1)
+```
+
+```{r plot_pca23, echo=FALSE}
+par(mfrow = c(1,1))
+plot(credit[, c(3,4)], type = "n", main = "Both Cases")
+points(credit[which(credit$Class == 0), c(3,4)], col = "blue", pch = 20, cex = 0.5)
+points(credit[which(credit$Class == 1), c(3,4)], col = "red", pch = 1)
+
+
+par(mfrow = c(1,2))
+
+plot(credit[, c(3,4)], type = "n", main = "Fraud Cases")
+#points(credit[which(credit$Class == 0), c(2,4)], col = "blue", pch = 20, cex = 0.5)
+points(credit[which(credit$Class == 1), c(3,4)], col = "red", pch = 1)
+
+plot(credit[, c(3,4)], type = "n", main = "Not Fraud Cases")
+points(credit[which(credit$Class == 0), c(3,4)], col = "blue", pch = 20)
+#points(credit[which(credit$Class == 1), c(2,4)], col = "red", pch = 1)
+```
+
+Although we don't have the original data, it is possible to know how much of the data is explained by these components. This amount is around a 28.84% as we see blow.
+```{r pca_pct}
+credit_2 = credit[, -c(1,30,31)]
+pca_credit = prcomp(credit_2)
+summary(pca_credit)
+```
+
+
+  
+```{r eval=FALSE, include=FALSE}
+par(mfrow = c(1,1))
+plot(pca_credit$x[, c(1,2)], type = "n", main = "Both Cases")
+points(pca_credit$x[which(credit$Class == 0), c(1,2)], col = "blue", pch = 20, cex = 0.5)
+points(pca_credit$x[which(credit$Class == 1), c(1,2)], col = "red", pch = 1)
+
+
+par(mfrow = c(1,2))
+
+plot(pca_credit$x[, c(1,2)], type = "n", main = "Fraud Cases")
+#points(pca_credit[which(credit$Class == 0), c(2,4)], col = "blue", pch = 20, cex = 0.5)
+points(pca_credit$x[which(credit$Class == 1), c(1,2)], col = "red", pch = 1)
+
+plot(pca_credit$x[, c(1,2)], type = "n", main = "Not Fraud Cases")
+points(pca_credit$x[which(credit$Class == 0), c(1,2)], col = "blue", pch = 20)
+#points(pca_credit[which(credit$Class == 1), c(2,4)], col = "red", pch = 1)
+```
+```{r eval=FALSE, include=FALSE}
+par(mfrow = c(1,1))
+plot(pca_credit$x[, c(1,3)], type = "n", main = "Both Cases")
+points(pca_credit$x[which(credit$Class == 0), c(1,3)], col = "blue", pch = 20, cex = 0.5)
+points(pca_credit$x[which(credit$Class == 1), c(1,3)], col = "red", pch = 1)
+
+
+par(mfrow = c(1,2))
+
+plot(pca_credit$x[, c(1,3)], type = "n", main = "Fraud Cases")
+#points(pca_credit[which(credit$Class == 0), c(2,4)], col = "blue", pch = 20, cex = 0.5)
+points(pca_credit$x[which(credit$Class == 1), c(1,3)], col = "red", pch = 1)
+
+plot(pca_credit$x[, c(1,3)], type = "n", main = "Not Fraud Cases")
+points(pca_credit$x[which(credit$Class == 0), c(1,3)], col = "blue", pch = 20)
+#points(pca_credit[which(credit$Class == 1), c(2,4)], col = "red", pch = 1)
+```
+
+```{r eval=FALSE, include=FALSE}
+par(mfrow = c(1,1))
+plot(pca_credit$x[, c(2,3)], type = "n", main = "Both Cases")
+points(pca_credit$x[which(credit$Class == 0), c(2,3)], col = "blue", pch = 20, cex = 0.5)
+points(pca_credit$x[which(credit$Class == 1), c(2,3)], col = "red", pch = 1)
+
+
+par(mfrow = c(1,2))
+
+plot(pca_credit$x[, c(2,3)], type = "n", main = "Fraud Cases")
+#points(pca_credit[which(credit$Class == 0), c(2,4)], col = "blue", pch = 20, cex = 0.5)
+points(pca_credit$x[which(credit$Class == 1), c(2,3)], col = "red", pch = 1)
+
+plot(pca_credit$x[, c(2,3)], type = "n", main = "Not Fraud Cases")
+points(pca_credit$x[which(credit$Class == 0), c(2,3)], col = "blue", pch = 20)
+#points(pca_credit[which(credit$Class == 1), c(2,4)], col = "red", pch = 1)
+```
+Here we can see how the fraudulent transactions and the not fraudulent in general is quite similar. In the plot is actually true which there are some red cases which separate of the blues one but considering how unbalanced is the data, this can be not representative. This makes our job harder because is not clear what characteristics makes a fraudulent transactions.
+
+## Model Fitting
+
+As discussed above, we have two main caracteristics of the data:
+
+**1** High unbalanced classes
+
+**2** Homogeneity our not cleary separations of the classes at least in low dimensions.
+
+So, because of that, we going to use a Neural Network to indentify fraud transactions. Neural Networks have huge capacities in sense to adapt well in many raw data and therefore not need (in general) does data transformations. This is important because we do not have access to original data.
+
+Packages used in this job.
+```{r message=FALSE, warning=FALSE}
+library("caTools")
+library("caret")
+library("keras")
+library("ROCR")
+```
+
+Continuing, let splitting the dataset into train and test. We also going to drop-off the time features of the dataset.
+```{r}
+credit = credit[, -c(1)]
+
+set.seed(42)
+
+split = sample.split(credit$Class, SplitRatio = 0.75)
+train = subset(credit, split==TRUE)
+test = subset(credit, split==FALSE)
+```
+
+Using the **keras** package we create our Neural Network with 29 input layer (dimension of the dataset), one hidden layer with 32 neurons and 1 neuron on output layer.
+```{r define network}
+model <- keras_model_sequential(name = "credit_NN") 
+model %>% 
+  layer_dense(units = 32, activation = 'relu', input_shape = 29, kernel_initializer = 'uniform', name = "NN_IN") %>%
+  layer_dense(units = 1 , activation = 'sigmoid', kernel_initializer = 'uniform', name = "NN_OUT")
+model
+```
+
+Compile the Network, and choose the accuracy metric for evaluation.
+```{r create network}
+model %>% compile(
+  loss = 'binary_crossentropy',
+  optimizer = "adam",
+  metrics = c('accuracy')
+)
+```
+
+Fitting the Network with the data.
+```{r fitting network}
+history <- model %>% fit(
+  x = as.matrix(train[, -c(30)]), y = train[, c(30)], 
+  epochs = 30, batch_size = 128, 
+  validation_split = 0.2
+)
+
+plot(history)
+```
+
+## Results
+For evaluate how good our network are, we going to set a dummy model which predict that all results is the main class (0 - Not Fraud). As we see below, the accuracy of this model is around of 99.83%, so is desirable our Neural Network has better results.
+```{r dummy model, warning=FALSE}
+y_dummy = replicate(nrow(credit), 0)
+
+confusionMatrix(data = as.factor(y_dummy), reference = as.factor(credit$Class), positive = "1", mode = "prec_recall")
+```
+
+Here we can see the results of our model, which has a 99,94% of accuracy, slightly above of the dummy model but other statics are also important, such as a Recall rate which measures how well the model can correctly forecast the fraud class, which is our main objective. Considering again how unballanced are the class, we have here a good rate high than 70%
+
+```{r confusion matrix of the model}
+y_pred = model %>% predict_classes(as.matrix(test[,-c(30)]))
+confusionMatrix(as.factor(y_pred), as.factor(test$Class), mode = "prec_recall", positive = "1")
+```
+
+Other metric which measures how well is the model is the AUC (Area under the Curve) of ROC (Receiver Operating Characteristic) Curve. 0.7 to 0.8 is considered acceptable, 0.8 to 0.9 is considered excellent, and more than 0.9 is considered outstanding. The ROC curve show the tradeoff between the True Positive Rate and the False Positive Rate.
+
+```{r auc roc}
+y_pred2 = model %>% predict_proba(as.matrix(test[,-c(30)]))
+ROCRpred = prediction(y_pred2, test$Class)
+ROCRperf = performance(ROCRpred, "tpr", "fpr")
+auc_ROCR = performance(ROCRpred, measure = "auc")
+auc_ROCR = auc_ROCR@y.values[[1]]
+plot(ROCRperf, colorize=TRUE)
+legend(0.8, 0.2, legend=c("AUC Area:", round(auc_ROCR, 2)), cex=0.8)
+abline(a = 0, b = 1)
+```
+
+
+## Conclusions
+
+We can observe that Neural Networks are powerful structures. Although the highly unbalanced classes, no tunning of the model hyperparameters, and any data manipulations, The generated model shows good results identifying the fraud transactions of the dataset.

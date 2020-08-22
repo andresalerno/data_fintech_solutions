@@ -1,0 +1,177 @@
+---
+title: "Correlation and Regression"
+author: "Salerno"
+date: '2020-01-19'
+slug: correlation-and-regression
+tags: ["Statistic", "Modeling", "KNN"]
+categories: R Programming
+draft: FALSE
+banner: img/banners/banner-5.png
+---
+
+
+
+<pre class="r"><code>
+path &lt;- &quot;C:/Users/andre/OneDrive/Área de Trabalho/salerno/blogdown/datasets/ncbirths&quot;
+
+path &lt;- paste0(path, &quot;/ncbirths.csv&quot;)
+
+data &lt;- read.csv(path, stringsAsFactors = FALSE)</code></pre>
+<pre class="r"><code>dim(data)
+## [1] 1450   15</code></pre>
+<pre class="r"><code>
+names(data)
+##  [1] &quot;ID&quot;            &quot;Plural&quot;        &quot;Sex&quot;           &quot;MomAge&quot;       
+##  [5] &quot;Weeks&quot;         &quot;Marital&quot;       &quot;RaceMom&quot;       &quot;HispMom&quot;      
+##  [9] &quot;Gained&quot;        &quot;Smoke&quot;         &quot;BirthWeightOz&quot; &quot;BirthWeightGm&quot;
+## [13] &quot;Low&quot;           &quot;Premie&quot;        &quot;MomRace&quot;</code></pre>
+<pre class="r"><code>
+library(ggplot2)
+
+ggplot(data = data, aes(y = BirthWeightOz, x = Weeks)) +
+geom_point()
+## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
+<p><img src="/blog/2020-01-19-correlation-and-regression_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code># Boxplot of weight vs. weeks
+ggplot(data = data, 
+       aes(x = cut(Weeks, breaks = 5), y = BirthWeightOz)) + 
+  geom_boxplot()</code></pre>
+<p><img src="/blog/2020-01-19-correlation-and-regression_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<pre class="r"><code>
+library(tidyverse)
+## computing correlation
+
+data %&gt;%
+  summarize(N = n(), r = cor(BirthWeightOz, MomAge))
+##      N         r
+## 1 1450 0.1461145
+
+# Compute correlation for all non-missing pairs
+data %&gt;%
+  summarize(N = n(), r = cor(BirthWeightOz, MomAge, use = &quot;pairwise.complete.obs&quot;))
+##      N         r
+## 1 1450 0.1461145</code></pre>
+<pre class="r"><code>library(openintro)
+## Please visit openintro.org for free statistics materials
+## 
+## Attaching package: &#39;openintro&#39;
+## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     diamonds
+## The following objects are masked from &#39;package:datasets&#39;:
+## 
+##     cars, trees
+
+ggplot(data = mammals, aes(y = BrainWt, x = BodyWt)) +
+    geom_point()</code></pre>
+<p><img src="/blog/2020-01-19-correlation-and-regression_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<pre class="r"><code>
+# Scatterplot with coord_trans()
+ggplot(data = mammals, aes(y = BrainWt, x = BodyWt)) +
+  geom_point() + 
+  coord_trans(x = &quot;log10&quot;, y = &quot;log10&quot;)</code></pre>
+<p><img src="/blog/2020-01-19-correlation-and-regression_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
+<pre class="r"><code>
+# Scatterplot with scale_x_log10() and scale_y_log10()
+ggplot(data = mammals, aes(x = BodyWt, y = BrainWt)) +
+  geom_point() +
+  scale_x_log10() + 
+  scale_y_log10()</code></pre>
+<p><img src="/blog/2020-01-19-correlation-and-regression_files/figure-html/unnamed-chunk-7-3.png" width="672" /></p>
+<pre class="r"><code>
+# Correlation among mammals, with and without log
+mammals %&gt;%
+  summarize(N = n(), 
+            r = cor(BodyWt, BrainWt), 
+            r_log = cor(log(BodyWt), log(BrainWt)))
+##    N         r     r_log
+## 1 62 0.9341638 0.9595748</code></pre>
+<pre class="r"><code>library(tidyverse)
+ggplot(data = mlbBat10, aes(y = SLG, x = OBP)) +
+    geom_point()</code></pre>
+<p><img src="/blog/2020-01-19-correlation-and-regression_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<pre class="r"><code>
+# identifying outliers
+# Filter for AB greater than or equal to 200
+ab_gt_200 &lt;- mlbBat10 %&gt;%
+  filter(AB &gt;= 200) 
+
+# Scatterplot of SLG vs. OBP
+ggplot(ab_gt_200, aes(x = OBP, y = SLG)) +
+  geom_point()</code></pre>
+<p><img src="/blog/2020-01-19-correlation-and-regression_files/figure-html/unnamed-chunk-9-2.png" width="672" /></p>
+<pre class="r"><code>
+# Identify the outlying player
+ab_gt_200 %&gt;%
+  filter(OBP &lt; 0.2)
+##     name team position  G  AB  R  H 2B 3B HR RBI TB BB SO SB CS   OBP   SLG
+## 1 B Wood  LAA       3B 81 226 20 33  2  0  4  14 47  6 71  1  0 0.174 0.208
+##     AVG
+## 1 0.146</code></pre>
+<pre class="r"><code>
+
+# Correlation for all baseball players
+mlbBat10 %&gt;%
+  summarize(N = n(), r = cor(OBP, SLG))
+##      N         r
+## 1 1199 0.8145628</code></pre>
+<pre class="r"><code>
+# Run this and look at the plot
+mlbBat10 %&gt;% 
+    filter(AB &gt; 200) %&gt;%
+    ggplot(aes(x = OBP, y = SLG)) + 
+    geom_point()</code></pre>
+<p><img src="/blog/2020-01-19-correlation-and-regression_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<pre class="r"><code>
+# Correlation for all players with at least 200 ABs
+mlbBat10 %&gt;%
+  filter(AB &gt;= 200) %&gt;%
+  summarize(N = n(), r = cor(OBP, SLG))
+##     N         r
+## 1 329 0.6855364</code></pre>
+<pre class="r"><code>
+# Run this and look at the plot
+ggplot(data = bdims, aes(x = hgt, y = wgt, color = factor(sex))) +
+  geom_point() </code></pre>
+<p><img src="/blog/2020-01-19-correlation-and-regression_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<pre class="r"><code>
+# Correlation of body dimensions
+bdims %&gt;%
+  group_by(sex) %&gt;%
+  summarize(N = n(), r = cor(hgt, wgt))
+## # A tibble: 2 x 3
+##     sex     N     r
+##   &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
+## 1     0   260 0.431
+## 2     1   247 0.535</code></pre>
+<pre class="r"><code>
+ggplot(data = smoking, aes(y = amtWeekdays, x = age)) +
+      geom_point()
+## Warning: Removed 1270 rows containing missing values (geom_point).</code></pre>
+<p><img src="/blog/2020-01-19-correlation-and-regression_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<pre class="r"><code>
+path1 &lt;- &quot;C:/Users/andre/OneDrive/Área de Trabalho/salerno/blogdown/datasets/anscombe&quot;
+
+path1 &lt;- paste0(path1, &quot;/anscombe.csv&quot;)
+
+anscombe &lt;- read.csv(path1, stringsAsFactors = FALSE, sep = &quot;;&quot;)
+
+
+# Compute properties of Anscombe
+anscombe %&gt;%
+  group_by(set) %&gt;%
+  summarize(
+    N = n(), 
+    mean_of_x = mean(x), 
+    std_dev_of_x = sd(x), 
+    mean_of_y = mean(y), 
+    std_dev_of_y = sd(y), 
+    correlation_between_x_and_y = cor(x, y)
+  )
+## # A tibble: 4 x 7
+##     set     N mean_of_x std_dev_of_x mean_of_y std_dev_of_y correlation_between…
+##   &lt;int&gt; &lt;int&gt;     &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;                &lt;dbl&gt;
+## 1     1    11         9         3.32      7.50         2.03                0.816
+## 2     2    11         9         3.32      7.50         2.03                0.816
+## 3     3    11         9         3.32      7.5          2.03                0.816
+## 4     4    11         9         3.32      7.50         2.03                0.817</code></pre>

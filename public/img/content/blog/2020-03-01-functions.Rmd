@@ -1,0 +1,276 @@
+---
+title: "Functions"
+author: "Salerno"
+date: "2020-02-29"
+categories: ["Python"]
+tags: ["Game", "Programming", "Algorithm"]
+draft: FALSE
+banner: img/banners/python.png
+---
+
+```{r setup, include=FALSE}
+library(reticulate)
+
+path <- file.path(Sys.which("python"))
+
+use_python(python = path)
+
+```
+
+## 1. Defining functions
+
+```{python}
+
+def square(number):
+  print("The square of", number, "is", number ** 2)
+
+square(7)
+
+```
+
+## 2. Functions with multiple parameters
+
+```{python}
+
+def maximum(value1, value2, value3):
+  max_value = value1
+  if value2 > max_value:
+    max_value = value2
+  if value3 > max_value:
+    max_value = value3
+  return max_value
+
+
+maximum(12, 27, 36)
+
+maximum('yellow', 'red', 'orange')
+```
+
+## 3. Random-Number Generation
+
+```{python}
+
+
+import random
+
+random.seed(10)
+
+for roll in range(10):
+  print(random.randrange(1,7), end=" ")
+
+```
+
+```{python}
+
+import random
+
+for i in range(20):
+  print("H" if random.randrange(2) == 0 else "T", end=" ")
+
+```
+
+## 4. Unpacking tuples
+
+```{python}
+
+student = ("Sue", [89, 94, 85])
+
+name, grades = student
+
+print(f'{name}: {grades}')
+
+```
+
+## 5. Math Module Functions
+
+```{python}
+
+import math
+
+math.ceil(9.2)
+
+math.floor(9.2)
+
+math.exp(9.2)
+
+math.log(9.2)
+
+math.log10(9.2)
+
+math.pow(3, 2)
+
+math.sqrt(49)
+
+math.fabs(-10)
+
+math.fmod(9.8, 4.0)
+
+```
+
+## 6. Default Parameter Values
+
+```{python}
+
+def rectangle_area(length=2, width=3):
+  return length * width
+  
+rectangle_area()
+
+rectangle_area(10)
+
+rectangle_area(10, 5)
+
+```
+
+## 7. Arbitrary Argument Lists
+
+```{python}
+
+def average(*args):
+  return sum(args) / len(args)
+  
+average(5, 10)
+
+average(5, 10, 15)
+
+average(5, 10, 15, 20)
+
+grades = [88, 75, 96, 55, 83]
+
+average(*grades)
+
+```
+
+## 8. Methods: Functions that belong to objects
+
+```{python}
+
+s = "Hello"
+
+s.lower()
+
+s.upper()
+
+s
+
+
+```
+
+## 9. Scope rules
+
+```{python}
+
+#acessing a global variable from a function
+
+x = 7
+
+def access_global():
+  print('x printed from access_global:', x)
+
+access_global()
+
+```
+
+```{python}
+
+# trying to modify a global variable
+
+def try_to_modify_global():
+  x = 3.5
+  print('x printed from try_to_modify_global:', x)
+
+try_to_modify_global()
+x
+
+```
+
+```{python}
+
+def modify_global():
+  global x
+  x = 'hello'
+  print('x printed from modify_global:', x)
+
+modify_global()
+x
+
+```
+
+## 10. Import
+
+```{python}
+
+from math import ceil, floor
+
+ceil(10.7)
+
+floor(10.7)
+
+```
+
+```{python}
+# wildcards
+
+from math import *
+
+e
+```
+
+## 11. Binding names for modules and module identifiers
+
+```{python}
+
+import statistics as stats
+
+grades = [85, 93, 45, 87, 93]
+
+stats.mean(grades)
+
+```
+
+## 12. Object Identities
+
+```{python}
+
+id(grades)
+
+```
+
+## 13. Data Science: Measures of Dispersion
+
+```{python}
+
+import math, statistics
+
+y = [-2.5, -0.5, -1.5, 2.5, 1.5, -0.5, 0.5, 1.5, -1.5]
+
+statistics.pvariance(y)
+
+statistics.pstdev(y)
+
+math.sqrt(statistics.pvariance(y))
+
+```
+
+## 14. Example
+
+```{python}
+
+from sklearn import datasets
+import pandas as pd
+
+iris = datasets.load_iris()
+data_iris = iris.data
+
+digits = datasets.load_digits()
+data_digits = digits.data
+
+type(iris)
+type(data_iris)
+
+type(digits)
+type(data_digits)
+
+
+```
+

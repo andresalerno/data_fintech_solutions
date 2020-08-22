@@ -1,0 +1,29 @@
+---
+title: "Iterables versus Iterators"
+author: "Salerno"
+date: "2020-03-09"
+categories: ["Python", "Programming"]
+tags: []
+draft: FALSE
+banner: img/banners/python.png
+---
+
+```{r setup, include=FALSE}
+library(reticulate)
+
+path <- file.path(Sys.which("python"))
+
+use_python(python = path)
+
+```
+
+### 1. Defining a list
+
+```{python}
+
+flash1 = ['jay garrick', 'barry allen', 'wally west', 'bart allen']
+
+a = 1
+
+```
+

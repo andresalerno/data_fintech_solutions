@@ -1,0 +1,306 @@
+---
+title: German Credit and Regression Tree
+author: Bruno Ferrari
+date: '2020-02-06'
+slug: german-credit-and-regression-tree
+categories:
+  - Classification
+tags:
+  - regression tree
+  - PCA
+  - classification
+---
+
+
+
+<div id="objetive" class="section level2">
+<h2>Objetive</h2>
+<p>Train a model and use to make predictions for German Credit dataset</p>
+</div>
+<div id="data" class="section level2">
+<h2>Data</h2>
+<pre class="r"><code>german = read.csv(path)</code></pre>
+<pre class="r"><code>str(german)
+## &#39;data.frame&#39;:    1000 obs. of  21 variables:
+##  $ default                   : int  0 1 0 0 1 0 0 0 0 1 ...
+##  $ account_check_status      : Factor w/ 4 levels &quot;&lt; 0 DM&quot;,&quot;&gt;= 200 DM / salary assignments for at least 1 year&quot;,..: 1 3 4 1 1 4 4 3 4 3 ...
+##  $ duration_in_month         : int  6 48 12 42 24 36 24 36 12 30 ...
+##  $ credit_history            : Factor w/ 5 levels &quot;all credits at this bank paid back duly&quot;,..: 2 4 2 4 3 4 4 4 4 2 ...
+##  $ purpose                   : Factor w/ 10 levels &quot;(vacation - does not exist?)&quot;,..: 5 5 1 8 3 1 8 4 5 3 ...
+##  $ credit_amount             : int  1169 5951 2096 7882 4870 9055 2835 6948 3059 5234 ...
+##  $ savings                   : Factor w/ 5 levels &quot;.. &gt;= 1000 DM &quot;,..: 5 2 2 2 2 5 4 2 1 2 ...
+##  $ present_emp_since         : Factor w/ 5 levels &quot;.. &gt;= 7 years&quot;,..: 1 3 4 4 3 3 1 3 4 5 ...
+##  $ installment_as_income_perc: int  4 2 2 2 3 2 3 2 2 4 ...
+##  $ personal_status_sex       : Factor w/ 4 levels &quot;female : divorced/separated/married&quot;,..: 4 1 4 4 4 4 4 4 2 3 ...
+##  $ other_debtors             : Factor w/ 3 levels &quot;co-applicant&quot;,..: 3 3 3 2 3 3 3 3 3 3 ...
+##  $ present_res_since         : int  4 2 3 4 4 4 4 2 4 2 ...
+##  $ property                  : Factor w/ 4 levels &quot;if not A121 : building society savings agreement/ life insurance&quot;,..: 3 3 3 1 4 4 1 2 3 2 ...
+##  $ age                       : int  67 22 49 45 53 35 53 35 61 28 ...
+##  $ other_installment_plans   : Factor w/ 3 levels &quot;bank&quot;,&quot;none&quot;,..: 2 2 2 2 2 2 2 2 2 2 ...
+##  $ housing                   : Factor w/ 3 levels &quot;for free&quot;,&quot;own&quot;,..: 2 2 2 1 1 1 2 3 2 2 ...
+##  $ credits_this_bank         : int  2 1 1 1 2 1 1 1 1 2 ...
+##  $ job                       : Factor w/ 4 levels &quot;management/ self-employed/ highly qualified employee/ officer&quot;,..: 2 2 4 2 2 4 2 1 4 1 ...
+##  $ people_under_maintenance  : int  1 1 2 2 2 2 1 1 1 1 ...
+##  $ telephone                 : Factor w/ 2 levels &quot;none&quot;,&quot;yes, registered under the customers name &quot;: 2 1 1 1 1 2 1 2 1 1 ...
+##  $ foreign_worker            : Factor w/ 2 levels &quot;no&quot;,&quot;yes&quot;: 2 2 2 2 2 2 2 2 2 2 ...</code></pre>
+<p>As we can see, the dataset consists of twenty variables and a thousand observation, which of 30% went into default.</p>
+</div>
+<div id="model-fitting" class="section level2">
+<h2>Model Fitting</h2>
+<p>The model that we will use in this work will be a Regression Tree. This model will provide us some benefits, the main ones being:</p>
+<p><strong>1</strong> - We will not need to assume any hypothesis about the data, which is good due to the amount of variables.</p>
+<p><strong>2</strong> - We also will not need to pre-process the data, we can use the raw data to fit the model.</p>
+<p>Loading the required packages</p>
+<pre class="r"><code>library(&quot;rpart&quot;)
+library(&quot;rpart.plot&quot;)
+library(&quot;caTools&quot;)
+library(&quot;caret&quot;)</code></pre>
+<p>Spliting the dataset into train and test.</p>
+<pre class="r"><code>split = sample.split(german$default, SplitRatio = 0.75)
+train = subset(german, split==TRUE)
+test = subset(german, split==FALSE)</code></pre>
+<p>Fitting the Regression Tree</p>
+<pre class="r"><code>tree = rpart(default ~ account_check_status + duration_in_month + credit_history +
+        purpose + credit_amount + savings + present_emp_since + 
+        installment_as_income_perc + personal_status_sex + other_debtors + present_res_since +
+        property + age + other_installment_plans + housing +
+        credits_this_bank + job + people_under_maintenance + telephone + foreign_worker, data = train, method = &quot;class&quot;)</code></pre>
+<p>Generated Tree</p>
+<pre class="r"><code>prp(tree)</code></pre>
+<p><img src="/post/2020-02-06-german-credit-and-regression-tree_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<pre class="r"><code>tree
+## n= 750 
+## 
+## node), split, n, loss, yval, (yprob)
+##       * denotes terminal node
+## 
+##     1) root 750 225 0 (0.70000000 0.30000000)  
+##       2) account_check_status=&gt;= 200 DM / salary assignments for at least 1 year,no checking account 341  47 0 (0.86217009 0.13782991)  
+##         4) purpose=car (used),domestic appliances,furniture/equipment,radio/television,repairs,retraining 205  15 0 (0.92682927 0.07317073) *
+##         5) purpose=(vacation - does not exist?),business,car (new),education 136  32 0 (0.76470588 0.23529412)  
+##          10) other_installment_plans=none 108  16 0 (0.85185185 0.14814815) *
+##          11) other_installment_plans=bank,stores 28  12 1 (0.42857143 0.57142857)  
+##            22) duration_in_month&lt; 15 8   2 0 (0.75000000 0.25000000) *
+##            23) duration_in_month&gt;=15 20   6 1 (0.30000000 0.70000000) *
+##       3) account_check_status=&lt; 0 DM,0 &lt;= ... &lt; 200 DM 409 178 0 (0.56479218 0.43520782)  
+##         6) duration_in_month&lt; 31.5 331 124 0 (0.62537764 0.37462236)  
+##          12) credit_history=critical account/ other credits existing (not at this bank),delay in paying off in the past,existing credits paid back duly till now 294  99 0 (0.66326531 0.33673469)  
+##            24) duration_in_month&lt; 11.5 63  10 0 (0.84126984 0.15873016) *
+##            25) duration_in_month&gt;=11.5 231  89 0 (0.61471861 0.38528139)  
+##              50) purpose=business,car (used) 40   6 0 (0.85000000 0.15000000) *
+##              51) purpose=(vacation - does not exist?),car (new),domestic appliances,education,furniture/equipment,radio/television,repairs,retraining 191  83 0 (0.56544503 0.43455497)  
+##               102) other_installment_plans=none 159  63 0 (0.60377358 0.39622642)  
+##                 204) other_debtors=guarantor 10   0 0 (1.00000000 0.00000000) *
+##                 205) other_debtors=co-applicant,none 149  63 0 (0.57718121 0.42281879)  
+##                   410) savings=.. &gt;= 1000 DM ,500 &lt;= ... &lt; 1000 DM  12   1 0 (0.91666667 0.08333333) *
+##                   411) savings=... &lt; 100 DM,100 &lt;= ... &lt; 500 DM,unknown/ no savings account 137  62 0 (0.54744526 0.45255474)  
+##                     822) credit_history=critical account/ other credits existing (not at this bank),delay in paying off in the past 46  14 0 (0.69565217 0.30434783) *
+##                     823) credit_history=existing credits paid back duly till now 91  43 1 (0.47252747 0.52747253)  
+##                      1646) credit_amount&gt;=1047.5 78  37 0 (0.52564103 0.47435897)  
+##                        3292) age&gt;=25.5 50  20 0 (0.60000000 0.40000000)  
+##                          6584) age&lt; 30.5 20   2 0 (0.90000000 0.10000000) *
+##                          6585) age&gt;=30.5 30  12 1 (0.40000000 0.60000000)  
+##                           13170) age&gt;=33.5 22  10 0 (0.54545455 0.45454545)  
+##                             26340) property=if not A121/A122 : car or other, not in attribute 6,real estate 12   3 0 (0.75000000 0.25000000) *
+##                             26341) property=if not A121 : building society savings agreement/ life insurance,unknown / no property 10   3 1 (0.30000000 0.70000000) *
+##                           13171) age&lt; 33.5 8   0 1 (0.00000000 1.00000000) *
+##                        3293) age&lt; 25.5 28  11 1 (0.39285714 0.60714286)  
+##                          6586) personal_status_sex=male : divorced/separated,male : single 7   2 0 (0.71428571 0.28571429) *
+##                          6587) personal_status_sex=female : divorced/separated/married,male : married/widowed 21   6 1 (0.28571429 0.71428571) *
+##                      1647) credit_amount&lt; 1047.5 13   2 1 (0.15384615 0.84615385) *
+##               103) other_installment_plans=bank,stores 32  12 1 (0.37500000 0.62500000)  
+##                 206) credit_amount&gt;=2309.5 13   5 0 (0.61538462 0.38461538) *
+##                 207) credit_amount&lt; 2309.5 19   4 1 (0.21052632 0.78947368) *
+##          13) credit_history=all credits at this bank paid back duly,no credits taken/ all credits paid back duly 37  12 1 (0.32432432 0.67567568)  
+##            26) property=if not A121/A122 : car or other, not in attribute 6,real estate 18   7 0 (0.61111111 0.38888889) *
+##            27) property=if not A121 : building society savings agreement/ life insurance,unknown / no property 19   1 1 (0.05263158 0.94736842) *
+##         7) duration_in_month&gt;=31.5 78  24 1 (0.30769231 0.69230769)  
+##          14) present_emp_since=4 &lt;= ... &lt; 7 years,unemployed 27  12 0 (0.55555556 0.44444444)  
+##            28) purpose=(vacation - does not exist?),business,education,furniture/equipment,radio/television 11   1 0 (0.90909091 0.09090909) *
+##            29) purpose=car (new),car (used),domestic appliances 16   5 1 (0.31250000 0.68750000) *
+##          15) present_emp_since=.. &gt;= 7 years,... &lt; 1 year ,1 &lt;= ... &lt; 4 years 51   9 1 (0.17647059 0.82352941) *</code></pre>
+<p>Confusion Matrix for train set.</p>
+<pre class="r"><code>fit = predict(tree, type = &quot;class&quot;)
+confusionMatrix(fit, as.factor(train$default))
+## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction   0   1
+##          0 489  84
+##          1  36 141
+##                                           
+##                Accuracy : 0.84            
+##                  95% CI : (0.8118, 0.8655)
+##     No Information Rate : 0.7             
+##     P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
+##                                           
+##                   Kappa : 0.5943          
+##                                           
+##  Mcnemar&#39;s Test P-Value : 1.783e-05       
+##                                           
+##             Sensitivity : 0.9314          
+##             Specificity : 0.6267          
+##          Pos Pred Value : 0.8534          
+##          Neg Pred Value : 0.7966          
+##              Prevalence : 0.7000          
+##          Detection Rate : 0.6520          
+##    Detection Prevalence : 0.7640          
+##       Balanced Accuracy : 0.7790          
+##                                           
+##        &#39;Positive&#39; Class : 0               
+## </code></pre>
+<p>Confusion Matrix for test set.</p>
+<pre class="r"><code>fit_test = predict(tree, type = &quot;class&quot;, newdata = test[,-1])
+confusionMatrix(fit_test, as.factor(test$default))
+## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction   0   1
+##          0 150  45
+##          1  25  30
+##                                           
+##                Accuracy : 0.72            
+##                  95% CI : (0.6599, 0.7747)
+##     No Information Rate : 0.7             
+##     P-Value [Acc &gt; NIR] : 0.26919         
+##                                           
+##                   Kappa : 0.2784          
+##                                           
+##  Mcnemar&#39;s Test P-Value : 0.02315         
+##                                           
+##             Sensitivity : 0.8571          
+##             Specificity : 0.4000          
+##          Pos Pred Value : 0.7692          
+##          Neg Pred Value : 0.5455          
+##              Prevalence : 0.7000          
+##          Detection Rate : 0.6000          
+##    Detection Prevalence : 0.7800          
+##       Balanced Accuracy : 0.6286          
+##                                           
+##        &#39;Positive&#39; Class : 0               
+## </code></pre>
+<p>We can see that the accuracy of train set is a bit far from the test set. This is not a favorable scenario for the model, as it indicates a possible overfitted model, but as long as the model baseline (percentage of the greater class) is 70% of accurate, this regression tree is much better than the baseline model.</p>
+<p>We could tune the model making some adjustment on the hyperparameters, like give a extra cost for example to False Positve cases.</p>
+<p>False Positive, means they won’t pay the loan (default = 1), but the model thinks they will. (predicted = 0)</p>
+<p>False Negative, means they will pay the loan (default = 0), but the model said they won’t. (predicted = 1)</p>
+<p>Generally, the False Positive error in this case is worse, so lets make some example with a cost on that error.</p>
+<pre class="r"><code>cost_matrix = matrix(c(0,2,1,0), nrow=2, ncol = 2)
+cost_matrix
+##      [,1] [,2]
+## [1,]    0    1
+## [2,]    2    0</code></pre>
+<pre class="r"><code>tree_p = rpart(default ~ account_check_status + duration_in_month + credit_history +
+        purpose + credit_amount + savings + present_emp_since + 
+        installment_as_income_perc + personal_status_sex + other_debtors + present_res_since +
+        property + age + other_installment_plans + housing +
+        credits_this_bank + job + people_under_maintenance + telephone + foreign_worker, data = train, method = &quot;class&quot;, 
+        parms =  list(loss = cost_matrix))</code></pre>
+<pre class="r"><code>fit = predict(tree_p, type = &quot;class&quot;)
+confusionMatrix(fit, as.factor(train$default))
+## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction   0   1
+##          0 372  37
+##          1 153 188
+##                                           
+##                Accuracy : 0.7467          
+##                  95% CI : (0.7139, 0.7774)
+##     No Information Rate : 0.7             
+##     P-Value [Acc &gt; NIR] : 0.002656        
+##                                           
+##                   Kappa : 0.4743          
+##                                           
+##  Mcnemar&#39;s Test P-Value : &lt; 2.2e-16       
+##                                           
+##             Sensitivity : 0.7086          
+##             Specificity : 0.8356          
+##          Pos Pred Value : 0.9095          
+##          Neg Pred Value : 0.5513          
+##              Prevalence : 0.7000          
+##          Detection Rate : 0.4960          
+##    Detection Prevalence : 0.5453          
+##       Balanced Accuracy : 0.7721          
+##                                           
+##        &#39;Positive&#39; Class : 0               
+## </code></pre>
+<p>In other hand, we could remove some varibles, e.g. telephone, or reduce dimensionality of the problem, like applying a PCA. In the case o PCA, besides being a simple technique, could provide us more information of the data.</p>
+<p>Lets try it.</p>
+</div>
+<div id="pca" class="section level2">
+<h2>PCA</h2>
+<p>To apply the PCA decomposition, we need to pre process the data, and convert categorical values into numerical values. To help us, we going to create some “dummy varibles”.</p>
+<p>Extract the default column.</p>
+<pre class="r"><code>data_risk = german$default
+data = german[, -1]</code></pre>
+<p>Organizing dataset.</p>
+<pre class="r"><code>data = cbind(data[, c(2,5,13)], data[ , -c(2,5,13)])</code></pre>
+<p>Creating dummy variables</p>
+<pre class="r"><code>library(&quot;fastDummies&quot;)
+## Warning: package &#39;fastDummies&#39; was built under R version 3.6.2
+results &lt;- dummy_columns(data, names(data[, -1:-3]))
+data_dummy = results[ , -4:-20]</code></pre>
+<p>Applying PCA</p>
+<pre class="r"><code>pca = prcomp(data_dummy)
+summary(pca)
+## Importance of components:
+##                         PC1      PC2     PC3    PC4    PC5    PC6    PC7
+## Standard deviation     2823 11.43840 9.34055 0.8376 0.7257 0.7115 0.6631
+## Proportion of Variance    1  0.00002 0.00001 0.0000 0.0000 0.0000 0.0000
+## Cumulative Proportion     1  0.99999 1.00000 1.0000 1.0000 1.0000 1.0000
+##                           PC8    PC9   PC10   PC11   PC12   PC13   PC14
+## Standard deviation     0.6386 0.5949 0.5791 0.5582 0.5459 0.5368 0.5344
+## Proportion of Variance 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000
+## Cumulative Proportion  1.0000 1.0000 1.0000 1.0000 1.0000 1.0000 1.0000
+##                          PC15   PC16   PC17   PC18   PC19   PC20  PC21
+## Standard deviation     0.5036 0.4883 0.4837 0.4622 0.4603 0.4456 0.432
+## Proportion of Variance 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.000
+## Cumulative Proportion  1.0000 1.0000 1.0000 1.0000 1.0000 1.0000 1.000
+##                          PC22   PC23  PC24   PC25   PC26   PC27   PC28
+## Standard deviation     0.4234 0.4191 0.406 0.3923 0.3865 0.3691 0.3557
+## Proportion of Variance 0.0000 0.0000 0.000 0.0000 0.0000 0.0000 0.0000
+## Cumulative Proportion  1.0000 1.0000 1.000 1.0000 1.0000 1.0000 1.0000
+##                          PC29  PC30  PC31   PC32   PC33   PC34   PC35
+## Standard deviation     0.3509 0.346 0.337 0.3338 0.3229 0.3188 0.2882
+## Proportion of Variance 0.0000 0.000 0.000 0.0000 0.0000 0.0000 0.0000
+## Cumulative Proportion  1.0000 1.000 1.000 1.0000 1.0000 1.0000 1.0000
+##                          PC36   PC37   PC38   PC39   PC40   PC41   PC42
+## Standard deviation     0.2755 0.2666 0.2566 0.2486 0.2389 0.2351 0.2288
+## Proportion of Variance 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000
+## Cumulative Proportion  1.0000 1.0000 1.0000 1.0000 1.0000 1.0000 1.0000
+##                          PC43   PC44   PC45  PC46   PC47   PC48   PC49
+## Standard deviation     0.2248 0.2213 0.2073 0.193 0.1868 0.1762 0.1558
+## Proportion of Variance 0.0000 0.0000 0.0000 0.000 0.0000 0.0000 0.0000
+## Cumulative Proportion  1.0000 1.0000 1.0000 1.000 1.0000 1.0000 1.0000
+##                          PC50   PC51   PC52    PC53    PC54      PC55
+## Standard deviation     0.1365 0.1176 0.1029 0.09388 0.08596 1.254e-12
+## Proportion of Variance 0.0000 0.0000 0.0000 0.00000 0.00000 0.000e+00
+## Cumulative Proportion  1.0000 1.0000 1.0000 1.00000 1.00000 1.000e+00
+##                             PC56      PC57      PC58      PC59      PC60
+## Standard deviation     2.202e-13 2.202e-13 2.202e-13 2.202e-13 2.202e-13
+## Proportion of Variance 0.000e+00 0.000e+00 0.000e+00 0.000e+00 0.000e+00
+## Cumulative Proportion  1.000e+00 1.000e+00 1.000e+00 1.000e+00 1.000e+00
+##                             PC61      PC62      PC63      PC64      PC65
+## Standard deviation     2.202e-13 2.202e-13 2.202e-13 2.202e-13 2.202e-13
+## Proportion of Variance 0.000e+00 0.000e+00 0.000e+00 0.000e+00 0.000e+00
+## Cumulative Proportion  1.000e+00 1.000e+00 1.000e+00 1.000e+00 1.000e+00
+##                             PC66      PC67      PC68      PC69      PC70
+## Standard deviation     2.202e-13 2.202e-13 2.202e-13 2.202e-13 2.202e-13
+## Proportion of Variance 0.000e+00 0.000e+00 0.000e+00 0.000e+00 0.000e+00
+## Cumulative Proportion  1.000e+00 1.000e+00 1.000e+00 1.000e+00 1.000e+00
+##                             PC71
+## Standard deviation     2.202e-13
+## Proportion of Variance 0.000e+00
+## Cumulative Proportion  1.000e+00</code></pre>
+<p>We won’t go into to details of PCA technique, but the import thing to us have in mind is the fact of that the data can be represented by the first components. In this case, the <strong>Cumulative Proportion</strong> on PC2 is higher than 99%, i.e., more than 99% is explained with the first 2 components.</p>
+<p>Plotting this two components:</p>
+<pre class="r"><code>plot(pca$x[, c(1,2)])
+points(pca$x[which(data_risk == 1), c(1,2)], col = &quot;red&quot;, pch =20)
+points(pca$x[which(data_risk == 0), c(1,2)], col = &quot;blue&quot;, pch =5)</code></pre>
+<p><img src="/post/2020-02-06-german-credit-and-regression-tree_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p>As we can see above, there isn’t a clear division between the class, which indicate that accuracy of Regression Tree is pretty reasonable.</p>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>Although the small numbers of observations, and the absence of a clearer division on the dataset classes, a simple Regression Tree (in sense of the generated tree model) proved capable to tackle the problem of making predictions on German Credit dataset.</p>
+</div>

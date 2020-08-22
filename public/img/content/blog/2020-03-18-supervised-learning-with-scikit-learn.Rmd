@@ -1,0 +1,181 @@
+---
+title: "Supervised Learning with Scikit-Learn"
+author: "Salerno"
+date: "2020-03-18"
+categories: ["Python", "Data Science", "Programming", "Machine Learning"]
+tags: []
+draft: FALSE
+banner: img/banners/python.png
+---
+
+```{r setup, include=FALSE}
+library(reticulate)
+
+path <- file.path(Sys.which("python"))
+
+use_python(python = path)
+
+```
+
+## 1. The Iris dataset in scikit-learn
+
+```{python}
+
+from sklearn import datasets
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+plt.style.use('ggplot')
+iris = datasets.load_iris()
+type(iris)
+
+```
+
+```{python}
+
+print(iris.keys())
+print(iris.DESCR)
+
+
+```
+
+```{python}
+
+type(iris.data), type(iris.target)
+
+```
+
+```{python}
+
+iris.data.shape
+
+```
+
+```{python}
+
+iris.target_names
+
+```
+
+## 2. Exploratory data analysis (EDA)
+
+```{python}
+
+X = iris.data
+y = iris.target
+df = pd.DataFrame(X, columns=iris.feature_names)
+print(df.head())
+
+```
+
+## 3. Visual EDA
+
+```{python}
+
+_ = pd.plotting.scatter_matrix(df, c = y, figsize = [8, 8],
+s=150, marker = 'D')
+plt.savefig('./_bookdown_files/_main_files/figure-html/iris.png')
+plt.show()
+
+```
+
+## 4. Using scikit-learn to fit a classifier
+
+```{python}
+
+from sklearn.neighbors import KNeighborsClassifier
+
+knn = KNeighborsClassifier(n_neighbors=6)
+
+X = iris['data']
+y = iris['target']
+
+# Fit the classifier to the data
+knn.fit(X, y)
+
+X.shape
+y.shape
+
+```
+
+## 5. Predicting on unlabeled data
+
+```{python}
+
+# Predict the labels for the training data X
+y_pred = knn.predict(X)
+
+print("Prediction: {}".format(y_pred))
+
+```
+
+## 6. Train/Test split
+
+```{python}
+
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=21, stratify=y)
+knn = KNeighborsClassifier(n_neighbors=8)
+knn.fit(X_train, y_train)
+y_pred = knn.predict(X_test)
+print("Test set predictions:\n", "{}".format(y_pred))
+
+```
+
+```{python}
+
+knn.score(X_test, y_test)
+
+```
+
+## 7. Overfitting and underfitting
+
+
+```{r, echo=FALSE}
+
+#library(png)
+
+#path1 <- list.dirs('C:/blogdown/content/blog/_bookdown_files/_main_files/figure-html')
+
+#png::readPNG(path1, native = TRUE, info = TRUE)
+
+```
+
+
+
+```{python}
+
+# Setup arrays to store train and test accuracies
+neighbors = np.arange(1, 9)
+train_accuracy = np.empty(len(neighbors))
+test_accuracy = np.empty(len(neighbors))
+
+# Loop over different values of k
+for i, k in enumerate(neighbors):
+    # Setup a k-NN Classifier with k neighbors: knn
+    knn = KNeighborsClassifier(n_neighbors=k)
+
+    # Fit the classifier to the training data
+    knn.fit(X_train, y_train)
+    
+    #Compute accuracy on the training set
+    train_accuracy[i] = knn.score(X_train, y_train)
+
+    #Compute accuracy on the testing set
+    test_accuracy[i] = knn.score(X_test, y_test)
+
+# Generate plot
+plt.title('k-NN: Varying Number of Neighbors')
+plt.plot(neighbors, test_accuracy, label = 'Testing Accuracy')
+plt.plot(neighbors, train_accuracy, label = 'Training Accuracy')
+plt.legend()
+plt.xlabel('Number of Neighbors')
+plt.ylabel('Accuracy')
+plt.savefig('./_bookdown_files/_main_files/figure-html/knn.png')
+plt.show()
+
+
+```
+

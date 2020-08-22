@@ -1,0 +1,106 @@
+---
+title: "Python Data Science - part 1"
+author: "Salerno"
+date: "2020-03-15"
+categories: ["Python", "Data Science", "Programming"]
+tags: []
+draft: FALSE
+banner: img/banners/python.png
+---
+
+
+
+<div id="single-parameter-function" class="section level2">
+<h2>1. Single Parameter Function</h2>
+<pre class="python"><code>
+# Define shout with the parameter, word
+def shout(word):
+    &quot;&quot;&quot;Print a string with three exclamation marks&quot;&quot;&quot;
+    # Concatenate the strings: shout_word
+    shout_word = word + &#39;!!!&#39;
+
+    # Print shout_word
+    print(shout_word)
+
+# Call shout with the string &#39;congratulations&#39;
+shout(&quot;Congratulations&quot;)
+</code></pre>
+<pre><code>## Congratulations!!!</code></pre>
+</div>
+<div id="functions-that-return-single-values" class="section level2">
+<h2>2. Functions that return single values</h2>
+<pre class="python"><code>
+# Define shout with the parameter, word
+def shout(word):
+    &quot;&quot;&quot;Return a string with three exclamation marks&quot;&quot;&quot;
+    # Concatenate the strings: shout_word
+    shout_word = word + &quot;!!!&quot;
+
+    # Replace print with return
+    return(shout_word)
+
+# Pass &#39;congratulations&#39; to shout: yell
+yell = shout(&quot;Congratulations&quot;)
+
+# Print yell
+print(yell)
+</code></pre>
+<pre><code>## Congratulations!!!</code></pre>
+</div>
+<div id="functions-with-multiple-parameters-1" class="section level2">
+<h2>3. Functions with multiple parameters 1</h2>
+<pre class="python"><code>
+# Define shout with parameters word1 and word2
+def shout(word1, word2):
+    &quot;&quot;&quot;Concatenate strings with three exclamation marks&quot;&quot;&quot;
+    # Concatenate word1 with &#39;!!!&#39;: shout1
+    shout1 = word1 + &quot;!!!&quot;
+    
+    # Concatenate word2 with &#39;!!!&#39;: shout2
+    shout2 = word2 + &quot;!!!&quot;
+    
+    # Concatenate shout1 with shout2: new_shout
+    new_shout = shout1 + shout2
+
+    # Return new_shout
+    return new_shout
+
+# Pass &#39;congratulations&#39; and &#39;you&#39; to shout(): yell
+yell = shout(&quot;Congratulations&quot;, &quot; You&quot;)
+
+# Print yell
+print(yell)
+</code></pre>
+<pre><code>## Congratulations!!! You!!!</code></pre>
+</div>
+<div id="functions-with-multiple-parameters-2" class="section level2">
+<h2>4. Functions with multiple parameters 2</h2>
+<pre class="python"><code>
+# Define shout_all with parameters word1 and word2
+def shout_all(word1, word2):
+    
+    # Concatenate word1 with &#39;!!!&#39;: shout1
+    shout1 = word1 + &quot;!!!&quot;
+    
+    # Concatenate word2 with &#39;!!!&#39;: shout2
+    shout2 = word2 + &quot;!!!&quot;
+    
+    # Construct a tuple with shout1 and shout2: shout_words
+    shout_words = (shout1, shout2)
+
+    # Return shout_words
+    return shout_words
+
+# Pass &#39;congratulations&#39; and &#39;you&#39; to shout_all(): yell1, yell2
+yell1, yell2 = shout_all(&quot;Congratulations&quot;, &quot;You&quot;)
+
+# Print yell1 and yell2
+print(yell1)</code></pre>
+<pre><code>## Congratulations!!!</code></pre>
+<pre class="python"><code>print(yell2)
+</code></pre>
+<pre><code>## You!!!</code></pre>
+<pre class="python"><code>
+# Import pandas
+import pandas as pd</code></pre>
+</div>

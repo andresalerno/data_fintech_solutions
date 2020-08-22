@@ -1,0 +1,81 @@
+---
+title: "Data Frame"
+author: "Salerno"
+date: '2019-12-18'
+slug: Data Frame
+tags: ["data frame", "R Programming"]
+categories: data frame
+draft: FALSE
+banner: img/banners/banner-5.png
+---
+
+
+
+<div id="data-frame" class="section level1">
+<h1>Data Frame</h1>
+<p>This format is usually used when the information is not contained in just one dimension (vector)</p>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<pre class="r"><code>product &lt;- c(&quot;Product A&quot;, &quot;Product B&quot;, &quot;Product C&quot;, &quot;Product D&quot;, &quot;Product E&quot;)
+
+price &lt;- c(5, 15, 4, 6, 8)
+
+table_price_product &lt;- data.frame(product, price)
+
+table_price_product</code></pre>
+<pre><code>##     product price
+## 1 Product A     5
+## 2 Product B    15
+## 3 Product C     4
+## 4 Product D     6
+## 5 Product E     8</code></pre>
+</div>
+<div id="indexing" class="section level2">
+<h2>Indexing</h2>
+<p>Access the D Product in the Products Table:</p>
+<pre class="r"><code>table_price_product[4,2]</code></pre>
+<pre><code>## [1] 6</code></pre>
+<p>Acces the Products D and E:</p>
+<pre class="r"><code>table_price_product[4:5,2]</code></pre>
+<pre><code>## [1] 6 8</code></pre>
+<p>Acces a specific column in a data frame:</p>
+<pre class="r"><code>table_price_product$product</code></pre>
+<pre><code>## [1] Product A Product B Product C Product D Product E
+## Levels: Product A Product B Product C Product D Product E</code></pre>
+<pre class="r"><code>table_price_product[,&quot;product&quot;]</code></pre>
+<pre><code>## [1] Product A Product B Product C Product D Product E
+## Levels: Product A Product B Product C Product D Product E</code></pre>
+<p>Creating a new column:</p>
+<pre class="r"><code>table_price_product$quantity &lt;- c(50, 100, 120, 150, 200)
+table_price_product</code></pre>
+<pre><code>##     product price quantity
+## 1 Product A     5       50
+## 2 Product B    15      100
+## 3 Product C     4      120
+## 4 Product D     6      150
+## 5 Product E     8      200</code></pre>
+<p>Or as weel you can use this format:</p>
+<pre class="r"><code>table_price_product[, &quot;costs&quot;] &lt;- c(2, 12, 3, 5, 6)</code></pre>
+<p>Knowing the column’s names:</p>
+<pre class="r"><code>names(table_price_product)</code></pre>
+<pre><code>## [1] &quot;product&quot;  &quot;price&quot;    &quot;quantity&quot; &quot;costs&quot;</code></pre>
+<p>Data Frame summary:</p>
+<pre class="r"><code>summary(table_price_product)</code></pre>
+<pre><code>##       product      price         quantity       costs     
+##  Product A:1   Min.   : 4.0   Min.   : 50   Min.   : 2.0  
+##  Product B:1   1st Qu.: 5.0   1st Qu.:100   1st Qu.: 3.0  
+##  Product C:1   Median : 6.0   Median :120   Median : 5.0  
+##  Product D:1   Mean   : 7.6   Mean   :124   Mean   : 5.6  
+##  Product E:1   3rd Qu.: 8.0   3rd Qu.:150   3rd Qu.: 6.0  
+##                Max.   :15.0   Max.   :200   Max.   :12.0</code></pre>
+<p>Number os rows:</p>
+<pre class="r"><code>nrow(table_price_product)</code></pre>
+<pre><code>## [1] 5</code></pre>
+<p>Number os columns:</p>
+<pre class="r"><code>ncol(table_price_product)</code></pre>
+<pre><code>## [1] 4</code></pre>
+<p>Dimension’s table:</p>
+<pre class="r"><code>dim(table_price_product)</code></pre>
+<pre><code>## [1] 5 4</code></pre>
+</div>
+</div>

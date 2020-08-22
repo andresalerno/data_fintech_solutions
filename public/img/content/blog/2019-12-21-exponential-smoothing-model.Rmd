@@ -1,0 +1,70 @@
+---
+title: "Exponential Smoothing Model"
+author: "Salerno"
+date: '2019-12-18'
+slug: exponential-smoothing-model
+tags: ["exponential smoothing", "models"]
+categories: models
+draft: FALSE
+banner: img/banners/banner-5.png
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, warnings = FALSE, echo = TRUE)
+```
+
+## Introduction
+
+The main idea here is breaking the ice in terms of exponential smoothing models
+
+First of all it is importan to show some behaviours patterns usually found in time series
+
+1) Trends: it is usually observed when the time series follow one specific direction. It can be linear or not.
+
+2) Seasonality: it is a pattern that repeat in a certain times (specific period)
+
+3) Cycle: Like seasonality but it appears in non specific time
+
+```{r}
+library(fpp)
+
+data(elecequip)
+
+plot(elecequip, xlab = "Time", ylab = "New Orders Index")
+
+```
+
+```{r}
+decomp <- decompose(elecequip, type = "additive")
+plot(decomp)
+```
+
+```{r}
+seasonality_adjust <- elecequip - decomp$seasonal
+plot(seasonality_adjust)
+```
+
+```{r}
+library(mFilter)
+
+hpfilter(elecequip, type = "lambda")
+par(mfrow= c(2,1))
+plot(elecequip, xlab = "Time", ylab = "New Orders Index")
+lines(hpfilter(elecequip, type = "lambda")$trend, col = "red", lwd = 2)
+legend(1996, 200, c("Original Serie", "Trend - HP Filter"), col = c("black", "red"), lwd = c(1,2), bty = "n")
+plot(hpfilter(elecequip, type = "lambda")$cycle,  xlab = "Time", ylab = "New Orders Index")
+
+```
+
+```{r}
+data("cafe")
+
+hpfilter(cafe, type = "lambda")
+par(mfrow= c(2,1))
+plot(cafe, xlab = "Time", ylab = "Expenditures Quarters")
+lines(hpfilter(cafe, type = "lambda")$trend, col = "red", lwd = 2)
+legend(1985, 8000, c("Original Serie", "Trend - HP Filter"), col = c("black", "red"), lwd = c(1,2), bty = "n")
+plot(hpfilter(cafe, type = "lambda")$cycle,  xlab = "Time", ylab = "Cycle Component")
+
+```
+
