@@ -22,6 +22,8 @@ After several trips with a human behind the wheel, it is time for the self-drivi
 
 As it begins to drive away, its camera captures the following image:
 
+![](/data_fintech_solutions/public/img/banners/temp.png)
+
 ```{r pressure, echo=FALSE, fig.cap="A caption", out.width = '100%'}
 knitr::include_graphics("/data_fintech_solutions/public/img/banners/temp.png")
 ```
