@@ -12,6 +12,8 @@ banner: img/banners/banner-5.png
 knitr::opts_chunk$set(collapse = TRUE, warnings = FALSE, echo = TRUE)
 ```
 
+Source: this material was obtained by DataCamp.
+
 # Chapter 1 - k-Nearest Neighbors (kNN)
 
 ## 1.1 - Recognizing a road sign with kNN
@@ -21,7 +23,7 @@ After several trips with a human behind the wheel, it is time for the self-drivi
 As it begins to drive away, its camera captures the following image:
 
 ```{r pressure, echo=FALSE, fig.cap="A caption", out.width = '100%'}
-knitr::include_graphics("/data_fintech_solutions/content/blog/images/temp.png")
+knitr::include_graphics("/data_fintech_solutions/public/img/temp.png")
 ```
 
 Can you apply a kNN classifier to help the car recognize this sign?
