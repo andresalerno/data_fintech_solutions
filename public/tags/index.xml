@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on DFS</title>
@@ -21,11 +21,29 @@
     </item>
     
     <item>
+      <title>logistic regression</title>
+      <link>/tags/logistic-regression/</link>
+      <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/logistic-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Modeling</title>
       <link>/tags/modeling/</link>
       <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/modeling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>models</title>
+      <link>/tags/models/</link>
+      <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/models/</guid>
       <description></description>
     </item>
     
@@ -39,20 +57,11 @@
     </item>
     
     <item>
-      <title>logistic regression</title>
-      <link>/tags/logistic-regression/</link>
-      <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
+      <title>classification</title>
+      <link>/tags/classification/</link>
+      <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/logistic-regression/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>models</title>
-      <link>/tags/models/</link>
-      <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/models/</guid>
+      <guid>/tags/classification/</guid>
       <description></description>
     </item>
     
@@ -102,11 +111,11 @@
     </item>
     
     <item>
-      <title>classification</title>
-      <link>/tags/classification/</link>
-      <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
+      <title>Algorithm</title>
+      <link>/tags/algorithm/</link>
+      <pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/classification/</guid>
+      <guid>/tags/algorithm/</guid>
       <description></description>
     </item>
     
@@ -120,16 +129,7 @@
     </item>
     
     <item>
-      <title>algorithm</title>
-      <link>/tags/algorithm/</link>
-      <pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/algorithm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>programming</title>
+      <title>Programming</title>
       <link>/tags/programming/</link>
       <pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate>
       
