@@ -18,7 +18,7 @@ banner: img/banners/banner-5.png
 <p>After several trips with a human behind the wheel, it is time for the self-driving car to attempt the test course alone.</p>
 <p>As it begins to drive away, its camera captures the following image:</p>
 <div class="figure"><span id="fig:pressure"></span>
-<img src="C:/data_fintech_solutions/static/img/temp.png" alt="A caption" width="100%" />
+<img src="C:/data_fintech_solutions/public/img/banners/temp.png" alt="A caption" width="100%" />
 <p class="caption">
 Figure 1: A caption
 </p>
@@ -82,7 +82,7 @@ signs_pred &lt;- knn(train = train[-1], test = test[-1], cl = sign_types)</code>
 <p>To better understand how the <code>knn()</code> function was able to classify the stop sign, it may help to examine the training dataset it used.</p>
 <p>Each previously observed street sign was divided into a 4x4 grid, and the red, green, and blue level for each of the 16 center pixels is recorded as illustrated here.</p>
 <div class="figure"><span id="fig:pressure1"></span>
-<img src="C:/data_fintech_solutions/content/blog/images/temp_1.png" alt="A caption" width="100%" />
+<img src="C:/data_fintech_solutions/public/img/banners/temp_1.png" alt="A caption" width="100%" />
 <p class="caption">
 Figure 2: A caption
 </p>
@@ -162,19 +162,19 @@ aggregate(r10 ~ sign_type, data = signs, mean)
 <p>Now that the autonomous vehicle has successfully stopped on its own, your team feels confident allowing the car to continue the test course.</p>
 <p>The test course includes 59 additional road signs divided into three types:</p>
 <div class="figure"><span id="fig:pressure2-1"></span>
-<img src="C:/data_fintech_solutions/content/blog/images/temp_2.png" alt="A caption" width="100%" />
+<img src="C:/data_fintech_solutions/public/img/banners/temp_2.png" alt="A caption" width="100%" />
 <p class="caption">
 Figure 3: A caption
 </p>
 </div>
 <div class="figure"><span id="fig:pressure2-2"></span>
-<img src="C:/data_fintech_solutions/content/blog/images/temp_3.png" alt="A caption" width="100%" />
+<img src="C:/data_fintech_solutions/public/img/banners/temp_3.png" alt="A caption" width="100%" />
 <p class="caption">
 Figure 4: A caption
 </p>
 </div>
 <div class="figure"><span id="fig:pressure2-3"></span>
-<img src="C:/data_fintech_solutions/content/blog/images/temp_4.png" alt="A caption" width="100%" />
+<img src="C:/data_fintech_solutions/public/img/banners/temp_4.png" alt="A caption" width="100%" />
 <p class="caption">
 Figure 5: A caption
 </p>
@@ -187,9 +187,9 @@ signs_actual &lt;- test$sign_type
 table(signs_actual, signs_pred)
 ##             signs_pred
 ## signs_actual pedestrian speed stop
-##   pedestrian         22     1    0
-##   speed               0    19    1
-##   stop                0     2   17
+##   pedestrian         24     1    0
+##   speed               0    18    3
+##   stop                0     0   16
 
 # Compute the accuracy
 mean(signs_actual == signs_pred)
@@ -217,12 +217,12 @@ mean(signs_actual == k_1)
 # Modify the above to set k = 7
 k_7 &lt;- knn(train = train[-1], test = test[-1], cl = sign_types, k = 7)
 mean(signs_actual == k_7)
-## [1] 0.8870968
+## [1] 0.9516129
 
 # Set k = 15 and compare to the above
 k_15 &lt;- knn(train = train[-1], test = test[-1], cl = sign_types, k = 15)
 mean(signs_actual == k_15)
-## [1] 0.8225806</code></pre>
+## [1] 0.8870968</code></pre>
 </div>
 <div id="seeing-how-the-neighbors-voted" class="section level2">
 <h2>1.7 - Seeing how the neighbors voted</h2>
@@ -238,12 +238,12 @@ sign_prob &lt;- attr(sign_pred, &quot;prob&quot;)
 
 # Examine the first several predictions
 head(sign_pred)
-## [1] stop       stop       stop       pedestrian stop       pedestrian
+## [1] speed      pedestrian speed      speed      speed      speed     
 ## Levels: pedestrian speed stop
 
 # Examine the proportion of votes for the winning class
 head(sign_prob)
-## [1] 0.5714286 1.0000000 0.7142857 0.7142857 0.8571429 0.5714286</code></pre>
+## [1] 1.0000000 0.8571429 0.7142857 0.5714286 1.0000000 0.5714286</code></pre>
 <p>Wow! Awesome job! Now you can get an idea of how certain your kNN learner is about its classifications.</p>
 </div>
 <div id="why-normalize-data" class="section level2">

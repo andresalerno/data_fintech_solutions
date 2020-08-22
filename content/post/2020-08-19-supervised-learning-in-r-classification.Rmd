@@ -23,7 +23,7 @@ After several trips with a human behind the wheel, it is time for the self-drivi
 As it begins to drive away, its camera captures the following image:
 
 ```{r pressure, echo=FALSE, fig.cap="A caption", out.width = '100%'}
-knitr::include_graphics("/data_fintech_solutions/static/img/temp.png")
+knitr::include_graphics("/data_fintech_solutions/public/img/banners/temp.png")
 ```
 
 Can you apply a kNN classifier to help the car recognize this sign?
@@ -95,7 +95,7 @@ To better understand how the `knn()` function was able to classify the stop sign
 Each previously observed street sign was divided into a 4x4 grid, and the red, green, and blue level for each of the 16 center pixels is recorded as illustrated here.
 
 ```{r pressure1, echo=FALSE, fig.cap="A caption", out.width = '100%'}
-knitr::include_graphics("/data_fintech_solutions/content/blog/images/temp_1.png")
+knitr::include_graphics("/data_fintech_solutions/public/img/banners/temp_1.png")
 ```
 
 The result is a dataset that records the sign_type as well as 16 x 3 = 48 color properties of each sign.
@@ -120,9 +120,9 @@ Now that the autonomous vehicle has successfully stopped on its own, your team f
 The test course includes 59 additional road signs divided into three types:
 
 ```{r pressure2, echo=FALSE, fig.cap="A caption", out.width = '100%'}
-knitr::include_graphics("/data_fintech_solutions/content/blog/images/temp_2.png")
-knitr::include_graphics("/data_fintech_solutions/content/blog/images/temp_3.png")
-knitr::include_graphics("/data_fintech_solutions/content/blog/images/temp_4.png")
+knitr::include_graphics("/data_fintech_solutions/public/img/banners/temp_2.png")
+knitr::include_graphics("/data_fintech_solutions/public/img/banners/temp_3.png")
+knitr::include_graphics("/data_fintech_solutions/public/img/banners/temp_4.png")
 ```
 
 At the conclusion of the trial, you are asked to measure the car's overall performance at recognizing these signs.
