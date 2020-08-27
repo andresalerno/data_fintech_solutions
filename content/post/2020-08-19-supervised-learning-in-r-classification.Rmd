@@ -10,6 +10,7 @@ banner: img/banners/banner-5.png
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(collapse = TRUE, warnings = FALSE, echo = TRUE)
+library(magick)
 ```
 
 Source: this material was obtained by DataCamp.
@@ -23,6 +24,11 @@ After several trips with a human behind the wheel, it is time for the self-drivi
 As it begins to drive away, its camera captures the following image:
 
 ![](/data_fintech_solutions/public/img/banners/temp.png)
+
+```{r}
+magick::read
+```
+
 
 ```{r pressure, echo=FALSE, fig.cap="A caption", out.width = '100%'}
 knitr::include_graphics("/data_fintech_solutions/public/img/banners/temp.png")
@@ -209,3 +215,10 @@ Wow! Awesome job! Now you can get an idea of how certain your kNN learner is abo
 Before applying kNN to a classification task, it is common practice to rescale the data using a technique like min-max normalization. What is the purpose of this step?
 
 It is to ensure all data elements may contribute equal shares to distance. Rescaling reduces the influence of extreme values on kNN's distance function.
+
+# Chapter 2 - Naive Bayes
+
+## 2.1 - Computing probabilities
+
+The `where9am` data frame contains 91 days (thirteen weeks) woth of data in which Brett recorded his location at 9am each day as well whether the daytyoe was a weekend or weekday.
+

@@ -205,3 +205,212 @@ Wow! Awesome job! Now you can get an idea of how certain your kNN learner is abo
 Before applying kNN to a classification task, it is common practice to rescale the data using a technique like min-max normalization. What is the purpose of this step?
 
 It is to ensure all data elements may contribute equal shares to distance. Rescaling reduces the influence of extreme values on kNN's distance function.
+
+# Chapter 2 - Naive Bayes
+
+The `where9am` data frame contains 91 days (thirteen weeks) worth of data in which Brett recorded his location at 9am each day as well as whether the daytype was a weekend or weekday.
+
+Using the conditional probability formula below, you can compute the probability that Brett is working in the office, given that it is a weekday.
+
+```{r}
+
+where9am <- read.csv(file = "/data_fintech_solutions/locations.csv", header = TRUE, sep = ",")
+
+dim(where9am)
+
+head(where9am)
+
+str(where9am)
+
+# Compute P(A) 
+p_A <- nrow(subset(where9am, location == "office")) / nrow(where9am)
+
+# Compute P(B)
+p_B <- nrow(subset(where9am, daytype == "weekday")) / nrow(where9am)
+
+# Compute the observed P(A and B)
+p_AB <- nrow(subset(where9am, location == "office" & daytype == "weekday")) / nrow(where9am)
+
+# Compute P(A | B) and print its value
+p_A_given_B <- p_AB / p_B
+p_A_given_B
+
+```
+
+## 2.1 - Understanding dependent events
+
+In the previous exercise, you found that there is a 26% chance Brett is in the office at 9am given that it is a weekday. 
+
+The events do not overlap, knowing that one occurred tells you much about the status of the other.
+
+## 2.2 - A simple Naive Bayes location model
+
+The previous exercises showed that the probability that Brett is at work or at home at 9am is highly dependent on whether it is the weekend or a weekday.
+
+To see this finding in action, use the `where9am` data frame to build a Naive Bayes model on the same data.
+
+You can then use this model to predict the future: where does the model think that Brett will be at 9am on Thursday and at 9am on Saturday?
+
+```{r}
+
+thursday9am <- data.frame(weekday = "thursday", stringsAsFactors = FALSE)
+
+saturday9am <- data.frame(weekday = "saturday", stringsAsFactors = FALSE)
+
+# Load the naivebayes package
+library(naivebayes)
+
+# Build the location prediction model
+locmodel <- naive_bayes(location ~ weekday, data = where9am, laplace = 1)
+
+# Predict Thursday's 9am location
+predict(locmodel, thursday9am)
+
+# Predict Saturdays's 9am location
+predict(locmodel, saturday9am)
+
+
+```
+
+Awesome job! Not surprisingly, Brett is most likely at the office at 9am on a Thursday, but at home at the same time on a Saturday!
+
+## 2.3 - Examining "raw" probabilities
+
+The naivebayes package offers several ways to peek inside a Naive Bayes model.
+
+Typing the name of the model object provides the a priori (overall) and conditional probabilities of each of the model's predictors. If one were so inclined, you might use these for calculating posterior (predicted) probabilities by hand.
+
+Alternatively, R will compute the posterior probabilities for you if the type = "prob" parameter is supplied to the predict() function.
+
+Using these methods, examine how the model's predicted 9am location probability varies from day-to-day. The model locmodel that you fit in the previous exercise is in your workspace.
+
+```{r}
+
+# Examine the location prediction model
+print(locmodel)
+
+# Obtain the predicted probabilities for Thursday at 9am
+predict(locmodel, thursday9am, type = "prob")
+
+# Obtain the predicted probabilities for Saturday at 9am
+predict(locmodel, saturday9am, type = "prob")
+
+```
+
+Fantastic! Did you notice the predicted probability of Brett being at the office on a Saturday is almost zero?
+
+## 2.4 - Understanding independence
+
+Understanding the idea of event independence will become important as you learn more about how "naive" Bayes got its name. Which of the following is true about independent events?
+
+Knowing the outcome of one event does not help predict the other. Yes! One event is independent of another if knowing one doesn't give you information about how likely the other is. For example, knowing if it's raining in New York doesn't help you predict the weather in San Francisco. The weather events in the two cities are independent of each other.
+
+## 2.5 - Who are you calling naive?
+
+The Naive Bayes algorithm got its name because it makes a "naive" assumption about event independence.
+
+What is the purpose of making this assumption? The joint probability calculations is simpler for independent events. The joint probability of independent events can be computed much more simply by multiplying their individual probabilities
+
+## 2.6 - A more sophisticated location model
+
+The locations dataset (`where9am`) records Brett's location every hour for 13 weeks. Each hour, the tracking information includes the daytype (weekend or weekday) as well as the hourtype (morning, afternoon, evening, or night).
+
+Using this data, build a more sophisticated model to see how Brett's predicted location not only varies by the day of week but also by the time of day.
+
+You can specify additional independent variables in your formula using the + sign (e.g. y ~ x + b).
+
+```{r}
+
+weekday_afternoon <- data.frame(daytype = "weekday",
+                                hourtype = "afternoon",
+                                location = "office", stringsAsFactors = FALSE)
+
+weekday_evening <- data.frame(daytype = "weekday",
+                                hourtype = "evening",
+                                location = "home", stringsAsFactors = FALSE)
+
+# Build a NB model of location
+locmodel <- naive_bayes(location ~ daytype + hourtype, where9am, laplace = 0)
+
+# Predict Brett's location on a weekday afternoon
+predict(locmodel, weekday_afternoon)
+
+# Predict Brett's location on a weekday evening
+predict(locmodel, weekday_evening)
+
+```
+
+Your Naive Bayes model forecasts that Brett will be at the office on a weekday afternoon and at home in the evening.
+
+## 2.7 - Preparing for unforeseen circumstances
+
+While Brett was tracking his location over 13 weeks, he never went into the office during the weekend. Consequently, the joint probability of P(office and weekend) = 0.
+
+Explore how this impacts the predicted probability that Brett may go to work on the weekend in the future. Additionally, you can see how using the Laplace correction will allow a small chance for these types of unforeseen circumstances.
+
+```{r}
+
+weekend_afternoon <- data.frame(daytype = "weekend",
+                                hourtype = "afternoon",
+                                location = "home", stringsAsFactors = FALSE)
+
+weekend_evening <- data.frame(daytype = "weekend",
+                                hourtype = "evening",
+                                location = "home", stringsAsFactors = FALSE)
+
+# Observe the predicted probabilities for a weekend afternoon
+predict(locmodel, weekend_afternoon, type = "prob")
+
+# Build a new model using the Laplace correction
+locmodel2 <- naive_bayes(location ~ daytype + hourtype, where9am, laplace = 1)
+
+# Observe the new predicted probabilities for a weekend afternoon
+predict(locmodel2, weekend_afternoon, type = "prob")
+
+
+```
+
+Fantastic work! Adding the Laplace correction allows for the small chance that Brett might go to the office on the weekend in the future.
+
+## 2.8 - Understanding the Laplace correction
+
+By default, the `naive_bayes` function in the `naivebayes` packahe does not use the Laplace correction. What is the risk of leaving this parameter unset?
+
+Some potential outcomes may be predicted to be impossible. The small probability added to every outcome ensures that they are all possible even if never previously observed.
+
+# Chapter 3 - Logistic Regression
+
+Logistic regression involves fitting a curve to numeric data to make predictions about binary events. Arguably one of the most widely used machine learning methods, this chapter will provide an overview of the technique while illustrating how to apply it to fundraising data.
+
+## 3.1 - Building simple logistic regression models
+
+The donors dataset contains 93,462 examples of people mailed in a fundraising solicitation for paralyzed military veterans. The donated column is 1 if the person made a donation in response to the mailing and 0 otherwise. This binary outcome will be the dependent variable for the logistic regression model.
+
+The remaining columns are features of the prospective donors that may influence their donation behavior. These are the model's independent variables.
+
+When building a regression model, it is often helpful to form a hypothesis about which independent variables will be predictive of the dependent variable. The bad_address column, which is set to 1 for an invalid mailing address and 0 otherwise, seems like it might reduce the chances of a donation. Similarly, one might suspect that religious interest (interest_religion) and interest in veterans affairs (interest_veterans) would be associated with greater charitable giving.
+
+In this exercise, you will use these three factors to create a simple model of donation behavior. The dataset donors is available in your workspace.
+
+```{r}
+
+donors <- read.csv(file = "/data_fintech_solutions/donors.csv", header = TRUE, sep = ",")
+
+# Examine the dataset to identify potential independent variables
+str(donors)
+
+# Explore the dependent variable
+table(donors$donated)
+
+# Build the donation model
+donation_model <- glm(donated ~ bad_address + interest_religion + interest_veterans, 
+                      data = donors, family = "binomial")
+
+# Summarize the model results
+summary(donation_model)
+
+
+```
+
+Great work! With the model built, you can now use it to make predictions!
+
