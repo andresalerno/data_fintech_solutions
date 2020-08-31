@@ -627,3 +627,6 @@ auc(ROC)
 ```
 
 Fantastic work! Despite the caveats of stepwise regression, it seems to have resulted in a relatively strong model!
+
+
+Obs.: I strongly recommend that you enrol in one of the DataCamp courses. This content was published in this way as a form to organized my studies in try to do my best in terms of knowledge and discover new trends, ideas or analysis in terms of credit modeling.
