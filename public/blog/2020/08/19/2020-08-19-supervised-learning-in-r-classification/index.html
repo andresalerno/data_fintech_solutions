@@ -375,13 +375,13 @@ signs_actual &lt;- test$sign_type
 table(signs_actual, signs_pred)
 ##             signs_pred
 ## signs_actual pedestrian speed stop
-##   pedestrian         20     1    1
-##   speed               1    23    1
-##   stop                0     0   15
+##   pedestrian         18     2    0
+##   speed               0    21    1
+##   stop                0     0   20
 
 # Compute the accuracy
 mean(signs_actual == signs_pred)
-## [1] 0.9354839</code></pre>
+## [1] 0.9516129</code></pre>
 <p>That self-driving car is really coming along! The confusion matrix lets you look for patterns in the classifier’s</p>
 </div>
 <div id="understanding-the-impact-of-k" class="section level2">
@@ -400,17 +400,17 @@ mean(signs_actual == signs_pred)
 # Compute the accuracy of the baseline model (default k = 1)
 k_1 &lt;- knn(train = train[-1], test = test[-1], cl = sign_types)
 mean(signs_actual == k_1)
-## [1] 0.9354839
+## [1] 0.9516129
 
 # Modify the above to set k = 7
 k_7 &lt;- knn(train = train[-1], test = test[-1], cl = sign_types, k = 7)
 mean(signs_actual == k_7)
-## [1] 0.9516129
+## [1] 0.9354839
 
 # Set k = 15 and compare to the above
 k_15 &lt;- knn(train = train[-1], test = test[-1], cl = sign_types, k = 15)
 mean(signs_actual == k_15)
-## [1] 0.9354839</code></pre>
+## [1] 0.8870968</code></pre>
 </div>
 <div id="seeing-how-the-neighbors-voted" class="section level2">
 <h2>1.7 - Seeing how the neighbors voted</h2>
@@ -426,12 +426,12 @@ sign_prob &lt;- attr(sign_pred, &quot;prob&quot;)
 
 # Examine the first several predictions
 head(sign_pred)
-## [1] speed      stop       pedestrian speed      speed      speed     
+## [1] stop  speed stop  stop  speed stop 
 ## Levels: pedestrian speed stop
 
 # Examine the proportion of votes for the winning class
 head(sign_prob)
-## [1] 0.7142857 0.5714286 0.5714286 1.0000000 0.4285714 1.0000000</code></pre>
+## [1] 1.0000000 1.0000000 1.0000000 0.5714286 0.8571429 0.4285714</code></pre>
 <p>Wow! Awesome job! Now you can get an idea of how certain your kNN learner is about its classifications.</p>
 </div>
 <div id="why-normalize-data" class="section level2">
@@ -1115,6 +1115,7 @@ plot(ROC, col = &quot;red&quot;)</code></pre>
 <pre class="r"><code>auc(ROC)
 ## Area under the curve: 0.5849</code></pre>
 <p>Fantastic work! Despite the caveats of stepwise regression, it seems to have resulted in a relatively strong model!</p>
+<p>Obs.: I strongly recommend that you enrol in one of the DataCamp courses. This content was published in this way as a form to organized my studies in try to do my best in terms of knowledge and discover new trends, ideas or analysis in terms of credit modeling.</p>
 </div>
 </div>
 
