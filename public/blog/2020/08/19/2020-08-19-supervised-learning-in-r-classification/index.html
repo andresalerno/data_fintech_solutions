@@ -375,13 +375,13 @@ signs_actual &lt;- test$sign_type
 table(signs_actual, signs_pred)
 ##             signs_pred
 ## signs_actual pedestrian speed stop
-##   pedestrian         20     0    0
-##   speed               0    21    2
-##   stop                0     0   19
+##   pedestrian         20     1    1
+##   speed               1    23    1
+##   stop                0     0   15
 
 # Compute the accuracy
 mean(signs_actual == signs_pred)
-## [1] 0.9677419</code></pre>
+## [1] 0.9354839</code></pre>
 <p>That self-driving car is really coming along! The confusion matrix lets you look for patterns in the classifier’s</p>
 </div>
 <div id="understanding-the-impact-of-k" class="section level2">
@@ -400,12 +400,12 @@ mean(signs_actual == signs_pred)
 # Compute the accuracy of the baseline model (default k = 1)
 k_1 &lt;- knn(train = train[-1], test = test[-1], cl = sign_types)
 mean(signs_actual == k_1)
-## [1] 0.9677419
+## [1] 0.9354839
 
 # Modify the above to set k = 7
 k_7 &lt;- knn(train = train[-1], test = test[-1], cl = sign_types, k = 7)
 mean(signs_actual == k_7)
-## [1] 0.9193548
+## [1] 0.9516129
 
 # Set k = 15 and compare to the above
 k_15 &lt;- knn(train = train[-1], test = test[-1], cl = sign_types, k = 15)
@@ -426,18 +426,695 @@ sign_prob &lt;- attr(sign_pred, &quot;prob&quot;)
 
 # Examine the first several predictions
 head(sign_pred)
-## [1] pedestrian stop       pedestrian pedestrian speed      stop      
+## [1] speed      stop       pedestrian speed      speed      speed     
 ## Levels: pedestrian speed stop
 
 # Examine the proportion of votes for the winning class
 head(sign_prob)
-## [1] 1.0000000 0.4285714 1.0000000 0.8571429 1.0000000 1.0000000</code></pre>
+## [1] 0.7142857 0.5714286 0.5714286 1.0000000 0.4285714 1.0000000</code></pre>
 <p>Wow! Awesome job! Now you can get an idea of how certain your kNN learner is about its classifications.</p>
 </div>
 <div id="why-normalize-data" class="section level2">
 <h2>1.8 - Why normalize data?</h2>
 <p>Before applying kNN to a classification task, it is common practice to rescale the data using a technique like min-max normalization. What is the purpose of this step?</p>
 <p>It is to ensure all data elements may contribute equal shares to distance. Rescaling reduces the influence of extreme values on kNN’s distance function.</p>
+</div>
+</div>
+<div id="chapter-2---naive-bayes" class="section level1">
+<h1>Chapter 2 - Naive Bayes</h1>
+<p>The <code>where9am</code> data frame contains 91 days (thirteen weeks) worth of data in which Brett recorded his location at 9am each day as well as whether the daytype was a weekend or weekday.</p>
+<p>Using the conditional probability formula below, you can compute the probability that Brett is working in the office, given that it is a weekday.</p>
+<pre class="r"><code>
+where9am &lt;- read.csv(file = &quot;/data_fintech_solutions/locations.csv&quot;, header = TRUE, sep = &quot;,&quot;)
+
+dim(where9am)
+## [1] 2184    7
+
+head(where9am)
+##   month day   weekday daytype hour hourtype location
+## 1     1   4 wednesday weekday    0    night     home
+## 2     1   4 wednesday weekday    1    night     home
+## 3     1   4 wednesday weekday    2    night     home
+## 4     1   4 wednesday weekday    3    night     home
+## 5     1   4 wednesday weekday    4    night     home
+## 6     1   4 wednesday weekday    5    night     home
+
+str(where9am)
+## &#39;data.frame&#39;:    2184 obs. of  7 variables:
+##  $ month   : int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ day     : int  4 4 4 4 4 4 4 4 4 4 ...
+##  $ weekday : Factor w/ 7 levels &quot;friday&quot;,&quot;monday&quot;,..: 7 7 7 7 7 7 7 7 7 7 ...
+##  $ daytype : Factor w/ 2 levels &quot;weekday&quot;,&quot;weekend&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ hour    : int  0 1 2 3 4 5 6 7 8 9 ...
+##  $ hourtype: Factor w/ 4 levels &quot;afternoon&quot;,&quot;evening&quot;,..: 4 4 4 4 4 4 3 3 3 3 ...
+##  $ location: Factor w/ 7 levels &quot;appointment&quot;,..: 3 3 3 3 3 3 3 3 3 4 ...
+
+# Compute P(A) 
+p_A &lt;- nrow(subset(where9am, location == &quot;office&quot;)) / nrow(where9am)
+
+# Compute P(B)
+p_B &lt;- nrow(subset(where9am, daytype == &quot;weekday&quot;)) / nrow(where9am)
+
+# Compute the observed P(A and B)
+p_AB &lt;- nrow(subset(where9am, location == &quot;office&quot; &amp; daytype == &quot;weekday&quot;)) / nrow(where9am)
+
+# Compute P(A | B) and print its value
+p_A_given_B &lt;- p_AB / p_B
+p_A_given_B
+## [1] 0.2628205</code></pre>
+<div id="understanding-dependent-events" class="section level2">
+<h2>2.1 - Understanding dependent events</h2>
+<p>In the previous exercise, you found that there is a 26% chance Brett is in the office at 9am given that it is a weekday.</p>
+<p>The events do not overlap, knowing that one occurred tells you much about the status of the other.</p>
+</div>
+<div id="a-simple-naive-bayes-location-model" class="section level2">
+<h2>2.2 - A simple Naive Bayes location model</h2>
+<p>The previous exercises showed that the probability that Brett is at work or at home at 9am is highly dependent on whether it is the weekend or a weekday.</p>
+<p>To see this finding in action, use the <code>where9am</code> data frame to build a Naive Bayes model on the same data.</p>
+<p>You can then use this model to predict the future: where does the model think that Brett will be at 9am on Thursday and at 9am on Saturday?</p>
+<pre class="r"><code>
+thursday9am &lt;- data.frame(weekday = &quot;thursday&quot;, stringsAsFactors = FALSE)
+
+saturday9am &lt;- data.frame(weekday = &quot;saturday&quot;, stringsAsFactors = FALSE)
+
+# Load the naivebayes package
+library(naivebayes)
+## Warning: package &#39;naivebayes&#39; was built under R version 3.6.3
+## naivebayes 0.9.7 loaded
+
+# Build the location prediction model
+locmodel &lt;- naive_bayes(location ~ weekday, data = where9am, laplace = 1)
+
+# Predict Thursday&#39;s 9am location
+predict(locmodel, thursday9am)
+## [1] home
+## Levels: appointment campus home office restaurant store theater
+
+# Predict Saturdays&#39;s 9am location
+predict(locmodel, saturday9am)
+## [1] home
+## Levels: appointment campus home office restaurant store theater</code></pre>
+<p>Awesome job! Not surprisingly, Brett is most likely at the office at 9am on a Thursday, but at home at the same time on a Saturday!</p>
+</div>
+<div id="examining-raw-probabilities" class="section level2">
+<h2>2.3 - Examining “raw” probabilities</h2>
+<p>The naivebayes package offers several ways to peek inside a Naive Bayes model.</p>
+<p>Typing the name of the model object provides the a priori (overall) and conditional probabilities of each of the model’s predictors. If one were so inclined, you might use these for calculating posterior (predicted) probabilities by hand.</p>
+<p>Alternatively, R will compute the posterior probabilities for you if the type = “prob” parameter is supplied to the predict() function.</p>
+<p>Using these methods, examine how the model’s predicted 9am location probability varies from day-to-day. The model locmodel that you fit in the previous exercise is in your workspace.</p>
+<pre class="r"><code>
+# Examine the location prediction model
+print(locmodel)
+## 
+## ================================== Naive Bayes ================================== 
+##  
+##  Call: 
+## naive_bayes.formula(formula = location ~ weekday, data = where9am, 
+##     laplace = 1)
+## 
+## --------------------------------------------------------------------------------- 
+##  
+## Laplace smoothing: 1
+## 
+## --------------------------------------------------------------------------------- 
+##  
+##  A priori probabilities: 
+## 
+## appointment      campus        home      office  restaurant       store 
+## 0.003663004 0.032967033 0.717948718 0.187728938 0.037087912 0.017857143 
+##     theater 
+## 0.002747253 
+## 
+## --------------------------------------------------------------------------------- 
+##  
+##  Tables: 
+## 
+## --------------------------------------------------------------------------------- 
+##  ::: weekday (Categorical) 
+## --------------------------------------------------------------------------------- 
+##            
+## weekday     appointment      campus        home      office  restaurant
+##   friday    0.133333333 0.189873418 0.121269841 0.182254197 0.238636364
+##   monday    0.133333333 0.189873418 0.126984127 0.206235012 0.113636364
+##   saturday  0.333333333 0.012658228 0.182222222 0.002398082 0.102272727
+##   sunday    0.066666667 0.012658228 0.189841270 0.002398082 0.113636364
+##   thursday  0.066666667 0.253164557 0.122539683 0.208633094 0.136363636
+##   tuesday   0.066666667 0.037974684 0.129523810 0.223021583 0.136363636
+##   wednesday 0.200000000 0.303797468 0.127619048 0.175059952 0.159090909
+##            
+## weekday           store     theater
+##   friday    0.282608696 0.076923077
+##   monday    0.108695652 0.076923077
+##   saturday  0.195652174 0.538461538
+##   sunday    0.130434783 0.076923077
+##   thursday  0.108695652 0.076923077
+##   tuesday   0.108695652 0.076923077
+##   wednesday 0.065217391 0.076923077
+## 
+## ---------------------------------------------------------------------------------
+
+# Obtain the predicted probabilities for Thursday at 9am
+predict(locmodel, thursday9am, type = &quot;prob&quot;)
+##      appointment    campus      home    office restaurant      store
+## [1,] 0.001708366 0.0583872 0.6154674 0.2739992 0.03538065 0.01357873
+##          theater
+## [1,] 0.001478394
+
+# Obtain the predicted probabilities for Saturday at 9am
+predict(locmodel, saturday9am, type = &quot;prob&quot;)
+##      appointment      campus      home      office restaurant      store
+## [1,] 0.008617968 0.002945382 0.9233866 0.003177488 0.02677201 0.02465957
+##       theater
+## [1,] 0.010441</code></pre>
+<p>Fantastic! Did you notice the predicted probability of Brett being at the office on a Saturday is almost zero?</p>
+</div>
+<div id="understanding-independence" class="section level2">
+<h2>2.4 - Understanding independence</h2>
+<p>Understanding the idea of event independence will become important as you learn more about how “naive” Bayes got its name. Which of the following is true about independent events?</p>
+<p>Knowing the outcome of one event does not help predict the other. Yes! One event is independent of another if knowing one doesn’t give you information about how likely the other is. For example, knowing if it’s raining in New York doesn’t help you predict the weather in San Francisco. The weather events in the two cities are independent of each other.</p>
+</div>
+<div id="who-are-you-calling-naive" class="section level2">
+<h2>2.5 - Who are you calling naive?</h2>
+<p>The Naive Bayes algorithm got its name because it makes a “naive” assumption about event independence.</p>
+<p>What is the purpose of making this assumption? The joint probability calculations is simpler for independent events. The joint probability of independent events can be computed much more simply by multiplying their individual probabilities</p>
+</div>
+<div id="a-more-sophisticated-location-model" class="section level2">
+<h2>2.6 - A more sophisticated location model</h2>
+<p>The locations dataset (<code>where9am</code>) records Brett’s location every hour for 13 weeks. Each hour, the tracking information includes the daytype (weekend or weekday) as well as the hourtype (morning, afternoon, evening, or night).</p>
+<p>Using this data, build a more sophisticated model to see how Brett’s predicted location not only varies by the day of week but also by the time of day.</p>
+<p>You can specify additional independent variables in your formula using the + sign (e.g. y ~ x + b).</p>
+<pre class="r"><code>
+weekday_afternoon &lt;- data.frame(daytype = &quot;weekday&quot;,
+                                hourtype = &quot;afternoon&quot;,
+                                location = &quot;office&quot;, stringsAsFactors = FALSE)
+
+weekday_evening &lt;- data.frame(daytype = &quot;weekday&quot;,
+                                hourtype = &quot;evening&quot;,
+                                location = &quot;home&quot;, stringsAsFactors = FALSE)
+
+# Build a NB model of location
+locmodel &lt;- naive_bayes(location ~ daytype + hourtype, where9am, laplace = 0)
+## Warning: naive_bayes(): Feature daytype - zero probabilities are present.
+## Consider Laplace smoothing.
+## Warning: naive_bayes(): Feature hourtype - zero probabilities are present.
+## Consider Laplace smoothing.
+
+# Predict Brett&#39;s location on a weekday afternoon
+predict(locmodel, weekday_afternoon)
+## Warning: predict.naive_bayes(): more features in the newdata are provided as
+## there are probability tables in the object. Calculation is performed based on
+## features to be found in the tables.
+## [1] office
+## Levels: appointment campus home office restaurant store theater
+
+# Predict Brett&#39;s location on a weekday evening
+predict(locmodel, weekday_evening)
+## Warning: predict.naive_bayes(): more features in the newdata are provided as
+## there are probability tables in the object. Calculation is performed based on
+## features to be found in the tables.
+## [1] home
+## Levels: appointment campus home office restaurant store theater</code></pre>
+<p>Your Naive Bayes model forecasts that Brett will be at the office on a weekday afternoon and at home in the evening.</p>
+</div>
+<div id="preparing-for-unforeseen-circumstances" class="section level2">
+<h2>2.7 - Preparing for unforeseen circumstances</h2>
+<p>While Brett was tracking his location over 13 weeks, he never went into the office during the weekend. Consequently, the joint probability of P(office and weekend) = 0.</p>
+<p>Explore how this impacts the predicted probability that Brett may go to work on the weekend in the future. Additionally, you can see how using the Laplace correction will allow a small chance for these types of unforeseen circumstances.</p>
+<pre class="r"><code>
+weekend_afternoon &lt;- data.frame(daytype = &quot;weekend&quot;,
+                                hourtype = &quot;afternoon&quot;,
+                                location = &quot;home&quot;, stringsAsFactors = FALSE)
+
+weekend_evening &lt;- data.frame(daytype = &quot;weekend&quot;,
+                                hourtype = &quot;evening&quot;,
+                                location = &quot;home&quot;, stringsAsFactors = FALSE)
+
+# Observe the predicted probabilities for a weekend afternoon
+predict(locmodel, weekend_afternoon, type = &quot;prob&quot;)
+## Warning: predict.naive_bayes(): more features in the newdata are provided as
+## there are probability tables in the object. Calculation is performed based on
+## features to be found in the tables.
+##      appointment       campus      home      office restaurant      store
+## [1,]  0.02462883 0.0004802622 0.8439145 0.003349521  0.1111338 0.01641922
+##          theater
+## [1,] 7.38865e-05
+
+# Build a new model using the Laplace correction
+locmodel2 &lt;- naive_bayes(location ~ daytype + hourtype, where9am, laplace = 1)
+
+# Observe the new predicted probabilities for a weekend afternoon
+predict(locmodel2, weekend_afternoon, type = &quot;prob&quot;)
+## Warning: predict.naive_bayes(): more features in the newdata are provided as
+## there are probability tables in the object. Calculation is performed based on
+## features to be found in the tables.
+##      appointment      campus      home      office restaurant      store
+## [1,]  0.02013872 0.006187715 0.8308154 0.007929249  0.1098743 0.01871085
+##          theater
+## [1,] 0.006343697</code></pre>
+<p>Fantastic work! Adding the Laplace correction allows for the small chance that Brett might go to the office on the weekend in the future.</p>
+</div>
+<div id="understanding-the-laplace-correction" class="section level2">
+<h2>2.8 - Understanding the Laplace correction</h2>
+<p>By default, the <code>naive_bayes</code> function in the <code>naivebayes</code> packahe does not use the Laplace correction. What is the risk of leaving this parameter unset?</p>
+<p>Some potential outcomes may be predicted to be impossible. The small probability added to every outcome ensures that they are all possible even if never previously observed.</p>
+</div>
+</div>
+<div id="chapter-3---logistic-regression" class="section level1">
+<h1>Chapter 3 - Logistic Regression</h1>
+<p>Logistic regression involves fitting a curve to numeric data to make predictions about binary events. Arguably one of the most widely used machine learning methods, this chapter will provide an overview of the technique while illustrating how to apply it to fundraising data.</p>
+<div id="building-simple-logistic-regression-models" class="section level2">
+<h2>3.1 - Building simple logistic regression models</h2>
+<p>The donors dataset contains 93,462 examples of people mailed in a fundraising solicitation for paralyzed military veterans. The donated column is 1 if the person made a donation in response to the mailing and 0 otherwise. This binary outcome will be the dependent variable for the logistic regression model.</p>
+<p>The remaining columns are features of the prospective donors that may influence their donation behavior. These are the model’s independent variables.</p>
+<p>When building a regression model, it is often helpful to form a hypothesis about which independent variables will be predictive of the dependent variable. The bad_address column, which is set to 1 for an invalid mailing address and 0 otherwise, seems like it might reduce the chances of a donation. Similarly, one might suspect that religious interest (interest_religion) and interest in veterans affairs (interest_veterans) would be associated with greater charitable giving.</p>
+<p>In this exercise, you will use these three factors to create a simple model of donation behavior. The dataset donors is available in your workspace.</p>
+<pre class="r"><code>
+donors &lt;- read.csv(file = &quot;/data_fintech_solutions/donors.csv&quot;, header = TRUE, sep = &quot;,&quot;)
+
+# Examine the dataset to identify potential independent variables
+str(donors)
+## &#39;data.frame&#39;:    93462 obs. of  13 variables:
+##  $ donated          : int  0 0 0 0 0 0 0 0 0 0 ...
+##  $ veteran          : int  0 0 0 0 0 0 0 0 0 0 ...
+##  $ bad_address      : int  0 0 0 0 0 0 0 0 0 0 ...
+##  $ age              : int  60 46 NA 70 78 NA 38 NA NA 65 ...
+##  $ has_children     : int  0 1 0 0 1 0 1 0 0 0 ...
+##  $ wealth_rating    : int  0 3 1 2 1 0 2 3 1 0 ...
+##  $ interest_veterans: int  0 0 0 0 0 0 0 0 0 0 ...
+##  $ interest_religion: int  0 0 0 0 1 0 0 0 0 0 ...
+##  $ pet_owner        : int  0 0 0 0 0 0 1 0 0 0 ...
+##  $ catalog_shopper  : int  0 0 0 0 1 0 0 0 0 0 ...
+##  $ recency          : Factor w/ 2 levels &quot;CURRENT&quot;,&quot;LAPSED&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ frequency        : Factor w/ 2 levels &quot;FREQUENT&quot;,&quot;INFREQUENT&quot;: 1 1 1 1 1 2 2 1 2 2 ...
+##  $ money            : Factor w/ 2 levels &quot;HIGH&quot;,&quot;MEDIUM&quot;: 2 1 2 2 2 2 2 2 2 2 ...
+
+# Explore the dependent variable
+table(donors$donated)
+## 
+##     0     1 
+## 88751  4711
+
+# Build the donation model
+donation_model &lt;- glm(donated ~ bad_address + interest_religion + interest_veterans, 
+                      data = donors, family = &quot;binomial&quot;)
+
+# Summarize the model results
+summary(donation_model)
+## 
+## Call:
+## glm(formula = donated ~ bad_address + interest_religion + interest_veterans, 
+##     family = &quot;binomial&quot;, data = donors)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -0.3480  -0.3192  -0.3192  -0.3192   2.5678  
+## 
+## Coefficients:
+##                   Estimate Std. Error  z value Pr(&gt;|z|)    
+## (Intercept)       -2.95139    0.01652 -178.664   &lt;2e-16 ***
+## bad_address       -0.30780    0.14348   -2.145   0.0319 *  
+## interest_religion  0.06724    0.05069    1.327   0.1847    
+## interest_veterans  0.11009    0.04676    2.354   0.0186 *  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 37330  on 93461  degrees of freedom
+## Residual deviance: 37316  on 93458  degrees of freedom
+## AIC: 37324
+## 
+## Number of Fisher Scoring iterations: 5</code></pre>
+<p>Great work! With the model built, you can now use it to make predictions!</p>
+</div>
+<div id="making-a-binary-prediction" class="section level2">
+<h2>3.2 - Making a binary prediction</h2>
+<p>In the previous exercise, you used the glm() function to build a logistic regression model of donor behavior. As with many of R’s machine learning methods, you can apply the predict() function to the model object to forecast future behavior. By default, predict() outputs predictions in terms of log odds unless type = “response” is specified. This converts the log odds to probabilities.</p>
+<p>Because a logistic regression model estimates the probability of the outcome, it is up to you to determine the threshold at which the probability implies action. One must balance the extremes of being too cautious versus being too aggressive. For example, if you were to solicit only the people with a 99% or greater donation probability, you may miss out on many people with lower estimated probabilities that still choose to donate. This balance is particularly important to consider for severely imbalanced outcomes, such as in this dataset where donations are relatively rare.</p>
+<pre class="r"><code>
+# Estimate the donation probability
+donors$donation_prob &lt;- predict(donation_model, type = &quot;response&quot;)
+
+# Find the donation probability of the average prospect
+mean(donors$donated)
+## [1] 0.05040551
+
+# Predict a donation if probability of donation is greater than average (0.0504)
+donors$donation_pred &lt;- ifelse(donors$donation_prob &gt; 0.0504, 1, 0)
+
+# Calculate the model&#39;s accuracy
+mean(donors$donation_pred == donors$donated)
+## [1] 0.794815</code></pre>
+<p>Nice work! With an accuracy of nearly 80%, the model seems to be doing its job. But is it too good to be true?</p>
+</div>
+<div id="the-limitations-of-accuracy" class="section level2">
+<h2>3.3 - The limitations of accuracy</h2>
+<p>In the previous exercise, you found that the logistic regression model made a correct prediction nearly 80% of the time. Despite this relatively high accuracy, the result is misleading due to the rarity of outcome being predicted.</p>
+<p>What would the accuracy have been if a model had simply predicted “no donation” for each person?</p>
+<pre class="r"><code>
+library(dplyr)
+## Warning: package &#39;dplyr&#39; was built under R version 3.6.3
+## 
+## Attaching package: &#39;dplyr&#39;
+## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag
+## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union
+prop &lt;- table(donors$donated)
+round(prop.table(prop) * 100, 3)
+## 
+##      0      1 
+## 94.959  5.041</code></pre>
+<p>With an accuracy of only 80%, the model is actually performing WORSE than if it were to predict non-donor for every record.</p>
+</div>
+<div id="calculating-roc-curves-and-auc" class="section level2">
+<h2>3.4 - Calculating ROC Curves and AUC</h2>
+<p>One good way to assess classifiers in binaries problems is analysing and implementing ROC Curves (Receiving Operating Characteristics).</p>
+<p>The previous exercises have demonstrated that accuracy is a very misleading measure of model performance on imbalanced datasets. Graphing the model’s performance better illustrates the tradeoff between a model that is overly agressive and one that is overly passive.</p>
+<p>In this exercise you will create a ROC curve and compute the area under the curve (AUC) to evaluate the logistic regression model of donations you built earlier.</p>
+<p>The dataset donors with the column of predicted probabilities, donation_prob.</p>
+<pre class="r"><code>
+# Load the pROC package
+library(pROC)
+## Warning: package &#39;pROC&#39; was built under R version 3.6.3
+## Type &#39;citation(&quot;pROC&quot;)&#39; for a citation.
+## 
+## Attaching package: &#39;pROC&#39;
+## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     cov, smooth, var
+
+# Create a ROC curve
+ROC &lt;- roc(donors$donated, donors$donation_prob)
+## Setting levels: control = 0, case = 1
+## Setting direction: controls &lt; cases
+
+# Plot the ROC curve
+plot(ROC, col = &quot;blue&quot;)</code></pre>
+<p><img src="/blog/2020-08-19-supervised-learning-in-r-classification_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<pre class="r"><code>
+# Calculate the area under the curve (AUC)
+auc(ROC)
+## Area under the curve: 0.5102</code></pre>
+<p>Awesome job! Based on this visualization, the model isn’t doing much better than baseline— a model doing nothing but making predictions at random.</p>
+</div>
+<div id="comparing-roc-receiving-operating-characteristics-curves" class="section level2">
+<h2>3.5 - Comparing ROC (Receiving Operating Characteristics) curves</h2>
+<p>Which of the following ROC curves illustrates the best model?</p>
+<div class="figure"><span id="fig:auc"></span>
+<img src="C:/data_fintech_solutions/lr_auc_compare.png" alt="A caption" width="100%" />
+<p class="caption">
+Figure 6: A caption
+</p>
+</div>
+<p>When AUC (Area under the Curve) values are very close, it’s important to know more about how the model will be used.</p>
+</div>
+<div id="coding-categorical-features" class="section level2">
+<h2>3.6 - Coding categorical features</h2>
+<p>Sometimes a dataset contains numeric values that represent a categorical feature.</p>
+<p>In the donors dataset, wealth_rating uses numbers to indicate the donor’s wealth level:</p>
+<p>0 = Unknown
+1 = Low
+2 = Medium
+3 = High
+This exercise illustrates how to prepare this type of categorical feature and examines its impact on a logistic regression model.</p>
+<pre class="r"><code>
+# Convert the wealth rating to a factor
+donors$wealth_levels &lt;- factor(donors$wealth_rating, levels = c(0, 1, 2, 3), labels = c(&quot;Unknown&quot;, &quot;Low&quot;, &quot;Medium&quot;, &quot;High&quot;))
+
+# Use relevel() to change reference category
+donors$wealth_levels &lt;- relevel(donors$wealth_levels, ref = &quot;Medium&quot;)
+
+# See how our factor coding impacts the model
+summary(glm(donated ~ wealth_levels, donors, family = &quot;binomial&quot;))
+## 
+## Call:
+## glm(formula = donated ~ wealth_levels, family = &quot;binomial&quot;, data = donors)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -0.3320  -0.3243  -0.3175  -0.3175   2.4582  
+## 
+## Coefficients:
+##                      Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)          -2.91894    0.03614 -80.772   &lt;2e-16 ***
+## wealth_levelsUnknown -0.04373    0.04243  -1.031    0.303    
+## wealth_levelsLow     -0.05245    0.05332  -0.984    0.325    
+## wealth_levelsHigh     0.04804    0.04768   1.008    0.314    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 37330  on 93461  degrees of freedom
+## Residual deviance: 37323  on 93458  degrees of freedom
+## AIC: 37331
+## 
+## Number of Fisher Scoring iterations: 5</code></pre>
+<p>Great job! What would the model output have looked like if this variable had been left as a numeric column?</p>
+</div>
+<div id="handling-missing-data" class="section level2">
+<h2>3.7 - Handling missing data</h2>
+<p>Some of the prospective donors have missing age data. Unfortunately, R will exclude any cases with NA values when building a regression model.</p>
+<p>One workaround is to replace, or impute, the missing values with an estimated value. After doing so, you may also create a missing data indicator to model the possibility that cases with missing data are different in some way from those without.</p>
+<pre class="r"><code>
+summary(donors$age)
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+##    1.00   48.00   62.00   61.65   75.00   98.00   22546</code></pre>
+<pre class="r"><code>
+# Find the average age among non-missing values
+summary(donors$age)
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+##    1.00   48.00   62.00   61.65   75.00   98.00   22546
+
+# Impute missing age values with the mean age
+donors$imputed_age &lt;- ifelse(is.na(donors$age), round(mean(donors$age, na.rm = TRUE), 2), donors$age)
+
+# Create missing value indicator for age
+donors$missing_age &lt;- ifelse(is.na(donors$age), 1, 0)</code></pre>
+<p>Super! This is one way to handle missing data, but be careful! Sometimes missing data has to be dealt with using more complicated methods.</p>
+</div>
+<div id="understanding-missing-value-indicators" class="section level2">
+<h2>3.8 - Understanding missing value indicators</h2>
+<p>A missing value indicator provides a reminder that, before imputation, there was a missing value present on the record.</p>
+<p>Why is it often useful to include this indicator as a predictor in the model? It is useful for these reasons:</p>
+<ul>
+<li>A missing value may represent a unique category by itself</li>
+<li>There may be an important difference between records with and without missing data</li>
+<li>Whatever caused the missing value may also be related to the outcome</li>
+</ul>
+<p>Sometimes a missing value says a great deal about the record it appeared on!</p>
+</div>
+<div id="building-a-more-sophisticated-model" class="section level2">
+<h2>3.9 - Building a more sophisticated model</h2>
+<p>One of the best predictors of future giving is a history of recent, frequent, and large gifts. In marketing terms, this is known as R/F/M:</p>
+<ul>
+<li>Recency</li>
+<li>Frequency</li>
+<li>Money</li>
+</ul>
+<p>Donors that haven’t given both recently and frequently may be especially likely to give again; in other words, the combined impact of recency and frequency may be greater than the sum of the separate effects.</p>
+<p>Because these predictors together have a greater impact on the dependent variable, their joint effect must be modeled as an interaction.</p>
+<pre class="r"><code>
+# Build a recency, frequency, and money (RFM) model
+rfm_model &lt;- glm(donated ~ money + recency * frequency, family = &quot;binomial&quot;, donors)
+
+# Summarize the RFM model to see how the parameters were coded
+summary(rfm_model)
+## 
+## Call:
+## glm(formula = donated ~ money + recency * frequency, family = &quot;binomial&quot;, 
+##     data = donors)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -0.3696  -0.3696  -0.2895  -0.2895   2.7924  
+## 
+## Coefficients:
+##                                   Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)                       -3.01142    0.04279 -70.375   &lt;2e-16 ***
+## moneyMEDIUM                        0.36186    0.04300   8.415   &lt;2e-16 ***
+## recencyLAPSED                     -0.86677    0.41434  -2.092   0.0364 *  
+## frequencyINFREQUENT               -0.50148    0.03107 -16.143   &lt;2e-16 ***
+## recencyLAPSED:frequencyINFREQUENT  1.01787    0.51713   1.968   0.0490 *  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 37330  on 93461  degrees of freedom
+## Residual deviance: 36938  on 93457  degrees of freedom
+## AIC: 36948
+## 
+## Number of Fisher Scoring iterations: 6
+
+# Compute predicted probabilities for the RFM model
+rfm_prob &lt;- predict(rfm_model, type = &quot;response&quot;)
+
+# Plot the ROC curve and find AUC for the new model
+library(pROC)
+ROC &lt;- roc(donors$donated, rfm_prob)
+## Setting levels: control = 0, case = 1
+## Setting direction: controls &lt; cases
+plot(ROC, col = &quot;red&quot;)</code></pre>
+<p><img src="/blog/2020-08-19-supervised-learning-in-r-classification_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<pre class="r"><code>auc(ROC)
+## Area under the curve: 0.5785</code></pre>
+<p>Great work! Based on the ROC curve, you’ve confirmed that past giving patterns are certainly predictive of future giving.</p>
+</div>
+<div id="the-dangers-of-stepwise-regression" class="section level2">
+<h2>3.10 - The dangers of stepwise regression</h2>
+<p>In spite of its utility for feature selection, stepwise regression is not frequently used in disciplines outside of machine learning due to some important caveats. Though stepwise regression is frowned upon, it may still be useful for building predictive models in the absence of another starting place.</p>
+</div>
+<div id="building-a-stepwise-regression-model" class="section level2">
+<h2>3.11 - Building a stepwise regression model</h2>
+<p>In the absence of subject-matter expertise, stepwise regression can assist with the search for the most important predictors of the outcome of interest.</p>
+<p>In this exercise, you will use a forward stepwise approach to add predictors to the model one-by-one until no additional benefit is seen.</p>
+<pre class="r"><code>
+# Specify a null model with no predictors
+null_model &lt;- glm(donated ~ 1, data = donors, family = &quot;binomial&quot;)
+
+# Specify the full model using all of the potential predictors
+full_model &lt;- glm(donated ~ ., donors, family= &quot;binomial&quot;)
+
+# Use a forward stepwise algorithm to build a parsimonious model
+step_model &lt;- step(null_model, scope = list(lower = null_model, upper = full_model), direction = &quot;forward&quot;)
+## Start:  AIC=37332.13
+## donated ~ 1
+## Warning in add1.glm(fit, scope$add, scale = scale, trace = trace, k = k, : using
+## the 70916/93462 rows from a combined fit
+##                     Df Deviance   AIC
+## + frequency          1    28502 37122
+## + money              1    28621 37241
+## + wealth_rating      1    28705 37326
+## + has_children       1    28705 37326
+## + age                1    28707 37328
+## + imputed_age        1    28707 37328
+## + wealth_levels      3    28704 37328
+## + interest_veterans  1    28709 37330
+## + donation_prob      1    28710 37330
+## + donation_pred      1    28710 37330
+## + catalog_shopper    1    28710 37330
+## + pet_owner          1    28711 37331
+## &lt;none&gt;                    28714 37332
+## + interest_religion  1    28712 37333
+## + recency            1    28713 37333
+## + bad_address        1    28714 37334
+## + veteran            1    28714 37334
+## 
+## Step:  AIC=37024.77
+## donated ~ frequency
+## Warning in add1.glm(fit, scope$add, scale = scale, trace = trace, k = k, : using
+## the 70916/93462 rows from a combined fit
+##                     Df Deviance   AIC
+## + money              1    28441 36966
+## + wealth_rating      1    28493 37018
+## + wealth_levels      3    28490 37019
+## + has_children       1    28494 37019
+## + donation_prob      1    28498 37023
+## + interest_veterans  1    28498 37023
+## + catalog_shopper    1    28499 37024
+## + donation_pred      1    28499 37024
+## + age                1    28499 37024
+## + imputed_age        1    28499 37024
+## + pet_owner          1    28499 37024
+## &lt;none&gt;                    28502 37025
+## + interest_religion  1    28501 37026
+## + recency            1    28501 37026
+## + bad_address        1    28502 37026
+## + veteran            1    28502 37027
+## 
+## Step:  AIC=36949.71
+## donated ~ frequency + money
+## Warning in add1.glm(fit, scope$add, scale = scale, trace = trace, k = k, : using
+## the 70916/93462 rows from a combined fit
+##                     Df Deviance   AIC
+## + wealth_levels      3    28427 36942
+## + wealth_rating      1    28431 36942
+## + has_children       1    28432 36943
+## + interest_veterans  1    28438 36948
+## + donation_prob      1    28438 36949
+## + catalog_shopper    1    28438 36949
+## + donation_pred      1    28439 36949
+## + age                1    28439 36949
+## + imputed_age        1    28439 36949
+## + pet_owner          1    28439 36949
+## &lt;none&gt;                    28441 36950
+## + interest_religion  1    28440 36951
+## + recency            1    28441 36951
+## + bad_address        1    28441 36951
+## + veteran            1    28441 36952
+## 
+## Step:  AIC=36945.48
+## donated ~ frequency + money + wealth_levels
+## Warning in add1.glm(fit, scope$add, scale = scale, trace = trace, k = k, : using
+## the 70916/93462 rows from a combined fit
+##                     Df Deviance   AIC
+## + has_children       1    28416 36937
+## + age                1    28424 36944
+## + imputed_age        1    28424 36944
+## + interest_veterans  1    28424 36945
+## + donation_prob      1    28424 36945
+## + catalog_shopper    1    28425 36945
+## + donation_pred      1    28425 36945
+## &lt;none&gt;                    28427 36945
+## + pet_owner          1    28425 36946
+## + interest_religion  1    28426 36947
+## + recency            1    28427 36947
+## + bad_address        1    28427 36947
+## + veteran            1    28427 36947
+## 
+## Step:  AIC=36938.4
+## donated ~ frequency + money + wealth_levels + has_children
+## Warning in add1.glm(fit, scope$add, scale = scale, trace = trace, k = k, : using
+## the 70916/93462 rows from a combined fit
+##                     Df Deviance   AIC
+## + pet_owner          1    28413 36937
+## + donation_prob      1    28413 36937
+## + catalog_shopper    1    28413 36937
+## + interest_veterans  1    28413 36937
+## + donation_pred      1    28414 36938
+## &lt;none&gt;                    28416 36938
+## + interest_religion  1    28415 36939
+## + age                1    28416 36940
+## + imputed_age        1    28416 36940
+## + recency            1    28416 36940
+## + bad_address        1    28416 36940
+## + veteran            1    28416 36940
+## 
+## Step:  AIC=36932.25
+## donated ~ frequency + money + wealth_levels + has_children + 
+##     pet_owner
+## Warning in add1.glm(fit, scope$add, scale = scale, trace = trace, k = k, : using
+## the 70916/93462 rows from a combined fit
+##                     Df Deviance   AIC
+## &lt;none&gt;                    28413 36932
+## + donation_prob      1    28411 36932
+## + interest_veterans  1    28411 36932
+## + catalog_shopper    1    28412 36933
+## + donation_pred      1    28412 36933
+## + age                1    28412 36933
+## + imputed_age        1    28412 36933
+## + recency            1    28413 36934
+## + interest_religion  1    28413 36934
+## + bad_address        1    28413 36934
+## + veteran            1    28413 36934
+
+# Estimate the stepwise donation probability
+step_prob &lt;- predict(step_model, type = &quot;response&quot;)
+
+# Plot the ROC of the stepwise model
+library(pROC)
+ROC &lt;- roc(donors$donated, step_prob)
+## Setting levels: control = 0, case = 1
+## Setting direction: controls &lt; cases
+plot(ROC, col = &quot;red&quot;)</code></pre>
+<p><img src="/blog/2020-08-19-supervised-learning-in-r-classification_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<pre class="r"><code>auc(ROC)
+## Area under the curve: 0.5849</code></pre>
+<p>Fantastic work! Despite the caveats of stepwise regression, it seems to have resulted in a relatively strong model!</p>
 </div>
 </div>
 
